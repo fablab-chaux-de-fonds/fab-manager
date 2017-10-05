@@ -1,4 +1,4 @@
-FABMGRPATH=/ws/fablab-iciautour/fab-manager
+FABMGRPATH=..
 docker run --restart unless-stopped  \
 -d --name fabmanager-dev \
 --link=fabmanager-postgres:postgres \
