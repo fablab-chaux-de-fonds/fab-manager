@@ -1,4 +1,4 @@
-FABMGRPATH=$(abspath ..)
+FABMGRPATH=$(realpath ..)
 docker run --restart unless-stopped  \
 -d --name fabmanager-dev \
 --link=fabmanager-postgres:postgres \
