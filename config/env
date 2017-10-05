@@ -1,6 +1,6 @@
-POSTGRES_HOST=postgres
-REDIS_HOST=redis
-ELASTICSEARCH_HOST=elasticsearch
+POSTGRES_HOST=fabmanager-postgres
+REDIS_HOST=fabmanager-redis
+ELASTICSEARCH_HOST=fabmanager-elastic
 
 SECRET_KEY_BASE=3d999d3b30a0a50025379d65cfe99a15e22bc33e092ca73b36fbc2ba5b82a83ea34ae12da403bf54421b42ad0da66bffdfaa8e79b5c5f74848f4da34ff11a5c7
 
