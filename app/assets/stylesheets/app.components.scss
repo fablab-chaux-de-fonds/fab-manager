@@ -200,6 +200,10 @@
 	}
 }
 
+.label {
+	color: $blue;
+}
+
 .label-staging {
 	position: absolute;
 	top: 50px;
@@ -469,11 +473,18 @@
 		line-height: rem-calc(48);
 		color: black;
 		font-weight: 900; //black
+		font-family: $font-family-serif;
 	}
 
 	.about-title-aside {
 		margin-top: 0;
 		font-size: rem-calc(18);
+		font-family: $font-family-serif;
+	}
+
+	.about-content {
+		background-color: white;
+		padding: 70px 0;
 	}
 
 	p {

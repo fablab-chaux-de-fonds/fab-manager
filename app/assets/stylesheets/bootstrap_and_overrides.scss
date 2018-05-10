@@ -12,11 +12,11 @@ $gray-dark: lighten(#000, 20%) !default; // #333
 $gray: lighten(#000, 33.5%) !default; // #555
 $gray-light: lighten(#000, 60%) !default; // #999
 $gray-lighter: lighten(#000, 93.5%) !default; // #eee
-$brand-primary: #d92227 !default;
+$brand-primary: #e4f2e5 !default;
 $brand-success: #7bca38 !default;
 $brand-info: #1d98ec !default;
 $brand-warning: #fdde3f !default;
-$brand-danger: $brand-primary !default; // ADD by sleede ------------------
+$brand-danger: #d92227 !default; // ADD by sleede ------------------
 $brand-black: #12131a;
 $brand-dark: #222733;
 $brand-light: #f4f3f3; //#f1f3f7
@@ -54,9 +54,9 @@ $link-hover-decoration: underline; //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
 // Semibold = 600, Bold = 700, ExtraB = 800
-$font-family-sans-serif: 'proxima-nova', 'Open Sans', Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif: 'Roboto', 'proxima-nova', 'Open Sans', Helvetica, Arial, sans-serif !default;
 $font-proxima-condensed: 'proxima-nova-condensed', 'Open Sans Condensed', Helvetica, Arial, sans-serif !default;
-$font-family-serif: Georgia, 'Times New Roman', Times, serif !default;
+$font-family-serif: 'Crimson Text', Georgia, 'Times New Roman', Times, serif !default;
 $font-felt: 'felt-tip-roman', 'Loved by the King', cursive, sans-serif; //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 // $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base: $font-family-sans-serif !default;
@@ -154,7 +154,7 @@ $input-bg-disabled: $gray-lighter !default; //** Text color for `<input>`s
 $input-color: $gray !default; //** `<input>` border color
 $input-border: darken($border-color, 10%) !default; //** `<input>` border radius
 $input-border-radius: $border-radius-base !default; //** Border color for inputs on focus
-$input-border-focus: $brand-warning !default; //** Large `.form-control` border radius
+$input-border-focus: $green-light !default; //** Large `.form-control` border radius
 $input-border-radius-large: $border-radius-large; //** Small `.form-control` border radius
 $input-border-radius-small: $border-radius-small; //** Placeholder text color
 $input-color-placeholder: $gray-light !default; //** Default `.form-control` height
@@ -370,14 +370,14 @@ $popover-arrow-outer-fallback-color: darken($popover-fallback-border-color, 20%)
 //
 //##
 //** Default label background color
-$label-default-bg: $gray-light !default; //** Primary label background color
+$label-default-bg: $green-light !default; //** Primary label background color
 $label-primary-bg: $brand-primary !default; //** Success label background color
 $label-success-bg: $brand-success !default; //** Info label background color
 $label-info-bg: $brand-info !default; //** Warning label background color
 $label-warning-bg: $brand-warning !default; //** Danger label background color
 $label-danger-bg: $brand-danger !default; //** Default label text color
-$label-color: #424242 !default; //** Default text color of a linked label
-$label-link-hover-color: $red !default; //== Modals
+$label-color: $blue !default; //** Default text color of a linked label
+$label-link-hover-color: $blue !default; //== Modals
 //
 //##
 //** Padding applied to the modal body
