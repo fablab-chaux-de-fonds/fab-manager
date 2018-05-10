@@ -361,7 +361,7 @@ end
 
 unless Setting.find_by(name: 'fablab_name').try(:value)
   setting = Setting.find_or_initialize_by(name: 'fablab_name')
-  setting.value = 'Fab Lab de La Casemate'
+  setting.value = 'Fablab | La Chaux-de-Fonds'
   setting.save
 end
 

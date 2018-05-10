@@ -1,82 +1,123 @@
-
-.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
-
+.btn-default.active,
+.btn-default:active,
+.btn-default:focus,
+.btn-default:hover,
+.open > .btn-default.dropdown-toggle {
 	background-color: #f2f2f2;
-
 }
 
-.btn{
-	> i{
+.btn {
+	background-color: transparent;
+	color: $blue;
+	border-style: solid;
+  border-width: 2px;
+	border-color: $blue;
+	> i {
 		&.pull-left,
-		&.pull-right{
+		&.pull-right {
 			line-height: 1.428571429;
+			border: None;
 		}
 	}
+	&:hover{
+		background-color: $blue;
+		color: white;
+	}
 }
+
+.btn-sm{
+	border: None;
+}
+
+div[id^="s"][id$="0"]
 
 .btn-warning-full {
 	outline: 0;
 	text-transform: uppercase;
 	//border: 3px solid $yellow;
 	//background-color: $yellow;
+	// &:hover {
+	// 	background-color: white;
+	// }
+}
+
+.btn-valid {
+	border: 3px solid $green-light !important;
+	background-color: $green-light !important;
+	color: $blue;
+	font-weight: 600;
+
 	&:hover {
-		background-color: white;
+		border: 3px solid $green !important;
+		background-color: $green !important;
+		font-weight: 600;
 	}
 }
 
 .btn-facebook {
-  border: 1px solid #8b9dc3;
-  background-color: #3b5998;
-  color: white;
+	border: 1px solid #8b9dc3;
+	background-color: #3b5998;
+	color: white;
 
-  &:hover {
-    border: 1px solid #7d8fb4;
-    background-color: #394c89;
-    color: white;
-  }
+	&:hover {
+		border: 1px solid #7d8fb4;
+		background-color: #394c89;
+		color: white;
+	}
 }
 
 .btn-twitter {
-  border: 1px solid #ccd6dd;
-  background-color: #55acee;
-  color: white;
+	border: 1px solid #ccd6dd;
+	background-color: #55acee;
+	color: white;
 
-  &:hover {
-    border: 1px solid #bdc7ce;
-    background-color: #539fdf;
-    color: white;
-  }
+	&:hover {
+		border: 1px solid #bdc7ce;
+		background-color: #539fdf;
+		color: white;
+	}
 }
-
 
 .btn-block {
 	padding-left: 12px;
 	padding-right: 12px;
 }
 
-.btn-group-vertical > .btn:first-child:not(:last-child){
+.btn-group-vertical > .btn:first-child:not(:last-child) {
 	border-top-right-radius: $border-radius-base;
 }
 
-.btn-group-vertical > .btn:last-child:not(:first-child){
+.btn-group-vertical > .btn:last-child:not(:first-child) {
 	border-bottom-left-radius: $border-radius-base;
 }
 
-.btn-inactive{
+.btn-inactive {
 	-webkit-box-shadow: none !important;
 	box-shadow: none !important;
 }
 
 .btn-loading:after {
-  margin-left: 1em;
-  display: inline-block;
-  content: "\f110";
-  font-family: FontAwesome;
-  -webkit-animation:spin 4s linear infinite;
-  -moz-animation:spin 4s linear infinite;
-  animation:spin 4s linear infinite;
+	margin-left: 1em;
+	display: inline-block;
+	content: "\f110";
+	font-family: FontAwesome;
+	-webkit-animation: spin 4s linear infinite;
+	-moz-animation: spin 4s linear infinite;
+	animation: spin 4s linear infinite;
 }
-
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@-moz-keyframes spin {
+	100% {
+		-moz-transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes spin {
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@keyframes spin {
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
