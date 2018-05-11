@@ -113,6 +113,9 @@ td[id^="datepicker"] > .btn {
     border: None;
 }
 
+#loginModal p, .invoice-payment{
+  font-family: $font-family-sans-serif !important;
+}
 
 //
 // -------------------------
