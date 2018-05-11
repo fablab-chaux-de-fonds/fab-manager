@@ -172,6 +172,10 @@ td[id^="datepicker"] > .btn {
 //    transition:0.5s linear all;
 // }
 // only for main content
+#content-main{
+  padding: 0 32px;
+}
+
 #content-main.ng-enter,
 #content-main.ng-leave {
   position: absolute;
