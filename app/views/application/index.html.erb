@@ -87,12 +87,15 @@
       </header>
 
       <section ui-view="content">
+
         <section class="hbox stretch">
           <aside id="nav" class="aside-md bg-red hidden-print" ui-view="leftnav"></aside>
 
           <section id="content">
             <section class="vbox">
+              <%= image_tag("fablab - F.svg", class: 'm-r-sm img-fg img-tl img-fl') %>
               <section id="content-main" class="scrollable" ui-view="main"></section>
+              <%= image_tag("fablab - L.svg", class: 'm-r-sm img-fg img-br img-fl') %>
             </section>
           </section>
 
