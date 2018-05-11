@@ -316,6 +316,9 @@
 		// + *{
 		// 	padding-top: 50px !important;
 		// }
+		.btn{
+			border: None;
+		}
 	}
 
 	.nav-bar-fixed-bottom {
@@ -436,7 +439,7 @@
 		}
 
 		+ * {
-			background-color: $red-light;
+			background-color: $body-bg;
 			@include transition-transform(0.2s ease-in-out);
 			@include transition-delay(0s);
 			@include translate3d(0px, 0px, 0);
