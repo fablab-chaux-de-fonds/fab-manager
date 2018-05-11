@@ -15,7 +15,7 @@ $gray-lighter: lighten(#000, 93.5%) !default; // #eee
 $brand-primary: #e4f2e5 !default;
 $brand-success: #7bca38 !default;
 $brand-info: #1d98ec !default;
-$brand-warning: #fdde3f !default;
+$brand-warning: #0b1783 !default;
 $brand-danger: #d92227 !default; // ADD by sleede ------------------
 $brand-black: #12131a;
 $brand-dark: #222733;
@@ -129,7 +129,7 @@ $table-border-color: #ddd !default; //== Buttons
 $btn-font-weight: normal !default;
 $btn-default-color: $text-color !default;
 $btn-default-bg: lighten($brand-light, 3%) !default;
-$btn-default-border: darken($border-color, 8%) !default;
+$btn-default-border: $blue !default;
 $btn-primary-color: #fff !default;
 $btn-primary-bg: $brand-primary !default;
 $btn-primary-border: $btn-primary-bg !default;
