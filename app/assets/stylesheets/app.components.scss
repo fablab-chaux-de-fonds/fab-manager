@@ -505,6 +505,41 @@
 	}
 }
 
+.about-logo {
+	position: relative;
+	top: -120px;
+}
+
+.img-fg {
+	z-index: 2000;
+	margin: 20px;
+}
+.img-tl {
+	position: relative;
+	top: -54px;
+	left: 0;
+}
+.img-tr {
+	top: 0;
+	right: 0;
+}
+.img-bl {
+	bottom: 0;
+	left: 0;
+}
+.img-br {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+.img-fl {
+	height: 72px;
+	width: auto;
+}
+.img-txt {
+	height: 16px;
+}
+
 .event {
 	transition: all 0.07s linear;
 	overflow: hidden;
