@@ -24,6 +24,10 @@
     margin-bottom: 2.5em !important;
   }
 
+  .img-tl{
+    position: fixed;
+    top: 0px;
+  }
 }
 
 @media screen and (max-width: $screen-md-min) {
