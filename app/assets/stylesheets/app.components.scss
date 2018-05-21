@@ -56,6 +56,10 @@
 	top: 90px;
 }
 
+.modal-content *:not(.btn, .btn-sm){
+	color: $blue;
+}
+
 .modal-header {
 	background-color: $green-light;
 	.modal-logo {
@@ -512,7 +516,7 @@
 }
 
 .img-fg {
-	z-index: 2000;
+	z-index: 1025;
 	margin: 20px;
 }
 .img-tl {
