@@ -56,27 +56,26 @@
 	top: 90px;
 }
 
-.modal-content *:not(.btn, .btn-sm){
+.modal-content{
 	color: $blue;
 }
 
 .modal-header {
 	background-color: $green-light;
 	.modal-logo {
-		position: absolute;
-		top: -70px;
+		display: block;
 		left: 0;
 		right: 0;
-		margin: 0 auto;
-		max-height: 44px;
+		margin: 20px auto;
+		max-height: 90px;
 	}
 
 	h1 {
+		color: $blue;
 		margin: 25px 0 20px;
 		font-weight: bold;
 		text-transform: uppercase;
 		text-align: center;
-		//color: $red;
 	}
 }
 

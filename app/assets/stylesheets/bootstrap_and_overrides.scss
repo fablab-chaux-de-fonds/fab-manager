@@ -151,13 +151,13 @@ $btn-link-disabled-color: $gray-light !default; //== Forms
 //** `<input>` background color
 $input-bg: #fff !default; //** `<input disabled>` background color
 $input-bg-disabled: $gray-lighter !default; //** Text color for `<input>`s
-$input-color: $gray !default; //** `<input>` border color
+$input-color: $blue !default; //** `<input>` border color
 $input-border: darken($border-color, 10%) !default; //** `<input>` border radius
 $input-border-radius: $border-radius-base !default; //** Border color for inputs on focus
-$input-border-focus: $blue-light !default; //** Large `.form-control` border radius
+$input-border-focus: $blue !default; //** Large `.form-control` border radius
 $input-border-radius-large: $border-radius-large; //** Small `.form-control` border radius
 $input-border-radius-small: $border-radius-small; //** Placeholder text color
-$input-color-placeholder: $gray-light !default; //** Default `.form-control` height
+$input-color-placeholder: $input-color !default; //** Default `.form-control` height
 $input-height-base: ($line-height-computed + ($padding-base-vertical * 2) + 2) !default; //** Large `.form-control` height
 $input-height-large: (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2) !default; //** Small `.form-control` height
 $input-height-small: (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2) !default;
