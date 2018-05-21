@@ -29,7 +29,7 @@
       <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
         <span class="avatar text-center">
           <fab-user-avatar ng-model="currentUser.profile.user_avatar" avatar-class="thumb-50"></fab-user-avatar>
-          <span class="user-name m-l-sm text-black-light font-sbold hidden-sm">{{currentUser.name}} </span>
+          <span class="user-name m-l-sm text-blue font-sbold hidden-sm">{{currentUser.name}} </span>
           <b class="caret"></b>
         </span>
       </a>
@@ -43,7 +43,7 @@
         <li><a href="#" ui-sref="app.logged.dashboard.wallet" translate>{{ 'my_wallet' }}</a></li>
 
         <li class="divider"></li>
-        <li><a href="#" class="text-black" ng-click="logout($event)"><i class="fa fa-power-off"></i> {{ 'sign_out' | translate }}</a></li>
+        <li><a href="#" class="text-blue" ng-click="logout($event)"><i class="fa fa-power-off"></i> {{ 'sign_out' | translate }}</a></li>
       </ul>
     </li>
     <% active_provider = AuthProvider.active %>
