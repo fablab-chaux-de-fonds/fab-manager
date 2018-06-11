@@ -87,6 +87,9 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
           options:
             startingDay: Fablab.weekStartingDay
 
+        # minimal user information form mod
+        $scope.useSimpleSignupForm = Fablab.useSimpleSignupForm
+
         # callback to open the date picker (account creation modal)
         $scope.openDatePicker = ($event) ->
           $event.preventDefault()

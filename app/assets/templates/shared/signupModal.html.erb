@@ -7,7 +7,8 @@
 
     <div class="well m-b-n">
       <form role="form" name="signupForm" class="form-horizontal" novalidate autocomplete="off" ng-keydown="signupForm.$valid && $event.which == 13 && ok()">
-        <div class="form-group" ng-class="{'has-error': signupForm.gender.$dirty && signupForm.gender.$invalid}">
+	
+        <div class="form-group" ng-class="{'has-error': signupForm.gender.$dirty && signupForm.gender.$invalid}" ng-if="!useSimpleSignupForm">
           <div class="col-sm-12">
             <label class="checkbox-inline">
               <input type="radio"
@@ -25,7 +26,7 @@
             <span class="help-block" ng-show="signupForm.gender.$dirty && signupForm.gender.$error.required" translate>{{ 'gender_is_required'}}</span>
           </div>
         </div>
-
+	
         <div class="form-group">
 
           <div class="col-sm-6" ng-class="{'has-error': signupForm.first_name.$dirty && signupForm.first_name.$invalid}">
@@ -49,7 +50,7 @@
           </div>
         </div>
 
-        <div class="form-group" ng-class="{'has-error': signupForm.username.$dirty && signupForm.username.$invalid}">
+        <div class="form-group" ng-class="{'has-error': signupForm.username.$dirty && signupForm.username.$invalid}" ng-if="!useSimpleSignupForm">
           <div class="col-sm-12">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -113,7 +114,7 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" ng-if="!useSimpleSignupForm">
           <div class="col-sm-12 checkbox-group">
             <input type="checkbox"
                    name="organization"
@@ -154,7 +155,7 @@
           </div>
         </div>
 
-        <div class="form-group" ng-class="{'has-error': signupForm.group_id.$dirty && signupForm.group_id.$invalid}">
+        <div class="form-group" ng-class="{'has-error': signupForm.group_id.$dirty && signupForm.group_id.$invalid}" ng-if="!useSimpleSignupForm">
           <div class="col-sm-12">
             <div>
               <select ng-model="user.group_id" class="form-control" name="group_id" ng-options="g.id as g.name for g in groups" required>
@@ -184,7 +185,7 @@
           </div>
         </div>
 
-        <div class="form-group" ng-class="{'has-error': signupForm.phone.$dirty && signupForm.phone.$invalid}">
+        <div class="form-group" ng-class="{'has-error': signupForm.phone.$dirty && signupForm.phone.$invalid}" ng-if="!useSimpleSignupForm">
           <div class="col-sm-12">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-phone"></i> </span>
@@ -199,7 +200,7 @@
           </div>
         </div>
 
-        <div class="form-group" ng-class="{'has-error': signupForm.is_allow_contact.$dirty && signupForm.is_allow_contact.$invalid}">
+        <div class="form-group" ng-class="{'has-error': signupForm.is_allow_contact.$dirty && signupForm.is_allow_contact.$invalid}" ng-if="!useSimpleSignupForm">
           <div class="col-sm-12 checkbox-group">
             <input type="checkbox"
                    name="is_allow_contact"
@@ -210,7 +211,7 @@
           </div>
         </div>
 
-        <div class="form-group" ng-class="{'has-error': signupForm.is_allow_newsletter.$dirty && signupForm.is_allow_newsletter.$invalid}">
+        <div class="form-group" ng-class="{'has-error': signupForm.is_allow_newsletter.$dirty && signupForm.is_allow_newsletter.$invalid}" ng-if="!useSimpleSignupForm">
           <div class="col-sm-12 checkbox-group">
             <input type="checkbox"
                    name="is_allow_newsletter"

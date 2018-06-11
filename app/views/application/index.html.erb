@@ -26,6 +26,7 @@
 
       var Fablab = Fablab || {};
 
+      Fablab.useSimpleSignupForm = ('<%= Rails.application.secrets.fablab_simple_signup_form %>' == 'true');
       Fablab.withoutPlans = ('<%= Rails.application.secrets.fablab_without_plans %>' == 'true');
       Fablab.withoutSpaces = ('<%= Rails.application.secrets.fablab_without_spaces %>' != 'false');
       Fablab.disqusShortname = "<%= Rails.application.secrets.disqus_shortname %>";
