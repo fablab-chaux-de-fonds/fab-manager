@@ -67,7 +67,43 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
     , (error) ->
       # An error occurred logging out.
 
+  ##
+  # This tool method provide access to query parameters
+  ##
+  getParams = ->
+    query = window.location.search.substring(1)
+    raw_vars = query.split("&")
 
+    params = {}
+
+    for v in raw_vars
+      [key, val] = v.split("=")
+      params[key] = decodeURIComponent(val)
+
+    params
+
+  encodeBase64 = (obj) ->
+
+    arr = msgpack.encode(obj)
+
+    str = ""
+
+    for c in arr
+      str += String.fromCharCode(c)
+
+    window.btoa(str)
+
+  decodeBase64 = (str) ->
+    if str == undefined || str.length <= 0
+      return {}
+
+    str = window.atob(str)
+
+    arr = [0..str.length]
+    for i in arr
+      arr[i] = str.charCodeAt(i)
+
+    JSON.parse(msgpack.decode(arr))
 
   ##
   # Open the modal window allowing the user to create an account.
@@ -105,9 +141,26 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
           $scope.cgu = cgu.custom_asset
 
         # default user's parameters
+        try
+          args = getParams()
+          if args
+            default_values = decodeBase64(args['u'])
+        catch e
+          console.error(e)
+
+        #obj =
+        #  first_name: 'bob'
+        #  last_name: 'dylan'
+        #  email: 'bob@dylan.blabla'
+        #console.info(encodeBase64(JSON.stringify(obj)))
+
         $scope.user =
           is_allow_contact: true
           is_allow_newsletter: false
+          email: default_values.email
+          profile_attributes:
+            first_name: default_values.first_name
+            last_name: default_values.last_name
 
         # Errors display
         $scope.alerts = []
