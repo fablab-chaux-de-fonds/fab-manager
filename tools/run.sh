@@ -1,4 +1,4 @@
-FABMGRPATH=$(realpath ..)
+FABMGRPATH="$(realpath $(dirname $(readlink -f $0))/..)"
 docker run --restart unless-stopped  \
 -d --name fabmanager-dev \
 --link=fabmanager-postgres:postgres \
