@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :permission_denied
 
   def index
+    @serialized_user = params[:serialized_user]
   end
 
   protected
