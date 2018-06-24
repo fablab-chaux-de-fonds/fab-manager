@@ -466,7 +466,7 @@
 	.navbar + section {
 		.nav-off-screen {
 			top: 50px;
--
+
 			+ * {
 				top: 50px;
 			}
