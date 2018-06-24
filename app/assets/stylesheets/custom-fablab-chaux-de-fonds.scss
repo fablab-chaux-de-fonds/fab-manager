@@ -77,6 +77,7 @@ td[id^="datepicker"] > .btn {
   }
 
   &:active,
+  &:focus,
   &:hover {
     background-color: white;
     color: $blue;
@@ -160,10 +161,16 @@ td[id^="datepicker"] > .btn {
 
 .form-control {
   color: $blue;
+  font-family: $font-family-sans-serif;
 
   &:focus {
     border-color: $blue;
+    box-shadow: 0 0 8px $blue;
   }
+}
+
+.input-group-addon{
+  color: $blue;
 }
 
 .content {
@@ -344,4 +351,17 @@ td[id^="datepicker"] > .btn {
 
 .rounded {
   background-color: $blue;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+   color: red;
+   opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: red;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+   color: red;
 }

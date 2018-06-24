@@ -1,7 +1,7 @@
-$gray-dark: lighten(#000, 20%) !default;
-$gray-light: lighten(#000, 60%) !default; // #999
-$brand-primary: #e4f2e5 !default;
-$brand-danger: #e3005c !default;
+$gray-dark: lighten(#000, 20%);
+$gray-light: lighten(#000, 60%) ; // #999
+$brand-primary: #e4f2e5 ;
+$brand-danger: #e3005c ;
 $red: #e3005c;
 $red-light: #ffe8e0;
 $blue: #0b1783;
@@ -15,10 +15,10 @@ $link-hover-color: $blue;
 $font-family-sans-serif: 'Roboto', 'proxima-nova', 'Open Sans', Helvetica, Arial, sans-serif;
 $font-family-serif: 'Crimson Text', Georgia, 'Times New Roman', Times, serif;
 
-$btn-default-border: $blue !default;
-$input-color: $blue !default;
-$input-border-focus: $blue !default;
-$input-color-placeholder: $input-color !default;
-$label-default-bg: $green-light !default;
-$label-color: $blue !default;
-$label-link-hover-color: $blue !default;
+$btn-default-border: $blue;
+$input-color: $blue;
+$input-border-focus: $blue;
+$input-color-placeholder: $input-color;
+$label-default-bg: $green-light;
+$label-color: $blue;
+$label-link-hover-color: $blue;
