@@ -113,10 +113,6 @@ td[id^="datepicker"] > .btn {
     border: None;
 }
 
-#loginModal p, .invoice-payment{
-  font-family: $font-family-sans-serif !important;
-}
-
 //
 // -------------------------
 
@@ -172,7 +168,6 @@ td[id^="datepicker"] > .btn {
 //    transition:0.5s linear all;
 // }
 // only for main content
-
 #content-main.ng-enter,
 #content-main.ng-leave {
   position: absolute;
