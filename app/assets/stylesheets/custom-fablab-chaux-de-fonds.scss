@@ -17,31 +17,86 @@ h4 {
 }
 
 p {
-    font-family: $font-family-serif;
+  font-family: $font-family-serif;
 }
 
 dt {
   font-family: $font-family-serif;
 }
 
-aside > footer > .btn {
+dd {
+  color: $red;
   font-weight: 700;
+}
+
+.footer > .btn {
+
+  background-color: $red;
 
   &:hover {
-    background-color: $red;
+    background-color: $blue;
+    color: white;
   }
 }
 
 td[id^="datepicker"] > .btn {
-    border: None;
+  border: None;
 }
 
-#loginModal p, .invoice-payment{
+#loginModal p,
+.invoice-payment {
   font-family: $font-family-sans-serif !important;
 }
 
+.btn {
+  background-color: $blue;
+  color: white;
+  border-style: solid;
+  border-width: 2px;
+  border-color: $blue;
+
+  > i {
+    &.pull-right {
+      border: None;
+    }
+  }
+
+  &:hover {
+    background-color: white;
+    color: $blue;
+  }
+}
+
+.btn-sm {
+  border: None;
+}
+// div[id^="s"][id$="0"]
+
+.btn-warning-full {
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.btn-valid {
+  border: 3px solid $green-light !important;
+  background-color: $green-light !important;
+  color: $blue;
+  font-weight: 600;
+
+  &:hover {
+    border: 3px solid $green !important;
+    background-color: $green !important;
+    font-weight: 600;
+  }
+}
+
 .btn-danger:hover {
-	background-color: #f2f2f2;
+  background-color: #f2f2f2;
+}
+
+.text-green-light {
+  color: $green-light !important;
 }
 
 .bg-red {
@@ -50,20 +105,91 @@ td[id^="datepicker"] > .btn {
 }
 
 .widget {
+  h1,
+  h2,
+  h3 {
+    color: $blue;
+  }
+
+  a {
+    color: $gray-darker;
+  }
+
   .fa {
     color: $blue;
   }
 }
 
-.modal-content{
-	color: $blue;
+.article {
+  h4 {
+    color: $blue;
+  }
+}
+
+.label {
+  color: $blue;
+}
+
+.pricing-panel {
+  .title {
+    color: $blue;
+  }
+
+  .content {
+    .wrap {
+      border: 3px solid;
+    }
+  }
+}
+
+.about-fablab .about-title {
+  color: $blue;
+  font-family: $font-family-serif;
+  text-align: center;
+}
+
+.about-fablab {
+  background-color: white;
+
+
+  p {
+    color: black;
+    font-family: $font-family-serif;
+  }
+
+  .about-title-aside {
+    font-family: $font-family-serif;
+  }
+
+  .about-content {
+    background-color: white;
+    padding: 70px 0;
+  }
+
+  p {
+    color: black;
+  }
+}
+
+.header {
+  > .btn-toolbar {
+    margin-top: 14px;
+  }
+}
+
+.aside-md {
+  background-color: $red-light;
+}
+
+.modal-content {
+  color: $blue;
 }
 
 .modal-header {
   background-color: $green-light;
 
   .modal-logo {
-    top: 0px;
+    top: 0;
     position: static;
     display: block;
     margin: 20px auto;
@@ -84,38 +210,44 @@ td[id^="datepicker"] > .btn {
 }
 
 .about-logo {
-	position: relative;
-	top: -120px;
+  position: relative;
+  top: -120px;
 }
 
 .img-fg {
-	z-index: 1025;
-	margin: 20px;
+  z-index: 1025;
+  margin: 20px;
 }
+
 .img-tl {
-	position: relative;
-	top: -54px;
-	left: 0;
+  position: relative;
+  top: -54px;
+  left: 0;
 }
+
 .img-tr {
-	top: 0;
-	right: 0;
+  top: 0;
+  right: 0;
 }
+
 .img-bl {
-	bottom: 0;
-	left: 0;
+  bottom: 0;
+  left: 0;
 }
+
 .img-br {
-	position: fixed;
-	bottom: 0;
-	right: 0;
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }
+
 .img-fl {
-	height: 72px;
-	width: auto;
+  height: 72px;
+  width: auto;
 }
+
 .img-txt {
-	height: 16px;
+  height: 16px;
 }
 
 .header {
@@ -124,13 +256,11 @@ td[id^="datepicker"] > .btn {
   }
 }
 
-
 .about-link {
-	.label {
-		padding: 10px 10px 0px;
+  .label {
+    padding: 10px 10px 0;
   }
 }
-
 // nav
 @media (max-width: 767px) {
   .btn {
@@ -139,15 +269,37 @@ td[id^="datepicker"] > .btn {
 
   .nav-off-screen {
     + * {
-      background-color: $body-bg;
+      background-color: $red-light;
     }
   }
 }
 
-.dropdown-menu > li > a {
-	color: $blue;
+#nav {
+  .nav {
+    background-color: $red-light;
+
+    > li {
+      > a {
+        color: $blue;
+
+        &.active,
+        &:focus,
+        &:hover {
+          background-color: white;
+          color: $blue;
+        }
+      }
+    }
+  }
 }
 
+.nav > li > a:focus {
+  background-color: $green-light;
+}
+
+.dropdown-menu > li > a {
+  color: $blue;
+}
 // Responsive
 @media screen and (max-width: $screen-sm-min) {
   .img-tl {
@@ -155,8 +307,11 @@ td[id^="datepicker"] > .btn {
     top: 0;
   }
 }
-
 // utilities
 .wrapper {
   padding: 32px 15px;
+}
+
+.rounded {
+  background-color: $blue;
 }

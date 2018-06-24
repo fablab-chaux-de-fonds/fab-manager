@@ -10,7 +10,7 @@
 	}
 
 	> .btn-group,
-	> .btn-toolbar,
+	 > .btn-toolbar,
 	> .btn {
 		margin-top: 14px;
 	}
@@ -121,7 +121,6 @@ body.container {
 
 .aside-md {
 	width: 250px;
-	background-color: $red-light;
 }
 @media (min-width: 768px) {
 	body.container {

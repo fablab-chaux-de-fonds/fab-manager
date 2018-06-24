@@ -25,6 +25,7 @@ h1 {
 }
 
 h2 {
+  //color: $red;
   line-height: rem-calc(24);
   font-weight: 900;
 }
@@ -33,6 +34,27 @@ h3 {
   font-weight: 600;
 }
 
+h4 {
+  font-weight: bold;
+}
+
+h5 {
+  display: inline-block;
+  position: relative;
+  line-height: rem-calc(18);
+  //color: $red;
+  font-size: rem-calc(16);
+
+  &:after {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    content: '';
+    width: 35%;
+    height: 1px;
+    //background-color: $red;
+  }
+}
 // Links
 // -------------------------
 
@@ -45,6 +67,10 @@ a:focus,
 a:hover {
   //color: $link-hover-color;
   text-decoration: none;
+}
+
+label {
+  font-weight: 600;
 }
 
 .small,
@@ -70,28 +96,12 @@ p {
 
 dt {
   color: $black-light;
-  font-family: $font-family-serif;
 }
 
 dd {
-  color: $red;
-  font-weight: 700;
+  color: $black-light;
   margin-bottom: 20px;
 }
-
-aside > footer > .btn {
-  font-weight: 700;
-
-  &:hover {
-    background-color: $red;
-  }
-}
-
-td[id^="datepicker"] > .btn {
-    border: None;
-}
-
-
 //
 // -------------------------
 

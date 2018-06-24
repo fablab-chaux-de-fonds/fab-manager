@@ -6,7 +6,7 @@
 		line-height: rem-calc(18);
 		font-size: rem-calc(14);
 		font-weight: 600;
-		color: $blue;
+		color: black;
 	}
 
 	h1 {
@@ -17,7 +17,7 @@
 	h2 {
 		font-weight: bold;
 	}
-
+	//h3 { color: $red; }
 	h4 {
 		font-size: rem-calc(12);
 		margin: 8px 0;
@@ -29,7 +29,7 @@
 	}
 
 	a {
-		color: $gray-darker;
+		color: $black-light;
 
 		&:hover {
 			color: $red;
@@ -51,7 +51,6 @@
 	}
 }
 //modal
-
 .modal-dialog {
 	top: 90px;
 }
@@ -79,7 +78,6 @@
 	height: 100%;
 }
 // component card
-
 .card {
 	position: relative;
 	display: block;
@@ -182,7 +180,7 @@
 	h4 {
 		font-weight: 600;
 		font-size: rem-calc(16);
-		color: $blue;
+		color: #686868;
 	}
 
 	.article-thumbnail {
@@ -198,10 +196,6 @@
 		max-width: 100%;
 		height: auto;
 	}
-}
-
-.label {
-	color: $blue;
 }
 
 .label-staging {
@@ -283,7 +277,7 @@
 		margin: 10px 0;
 		font-size: rem-calc(16);
 		text-transform: uppercase;
-		color: $blue;
+		color: black;
 	}
 
 	.content {
@@ -296,7 +290,7 @@
 			display: inline-block;
 			background: white;
 			@include border-radius(50%);
-			border: 3px solid;
+			border: 3px solid; // $yellow;
 		}
 
 		.price {
@@ -336,12 +330,15 @@
 			background-color: white;
 			padding-left: 30px;
 			padding-right: 30px;
+			//&:hover { background-color: $yellow; }
 		}
 	}
 }
 
 .well {
 	&.well-warning {
+		//border-color: #ffdc4e;
+		//background-color: #ffdc4e;
 		@include border-radius(3px);
 		padding: 5px 10px;
 	}
@@ -455,7 +452,7 @@
 	position: relative;
 	z-index: 101;
 	height: 93%;
-	background-color: $red-light;
+	background-color: white;
 	@include transition(0.5s linear all);
 	opacity: 1;
 
@@ -471,26 +468,19 @@
 		margin: 0;
 		font-size: rem-calc(50);
 		line-height: rem-calc(48);
-		color: black;
+		color: #fff;
 		font-weight: 900; //black
-		font-family: $font-family-serif;
 	}
 
 	.about-title-aside {
 		margin-top: 0;
 		font-size: rem-calc(18);
-		font-family: $font-family-serif;
-	}
-
-	.about-content {
-		background-color: white;
-		padding: 70px 0;
 	}
 
 	p {
 		font-size: rem-calc(18);
 		line-height: rem-calc(30);
-		color: black;
+		color: $black-light;
 		text-align: justify;
 	}
 
@@ -563,7 +553,6 @@
 	}
 }
 // angular-bootstrap accordions (enlightened version)
-
 .light-accordion > .panel-heading {
 	padding-top: 0.2em;
 	padding-bottom: 0.2em;

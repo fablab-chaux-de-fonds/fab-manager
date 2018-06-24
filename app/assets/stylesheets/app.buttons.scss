@@ -7,50 +7,21 @@
 }
 
 .btn {
-	background-color: transparent;
-	color: $blue;
-	border-style: solid;
-  border-width: 2px;
-	border-color: $blue;
 	> i {
 		&.pull-left,
 		&.pull-right {
 			line-height: 1.428571429;
-			border: None;
 		}
 	}
-	&:hover{
-		background-color: $blue;
-		color: white;
-	}
 }
-
-.btn-sm{
-	border: None;
-}
-
-div[id^="s"][id$="0"]
 
 .btn-warning-full {
 	outline: 0;
 	text-transform: uppercase;
 	//border: 3px solid $yellow;
 	//background-color: $yellow;
-	// &:hover {
-	// 	background-color: white;
-	// }
-}
-
-.btn-valid {
-	border: 3px solid $green-light !important;
-	background-color: $green-light !important;
-	color: $blue;
-	font-weight: 600;
-
 	&:hover {
-		border: 3px solid $green !important;
-		background-color: $green !important;
-		font-weight: 600;
+		background-color: white;
 	}
 }
 

@@ -436,7 +436,7 @@
 		}
 
 		+ * {
-			background-color: $red-light;
+			background-color: $body-bg;
 			@include transition-transform(0.2s ease-in-out);
 			@include transition-delay(0s);
 			@include translate3d(0px, 0px, 0);
@@ -488,19 +488,18 @@
 #nav {
 	// border-right: 1px solid $red-dark;
 	.nav {
-		background-color: $red-light;
-
+		//background-color: $red;
 		> li {
 			> a {
 				padding: 13px 17px;
 				font-weight: 600;
-				color: $blue;
+				color: white;
 
 				&.active,
 				&:focus,
 				&:hover {
-					background-color: white;
-					//color: white;
+					//background-color: $red-light;
+					color: white;
 				}
 
 				&.active {
@@ -519,8 +518,4 @@
 .user-profile-nav > a {
 	display: inline-block !important;
 	padding: 11px 44px !important;
-}
-
-.nav > li > a:focus {
-	background-color: $green-light;
 }
