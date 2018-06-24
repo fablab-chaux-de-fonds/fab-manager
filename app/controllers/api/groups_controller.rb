@@ -2,7 +2,12 @@ class API::GroupsController < API::ApiController
   before_action :authenticate_user!, except: :index
 
   def index
-    @groups = Group.all
+    if current_user and current_user.is_admin?
+      @groups = Group.all
+    else
+      @groups = Group.where.not(slug: 'admins')
+    end
+
   end
 
   def create
@@ -35,6 +40,6 @@ class API::GroupsController < API::ApiController
   private
 
     def group_params
-      params.require(:group).permit(:name)
+      params.require(:group).permit(:name, :disabled)
     end
 end
