@@ -342,6 +342,11 @@ a.label:hover, a.label:focus {
   background-color: $green-light;
 }
 
+.navbar-header > .btn {
+  color: $blue;
+  background-color: transparent;
+}
+
 .dropdown-menu > li > a {
   color: $blue;
 }
