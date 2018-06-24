@@ -1,5 +1,6 @@
   <div class="modal-header">
-    <img ng-src="{{logoBlack.custom_asset_file_attributes.attachment_url}}" alt="{{logo.custom_asset_file_attributes.attachment}}" class="modal-logo"/>
+    <%= image_tag("fablab-logo-formulaire.gif", class: 'modal-logo') %>
+    <!-- <img ng-src="{{logoBlack.custom_asset_file_attributes.attachment_url}}" alt="{{logo.custom_asset_file_attributes.attachment}}" class="modal-logo"/> -->
     <h1 translate>{{ 'create_your_account' }}</h1>
   </div>
   <div class="">
@@ -7,7 +8,7 @@
 
     <div class="well m-b-n">
       <form role="form" name="signupForm" class="form-horizontal" novalidate autocomplete="off" ng-keydown="signupForm.$valid && $event.which == 13 && ok()">
-	
+
         <div class="form-group" ng-class="{'has-error': signupForm.gender.$dirty && signupForm.gender.$invalid}" ng-if="!useSimpleSignupForm">
           <div class="col-sm-12">
             <label class="checkbox-inline">
@@ -26,7 +27,7 @@
             <span class="help-block" ng-show="signupForm.gender.$dirty && signupForm.gender.$error.required" translate>{{ 'gender_is_required'}}</span>
           </div>
         </div>
-	
+
         <div class="form-group">
 
           <div class="col-sm-6" ng-class="{'has-error': signupForm.first_name.$dirty && signupForm.first_name.$invalid}">
