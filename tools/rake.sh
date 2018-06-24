@@ -1,5 +1,5 @@
 #!/bin/bash
-FABMGRPATH="$(realpath ..)"
+FABMGRPATH="$(realpath $(dirname $(readlink -f $0))/..)"
 docker run --rm  \
 --link=fabmanager-postgres:postgres \
 --link=fabmanager-redis:redis \
