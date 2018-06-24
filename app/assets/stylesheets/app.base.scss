@@ -15,7 +15,6 @@ body {
 .h5,
 .h6 {
   margin: 0;
-  color: black;
 }
 
 .page-title,
@@ -34,26 +33,6 @@ h3 {
   font-weight: 600;
 }
 
-h4 {
-  font-weight: 600;
-}
-
-h5 {
-  display: inline-block;
-  position: relative;
-  line-height: rem-calc(18);
-  font-size: rem-calc(16);
-
-  &:after {
-    position: absolute;
-    top: 18px;
-    left: 0;
-    content: '';
-    width: 35%;
-    height: 1px;
-    //background-color: $red;
-  }
-}
 // Links
 // -------------------------
 
@@ -79,7 +58,6 @@ pre {
 
 p {
   font-size: rem-calc($font-size-base);
-  font-family: $font-family-serif;
   line-height: rem-calc(24);
 
   &.intro,
