@@ -466,7 +466,7 @@
 	.navbar + section {
 		.nav-off-screen {
 			top: 50px;
-
+-
 			+ * {
 				top: 50px;
 			}
@@ -523,8 +523,4 @@
 
 .nav > li > a:focus {
 	background-color: $green-light;
-}
-
-.dropdown-menu > li > a {
-	color: $blue;
 }
