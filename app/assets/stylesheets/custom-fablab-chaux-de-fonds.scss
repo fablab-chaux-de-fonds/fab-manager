@@ -91,6 +91,13 @@
   }
 }
 
+
+.about-link {
+	.label {
+		padding: 10px 10px 0px;
+  }
+}
+
 // nav
 @media (max-width: 767px) {
   .btn {
@@ -114,4 +121,9 @@
     position: fixed;
     top: 0;
   }
+}
+
+// utilities
+.wrapper {
+  padding: 32px 15px;
 }
