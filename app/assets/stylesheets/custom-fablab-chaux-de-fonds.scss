@@ -20,6 +20,14 @@ p {
   font-family: $font-family-serif;
 }
 
+a {
+  color: $blue;
+  &:hover,
+  &:active{
+    color: $blue;
+  }
+}
+
 dt {
   font-family: $font-family-serif;
 }
