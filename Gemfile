@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.10'
 # Use SCSS for stylesheets
 gem 'sass-rails', '5.0.1'
 gem 'compass-rails', '2.0.4'
@@ -30,7 +30,7 @@ group :development, :test do
   # gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 2.1.3'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -43,7 +43,7 @@ group :development do
   gem 'mailcatcher'
   gem 'awesome_print'
 
-  gem "puma"
+  gem 'puma'
   gem 'foreman'
 
   gem 'capistrano'
@@ -79,7 +79,7 @@ gem 'pg'
 gem 'devise'
 gem 'devise-async'
 
-gem 'omniauth'
+gem 'omniauth', '~> 1.3.2'
 gem 'omniauth-oauth2'
 
 gem 'rolify'
@@ -149,6 +149,7 @@ gem 'has_secure_token'
 gem 'apipie-rails'
 
 # XLS files generation
-gem 'rubyzip', '~> 1.1.0'
-gem 'axlsx', '2.1.0.pre'
+gem 'axlsx', git: 'https://github.com/randym/axlsx', branch: 'release-3.0.0'
 gem 'axlsx_rails'
+
+gem "rack-protection", "1.5.5"

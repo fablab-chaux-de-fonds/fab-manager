@@ -48,6 +48,19 @@ pt:
           unable_to_delete_the_slot_START-END_because_it_s_already_reserved_by_a_member: "Não é possível deletar o slot {{START}} - {{END}} porque já foi reservado por um membro"  # angular interpolation
           you_should_select_at_least_a_machine: "Você deveria selecionar a última máquina neste slot."
           export_is_running_you_ll_be_notified_when_its_ready: "A Exportação está em andamento. Você será notificado quando terminar."
+          actions: "Ações"
+          block_reservations: "Impedir reservas"
+          do_you_really_want_to_block_this_slot: "Você realmente quer bloquear novas reservas neste slot? Isso se tornará invisível para os usuários."
+          locking_success: "Slot bloqueado com êxito, ela não aparecerá mais tempo no calendário do usuário"
+          locking_failed: "Um erro ocorreu. O bloqueio do slot falhou"
+          allow_reservations: "Permitir a reserva"
+          do_you_really_want_to_allow_reservations: "Você realmente quer permitir a reserva novamente neste slot? Será visível para os usuários."
+          unlocking_success: "Slot desbloqueado com sucesso, ele aparecerá novamente no calendário do usuário"
+          unlocking_failed: "Um erro ocorreu. O desbloqueio do slot falhou"
+          reservations_locked: "Reserva é bloqueado"
+          unlockable_because_reservations: "Não é possível bloquear a reserva neste slot porque existem algumas reservas não cancelados nele."
+          delete_slot: "Exclua o slot"
+          do_you_really_want_to_delete_this_slot: "Você realmente quer excluir esse slot?"
 
       project_elements:
         # management of the projects' components
@@ -60,6 +73,9 @@ pt:
       trainings:
         # track and monitor the trainings
         training: "Treinamento"
+        add_a_new_training: "Adicionar um novo treinamento"
+        associated_machines: "Máquinas associadas"
+        number_of_tickets: "Número de vagas"
         year_NUMBER: "Ano {{NUMBER}}"  # angular interpolation
         month_of_NAME: "Mês de {{NAME}}"  # angular interpolation
         NUMBER_reservation: "{NUMBER} {NUMBER, plural, one{reserva} other{reservas}}"  # messageFormat interpolation
@@ -76,11 +92,16 @@ pt:
         training_successfully_deleted: "O treinamento foi deletado com sucesso."
         unable_to_delete_the_training_because_some_users_alredy_booked_it: "Não é possível deletar o treinamento, pois alguns membros já o reservaram."
         do_you_really_want_to_delete_this_training: "Você realmente quer deletar este treinamento?"
+        status_enabled: "Ativos"
+        status_disabled: "Desabilitados"
+        status_all: "Todos"
 
       trainings_new:
         # create a new training
-        beware_when_creating_a_training_its_reservation_prices_are_initialized_to_zero: "Cuidado, ao criar um treinamento, seu preço de reserva é inicializado em zero."
-        dont_forget_to_change_them_before_creating_slots_for_this_training: "Não se esqueça de alterá-lo antes de criar slots para este treinamento."
+        trainings_new:
+          add_a_new_training: "Adicionar um novo treinamento"
+          beware_when_creating_a_training_its_reservation_prices_are_initialized_to_zero: "Cuidado, ao criar um treinamento, seu preço de reserva é inicializado em zero."
+          dont_forget_to_change_them_before_creating_slots_for_this_training: "Não se esqueça de alterá-lo antes de criar slots para este treinamento."
 
       events:
         # events tracking and management
@@ -90,8 +111,15 @@ pt:
         all_events: "Todos eventos"
         passed_events: "Eventos anteriores"
         events_to_come: "Eventos futuros"
-        from_DATE: "Em {{DATE}}"  # angular interpolation
-        from_TIME: "Ás {{TIME}}"  # angular interpolation
+        events_to_come_asc: "Eventos futuros | ordem cronológica"
+        on_DATE: "No {{DATE}}"	  # angular interpolation
+        from_DATE: "Em {{DATE}}"  # angular interpolation 
+        from_TIME: "Ás {{TIME}}"  # angular interpolation 
+        booking: "Reserva"
+        sold_out: "Esgotado"
+        cancelled: "Cancelado"
+        free_entry: "Entrada gratuita"
+        free_admission: "Admissão gratuita"
         view_reservations: "Ver reservas"
         categories: "Categorias"
         add_a_category: "Adicionar categoria"
@@ -183,6 +211,7 @@ pt:
           error_a_credit_linking_this_machine_with_that_subscription_already_exists: "Erro : um link de crédito entre esta máquina e esta assinatura já existe."
           changes_have_been_successfully_saved: "As modificações foram salvas com sucesso."
           credit_was_successfully_saved: "Crédito salvo com sucesso."
+          error_creating_credit: "Não foi possível criar crédito, um erro ocorreu"
           do_you_really_want_to_delete_this_subscription_plan: "Você realmente deletar esse plano de assinatura?"
           subscription_plan_was_successfully_deleted: "Plano de assinatura foi deletado com sucesso."
           unable_to_delete_the_specified_subscription_an_error_occurred: "Não é possível deletar a assinatura específicada, um erro ocorreu."
@@ -217,6 +246,9 @@ pt:
           add_a_space_credit: "Adicionar espaço de crédito"
           space: "Espaço"
           error_a_credit_linking_this_space_with_that_subscription_already_exists: "Erro: um crédito que vincula esse espaço com essa assinatura já existe."
+          status_enabled: "Ativos"
+          status_disabled: "Desabilitados"
+          status_all: "Todos"
 
       coupons_new:
         # ajouter un code promotionnel
@@ -380,14 +412,8 @@ pt:
         this_may_take_a_while_please_wait: "Atenção: Isso pode demorar um pouco, por favor, seja paciente."
         administrator_successfully_deleted: "Administrator excluído com sucesso."
         unable_to_delete_the_administrator: "Impossível excluir administrador."
-        add_a_group: "Adicionar grupo"
-        group_name: "Nome do grupo"
         changes_successfully_saved: "Mudanças salvas com sucesso."
-        an_error_occurred_while_saving_changes: "Um erro ocorreu ao salvar mudanças."
-        new_group_successfully_saved: "Novo grupo salvo com sucesso."
         an_error_occurred_when_saving_the_new_group: "Um erro ocorreu ao salvar novo grupo."
-        group_successfully_deleted: "Grupo excluido com sucesso."
-        unable_to_delete_group_because_some_users_and_or_groups_are_still_linked_to_it: "Não é possível excluir o grupo porque alguns usuários e / ou grupos ainda estão vinculados a ele."
         add_a_tag: "Adicionar tag"
         tag_name: "Nome da tag"
         new_tag_successfully_saved: "Nova tag salva com sucesso."
@@ -407,6 +433,23 @@ pt:
         an_error_occurred_unable_to_delete_the_specified_provider: "Ocorreu um erro: não é possível excluir o provedor especificado."
         local_database: "Database local"
         o_auth2: "OAuth 2.0"
+        group_form:
+          add_a_group: "Adicionar grupo"
+          group_name: "Nome do grupo"
+          disable: "Desativar"
+          enable: "Habilitar"
+          changes_successfully_saved: "Mudanças salvas com sucesso."
+          an_error_occurred_while_saving_changes: "Um erro ocorreu ao salvar mudanças."
+          new_group_successfully_saved: "Novo grupo salvo com sucesso."
+          an_error_occurred_when_saving_the_new_group: "Um erro ocorreu ao salvar novo grupo."
+          group_successfully_deleted: "Grupo excluido com sucesso."
+          unable_to_delete_group_because_some_users_and_or_groups_are_still_linked_to_it: "Não é possível excluir o grupo porque alguns usuários e / ou grupos ainda estão vinculados a ele."
+          group_successfully_enabled_disabled: "Grupo {STATUS, select, true{desativado} other{ativado}} com sucesso." 
+          unable_to_enable_disable_group: "Não foi possível {STATUS, select, true{desativar} other{ativar}} grupo."  
+          unable_to_disable_group_with_users: "Não é possível desabilitar grupo porque {USERS, plural, =1{existe} other{existem}} {USERS} {USERS, plural, =1{usuário} other{usuários}} {USERS, plural, =1{ativo} other{ativos}}."
+          status_enabled: "Ativos"
+          status_disabled: "Desabilitados"
+          status_all: "Todos"
 
       members_new:
         # add a member
@@ -568,12 +611,16 @@ pt:
           title_of_the_about_page: "Título da página sobre"
           shift_enter_to_force_carriage_return: "SHIFT + ENTER para forçar o retorno"
           input_the_main_content: "Introduza o conteúdo principal"
+          drag_and_drop_to_insert_images: "Arrastar e soltar para inserir imagens"
           input_the_fablab_contacts: "Insira os contatos do FabLab"
           reservations: "Reservas"
           reservations_parameters: "Parâmetros das reservas"
           confine_the_booking_agenda: "Confine a agenda de reserva"
           opening_time: "Horário de abertura"
           closing_time: "Horário de fechamento"
+          max_visibility: "Visibilidade máxima (em meses)"
+          visibility_for_yearly_members: "Para inscrições atuais de pelo menos 1 ano"
+          visibility_for_other_members: "Para todos os outros membros"
           ability_for_the_users_to_move_their_reservations: "Habilidade para os usuários mover suas reservas"
           reservations_shifting: "Mudança de reservas"
           prior_period_(hours): "Período anterior (horas)"
@@ -608,6 +655,8 @@ pt:
           reminder_enable: "Recordar reserva ativo"
           reminder_delay: "Atraso antes de enviar o lembrete"
           default_value_is_24_hours: "Se o campo estiver vazio: 24 horas."
+          visibility_yearly: "visibilidade máxima para assinantes anuais"
+          visibility_others: "visibilidade máxima para outros membros"
 
       open_api_clients:
         add_new_client: "Criar novo cliente de API"
