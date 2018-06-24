@@ -45,3 +45,6 @@
 
 # Plugins are versioned is their own repository
 /plugins/*
+
+/elasticsearch/*
+/redis/*
