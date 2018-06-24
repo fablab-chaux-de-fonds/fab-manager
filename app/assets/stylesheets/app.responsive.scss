@@ -3,7 +3,7 @@
   .modal-dialog { top: 0; }
   .modal-header {
     .modal-logo {
-      // display: none;
+      display: none;
     }
   }
 
@@ -24,14 +24,6 @@
     margin-bottom: 2.5em !important;
   }
 
-  .img-tl{
-    position: fixed;
-    top: 0px;
-  }
-
-  #content-main {
-    margin-top: 50px;
-  }
 }
 
 @media screen and (max-width: $screen-md-min) {

@@ -91,6 +91,7 @@
   }
 }
 
+// nav
 @media (max-width: 767px) {
   .btn {
     border: None;
@@ -105,4 +106,16 @@
 
 .dropdown-menu > li > a {
 	color: $blue;
+}
+
+// Responsive
+@media screen and (max-width: $screen-sm-min) {
+  .img-tl {
+    position: fixed;
+    top: 0;
+  }
+
+  #content-main {
+    margin-top: 50px;
+  }
 }
