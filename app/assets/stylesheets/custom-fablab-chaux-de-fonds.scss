@@ -84,3 +84,9 @@
 .img-txt {
 	height: 16px;
 }
+
+.header {
+  &.navbar {
+    // position: relative;
+  }
+}
