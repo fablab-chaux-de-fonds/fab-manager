@@ -28,6 +28,10 @@ a {
   }
 }
 
+body {
+  font-family: $font-family-sans-serif;
+}
+
 dt {
   font-family: $font-family-serif;
 }
@@ -141,6 +145,11 @@ td[id^="datepicker"] > .btn {
   h4 {
     color: $blue;
   }
+}
+
+a.label:hover, a.label:focus {
+  color: $green-light;
+  background-color: $green !important;
 }
 
 .label {
@@ -354,14 +363,14 @@ td[id^="datepicker"] > .btn {
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-   color: red;
+   color: $blue !important;
    opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color: red;
+   color: $blue !important;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
-   color: red;
+   color: $blue !important;
 }
