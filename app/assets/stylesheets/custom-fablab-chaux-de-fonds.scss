@@ -30,7 +30,6 @@ dd {
 }
 
 .footer > .btn {
-
   background-color: $red;
 
   &:hover {
@@ -41,6 +40,14 @@ dd {
 
 td[id^="datepicker"] > .btn {
   border: None;
+  background-color: white;
+  color: $blue;
+
+  &:active,
+  &:hover {
+    background-color: $blue;
+    color: white;
+  }
 }
 
 #loginModal p,
@@ -61,6 +68,7 @@ td[id^="datepicker"] > .btn {
     }
   }
 
+  &:active,
   &:hover {
     background-color: white;
     color: $blue;
@@ -133,12 +141,26 @@ td[id^="datepicker"] > .btn {
 .pricing-panel {
   .title {
     color: $blue;
-  }
 
-  .content {
-    .wrap {
-      border: 3px solid;
+    .content {
+      .wrap {
+        border: 3px solid;
+      }
     }
+  }
+}
+
+.form-control {
+  color: $blue;
+
+  &:focus {
+    border-color: $blue;
+  }
+}
+
+.content {
+  .wrap {
+    border: 3px solid;
   }
 }
 
@@ -150,7 +172,6 @@ td[id^="datepicker"] > .btn {
 
 .about-fablab {
   background-color: white;
-
 
   p {
     color: black;
@@ -308,6 +329,7 @@ td[id^="datepicker"] > .btn {
   }
 }
 // utilities
+
 .wrapper {
   padding: 32px 15px;
 }
