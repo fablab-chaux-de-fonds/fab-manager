@@ -48,3 +48,6 @@
 
 /elasticsearch/*
 /redis/*
+/bin/*
+/config/nginx/*
+/config/env
