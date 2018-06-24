@@ -37,7 +37,7 @@
 	}
 
 	.fa {
-		color: $blue;
+		// color: $red;
 	}
 
 	.widget-content {
@@ -56,29 +56,24 @@
 	top: 90px;
 }
 
-.modal-content{
-	color: $blue;
-}
-
 .modal-header {
-	background-color: $green-light;
 	.modal-logo {
-		display: block;
+		position: absolute;
+		top: -70px;
 		left: 0;
 		right: 0;
-		margin: 20px auto;
-		max-height: 90px;
+		margin: 0 auto;
+		max-height: 44px;
 	}
 
 	h1 {
-		color: $blue;
 		margin: 25px 0 20px;
 		font-weight: bold;
 		text-transform: uppercase;
 		text-align: center;
+		//color: $red;
 	}
 }
-
 .modal-backdrop {
 	height: 100%;
 }
@@ -234,7 +229,7 @@
 	}
 
 	.fa {
-		color: $blue;
+		color: black;
 		font-size: rem-calc(24);
 	}
 }
@@ -507,41 +502,6 @@
 	&.ng-hide-remove {
 		display: block!important;
 	}
-}
-
-.about-logo {
-	position: relative;
-	top: -120px;
-}
-
-.img-fg {
-	z-index: 1025;
-	margin: 20px;
-}
-.img-tl {
-	position: relative;
-	top: -54px;
-	left: 0;
-}
-.img-tr {
-	top: 0;
-	right: 0;
-}
-.img-bl {
-	bottom: 0;
-	left: 0;
-}
-.img-br {
-	position: fixed;
-	bottom: 0;
-	right: 0;
-}
-.img-fl {
-	height: 72px;
-	width: auto;
-}
-.img-txt {
-	height: 16px;
 }
 
 .event {

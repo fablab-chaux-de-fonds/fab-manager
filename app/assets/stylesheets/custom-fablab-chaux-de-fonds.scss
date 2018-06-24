@@ -15,3 +15,72 @@
   background-color: $red;
   color: white;
 }
+
+.widget {
+  .fa {
+    color: $blue;
+  }
+}
+
+.modal-content{
+	color: $blue;
+}
+
+.modal-header {
+  background-color: $green-light;
+
+  .modal-logo {
+    top: 0px;
+    position: static;
+    display: block;
+    margin: 20px auto;
+    max-height: 90px;
+  }
+
+  h1 {
+    color: $blue;
+  }
+}
+
+.notification-open {
+  a {
+    .fa {
+      color: $blue;
+    }
+  }
+}
+
+.about-logo {
+	position: relative;
+	top: -120px;
+}
+
+.img-fg {
+	z-index: 1025;
+	margin: 20px;
+}
+.img-tl {
+	position: relative;
+	top: -54px;
+	left: 0;
+}
+.img-tr {
+	top: 0;
+	right: 0;
+}
+.img-bl {
+	bottom: 0;
+	left: 0;
+}
+.img-br {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+.img-fl {
+	height: 72px;
+	width: auto;
+}
+.img-txt {
+	height: 16px;
+}
