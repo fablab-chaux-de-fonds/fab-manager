@@ -90,3 +90,19 @@
     // position: relative;
   }
 }
+
+@media (max-width: 767px) {
+  .btn {
+    border: None;
+  }
+
+  .nav-off-screen {
+    + * {
+      background-color: $body-bg;
+    }
+  }
+}
+
+.dropdown-menu > li > a {
+	color: $blue;
+}
