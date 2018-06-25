@@ -125,6 +125,10 @@ td[id^="datepicker"] > .btn {
   color: white;
 }
 
+.picto-about{
+  height: 25px;
+}
+
 .widget {
   h1,
   h2,
@@ -278,6 +282,7 @@ a.label:hover, a.label:focus {
 .img-bl {
   position: relative;
   left: 0;
+  height: 50px;
   margin: 0 25px 0 0;
 }
 
@@ -292,7 +297,6 @@ a.label:hover, a.label:focus {
 }
 
 .img-social{
-    height: 50;
     margin: 0;
 }
 
@@ -366,7 +370,24 @@ a.label:hover, a.label:focus {
 @media screen and (max-width: $screen-sm-min) {
   .img-tl {
     position: fixed;
-    top: 0;
+    top: 0px;
+  }
+
+  .img-fg{
+    margin: 25px;
+  }
+
+  .footer {
+    padding: 25px;
+  }
+
+  .img-fl{
+    height: 50px;
+  }
+
+  .img-bl{
+    height: 32px;
+    margin: 0 16px 0 0;
   }
 }
 // utilities
