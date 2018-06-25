@@ -2,3 +2,380 @@
   width: 100%;
   padding: 20px;
 }
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: black;
+}
+
+h4 {
+  font-weight: 600;
+}
+
+p {
+  font-family: $font-family-serif;
+}
+
+a {
+  color: $blue;
+  &:hover,
+  &:active{
+    color: $blue;
+  }
+}
+
+body {
+  font-family: $font-family-sans-serif;
+}
+
+dt {
+  font-family: $font-family-serif;
+}
+
+dd {
+  color: $red;
+  font-weight: 700;
+}
+
+.footer > .btn {
+  background-color: $red;
+
+  &:hover {
+    background-color: $blue;
+    color: white;
+  }
+}
+
+td[id^="datepicker"] > .btn {
+  border: None;
+  background-color: white;
+  color: $blue;
+
+  &:active,
+  &:hover {
+    background-color: $blue;
+    color: white;
+  }
+}
+
+#loginModal p,
+.invoice-payment {
+  font-family: $font-family-sans-serif !important;
+}
+
+.btn {
+  background-color: $blue;
+  color: white;
+  border-style: solid;
+  border-width: 2px;
+  border-color: $blue;
+
+  > i {
+    &.pull-right {
+      border: None;
+    }
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: white;
+    color: $blue;
+  }
+}
+
+.btn-sm {
+  border: None;
+}
+// div[id^="s"][id$="0"]
+
+.btn-warning-full {
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.btn-valid {
+  border: 3px solid $green-light !important;
+  background-color: $green-light !important;
+  color: $blue;
+  font-weight: 600;
+
+  &:hover {
+    border: 3px solid $green !important;
+    background-color: $green !important;
+    font-weight: 600;
+  }
+}
+
+.btn-danger:hover {
+  background-color: #f2f2f2;
+}
+
+.text-green-light {
+  color: $green-light !important;
+}
+
+.bg-red {
+  background-color: $red;
+  color: white;
+}
+
+.widget {
+  h1,
+  h2,
+  h3 {
+    color: $blue;
+  }
+
+  a {
+    color: $gray-darker;
+  }
+
+  .fa {
+    color: $blue;
+  }
+}
+
+.article {
+  h4 {
+    color: $blue;
+  }
+}
+
+a.label:hover, a.label:focus {
+  color: $green-light;
+  background-color: $green !important;
+}
+
+.label {
+  color: $blue;
+}
+
+.pricing-panel {
+  .title {
+    color: $blue;
+
+    .content {
+      .wrap {
+        border: 3px solid;
+      }
+    }
+  }
+}
+
+.form-control {
+  color: $blue;
+  font-family: $font-family-sans-serif;
+
+  &:focus {
+    border-color: $blue;
+    box-shadow: 0 0 8px $blue;
+  }
+}
+
+.input-group-addon{
+  color: $blue;
+}
+
+.content {
+  .wrap {
+    border: 3px solid;
+  }
+}
+
+.about-fablab .about-title {
+  color: $blue;
+  font-family: $font-family-serif;
+  text-align: center;
+}
+
+.about-fablab {
+  background-color: white;
+
+  p {
+    color: black;
+    font-family: $font-family-serif;
+  }
+
+  .about-title-aside {
+    font-family: $font-family-serif;
+  }
+
+  .about-content {
+    background-color: white;
+    padding: 70px 0;
+  }
+
+  p {
+    color: black;
+  }
+}
+
+.header {
+  > .btn-toolbar {
+    margin-top: 14px;
+  }
+}
+
+.aside-md {
+  background-color: $red-light;
+}
+
+.modal-content {
+  color: $blue;
+}
+
+.modal-header {
+  background-color: $green-light;
+
+  .modal-logo {
+    top: 0;
+    position: static;
+    display: block;
+    margin: 20px auto;
+    max-height: 90px;
+  }
+
+  h1 {
+    color: $blue;
+  }
+}
+
+.notification-open {
+  a {
+    .fa {
+      color: $blue;
+    }
+  }
+}
+
+.about-logo {
+  position: relative;
+  top: -120px;
+}
+
+.img-fg {
+  z-index: 1025;
+  margin: 20px;
+}
+
+.img-tl {
+  position: relative;
+  top: -54px;
+  left: 0;
+}
+
+.img-tr {
+  top: 0;
+  right: 0;
+}
+
+.img-bl {
+  bottom: 0;
+  left: 0;
+}
+
+.img-br {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.img-fl {
+  height: 72px;
+  width: auto;
+}
+
+.img-txt {
+  height: 16px;
+}
+
+.header {
+  &.navbar {
+    // position: relative;
+  }
+}
+
+.about-link {
+  .label {
+    padding: 10px 10px 0;
+  }
+}
+// nav
+@media (max-width: 767px) {
+  .btn {
+    border: None;
+  }
+
+  .nav-off-screen {
+    + * {
+      background-color: $red-light;
+    }
+  }
+}
+
+#nav {
+  .nav {
+    background-color: $red-light;
+
+    > li {
+      > a {
+        color: $blue;
+
+        &.active,
+        &:focus,
+        &:hover {
+          background-color: white;
+          color: $blue;
+        }
+      }
+    }
+  }
+}
+
+.nav > li > a:focus {
+  background-color: $green-light;
+}
+
+.navbar-header > .btn {
+  color: $blue;
+  background-color: transparent;
+}
+
+.dropdown-menu > li > a {
+  color: $blue;
+}
+// Responsive
+@media screen and (max-width: $screen-sm-min) {
+  .img-tl {
+    position: fixed;
+    top: 0;
+  }
+}
+// utilities
+
+.wrapper {
+  padding: 32px 15px;
+}
+
+.rounded {
+  background-color: $blue;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+   color: $blue !important;
+   opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: $blue !important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+   color: $blue !important;
+}
