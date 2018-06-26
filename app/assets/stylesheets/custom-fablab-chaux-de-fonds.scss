@@ -127,7 +127,11 @@ td[id^="datepicker"] > .btn {
 }
 
 .picto-about{
-  height: 25px;
+  height: 40px;
+}
+
+.about-link{
+  padding: 16.5px !important;
 }
 
 .widget {
@@ -266,12 +270,12 @@ a.label:hover, a.label:focus {
 
 .img-fg {
   z-index: 1025;
-  margin: 50px;
+  margin: 25px;
 }
 
 .img-tl {
   position: relative;
-  top: -110px;
+  top: -64px;
   left: 0;
 }
 
@@ -283,7 +287,7 @@ a.label:hover, a.label:focus {
 .img-bl {
   position: relative;
   left: 0;
-  height: 50px;
+  height: 40px;
   margin: 0 25px 0 0;
 }
 
@@ -294,7 +298,7 @@ a.label:hover, a.label:focus {
 }
 
 .img-fl {
-  height: 120px;
+  width: 48px;
 }
 
 .img-social{
@@ -315,7 +319,7 @@ a.label:hover, a.label:focus {
   position: fixed;
   bottom: 0px;
   width: 100%;
-  padding: 50px;
+  padding: 20px;
 }
 
 .about-link {
