@@ -315,10 +315,19 @@ a.label:hover, a.label:focus {
     margin: 0;
 }
 
+.img-perceuse{
+  width: 208px;
+  height: auto;
+  margin-left: 50px;
+}
+
 .img-txt {
   height: 16px;
 }
 
+.navbar-brand{
+  padding: 0;
+}
 .header {
   &.navbar {
     // position: relative;
