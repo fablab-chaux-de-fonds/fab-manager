@@ -1,6 +1,7 @@
 .infographie {
   width: 100%;
   padding: 20px;
+  background-color: $green-light;
 }
 
 .h1,
@@ -121,8 +122,12 @@ td[id^="datepicker"] > .btn {
 }
 
 .bg-red {
-  background-color: $red;
+  background-color: $red-light;
   color: white;
+}
+
+.picto-about{
+  height: 25px;
 }
 
 .widget {
@@ -261,12 +266,12 @@ a.label:hover, a.label:focus {
 
 .img-fg {
   z-index: 1025;
-  margin: 20px;
+  margin: 50px;
 }
 
 .img-tl {
   position: relative;
-  top: -54px;
+  top: -110px;
   left: 0;
 }
 
@@ -276,8 +281,10 @@ a.label:hover, a.label:focus {
 }
 
 .img-bl {
-  bottom: 0;
+  position: relative;
   left: 0;
+  height: 50px;
+  margin: 0 25px 0 0;
 }
 
 .img-br {
@@ -287,8 +294,11 @@ a.label:hover, a.label:focus {
 }
 
 .img-fl {
-  height: 72px;
-  width: auto;
+  height: 120px;
+}
+
+.img-social{
+    margin: 0;
 }
 
 .img-txt {
@@ -299,6 +309,13 @@ a.label:hover, a.label:focus {
   &.navbar {
     // position: relative;
   }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding: 50px;
 }
 
 .about-link {
@@ -354,7 +371,24 @@ a.label:hover, a.label:focus {
 @media screen and (max-width: $screen-sm-min) {
   .img-tl {
     position: fixed;
-    top: 0;
+    top: 0px;
+  }
+
+  .img-fg{
+    margin: 25px;
+  }
+
+  .footer {
+    padding: 25px;
+  }
+
+  .img-fl{
+    height: 50px;
+  }
+
+  .img-bl{
+    height: 32px;
+    margin: 0 16px 0 0;
   }
 }
 // utilities

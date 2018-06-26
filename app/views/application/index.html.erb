@@ -95,48 +95,54 @@
           <section id="content">
             <section class="vbox">
               <%= image_tag("fablab - F.svg", class: 'm-r-sm img-fg img-tl img-fl') %>
-              <section id="content-main" class="scrollable" ui-view="main"></section>
-              <%= image_tag("fablab - L.svg", class: 'm-r-sm img-fg img-br img-fl') %>
+              <!-- <section id="content-main" class="scrollable" ui-view="main"> -->
+              <div class="footer">
+                <%= image_tag("fablab - L.svg", class: 'm-r-sm img-fg img-br img-fl') %>
+                <div class="img-social">
+                  <a href="https://www.facebook.com/FabLab-Chaux-de-Fonds"><%= image_tag("fablab-picto-facebook.svg", class: 'm-r-sm img-fg img-bl') %></a>
+                  <a href="https://www.instagram.com/fablab-chaux-de-fonds"><%= image_tag("fablab-picto-instagram.svg", class: 'm-r-sm img-fg img-bl') %></a>
+                </div>
+              </div>
             </section>
           </section>
-
         </section>
-        <!-- /.hbox -->
+
       </section>
-
+      <!-- /.hbox -->
     </section>
-    <!-- /.vbox -->
 
+  </section>
+  <!-- /.vbox -->
 
-    <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'application' %>
 
-    <!-- i18n of external libraries -->
-    <script type="text/javascript" src="<%= asset_path "angular-i18n/angular-locale_#{Rails.application.secrets.angular_locale}.js" %>"></script>
-    <script type="text/javascript" src="<%= asset_path "messageformat/locale/#{Rails.application.secrets.messageformat_locale}.js" %>"></script>
+  <!-- i18n of external libraries -->
+  <script type="text/javascript" src="<%= asset_path "angular-i18n/angular-locale_#{Rails.application.secrets.angular_locale}.js" %>"></script>
+  <script type="text/javascript" src="<%= asset_path "messageformat/locale/#{Rails.application.secrets.messageformat_locale}.js" %>"></script>
 
-    <!-- if required locale does not exist, use the default "en" -->
-    <% if Rails.application.assets.find_asset "moment/locale/#{Rails.application.secrets.moment_locale}.js" %>
-      <script type="text/javascript" src="<%= asset_path "moment/locale/#{Rails.application.secrets.moment_locale}.js" %>"></script>
-      <%
+  <!-- if required locale does not exist, use the default "en" -->
+  <% if Rails.application.assets.find_asset "moment/locale/#{Rails.application.secrets.moment_locale}.js" %>
+    <script type="text/javascript" src="<%= asset_path "moment/locale/#{Rails.application.secrets.moment_locale}.js" %>"></script>
+    <%
   elsif Rails.application.secrets.moment_locale != 'en'
     raise LoadError, "moment/locale/#{Rails.application.secrets.moment_locale}.js does not exists"
   end
 %>
-        <!-- if required locale does not exist, use the default "en-US" -->
-        <% if Rails.application.assets.find_asset "summernote/lang/summernote-#{Rails.application.secrets.summernote_locale}.js" %>
-          <script type="text/javascript" src="<%= asset_path "summernote/lang/summernote-#{Rails.application.secrets.summernote_locale}.js" %>"></script>
-          <%
+      <!-- if required locale does not exist, use the default "en-US" -->
+      <% if Rails.application.assets.find_asset "summernote/lang/summernote-#{Rails.application.secrets.summernote_locale}.js" %>
+        <script type="text/javascript" src="<%= asset_path "summernote/lang/summernote-#{Rails.application.secrets.summernote_locale}.js" %>"></script>
+        <%
   elsif Rails.application.secrets.summernote_locale != 'en-US'
     raise LoadError, "summernote/lang/summernote-#{Rails.application.secrets.summernote_locale}.js does not exists"
   end
 %>
-            <!-- if required locale does not exist, use the default "en" -->
-            <% if Rails.application.assets.find_asset "fullcalendar/dist/lang/#{Rails.application.secrets.fullcalendar_locale}.js" %>
-              <script type="text/javascript" src="<%= asset_path "fullcalendar/dist/lang/#{Rails.application.secrets.fullcalendar_locale}.js" %>"></script>
-              <%
+          <!-- if required locale does not exist, use the default "en" -->
+          <% if Rails.application.assets.find_asset "fullcalendar/dist/lang/#{Rails.application.secrets.fullcalendar_locale}.js" %>
+            <script type="text/javascript" src="<%= asset_path "fullcalendar/dist/lang/#{Rails.application.secrets.fullcalendar_locale}.js" %>"></script>
+            <%
   elsif Rails.application.secrets.fullcalendar_locale != 'en'
     raise LoadError, "fullcalendar/dist/lang/#{Rails.application.secrets.fullcalendar_locale}.js does not exists"
   end
 %>
-              </body>
-            </html>
+            </body>
+          </html>
