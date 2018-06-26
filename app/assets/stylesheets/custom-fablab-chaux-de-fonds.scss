@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Noe Display';
+  src: url(asset-path('Noe Display Black.otf'));
+}
+
+@font-face {
+  font-family: 'GT Pressura';
+  src: url(asset-path('fonts/GTPressura-Bold.otf'));
+}
+
 .infographie {
   width: 100%;
   padding: 20px;
@@ -314,6 +324,25 @@ a.label:hover, a.label:focus {
     // position: relative;
   }
 }
+
+.home {
+  color: $red;
+  font-size: 25pt;
+  line-height: 28pt;
+  z-index: 1025;
+}
+
+.home-top{
+  position: relative;
+  top: -188px;
+  text-align: center;
+}
+
+.home-left{
+    transform: rotate(-90deg);
+    width: 201px;
+    text-align: center;
+  }
 
 .footer {
   position: fixed;
