@@ -14,6 +14,16 @@
   background-color: $green-light;
 }
 
+.infographie-title{
+  text-align: center;
+  font-family: $font-family-serif;
+  background-color: $green-light;
+  color: $red;
+  font-size: 20pt;
+  margin: 0;
+  padding: 30px;
+}
+
 .h1,
 .h2,
 .h3,
@@ -44,7 +54,7 @@ body {
 }
 
 dt {
-  font-family: $font-family-serif;
+  font-family: $font-family-sans-serif;
 }
 
 dd {
@@ -211,27 +221,30 @@ a.label:hover, a.label:focus {
   color: $blue;
   font-family: $font-family-serif;
   text-align: center;
+  letter-spacing: 1pt;
+  font-size: 40pt;
+  line-height: 50pt;
 }
 
 .about-fablab {
   background-color: white;
+  padding: 10px;
 
   p {
-    color: black;
-    font-family: $font-family-serif;
+    color: $blue;
+    font-family: $font-family-sans-serif;
+  }
+
+  a {
+    color: $red;
   }
 
   .about-title-aside {
-    font-family: $font-family-serif;
+    font-family: $font-family-sans-serif;
   }
 
   .about-content {
     background-color: white;
-    padding: 70px 0;
-  }
-
-  p {
-    color: black;
   }
 }
 
@@ -276,6 +289,7 @@ a.label:hover, a.label:focus {
 .about-logo {
   position: relative;
   top: -120px;
+  width: 100%;
 }
 
 .img-fg {
@@ -298,7 +312,7 @@ a.label:hover, a.label:focus {
   position: relative;
   left: 0;
   height: 40px;
-  margin: 0 25px 0 0;
+  margin: 0 16px 0 0;
 }
 
 .img-br {
@@ -336,37 +350,45 @@ a.label:hover, a.label:focus {
 
 .home {
   color: $red;
-  font-size: 25pt;
-  line-height: 28pt;
+  font-size: 20pt;
+  line-height: 22pt;
   z-index: 1025;
   text-align: center;
 }
 
 .home-top{
   position: relative;
-  top: -188px;
+  top: -174px;
+  letter-spacing: 1pt;
 }
 
 .home-left{
     transform: rotate(-90deg);
     width: 201px;
+    letter-spacing: 1pt;
   }
 
 .home-right{
     transform: rotate(90deg);
-    width: 254px;
+    width: 238px;
     position: fixed;
     right: -50px;
+    letter-spacing: 1pt;
   }
 
+.home-center{
+  margin-top: 16px;
+}
 .home-title{
   font-family: $font-family-serif;
-  font-size: 64pt;
-  line-height: 56pt;
+  font-size: 48pt;
+  line-height: 40pt;
+  letter-spacing: 1pt;
 }
 
 .home-content p{
   font-family: $font-family-sans-serif;
+  line-height: 15pt;
 }
 
 .container-home, .col-home{
@@ -377,7 +399,7 @@ a.label:hover, a.label:focus {
   position: fixed;
   bottom: 0px;
   width: 100%;
-  padding: 20px;
+  padding: 25px;
 }
 
 .about-link {
@@ -451,6 +473,13 @@ a.label:hover, a.label:focus {
   .img-bl{
     height: 32px;
     margin: 0 16px 0 0;
+  }
+  .about-contact{
+
+  }
+  .about-logo{
+    top: 0;
+    padding: 30px 0;
   }
 }
 // utilities
