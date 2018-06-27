@@ -114,7 +114,7 @@
 
             </div>
           </div>
-          <div class="row">
+          <div class="row" ng-if="$state.current.name == 'app.public.home'">
             <div class="col-sm-4 col-home">
               <div class="home home-left">
                 INAUGURATION</br>31.08.2018</br>DÈS 17H</br>
@@ -143,10 +143,12 @@
           <section id="content-main" class="scrollable" ui-view="main"></section>
           <div class="footer">
             <%= image_tag("fablab - L.svg", class: 'm-r-sm img-fg img-br img-fl') %>
-            <%= image_tag("fablab-perceuse.svg", class: 'm-r-sm img-perceuse img-bl home') %>
-            <div class="img-social">
-              <a href="https://www.facebook.com/FabLab-Chaux-de-Fonds"><%= image_tag("fablab-picto-facebook.svg", class: 'm-r-sm img-fg img-bl') %></a>
-              <a href="https://www.instagram.com/fablab-chaux-de-fonds"><%= image_tag("fablab-picto-instagram.svg", class: 'm-r-sm img-fg img-bl') %></a>
+            <div ng-if="$state.current.name == 'app.public.home'">
+              <%= image_tag("fablab-perceuse.svg", class: 'm-r-sm img-perceuse img-bl home') %>
+              <div class="img-social">
+                <a href="https://www.facebook.com/FabLab-Chaux-de-Fonds"><%= image_tag("fablab-picto-facebook.svg", class: 'm-r-sm img-fg img-bl') %></a>
+                <a href="https://www.instagram.com/fablab-chaux-de-fonds"><%= image_tag("fablab-picto-instagram.svg", class: 'm-r-sm img-fg img-bl') %></a>
+              </div>
             </div>
           </div>
         </section>
