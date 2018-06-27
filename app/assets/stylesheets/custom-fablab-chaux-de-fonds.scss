@@ -298,7 +298,7 @@ a.label:hover, a.label:focus {
   position: relative;
   left: 0;
   height: 40px;
-  margin: 0 25px 0 0;
+  margin: 0 16px 0 0;
 }
 
 .img-br {
@@ -336,37 +336,45 @@ a.label:hover, a.label:focus {
 
 .home {
   color: $red;
-  font-size: 25pt;
-  line-height: 28pt;
+  font-size: 20pt;
+  line-height: 22pt;
   z-index: 1025;
   text-align: center;
 }
 
 .home-top{
   position: relative;
-  top: -188px;
+  top: -174px;
+  letter-spacing: 1pt;
 }
 
 .home-left{
     transform: rotate(-90deg);
     width: 201px;
+    letter-spacing: 1pt;
   }
 
 .home-right{
     transform: rotate(90deg);
-    width: 254px;
+    width: 238px;
     position: fixed;
     right: -50px;
+    letter-spacing: 1pt;
   }
 
+.home-center{
+  margin-top: 16px;
+}
 .home-title{
   font-family: $font-family-serif;
-  font-size: 64pt;
-  line-height: 56pt;
+  font-size: 48pt;
+  line-height: 40pt;
+  letter-spacing: 1pt;
 }
 
 .home-content p{
   font-family: $font-family-sans-serif;
+  line-height: 15pt;
 }
 
 .container-home, .col-home{
@@ -377,7 +385,7 @@ a.label:hover, a.label:focus {
   position: fixed;
   bottom: 0px;
   width: 100%;
-  padding: 20px;
+  padding: 25px;
 }
 
 .about-link {
