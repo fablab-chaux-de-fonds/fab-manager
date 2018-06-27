@@ -125,18 +125,17 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
         CustomAsset.get {name: 'cgu-file'}, (cgu) ->
           $scope.cgu = cgu.custom_asset
 
+        default_values =
+          email: undefined
+          first_name: undefined
+          last_name: undefined
+          
         # default user's parameters
         try
           if $scope.$stateParams.signup
             default_values = decodeBase64($scope.$stateParams.signup)
         catch e
           console.error(e)
-
-        #obj =
-        #  first_name: 'bob'
-        #  last_name: 'dylan'
-        #  email: 'bob@dylan.blabla'
-        #console.info(encodeBase64(JSON.stringify(obj)))
 
         $scope.user =
           is_allow_contact: true
