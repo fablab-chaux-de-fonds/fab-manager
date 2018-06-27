@@ -1,14 +1,16 @@
 <div class="about-fablab scrollable">
-  <div class="row padder">
+  <div class="row">
     <header class="about-picture">
-      <div class="col-sm-offset-2 col-md-offset-3 col-sm-10 col-md-8">
+      <div class="col-xs-12 about-title">
         <h1 class="about-title text-u-c" ng-bind-html="aboutTitle.value"></h1>
       </div>
     </header>
   </div>
 
   <div class="row padder about-content">
-    <div class="col-sm-offset-1 col-md-offset-3 col-sm-7 col-md-5 col-lg-4 m-b-lg">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6">
       <span ng-bind-html="aboutBody.value"></span>
       <p ng-show="cgu">
         <a href="{{cgu.custom_asset_file_attributes.attachment_url}}" target="_blank" translate>{{ 'read_the_fablab_policy' }}</a>
@@ -16,11 +18,11 @@
       <p ng-show="cgv">
         <a href="{{cgv.custom_asset_file_attributes.attachment_url}}" target="_blank" translate>{{ 'read_the_fablab_s_general_terms_and_conditions' }}</a>
       </p>
-      <h2>Mode de foncionnement</h2>
+      <h2 class="infographie-title">Mode de foncionnement</h2>
       <%= image_tag("infographie.svg", class: 'm-r-sm infographie') %>
     </div>
 
-    <div class="col-sm-offset-0 col-md-offset-0 col-lg-offset-1 col-sm-4 col-md-4">
+    <div class="col-sm-3">
       <%= image_tag("fablab-logo-officiel.svg", class: 'm-r-sm about-logo') %>
       <h2 class="about-title-aside text-u-c" translate translate>{{ 'your_fablab_s_contacts' }}</h2>
       <span ng-bind-html="aboutContacts.value"></span>

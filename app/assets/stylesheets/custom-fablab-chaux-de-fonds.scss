@@ -14,6 +14,14 @@
   background-color: $green-light;
 }
 
+.infographie-title{
+
+}
+
+.about-title{
+  letter-spacing: 1pt;
+}
+
 .h1,
 .h2,
 .h3,
@@ -44,7 +52,7 @@ body {
 }
 
 dt {
-  font-family: $font-family-serif;
+  font-family: $font-family-sans-serif;
 }
 
 dd {
@@ -218,16 +226,15 @@ a.label:hover, a.label:focus {
 
   p {
     color: black;
-    font-family: $font-family-serif;
+    font-family: $font-family-sans-serif;
   }
 
   .about-title-aside {
-    font-family: $font-family-serif;
+    font-family: $font-family-sans-serif;
   }
 
   .about-content {
     background-color: white;
-    padding: 70px 0;
   }
 
   p {
@@ -459,6 +466,9 @@ a.label:hover, a.label:focus {
   .img-bl{
     height: 32px;
     margin: 0 16px 0 0;
+  }
+  about-logo{
+    
   }
 }
 // utilities
