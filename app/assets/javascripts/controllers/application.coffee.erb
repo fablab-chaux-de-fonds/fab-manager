@@ -67,21 +67,6 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
     , (error) ->
       # An error occurred logging out.
 
-  ##
-  # This tool method provide access to query parameters
-  ##
-  getParams = ->
-    query = window.location.search.substring(1)
-    raw_vars = query.split("&")
-
-    params = {}
-
-    for v in raw_vars
-      [key, val] = v.split("=")
-      params[key] = decodeURIComponent(val)
-
-    params
-
   encodeBase64 = (obj) ->
 
     arr = msgpack.encode(obj)
@@ -103,7 +88,7 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
     for i in arr
       arr[i] = str.charCodeAt(i)
 
-    JSON.parse(msgpack.decode(arr))
+    msgpack.decode(arr)
 
   ##
   # Open the modal window allowing the user to create an account.
@@ -140,19 +125,17 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
         CustomAsset.get {name: 'cgu-file'}, (cgu) ->
           $scope.cgu = cgu.custom_asset
 
+        default_values =
+          email: undefined
+          first_name: undefined
+          last_name: undefined
+          
         # default user's parameters
         try
-          args = getParams()
-          if args
-            default_values = decodeBase64(args['u'])
+          if $scope.$stateParams.signup
+            default_values = decodeBase64($scope.$stateParams.signup)
         catch e
           console.error(e)
-
-        #obj =
-        #  first_name: 'bob'
-        #  last_name: 'dylan'
-        #  email: 'bob@dylan.blabla'
-        #console.info(encodeBase64(JSON.stringify(obj)))
 
         $scope.user =
           is_allow_contact: true
