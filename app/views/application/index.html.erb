@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>" ng-app="application" class="app">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <title><%= Setting.find_by(name: 'fablab_name').value %></title>
+    <title><%= Setting.find_by(name: 'fablab_name').value %></title>
 
-  <% if ENV['DEFAULT_HOST'] == 'fablab.lacasemate.fr' %>
-    <script type="text/javascript" src="//use.typekit.net/rih5zfr.js"></script>
-    <script type="text/javascript">
+    <% if ENV['DEFAULT_HOST'] == 'fablab.lacasemate.fr' %>
+      <script type="text/javascript" src="//use.typekit.net/rih5zfr.js"></script>
+      <script type="text/javascript">
         try {
-            Typekit.load();
-        } catch (e) {
-        }
-    </script>
-  <% else %>
-    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
-  <% end %>
-  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-  <script type="text/javascript">
+          Typekit.load();
+        } catch (e) {}
+      </script>
+    <% else %>
+      <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <% end %>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript">
       Stripe.setPublishableKey('<%= Rails.application.secrets.stripe_publishable_key %>');
 
       var Fablab = Fablab || {};
@@ -41,12 +40,12 @@
       Fablab.fullcalendar_locale = "<%= Rails.application.secrets.fullcalendar_locale %>";
       Fablab.timezone = "<%= Time.zone.tzinfo.name %>";
       Fablab.translations = {
-          app: {
-              shared: {
-                  buttons: <%= I18n.t('app.shared.buttons').to_json.html_safe %>,
-                  messages: <%= I18n.t('app.shared.messages').to_json.html_safe %>
-              }
+        app: {
+          shared: {
+            buttons: <%= I18n.t('app.shared.buttons').to_json.html_safe %>,
+            messages: <%= I18n.t('app.shared.messages').to_json.html_safe %>
           }
+        }
       };
       Fablab.weekStartingDay = <%= Date.parse(Rails.application.secrets.week_starting_day).strftime('%w') %>;
       Fablab.d3DateFormat = "<%= Rails.application.secrets.d3_date_format %>";
@@ -57,106 +56,101 @@
       <% else %>
       Fablab.openlabAppId = null;
       <% end %>
-  </script>
+    </script>
 
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= stylesheet_link_tag 'app.printer', media: 'print' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag 'app.printer', media: 'print' %>
 
-  <base href="/"></base>
+    <base href="/"></base>
 
-  <% if CustomAsset.get_url('favicon-file') %>
-    <link rel="shortcut icon" type="image/x-icon" href="<%= CustomAsset.get_url('favicon-file') %>">
-    <link rel="shortcut icon" type="image/ico" href="<%= CustomAsset.get_url('favicon-file') %>">
-  <% end %>
+    <% if CustomAsset.get_url('favicon-file') %>
+      <link rel="shortcut icon" type="image/x-icon" href="<%= CustomAsset.get_url('favicon-file') %>">
+      <link rel="shortcut icon" type="image/ico" href="<%= CustomAsset.get_url('favicon-file') %>">
+    <% end %>
 
-  <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS: <%= t('app.public.projects_list.the_fablab_projects') %>" href="<%= rss_projects_path %>.xml">
-  <link rel="alternate" type="application/rss+xml" title="RSS: <%= t('app.public.events_list.the_fablab_s_events') %>" href="<%= rss_events_path %>.xml">
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS: <%= t('app.public.projects_list.the_fablab_projects') %>" href="<%= rss_projects_path %>.xml">
+    <link rel="alternate" type="application/rss+xml" title="RSS: <%= t('app.public.events_list.the_fablab_s_events') %>" href="<%= rss_events_path %>.xml">
 
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
-</head>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+  </head>
 
-<body ng-controller="ApplicationController" ng-init="setCurrentUser(<%= current_user ? current_user.to_builder.target! : 'null' %>)" ng-cloak="ng-cloak">
-<div growl="growl"></div>
+  <body ng-controller="ApplicationController" ng-init="setCurrentUser(<%= current_user ? current_user.to_builder.target! : 'null' %>)" ng-cloak="ng-cloak">
+    <div growl="growl"></div>
 
-<%= flash_messages %>
+    <%= flash_messages %>
 
-<section class="vbox">
+    <section class="vbox">
 
-  <header class="header header-md navbar navbar-fixed-top-xs">
-    <div ui-view="header"></div>
-  </header>
+      <header class="header header-md navbar navbar-fixed-top-xs">
+        <div ui-view="header"></div>
+      </header>
 
-  <section ui-view="content">
+      <section ui-view="content">
 
-    <section class="hbox stretch">
-      <aside id="nav" class="aside-md bg-red hidden-print" ui-view="leftnav"></aside>
+        <section class="hbox stretch">
+          <aside id="nav" class="aside-md bg-red hidden-print" ui-view="leftnav"></aside>
 
-      <section id="content">
-        <section class="vbox">
-          <%= image_tag("fablab - F.svg", class: 'm-r-sm img-fg img-tl img-fl') %>
-          <div class="container-home">
-            <div class="row">
-              <div class="col-sm-4 col-home">
-              </div>
-
-              <div class="col-sm-4 col-home">
-                <div class="home home-top">
-                  RUE DE LA</br>SERRE</br>68</br>
+          <section id="content">
+            <section class="vbox">
+              <%= image_tag("fablab - F.svg", class: 'm-r-sm img-fg img-tl img-fl') %>
+              <div class="container-home">
+                <div class="row visible-xs visible-sm visible-md">
+                    <%= image_tag("fablab-accueil-mobile.svg", class: 'm-r-sm img-mobile') %>
                 </div>
-              </div>
-
-              <div class="col-sm-4 col-home">
-              </div>
-
-            </div>
+                <div class="row hidden-xs hidden-sm hidden-md">
+                  <div class="col-sm-4 col-home"></div>
+                  <div class="col-sm-4 col-home">
+                    <div class="home home-top">
+                      RUE DE LA</br>SERRE</br>68</br>
+                    </div>
+                  </div>
+                <div class="col-sm-4 col-home"></div>
           </div>
-          <div class="row" ng-if="$state.current.name == 'app.public.home'">
-            <div class="col-sm-4 col-home">
-              <div class="home home-left">
-                INAUGURATION</br>31.08.2018</br>DÈS 17H</br>
-              </div>
-            </div>
-            <div class="col-sm-4 col-home">
-              <div class="home home-center">
-                <div class="home-title">
-                  Ouverture
-                </div>
-                <div class="home-content">
-                  <p>Depuis 2 ans, nous travaillons d’arrache-pied à l’implantation d’un FabLab ici autour. A présent,
-                    nous sommes fiers de vous annoncer son ouverture au coeur de la Chaux-de-Fonds, à côté de la Maison
-                    du Peuple.</p>
-                  <p>Restez connecté!</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 col-home">
-              <div class="home home-right">
-                PORTE OUVERTE</br>01.09.2018</br>10H - 17H</br>
-              </div>
-            </div>
-          </div>
+        </div>
+        <div class="row hidden-xs hidden-sm hidden-md" ng-if="$state.current.name == 'app.public.home'">
+          <div class="col-sm-4 col-home">
+            <div class="home home-left">
+              INAUGURATION</br>31.08.2018</br>DÈS 17H</br>
+      </div>
+    </div>
+    <div class="col-sm-4 col-home">
+      <div class="home home-center">
+        <div class="home-title">
+          Ouverture
+        </div>
+        <div class="home-content">
+          <p>Depuis 2 ans, nous travaillons d’arrache-pied à l’implantation d’un FabLab ici autour. A présent, nous sommes fiers de vous annoncer son ouverture au coeur de la Chaux-de-Fonds, à côté de la Maison du Peuple.</p>
+          <p>Restez connecté!</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-home">
+      <div class="home home-right">
+        PORTE OUVERTE</br>01.09.2018</br>10H - 17H</br>
+</div>
+</div>
+</div>
+</div>
 
-          <section id="content-main" class="scrollable" ui-view="main"></section>
-          <div class="footer">
-            <%= image_tag("fablab - L.svg", class: 'm-r-sm img-fg img-br img-fl') %>
-            <div ng-if="$state.current.name == 'app.public.home'">
-              <%= image_tag("fablab-perceuse.svg", class: 'm-r-sm img-perceuse img-bl home') %>
-              <div class="img-social">
-                <a href="https://www.facebook.com/FabLab-Chaux-de-Fonds"><%= image_tag("fablab-picto-facebook.svg", class: 'm-r-sm img-fg img-bl') %></a>
-                <a href="https://www.instagram.com/fablab-chaux-de-fonds"><%= image_tag("fablab-picto-instagram.svg", class: 'm-r-sm img-fg img-bl') %></a>
-              </div>
-            </div>
-          </div>
-        </section>
-      </section>
-    </section>
+<section id="content-main" class="scrollable" ui-view="main"></section>
+<div class="footer">
+<%= image_tag("fablab - L.svg", class: 'm-r-sm img-fg img-br img-fl') %>
+<div ng-if="$state.current.name == 'app.public.home'">
+<%= image_tag("fablab-perceuse.svg", class: 'm-r-sm img-perceuse img-bl home') %>
+<div class="img-social">
+<a href="https://www.facebook.com/FabLabChauxDeFonds"><%= image_tag("fablab-picto-facebook.svg", class: 'm-r-sm img-fg img-bl') %></a>
+<a href="https://www.instagram.com/fablab_chaux_de_fonds"><%= image_tag("fablab-picto-instagram.svg", class: 'm-r-sm img-fg img-bl') %></a>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
 
-    <!-- /.hbox -->
-  </section>
+<!-- /.hbox -->
+</section>
 
 </section>
 <!-- /.vbox -->
@@ -169,7 +163,7 @@
 
 <!-- if required locale does not exist, use the default "en" -->
 <% if Rails.application.assets.find_asset "moment/locale/#{Rails.application.secrets.moment_locale}.js" %>
-  <script type="text/javascript" src="<%= asset_path "moment/locale/#{Rails.application.secrets.moment_locale}.js" %>"></script>
+<script type="text/javascript" src="<%= asset_path "moment/locale/#{Rails.application.secrets.moment_locale}.js" %>"></script>
 <%
   elsif Rails.application.secrets.moment_locale != 'en'
     raise LoadError, "moment/locale/#{Rails.application.secrets.moment_locale}.js does not exists"
@@ -177,7 +171,7 @@
 %>
 <!-- if required locale does not exist, use the default "en-US" -->
 <% if Rails.application.assets.find_asset "summernote/lang/summernote-#{Rails.application.secrets.summernote_locale}.js" %>
-  <script type="text/javascript" src="<%= asset_path "summernote/lang/summernote-#{Rails.application.secrets.summernote_locale}.js" %>"></script>
+<script type="text/javascript" src="<%= asset_path "summernote/lang/summernote-#{Rails.application.secrets.summernote_locale}.js" %>"></script>
 <%
   elsif Rails.application.secrets.summernote_locale != 'en-US'
     raise LoadError, "summernote/lang/summernote-#{Rails.application.secrets.summernote_locale}.js does not exists"
@@ -185,7 +179,7 @@
 %>
 <!-- if required locale does not exist, use the default "en" -->
 <% if Rails.application.assets.find_asset "fullcalendar/dist/lang/#{Rails.application.secrets.fullcalendar_locale}.js" %>
-  <script type="text/javascript" src="<%= asset_path "fullcalendar/dist/lang/#{Rails.application.secrets.fullcalendar_locale}.js" %>"></script>
+<script type="text/javascript" src="<%= asset_path "fullcalendar/dist/lang/#{Rails.application.secrets.fullcalendar_locale}.js" %>"></script>
 <%
   elsif Rails.application.secrets.fullcalendar_locale != 'en'
     raise LoadError, "fullcalendar/dist/lang/#{Rails.application.secrets.fullcalendar_locale}.js does not exists"

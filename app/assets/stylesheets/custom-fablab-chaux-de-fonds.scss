@@ -451,6 +451,12 @@ a.label:hover, a.label:focus {
 .dropdown-menu > li > a {
   color: $blue;
 }
+
+.img-mobile{
+  display: block;
+  margin: 50px 100px;
+}
+
 // Responsive
 @media screen and (max-width: $screen-sm-min) {
   .img-tl {
@@ -480,6 +486,9 @@ a.label:hover, a.label:focus {
   .about-logo{
     top: 0;
     padding: 30px 0;
+  }
+  .img-perceuse{
+    display: none;
   }
 }
 // utilities
