@@ -73,7 +73,7 @@ angular.module('application.router', ['ui.router'])
             Translations.query('app.public.about').$promise
           ]
       .state 'app.public.home',
-        url: '/?reset_password_token'
+        url: '/?reset_password_token&signup'
         views:
           'main@':
             templateUrl: '<%= asset_path "home.html" %>'
@@ -124,8 +124,6 @@ angular.module('application.router', ['ui.router'])
           translations: [ 'Translations', (Translations) ->
             Translations.query(['app.logged.profileCompletion', 'app.shared.user']).$promise
           ]
-
-
 
       # dashboard
       .state 'app.logged.dashboard',

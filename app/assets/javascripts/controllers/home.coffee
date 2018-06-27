@@ -46,8 +46,8 @@ Application.Controllers.controller "HomeController", ['$scope', '$stateParams', 
     # changePassword modal from the parent controller
     if $stateParams.reset_password_token
       $scope.$parent.editPassword($stateParams.reset_password_token)
-
-
+    if $stateParams.signup
+      $scope.$parent.signup()
 
   ## !!! MUST BE CALLED AT THE END of the controller
   initialize()
