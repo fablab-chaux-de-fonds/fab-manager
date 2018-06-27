@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Noe Display';
+  src: url(asset-path('fonts/Noe Display Black.otf'));
+}
+
+@font-face {
+  font-family: 'GT Pressura';
+  src: url(asset-path('fonts/GTPressura-Bold.otf'));
+}
+
 .infographie {
   width: 100%;
   padding: 20px;
@@ -127,7 +137,11 @@ td[id^="datepicker"] > .btn {
 }
 
 .picto-about{
-  height: 25px;
+  height: 40px;
+}
+
+.about-link{
+  padding: 16.5px !important;
 }
 
 .widget {
@@ -266,12 +280,12 @@ a.label:hover, a.label:focus {
 
 .img-fg {
   z-index: 1025;
-  margin: 50px;
+  margin: 25px;
 }
 
 .img-tl {
   position: relative;
-  top: -110px;
+  top: -64px;
   left: 0;
 }
 
@@ -283,7 +297,7 @@ a.label:hover, a.label:focus {
 .img-bl {
   position: relative;
   left: 0;
-  height: 50px;
+  height: 40px;
   margin: 0 25px 0 0;
 }
 
@@ -294,28 +308,76 @@ a.label:hover, a.label:focus {
 }
 
 .img-fl {
-  height: 120px;
+  width: 48px;
 }
 
 .img-social{
     margin: 0;
 }
 
+.img-perceuse{
+  width: 208px;
+  height: auto;
+  margin-left: 50px;
+}
+
 .img-txt {
   height: 16px;
 }
 
+.navbar-brand{
+  padding: 0;
+}
 .header {
   &.navbar {
     // position: relative;
   }
 }
 
+.home {
+  color: $red;
+  font-size: 25pt;
+  line-height: 28pt;
+  z-index: 1025;
+  text-align: center;
+}
+
+.home-top{
+  position: relative;
+  top: -188px;
+}
+
+.home-left{
+    transform: rotate(-90deg);
+    width: 201px;
+  }
+
+.home-right{
+    transform: rotate(90deg);
+    width: 254px;
+    position: fixed;
+    right: -50px;
+  }
+
+.home-title{
+  font-family: $font-family-serif;
+  font-size: 64pt;
+  line-height: 56pt;
+}
+
+.home-content p{
+  font-family: $font-family-sans-serif;
+}
+
+.container-home, .col-home{
+  padding: 0;
+}
+
 .footer {
   position: fixed;
   bottom: 0px;
   width: 100%;
-  padding: 50px;
+  padding: 20px;
 }
 
 .about-link {
