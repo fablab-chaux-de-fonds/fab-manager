@@ -15,11 +15,13 @@
 }
 
 .infographie-title{
-
-}
-
-.about-title{
-  letter-spacing: 1pt;
+  text-align: center;
+  font-family: $font-family-serif;
+  background-color: $green-light;
+  color: $red;
+  font-size: 20pt;
+  margin: 0;
+  padding: 30px;
 }
 
 .h1,
@@ -219,14 +221,22 @@ a.label:hover, a.label:focus {
   color: $blue;
   font-family: $font-family-serif;
   text-align: center;
+  letter-spacing: 1pt;
+  font-size: 40pt;
+  line-height: 50pt;
 }
 
 .about-fablab {
   background-color: white;
+  padding: 10px;
 
   p {
-    color: black;
+    color: $blue;
     font-family: $font-family-sans-serif;
+  }
+
+  a {
+    color: $red;
   }
 
   .about-title-aside {
@@ -235,10 +245,6 @@ a.label:hover, a.label:focus {
 
   .about-content {
     background-color: white;
-  }
-
-  p {
-    color: black;
   }
 }
 
@@ -283,6 +289,7 @@ a.label:hover, a.label:focus {
 .about-logo {
   position: relative;
   top: -120px;
+  width: 100%;
 }
 
 .img-fg {
@@ -467,8 +474,12 @@ a.label:hover, a.label:focus {
     height: 32px;
     margin: 0 16px 0 0;
   }
-  about-logo{
-    
+  .about-contact{
+
+  }
+  .about-logo{
+    top: 0;
+    padding: 30px 0;
   }
 }
 // utilities
