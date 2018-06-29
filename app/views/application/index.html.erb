@@ -99,7 +99,7 @@
         <section class="vbox">
           <%= image_tag("fablab - F.svg", class: 'm-r-sm img-fg img-tl img-fl') %>
           <div class="container-home">
-            <div class="row visible-xs">
+            <div class="row visible-xs" ng-if="$state.current.name == 'app.public.home'">
               <%= image_tag("fablab-accueil-mobile.svg", class: 'm-r-sm img-mobile') %>
             </div>
             <div class="row hidden-xs">
