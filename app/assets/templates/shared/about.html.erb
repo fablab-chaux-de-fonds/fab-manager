@@ -1,16 +1,20 @@
 <div class="about-fablab scrollable">
-  <div class="row">
-    <header class="about-picture">
-      <div class="col-xs-12 about-title">
+  <div class="row about-title">
+    <div class="col-sm-4">
+    </div>
+      <div class="col-sm-4">
+        <header class="about-picture">
         <h1 class="about-title text-u-c" ng-bind-html="aboutTitle.value"></h1>
+      </header>
       </div>
-    </header>
+    <div class="col-sm-4">
+    </div>
   </div>
 
   <div class="row padder about-content">
-    <div class="col-sm-3">
+    <div class="col-sm-4">
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-4">
       <span ng-bind-html="aboutBody.value"></span>
       <p ng-show="cgu">
         <a href="{{cgu.custom_asset_file_attributes.attachment_url}}" target="_blank" translate>{{ 'read_the_fablab_policy' }}</a>
