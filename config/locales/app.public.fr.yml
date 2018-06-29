@@ -8,6 +8,7 @@ fr:
 
         # sections du tableau de bord
         dashboard: "Tableau de bord"
+        about: "A propos"
         my_profile: "Mon profil"
         my_settings: "Mes paramètres"
         my_projects: "Mes projets"

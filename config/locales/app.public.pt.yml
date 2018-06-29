@@ -8,6 +8,7 @@ pt:
 
           # dashboard sections
           dashboard: "Dashboard"
+          about: 'Sobre'
           my_profile: "Meu Perfil"
           my_settings: "Minhas Configurações"
           my_projects: "Meus Projetos"
