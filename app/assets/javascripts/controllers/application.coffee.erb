@@ -129,17 +129,19 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
           email: undefined
           first_name: undefined
           last_name: undefined
+          is_allow_newsletter: false
           
         # default user's parameters
         try
           if $scope.$stateParams.signup
             default_values = decodeBase64($scope.$stateParams.signup)
+            default_values.is_allow_newsletter = true
         catch e
           console.error(e)
 
         $scope.user =
           is_allow_contact: true
-          is_allow_newsletter: false
+          is_allow_newsletter: default_values.is_allow_newsletter
           email: default_values.email
           profile_attributes:
             first_name: default_values.first_name
