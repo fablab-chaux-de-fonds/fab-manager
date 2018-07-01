@@ -166,6 +166,7 @@
             <span class="help-block" ng-show="signupForm.group_id.$dirty && signupForm.group_id.$error.required" translate>{{ 'user_s_profile_is_required' }}</span>
           </div>
         </div>
+        <input type="hidden" ng-model="user.group_id" name="group_id" ng-if="useSimpleSignupForm" />
 
         <div class="form-group" ng-class="{'has-error': signupForm.birthday.$dirty && signupForm.birthday.$invalid}">
           <div class="col-sm-12">

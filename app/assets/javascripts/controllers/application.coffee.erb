@@ -119,7 +119,9 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
 
         # retrieve the groups (standard, student ...)
         Group.query (groups) ->
-          $scope.groups = groups
+          $scope.groups = groups.filter((g) -> g.disabled == null)
+          if groups.length > 0
+            $scope.user.group_id = $scope.groups[0].id
 
         # retrieve the CGU
         CustomAsset.get {name: 'cgu-file'}, (cgu) ->
@@ -130,7 +132,7 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
           first_name: undefined
           last_name: undefined
           is_allow_newsletter: false
-          
+
         # default user's parameters
         try
           if $scope.$stateParams.signup
@@ -143,6 +145,7 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
           is_allow_contact: true
           is_allow_newsletter: default_values.is_allow_newsletter
           email: default_values.email
+          group_id: default_values.group_id
           profile_attributes:
             first_name: default_values.first_name
             last_name: default_values.last_name
