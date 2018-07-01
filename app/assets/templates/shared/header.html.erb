@@ -1,24 +1,22 @@
 <div class="navbar-header">
-  <a ng-click="toggleNavSize($event)" class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav"><i class="fa fa-bars"></i></a>
-  <a ui-sref="app.public.home" class="navbar-brand" ng-click="goabout = false">
-    <img ng-src="{{logo.custom_asset_file_attributes.attachment_url}}" alt="{{logo.custom_asset_file_attributes.attachment}}" class="m-r-sm"/>
-    <%= raw "<label class='label-staging label label-warning text-sm hidden-sm hidden-xs'>Staging</label>" if Rails.env.staging? %>
+  <a ng-click="toggleNavSize($event)" class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav" ng-if="$state.current.name != 'app.public.about'">
+    <i class="fa fa-bars"></i>
   </a>
+  <a class="btn btn-link visible-xs"ui-sref="app.public.home" ng-if="$state.current.name == 'app.public.about'">
+    <i class="fa fa-home"></i>
+  </a>
+  <%= raw "<label class='label-staging label label-warning text-sm hidden-sm hidden-xs'>Staging</label>" if Rails.env.staging? %>
 </div>
 
 <ul class="nav navbar-nav hidden-xs">
   <li>
     <a href class="about-link font-sbold text-sm" ui-sref="app.public.about" ng-show="$state.current.name != 'app.public.about'">
-      <!-- <span class="label label-theme rounded text-lg text-green-light m-r-sm font-ebold">?</span> -->
-      <!-- {{ 'about_the_fablab' | translate:{ GENDER: nameGenre, NAME: fablabName }:"messageformat" }} -->
       <%= image_tag("fablab-picto-about.svg", class: 'm-r-sm picto-about') %>
+      {{ 'about_the_fablab' | translate:{ GENDER: nameGenre, NAME: fablabName }:"messageformat" }}
     </a>
     <a href class="about-link font-sbold text-sm" ui-sref="app.public.home" ng-show="$state.current.name == 'app.public.about'">
-      <!-- <span class="label label-theme label-icon rounded text-lg text-white m-r-sm font-ebold"><i class="fa fa-caret-up" ng-show="goabout"></i></span> -->
-      <!-- {{ 'return' | translate }} -->
-      <%= image_tag("fablab-picto-retour.svg", class: 'm-r-sm picto-about') %> Retour
-
-      </div>
+      <%= image_tag("fablab-picto-retour.svg", class: 'm-r-sm picto-about') %>
+      {{ 'return' | translate }}
     </a>
   </li>
 </ul>
