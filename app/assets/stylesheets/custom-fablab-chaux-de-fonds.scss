@@ -55,13 +55,11 @@ body {
 
 dt {
   font-family: $font-family-sans-serif;
-}
-
-dd {
   color: $red;
-  font-weight: 700;
 }
-
+dd{
+  color: $blue;
+}
 .footer > .btn {
   background-color: $red;
 
@@ -482,7 +480,7 @@ a.label:hover, a.label:focus {
   }
 
   .img-fl{
-    height: 50px;
+    width: 24px;
   }
 
   .img-bl{
