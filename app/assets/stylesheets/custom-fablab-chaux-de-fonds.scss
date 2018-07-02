@@ -39,6 +39,8 @@ h4 {
 
 p {
   font-family: $font-family-serif;
+  font-size: 1.6rem !important;
+  line-height: 15pt !important;
 }
 
 a {
@@ -237,9 +239,8 @@ a.label:hover, a.label:focus {
   p {
     color: $blue;
     font-family: $font-family-sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
     padding: 4px 0;
+    text-align: left;
   }
 
   a {
