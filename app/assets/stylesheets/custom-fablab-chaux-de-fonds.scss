@@ -295,9 +295,8 @@ a.label:hover, a.label:focus {
 }
 
 .about-logo {
-  position: relative;
-  top: -120px;
   width: 100%;
+  padding: 10px;
 }
 
 .img-fg {
@@ -410,6 +409,11 @@ a.label:hover, a.label:focus {
   padding: 25px;
 }
 
+.about-contact{
+  position: relative;
+  top: -120px;
+}
+
 .about-link {
   .label {
     padding: 10px 10px 0;
@@ -489,7 +493,8 @@ a.label:hover, a.label:focus {
     margin: 0 16px 0 0;
   }
   .about-contact{
-
+    position: relative;
+    top: 0px;
   }
   .about-logo{
     top: 0;
