@@ -223,8 +223,8 @@ a.label:hover, a.label:focus {
   font-family: $font-family-serif;
   text-align: center;
   letter-spacing: 1pt;
-  font-size: 25pt;
-  line-height: 30pt;
+  font-size: 25pt !important;
+  line-height: 30pt !important;
 }
 
 .about-fablab .about-picture {
