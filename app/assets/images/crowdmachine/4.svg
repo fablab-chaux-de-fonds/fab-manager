@@ -16,7 +16,10 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.2 2405546, 2018-03-11"
-   sodipodi:docname="4.svg">
+   sodipodi:docname="4.svg"
+   inkscape:export-filename="/home/raphael/Documents/FabLab/website/fab-manager/app/assets/images/crowdmachine/4_800x800.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -27,7 +30,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="154.06189"
+     inkscape:cx="-127.36668"
      inkscape:cy="385.86858"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -58,11 +61,11 @@
     <image
        sodipodi:absref="/home/raphael/Documents/FabLab/website/fab-manager/app/assets/images/crowdmachine/4.jpg"
        xlink:href="4.jpg"
-       width="211.66667"
-       height="157.76222"
-       preserveAspectRatio="none"
-       id="image824"
+       y="112.28555"
        x="-2.5431316e-06"
-       y="112.28555" />
+       id="image824"
+       preserveAspectRatio="none"
+       height="157.76222"
+       width="211.66667" />
   </g>
 </svg>
