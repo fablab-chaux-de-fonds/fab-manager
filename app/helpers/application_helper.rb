@@ -3,6 +3,9 @@ module ApplicationHelper
 	include Twitter::Autolink
 	require 'message_format'
 
+	# Wallet minimal authorized amount
+	WALLET_MINIMAL_AMOUNT = -(Rails.application.secrets.fablab_authorized_user_credit * 100)
+
 	## machine/spaces availabilities are divided in multiple slots of 60 minutes
 	SLOT_DURATION ||= 60
 
