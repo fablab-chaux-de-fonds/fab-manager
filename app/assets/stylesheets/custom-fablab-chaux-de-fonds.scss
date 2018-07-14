@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'Noe Display';
-  src: url("asset-path(\'fonts/Noe Display Black.otf\')");
+  src: url(asset-path('fonts/Noe Display Black.otf'));
 }
 @font-face {
   font-family: 'GT Pressura';
-  src: url("asset-path(\'fonts/GTPressura-Bold.otf\')");
+  src: url(asset-path('fonts/GTPressura-Bold.otf'));
 }
 
 .infographie {
@@ -349,6 +349,10 @@ a.label:hover {
   height: 16px;
 }
 
+.img-crowdmachine {
+  width: 100%
+}
+
 .navbar-brand {
   padding: 0;
 }
@@ -521,6 +525,12 @@ a.label:hover {
 .rounded {
   background-color: $blue;
 }
+
+.crowdmachine-repeat {
+  display: inline-block;
+  padding-right: 10px;
+}
+
 
 ::placeholder {
   opacity: 1;
