@@ -37,7 +37,7 @@ h4 {
 }
 
 p {
-  font-family: $font-family-serif;
+  font-family: $font-family-sans-serif;
   font-size: 1.6rem !important;
   line-height: 15pt !important;
 }
@@ -299,7 +299,7 @@ a.label:hover {
 
 .about-logo {
   width: 100%;
-  padding: 10px;
+  padding: 10px 0;
 }
 
 .img-fg {

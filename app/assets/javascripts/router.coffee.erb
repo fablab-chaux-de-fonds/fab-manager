@@ -660,6 +660,17 @@ angular.module('application.router', ['ui.router'])
             translations: [ 'Translations', (Translations) ->
               Translations.query(['app.public.crowdmachine']).$promise
             ]
+      .state 'app.public.crowdmachine_show',
+        url: '/crowdmachine/:id'
+        views:
+          'main@':
+            templateUrl: '<%= asset_path "crowdmachine/show.html.erb" %>'
+            controller: 'ShowCrowdmachineController'
+        resolve:
+            translations: [ 'Translations', (Translations) ->
+              Translations.query(['app.public.crowdmachine']).$promise
+            ]
+
 
       # --- namespace /admin/... ---
       # calendar

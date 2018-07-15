@@ -285,7 +285,8 @@ fr:
           crowdmachine: "Crowdmachine"
           info: "Plus d'info"
           contribute: "Contribuer"
-
+          description: "Description"
+          specification: "Spécification"
 
       spaces_list:
         # liste des espaces

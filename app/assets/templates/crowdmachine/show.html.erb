@@ -9,8 +9,28 @@
     </div>
     <div class="col-xs-10 col-sm-10 col-md-8 b-l b-r-md hide-b-r-lg">
       <section class="heading-title">
-        <h1>{{ 'crowdmachine.crowdmachine' | translate}}</h1>
+        <h1>{{ 'crowdmachine.crowdmachine' | translate}}
+          -
+          {{data.title}}</h1>
       </section>
     </div>
+  </div>
+</section>
+
+<section class="row wrapper-lg">
+  <div class=" col-md-4">
+    <%= image_tag("/assets/crowdmachine/{{ data.id }}_800x800.png", class: 'img-responsive') %>
+  </div>
+  <div class="col-md-4">
+    <h2>{{'crowdmachine.description' | translate}}</h2>
+    <p>{{data.description}}<p>
+    <h2>{{'crowdmachine.specification' | translate}}</h2>
+    <ul>
+      <li ng-repeat="i in data.specification">{{i}}</li>
+    </ul>
+    <a href="mailto:info@fablab-chaux-de-fonds.ch?subject=[{{ 'crowdmachine.crowdmachine' | translate}}] - {{ data.title }}" class="btn btn-primary btn-crowdmachine">
+      <i class="fa fa-envelope"></i>
+      {{ 'crowdmachine.contribute' | translate}}
+    </a>
   </div>
 </section>
