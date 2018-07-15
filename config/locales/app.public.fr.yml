@@ -283,6 +283,9 @@ fr:
         # crowdmachine publique
         crowdmachine:
           crowdmachine: "Crowdmachine"
+          info: "Plus d'info"
+          contribute: "Contribuer"
+
 
       spaces_list:
         # liste des espaces

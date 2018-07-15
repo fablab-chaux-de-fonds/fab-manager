@@ -20,11 +20,21 @@
   <div class="wrapper-lg">
     <div ng-repeat="i in data" class="crowdmachine-repeat col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <div class="card crowdmachine-card">
-        <%= image_tag("/assets/crowdmachine/{{ i.id }}_800x800.png", class: 'img-crowdmachine') %>
-        <div class="card-body">
-          <h5 class="card-title">{{ i.title }}</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="img-crowdmachine">
+          <%= image_tag("/assets/crowdmachine/{{ i.id }}_800x800.png", class: 'img-responsive img-crowdmachine-src') %>
+          <div class='overlay'>
+            <div class="btn-overlay">
+              <a href="#" class="btn btn-primary btn-crowdmachine">
+                <i class="fa fa-info-circle"></i> {{ 'crowdmachine.info' | translate}}
+              </a>
+              <a href="mailto:info@fablab-chaux-de-fonds?subject=[{{ 'crowdmachine.crowdmachine' | translate}}] - {{ i.title }}" class="btn btn-primary btn-crowdmachine">
+                <i class="fa fa-envelope"></i> {{ 'crowdmachine.contribute' | translate}}
+              </a>
+            </div>
+          </div>
+        </div>
+          <div class="card-body">
+          <p class="text-center">{{ i.title }}</p>
         </div>
       </div>
     </div>
