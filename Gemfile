@@ -89,7 +89,7 @@ gem 'kaminari'
 gem 'figaro'
 
 gem 'bootstrap-sass'
-gem 'font-awesome-rails'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 
 #using bower instead
 #gem 'angularjs-rails'
