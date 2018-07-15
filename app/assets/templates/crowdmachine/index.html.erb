@@ -23,11 +23,12 @@
         <div class="img-crowdmachine">
           <%= image_tag("/assets/crowdmachine/{{ i.id }}_800x800.png", class: 'img-responsive img-crowdmachine-src') %>
           <div class='overlay'>
+            <div class='overlay-layer'></div>
             <div class="btn-overlay">
               <a href="#" class="btn btn-primary btn-crowdmachine">
                 <i class="fa fa-info-circle"></i> {{ 'crowdmachine.info' | translate}}
               </a>
-              <a href="mailto:info@fablab-chaux-de-fonds?subject=[{{ 'crowdmachine.crowdmachine' | translate}}] - {{ i.title }}" class="btn btn-primary btn-crowdmachine">
+              <a href="mailto:info@fablab-chaux-de-fonds.ch?subject=[{{ 'crowdmachine.crowdmachine' | translate}}] - {{ i.title }}" class="btn btn-primary btn-crowdmachine">
                 <i class="fa fa-envelope"></i> {{ 'crowdmachine.contribute' | translate}}
               </a>
             </div>

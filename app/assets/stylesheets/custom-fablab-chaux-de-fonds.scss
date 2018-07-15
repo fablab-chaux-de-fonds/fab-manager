@@ -372,25 +372,34 @@ a.label:hover {
 }
 
 .overlay {
-  background: $blue;
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  opacity: .2;
+
   transition: .5s ease;
 
   &.active,
   &:focus,
   &:hover {
     background: rgba($red, .2);
-    opacity: 1;
 
     & .btn-overlay {
       display: block;
     }
   }
+
+}
+
+.overlay-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba($blue, .2);
+
 }
 
 .navbar-brand {
@@ -557,8 +566,8 @@ a.label:hover {
     display: none;
   }
 
-  .btn {
-    display: inline-block;
+  .btn-overlay {
+    display: block;
   }
 }
 // utilities
