@@ -15,17 +15,37 @@
     <div class="col-sm-3">
     </div>
     <div class="col-sm-6">
-      <span ng-bind-html="aboutBody.value"></span>
+      <!-- <span ng-bind-html="aboutBody.value"></span>
       <p ng-show="cgu">
         <a href="{{cgu.custom_asset_file_attributes.attachment_url}}" target="_blank" translate>{{ 'read_the_fablab_policy' }}</a>
       </p>
       <p ng-show="cgv">
         <a href="{{cgv.custom_asset_file_attributes.attachment_url}}" target="_blank" translate>{{ 'read_the_fablab_s_general_terms_and_conditions' }}</a>
-      </p>
-      <div class="infographie-footer">
-        <p>Encore des questions ?</p>
-        <p><a href="http://fab.cba.mit.edu/about/charter">Consultez la charte des FabLabs</a></p>
+      </p> -->
+
+      <h2>{{what_is_a_fablab.title}}</h2>
+      <div ng-repeat="i in what_is_a_fablab.content">
+        <p> {{ i }} </p>
       </div>
+      <p><a href="{{ 'what_is_a_fablab.link_to' }}">  {{what_is_a_fablab.link_body}} </a></p>
+      <%= image_tag("about/what_is_a_fablab.svg", class: 'm-r-sm img-responsive img-about') %>
+
+      <h2>{{ fablab_chaux_de_fonds.title }}</h2>
+      <div ng-repeat="i in fablab_chaux_de_fonds.content">
+        <p> {{ i }} </p>
+      </div>
+      <%= image_tag("about/what_we_find_in_a_fablab.svg", class: 'm-r-sm img-responsive img-about') %>
+
+      <h2>{{ how_to.title }}</h2>
+      <div ng-repeat="i in how_to.content">
+        <p> {{ i }} </p>
+      </div>
+
+      <div ng-repeat="i in conclusion.content" class="about-conclusion">
+        <p> {{ i }} </p>
+      </div>
+
+
     </div>
 
     <div class="col-sm-3 about-contact">
