@@ -103,7 +103,7 @@ angular.module('application.router', ['ui.router'])
         url: '/profile_completion'
         views:
           'main@':
-            templateUrl: '<%= asset_path "profile/complete.html"%>'
+            templateUrl: '<%= asset_path "profile/complete-simple.html"%>'
             controller: 'CompleteProfileController'
         resolve:
           settingsPromise: ['Setting', (Setting)->
