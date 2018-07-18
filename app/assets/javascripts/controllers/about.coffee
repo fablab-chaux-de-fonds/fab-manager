@@ -26,7 +26,6 @@ Application.Controllers.controller "AboutController", ['$scope', 'Setting', 'Cus
       title: 'Qu’est ce qu’un fablab?',
       content: [
         'Contraction de ‘Laboratoire de Fabrication‘, les FabLabs sont un réseau mondial de laboratoires locaux, réunis autour d’une seule et même charte qui encadre les modalités d’un fonctionnement commun. Ce réseau mutualise un ensemble de ressources permettant à chacun de fabriquer à peu près tout ce que l’on veut et de diffuser des connaissances, des savoir-faire et des projets.',
-        'Pour plus d’informations, nous vous invitons à consulter ',
         ],
       link_url: 'http://www.fabfoundation.org/index.php/the-fab-charter/index.html',
       link_body: 'la charte des FabLabs',
