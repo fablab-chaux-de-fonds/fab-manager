@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180723194308) do
+ActiveRecord::Schema.define(version: 20180801193506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -362,24 +362,15 @@ ActiveRecord::Schema.define(version: 20180723194308) do
 
   add_index "organizations", ["profile_id"], name: "index_organizations_on_profile_id", using: :btree
 
-  create_table "page_contents", force: :cascade do |t|
+  create_table "pages", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.string   "icon"
     t.integer  "version"
-    t.text     "comment"
+    t.boolean  "published"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "pages", force: :cascade do |t|
-    t.string   "name"
-    t.string   "icon"
-    t.boolean  "published"
-    t.integer  "sort"
-    t.integer  "page_content_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "pages", ["page_content_id"], name: "index_pages_on_page_content_id", using: :btree
 
   create_table "plans", force: :cascade do |t|
     t.string   "name"
@@ -878,7 +869,6 @@ ActiveRecord::Schema.define(version: 20180723194308) do
   add_foreign_key "o_auth2_mappings", "o_auth2_providers"
   add_foreign_key "open_api_calls_count_tracings", "open_api_clients"
   add_foreign_key "organizations", "profiles"
-  add_foreign_key "pages", "page_contents"
   add_foreign_key "prices", "groups"
   add_foreign_key "prices", "plans"
   add_foreign_key "projects_spaces", "projects"
