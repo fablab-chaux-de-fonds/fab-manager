@@ -1,0 +1,34 @@
+'use strict'
+
+Application.Controllers.controller "PagesAdminController", ["$scope", "$state", "pagesPromise", ($scope, $state, pagesPromise) ->
+  ### PUBLIC SCOPE ###
+
+  ## Put all pages into the scope
+  $scope.pages = pagesPromise
+]
+
+Application.Controllers.controller "EditPageAdminController", ["$scope", "$state", "$stateParams", "pagePromise", "CSRF", ($scope, $state, $stateParams, pagePromise, CSRF) ->
+  # protection against request forgery
+  CSRF.setMetaTags()
+
+  ### PUBLIC SCOPE ###
+
+  ## Form action on the following URL
+  $scope.method = 'patch'
+
+  ## API URL where the form will be posted
+  $scope.actionUrl = '/api/pages/' + $stateParams.id + '/update'
+
+  ## Details of the page to edit (id in URL)
+  $scope.page = pagePromise
+]
+
+Application.Controllers.controller "CreatePageAdminController", ["$scope", "$state", ($scope, $state) ->
+  ### PUBLIC SCOPE ###
+
+  ## Form action on the following URL
+  $scope.method = 'post'
+
+  ## API URL where the form will be posted
+  $scope.actionUrl = '/api/pages/'
+]

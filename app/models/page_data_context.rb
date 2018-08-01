@@ -1,0 +1,2 @@
+class PageDataContext < Asset
+end

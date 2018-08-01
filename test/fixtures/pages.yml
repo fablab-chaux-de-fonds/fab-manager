@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  icon: MyString
+  published: false
+  sort: 1
+  page_content_id: 
+
+two:
+  name: MyString
+  icon: MyString
+  published: false
+  sort: 1
+  page_content_id: 
