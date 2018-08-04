@@ -479,6 +479,34 @@ a.label:hover {
     padding: 10px 10px 0;
   }
 }
+
+.crowdmachine-repeat {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.crowdmachine-card {
+  height: 100%;
+}
+
+.support-title {
+  color: $blue;
+  text-align: center;
+  letter-spacing: 1pt;
+  font-family: $font-family-serif;
+  font-size: 32pt;
+  line-height: 40pt;
+}
+
+.support-card-title {
+  font-size: 16pt;
+  line-height: 16pt;
+}
+
+.img-support-logo {
+  padding: 10px 0;
+}
+
 // nav
 @media (max-width: 767px) {
   .btn {
@@ -579,24 +607,6 @@ a.label:hover {
 
 .rounded {
   background-color: $blue;
-}
-
-.crowdmachine-repeat {
-  display: inline-block;
-  padding-right: 10px;
-}
-
-.crowdmachine-card {
-  height: 100%;
-}
-
-.support-title {
-  color: $blue;
-  text-align: center;
-  letter-spacing: 1pt;
-  font-family: $font-family-serif;
-  font-size: 48pt;
-  line-height: 40pt;
 }
 
 ::placeholder {
