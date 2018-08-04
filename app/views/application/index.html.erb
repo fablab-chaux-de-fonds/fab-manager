@@ -104,6 +104,7 @@
               <%= image_tag("fablab-accueil-mobile.svg", class: 'm-r-sm img-mobile') %>
             </div>
             <div class="row hidden-xs">
+            <div class="row hidden-xs" ng-if="$state.current.name == 'app.public.home'">
               <div class="col-sm-4 col-home"></div>
               <div class="col-sm-4 col-home">
                 <div class="home home-top">
