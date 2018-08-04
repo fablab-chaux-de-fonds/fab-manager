@@ -1,8 +1,20 @@
 'use strict'
 Application.Controllers.controller "SupportController", ["$scope", ($scope) ->
   initialize = ->
-    $scope.data = []
-    
+    $scope.data = {
+      'title': 'Vous pouvez soutenir votre FabLab de 3 manières',
+      'cards':[
+        {
+          'title': 'Faites un don',
+          'content': 'bla bla',
+        },
+        {
+          'title': 'Devenez membre',
+          'content': 'bla bla',
+        }
+      ]
+    }
+
   ## !!! MUST BE CALLED AT THE END of the controller
   initialize()
 ]

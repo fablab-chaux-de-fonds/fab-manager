@@ -590,6 +590,15 @@ a.label:hover {
   height: 100%;
 }
 
+.support-title {
+  color: $blue;
+  text-align: center;
+  letter-spacing: 1pt;
+  font-family: $font-family-serif;
+  font-size: 48pt;
+  line-height: 40pt;
+}
+
 ::placeholder {
   opacity: 1;
   /* Firefox */
