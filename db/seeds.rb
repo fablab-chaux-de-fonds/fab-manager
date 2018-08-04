@@ -448,8 +448,7 @@ unless StatisticIndex.find_by(es_type_key: 'space')
 end
 
 if Page.count == 0
-  PageContent.create!(version: 0, comment: 'first version')
   tmpl = PageTemplate.create!(attachment: 'blabla.html', type:'text/html')
-  content = PageContent.create!(version: 1, comment: 'second version', page_template:tmpl)
-  Page.create!(name:'Default test page', icon:'hand', published:true, sort:-1, page_content_id:content.id)
+  ctx = PageDataContext.create!(attachment: 'context.json', type:'application/json')
+  Page.create!(name:'def_page', title:'Default sample page', icon:'hand', published:true, sort:-1, version: 1, page_template:tmpl, page_data_context:ctx)
 end

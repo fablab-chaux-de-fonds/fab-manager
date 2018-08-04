@@ -17,18 +17,31 @@ Application.Controllers.controller "EditPageAdminController", ["$scope", "$state
   $scope.method = 'patch'
 
   ## API URL where the form will be posted
-  $scope.actionUrl = '/api/pages/' + $stateParams.id + '/update'
+  $scope.actionUrl = '/api/pages/' + $stateParams.name + '/update'
 
   ## Details of the page to edit (id in URL)
   $scope.page = pagePromise
+
+  ## Update page icon with prefix from page promise
+  if $scope.page.icon != null
+    $scope.page.fa_icon = $scope.page.icon.replace(/^(fa-)?([a-z-]+)$/g, 'fa-$2')
+
+  $scope.handleIconPrefix = ->
+    if $scope.page.fa_icon != null
+      $scope.page.icon = $scope.page.fa_icon.replace(/^(fa-)?([a-z-]+)$/g, '$2')
+
+  this
 ]
 
-Application.Controllers.controller "CreatePageAdminController", ["$scope", "$state", ($scope, $state) ->
+Application.Controllers.controller "CreatePageAdminController", ["$scope", "$state", "CSRF", ($scope, $state, CSRF) ->
+# protection against request forgery
+  CSRF.setMetaTags()
+
   ### PUBLIC SCOPE ###
 
   ## Form action on the following URL
   $scope.method = 'post'
 
   ## API URL where the form will be posted
-  $scope.actionUrl = '/api/pages/'
+  $scope.actionUrl = '/api/pages/create'
 ]

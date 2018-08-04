@@ -129,7 +129,7 @@ Rails.application.routes.draw do
     resources :spaces
 
     post 'pages/create' => 'pages', action: 'create'
-    patch 'pages/:id/update' => 'pages', action: 'update'
+    patch 'pages/:name/update' => 'pages', action: 'update'
     get 'pages/:name' => 'pages', action: 'show'
     get 'pages' => 'pages', action: 'list'
 

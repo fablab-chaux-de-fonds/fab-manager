@@ -5,6 +5,7 @@ one:
   title: MyString
   icon: MyString
   version: 1
+  sort: 1
   published: false
 
 two:
@@ -12,4 +13,5 @@ two:
   title: MyString
   icon: MyString
   version: 1
+  sort: 1
   published: false

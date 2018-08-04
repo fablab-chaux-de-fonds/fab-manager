@@ -1217,14 +1217,14 @@ angular.module('application.router', ['ui.router'])
             controller: 'CreatePageAdminController'
 
       .state 'app.admin.pages_edit',
-        url: '/admin/pages/:id/edit'
+        url: '/admin/pages/:name/edit'
         views:
           'main@':
             templateUrl: '<%= asset_path "admin/pages/edit.html" %>'
             controller: 'EditPageAdminController'
         resolve:
           pagePromise: ['Page', '$stateParams', (Page, $stateParams) ->
-            Page.get({id:$stateParams.id}).$promise
+            Page.get({name:$stateParams.name}).$promise
           ]
 
       # OpenAPI Clients

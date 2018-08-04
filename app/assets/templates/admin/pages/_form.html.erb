@@ -13,6 +13,29 @@
     <div class="panel-body m-r">
 
       <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+      <!-- PAGE ICON -->
+      <div class="form-group m-b-lg" ng-class="{'has-error': pageForm['page[fa_icon]'].$dirty && pageForm['page[fa_icon]'].$invalid}">
+        <label for="fa_icon" class="col-sm-2 control-label">{{ 'page_form.fa_icon' | translate }}</label>
+        <div class="col-sm-4">
+          <div class="input-group">
+            <div class="input-group-addon"></div>
+            <input ng-model="page.fa_icon"
+                   ng-change="handleIconPrefix()"
+                   type="text"
+                   name="page[fa_icon]"
+                   class="form-control icp icp-auto"
+                   id="page_fa_icon"
+                   placeholder="{{'page_form.fa_icon' | translate}}"
+                   data-placement="bottomRight">
+          </div>
+          <input class="form-control"
+                 name="page[icon]"
+                 value="{{ page.icon }}"
+                 id="page_icon"
+                 type="hidden">
+          <span class="help-block" ng-show="pageForm['page[fa_icon]'].$dirty && pageForm['page[fa_icon]'].$error.required" translate>{{ 'page_form.fa_icon_is_required' }}</span>
+        </div>
+      </div>
 
       <!-- PAGE NAME -->
       <div class="form-group m-b-lg" ng-class="{'has-error': pageForm['page[name]'].$dirty && pageForm['page[name]'].$invalid}">
@@ -24,8 +47,25 @@
                  class="form-control"
                  id="page_name"
                  placeholder="{{'page_form.name' | translate}}"
+                 pattern="[a-zA-Z_][a-zA-Z_-]*"
                  required>
           <span class="help-block" ng-show="pageForm['page[name]'].$dirty && pageForm['page[name]'].$error.required" translate>{{ 'page_form.name_is_required' }}</span>
+        </div>
+      </div>
+
+      <!-- PAGE TITLE -->
+      <div class="form-group m-b-lg" ng-class="{'has-error': pageForm['page[title]'].$dirty && pageForm['page[title]'].$invalid}">
+        <label for="title" class="col-sm-2 control-label">{{ 'page_form.title' | translate }} *</label>
+        <div class="col-sm-4">
+          <input ng-model="page.title"
+                 type="text"
+                 name="page[title]"
+                 class="form-control"
+                 id="page_title"
+                 placeholder="{{'page_form.title' | translate}}"
+                 pattern="[a-zA-Z_][a-zA-Z_-]*"
+                 required>
+          <span class="help-block" ng-show="pageForm['page[title]'].$dirty && pageForm['page[title]'].$error.required" translate>{{ 'page_form.title_is_required' }}</span>
         </div>
       </div>
 
@@ -52,30 +92,34 @@
         <label for="page[sort]" class="control-label col-sm-2" translate>
           {{ 'page_form.sort_page' }}
         </label>
-        <div class="col-sm-10">
+        <div class="col-sm-1">
           <input ng-model="page.sort"
                  type="number"
+                 min="-5"
+                 max="5"
+                 step="1"
                  name="page[sort]"
                  class="form-control"
                  id="page_sort"
+                 pattern="-?[0-5]"
                  placeholder="{{'page_form.sort' | translate}}">
         </div>
       </div>
 
       <div class="form-group m-b-xl">
-        <label class="col-sm-2 control-label" translate>{{ 'page_form.page_content.page_data_context' }}</label>
+        <label class="col-sm-2 control-label" translate>{{ 'page_form.page_template' }} *</label>
         <div class="col-sm-10">
-          <div class="fileinput input-group" data-provides="fileinput" ng-class="fileinputClass(page.page_content.page_data_context.custom_asset_file_attributes.attachment)">
+          <div class="fileinput input-group" data-provides="fileinput" ng-class="fileinputClass(page.page_template_attributes.attachment)">
             <div class="form-control" data-trigger="fileinput">
-              <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename">{{page.page_content.page_data_context.custom_asset_file_attributes.attachment}}</span>
+              <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename">{{page.page_template_attributes.attachment}}</span>
             </div>
             <span class="input-group-addon btn btn-default btn-file">
                 <span class="fileinput-new" translate>{{ 'browse' }}</span>
                 <span class="fileinput-exists" translate>{{ 'change' }}</span>
                 <input type="file"
-                       id="tos_file"
-                       name="custom_asset[custom_asset_file_attributes][attachment]"
-                       accept="application/json"
+                       id="page_template_file"
+                       name="page[page_template_attributes][attachment]"
+                       accept="text/html"
                        required />
             </span>
           </div>
@@ -84,19 +128,19 @@
 
 
       <div class="form-group m-b-xl">
-        <label class="col-sm-2 control-label" translate>{{ 'page_form.page_content.page_template' }}</label>
+        <label class="col-sm-2 control-label" translate>{{ 'page_form.page_data_context' }} *</label>
         <div class="col-sm-10">
-          <div class="fileinput input-group" data-provides="fileinput" ng-class="fileinputClass(page.page_content.page_template.custom_asset_file_attributes.attachment)">
+          <div class="fileinput input-group" data-provides="fileinput" ng-class="fileinputClass(page.page_data_context_attributes.attachment)">
             <div class="form-control" data-trigger="fileinput">
-              <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename">{{page.page_content.page_template.custom_asset_file_attributes.attachment}}</span>
+              <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename">{{page.page_data_context_attributes.attachment}}</span>
             </div>
             <span class="input-group-addon btn btn-default btn-file">
                 <span class="fileinput-new" translate>{{ 'browse' }}</span>
                 <span class="fileinput-exists" translate>{{ 'change' }}</span>
                 <input type="file"
-                       id="tos_file"
-                       name="custom_asset[custom_asset_file_attributes][attachment]"
-                       accept="text/html"
+                       id="page_data_context_file"
+                       name="page[page_data_context_attributes][attachment]"
+                       accept="application/json"
                        required />
             </span>
           </div>
@@ -112,3 +156,14 @@
     </div>
   </section>
 </form>
+
+<script type="text/javascript">
+    $('.icp').iconpicker();
+    $('.icp').on(
+        'iconpickerSelected',
+        function(e)
+        {
+            angular.element('#page_fa_icon').change();
+        }
+    );
+</script>

@@ -42,13 +42,13 @@
           <td class="text-c v-middle">{{ (p.published ? 'yes' : 'no') | translate }}</td>
           <td class="right">
             <div class="btn-group" role="group" aria-label="Actions">
-              <button class="btn btn-default" ui-sref="app.admin.pages_edit({id:p.id})">
+              <button class="btn btn-default" ui-sref="app.admin.pages_edit({name:p.name})">
                 <i class="fa fa-edit"></i> {{ 'edit' | translate }}
               </button>
               <button class="btn btn-default" ui-sref="app.public.pages({name:p.name})">
                 <i class="fa fa-eye"></i> {{ 'preview' | translate }}
               </button>
-              <button class="btn btn-danger" ui-sref="app.admin.pages_remove({id:p.id})">
+              <button class="btn btn-danger" ui-sref="app.admin.pages_remove({name:p.name})">
                 <i class="fa fa-trash"></i> {{ 'remove' | translate }}
               </button>
             </div>
