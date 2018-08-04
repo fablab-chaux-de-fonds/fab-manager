@@ -29,7 +29,7 @@
       <div class="support-title support-card-title">{{ i.sort }}. </br> {{i.title }}</div>
       <p>{{ i.content }}</p>
     </div>
-    <div class="col-support-logo col-md-3 col-xs-12">
+    <div class="col-md-3 col-xs-12">
       <p>{{ data.logo_intro }}</p>
       <div ng-repeat="i in data.logo">
         <%= image_tag("/assets/support/{{ i }}.svg", class: 'img-responsive img-support-logo') %>
