@@ -28,6 +28,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # comment over to use visual debugger (eg. RubyMine), uncomment to use manual debugging
   # gem 'byebug'
+  gem 'ruby-debug-ide'
+  gem 'debase'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.1.3'
@@ -89,7 +91,7 @@ gem 'kaminari'
 gem 'figaro'
 
 gem 'bootstrap-sass'
-gem 'font-awesome-rails'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 
 #using bower instead
 #gem 'angularjs-rails'
