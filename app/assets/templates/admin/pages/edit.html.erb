@@ -1,0 +1,20 @@
+<section class="heading b-b">
+  <div class="row no-gutter">
+    <div class="col-md-1 hidden-xs">
+      <section class="heading-btn">
+        <a href="#" ng-click="backPrevLocation($event)"><i class="fa fa-long-arrow-left "></i></a>
+      </section>
+    </div>
+    <div class="col-md-8 b-l b-r">
+      <section class="heading-title">
+        <h1>{{ 'edit_page' | translate }} {{ page.name }}</h1>
+      </section>
+    </div>
+  </div>
+</section>
+
+<div class="row no-gutter" >
+  <div class="col-md-9 b-r nopadding">
+    <ng-include src="'<%= asset_path 'admin/pages/_form.html' %>'"></ng-include>
+  </div>
+</div>

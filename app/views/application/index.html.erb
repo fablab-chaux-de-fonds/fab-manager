@@ -30,6 +30,7 @@
       Fablab.useSimpleSignupForm = ('<%= Rails.application.secrets.fablab_simple_signup_form %>' == 'true');
       Fablab.withoutPlans = ('<%= Rails.application.secrets.fablab_without_plans %>' == 'true');
       Fablab.withoutSpaces = ('<%= Rails.application.secrets.fablab_without_spaces %>' != 'false');
+      Fablab.authorized_user_credit = <%= Rails.application.secrets.fablab_authorized_user_credit || 0 %>;
       Fablab.disqusShortname = "<%= Rails.application.secrets.disqus_shortname %>";
       Fablab.defaultHost = "<%= Rails.application.secrets.default_host %>";
       Fablab.gaId = "<%= Rails.application.secrets.google_analytics_id %>";
@@ -80,6 +81,7 @@
 </head>
 
 <body ng-controller="ApplicationController" ng-init="setCurrentUser(<%= current_user ? current_user.to_builder.target! : 'null' %>)" ng-cloak="ng-cloak">
+
 <div growl="growl"></div>
 
 <%= flash_messages %>
@@ -91,7 +93,6 @@
   </header>
 
   <section ui-view="content">
-
     <section class="hbox stretch">
       <aside id="nav" class="aside-md bg-red hidden-print" ui-view="leftnav"></aside>
 
@@ -190,5 +191,6 @@
     raise LoadError, "fullcalendar/dist/lang/#{Rails.application.secrets.fullcalendar_locale}.js does not exists"
   end
 %>
+
 </body>
 </html>

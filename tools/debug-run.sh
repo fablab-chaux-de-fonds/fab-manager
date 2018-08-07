@@ -1,0 +1,1 @@
+docker-compose -f docker/docker-compose.yml run -p 1234:1234 -p 3000:3000 --rm --name fabmanager-dev fabmanager bundle exec rdebug-ide --host 0.0.0.0 --port 1234 -- bin/rails s puma -p 3000 -b 0.0.0.0

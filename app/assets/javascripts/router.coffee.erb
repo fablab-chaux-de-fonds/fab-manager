@@ -20,8 +20,15 @@ angular.module('application.router', ['ui.router'])
             controller: 'MainNavController'
           'main': {}
         resolve:
+          pagePromise: ['Page', (Page) ->
+            Page.list().$promise
+          ]
           logoFile: ['CustomAsset', (CustomAsset) ->
+<<<<<<< HEAD
             CustomAsset.get({name: 'logo-file'}).$promise
+=======
+             CustomAsset.get({name: 'logo-file'}).$promise
+>>>>>>> 205d7295763eae6d0b6472b078abe92430c20078
           ]
           logoBlackFile: ['CustomAsset', (CustomAsset) ->
             CustomAsset.get({name: 'logo-black-file'}).$promise
@@ -103,7 +110,7 @@ angular.module('application.router', ['ui.router'])
         url: '/profile_completion'
         views:
           'main@':
-            templateUrl: '<%= asset_path "profile/complete.html"%>'
+            templateUrl: '<%= asset_path "profile/complete-simple.html"%>'
             controller: 'CompleteProfileController'
         resolve:
           settingsPromise: ['Setting', (Setting)->
@@ -649,6 +656,7 @@ angular.module('application.router', ['ui.router'])
             Translations.query(['app.public.calendar']).$promise
           ]
 
+<<<<<<< HEAD
       # crowdmachine
       .state 'app.public.crowdmachine',
         url: '/crowdmachine'
@@ -671,6 +679,22 @@ angular.module('application.router', ['ui.router'])
               Translations.query(['app.public.crowdmachine']).$promise
             ]
 
+=======
+      # global custom pages
+      .state 'app.public.pages',
+        url: '/pages/:name'
+        views:
+          'main@':
+            templateUrl: '<%= asset_path "pages/generic.html" %>'
+            controller: 'PagesController'
+        resolve:
+          pagePromise: ['Page', '$stateParams', (Page, $stateParams) ->
+            Page.get({name: $stateParams.name}).$promise
+          ]
+          translations: [ 'Translations', (Translations) ->
+            Translations.query(['app.public.pages']).$promise
+          ]
+>>>>>>> 205d7295763eae6d0b6472b078abe92430c20078
 
       # --- namespace /admin/... ---
       # calendar
@@ -1200,6 +1224,36 @@ angular.module('application.router', ['ui.router'])
           ]
           translations: [ 'Translations', (Translations) ->
             Translations.query('app.admin.settings').$promise
+          ]
+
+      # -- Custom pages admin --
+      .state 'app.admin.pages',
+        url: '/admin/pages'
+        views:
+          'main@':
+            templateUrl: '<%= asset_path "admin/pages/index.html" %>'
+            controller: 'PagesAdminController'
+        resolve:
+          pagesPromise: ['Page', (Page) ->
+            Page.query().$promise
+          ]
+
+      .state 'app.admin.pages_create',
+        url: '/admin/pages/create'
+        views:
+          'main@':
+            templateUrl: '<%= asset_path "admin/pages/create.html" %>'
+            controller: 'CreatePageAdminController'
+
+      .state 'app.admin.pages_edit',
+        url: '/admin/pages/:name/edit'
+        views:
+          'main@':
+            templateUrl: '<%= asset_path "admin/pages/edit.html" %>'
+            controller: 'EditPageAdminController'
+        resolve:
+          pagePromise: ['Page', '$stateParams', (Page, $stateParams) ->
+            Page.get({name:$stateParams.name}).$promise
           ]
 
       # OpenAPI Clients

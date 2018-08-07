@@ -309,3 +309,6 @@ fr:
           characteristics: "Caractéristiques"
           files_to_download: "Fichiers à télécharger"
           projects_using_the_space: "Projets utilisant l'espace"
+
+      pages:
+        hello: 'world'

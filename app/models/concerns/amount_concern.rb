@@ -2,7 +2,7 @@ module AmountConcern
   extend ActiveSupport::Concern
 
   included do
-    validates_numericality_of :amount, greater_than_or_equal_to: 0
+    validates_numericality_of :amount, greater_than_or_equal_to: ApplicationHelper::WALLET_MINIMAL_AMOUNT
 
     def amount=(amount)
       if amount.nil?
