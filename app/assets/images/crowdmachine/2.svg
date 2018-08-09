@@ -30,7 +30,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="32.633319"
+     inkscape:cx="209.77618"
      inkscape:cy="385.86858"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -59,14 +59,13 @@
      id="layer1"
      transform="translate(0,-85.33332)">
     <image
-       sodipodi:absref="/home/raphael/Documents/FabLab/website/fab-manager/app/assets/images/crowdmachine/2.jpg"
-       xlink:href="2.jpg"
-       y="26.69957"
-       x="104.37711"
-       id="image823"
-       preserveAspectRatio="none"
-       height="65.881248"
+       sodipodi:absref="/home/raphael/Documents/FabLab/website/fab-manager/app/assets/images/crowdmachine/2.png"
+       xlink:href="2.png"
        width="211.66667"
-       transform="rotate(45.19077)" />
+       height="211.66667"
+       preserveAspectRatio="none"
+       id="image824"
+       x="0"
+       y="85.333321" />
   </g>
 </svg>

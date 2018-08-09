@@ -24,11 +24,7 @@ angular.module('application.router', ['ui.router'])
             Page.list().$promise
           ]
           logoFile: ['CustomAsset', (CustomAsset) ->
-<<<<<<< HEAD
-            CustomAsset.get({name: 'logo-file'}).$promise
-=======
              CustomAsset.get({name: 'logo-file'}).$promise
->>>>>>> 205d7295763eae6d0b6472b078abe92430c20078
           ]
           logoBlackFile: ['CustomAsset', (CustomAsset) ->
             CustomAsset.get({name: 'logo-black-file'}).$promise
@@ -656,30 +652,6 @@ angular.module('application.router', ['ui.router'])
             Translations.query(['app.public.calendar']).$promise
           ]
 
-<<<<<<< HEAD
-      # crowdmachine
-      .state 'app.public.crowdmachine',
-        url: '/crowdmachine'
-        views:
-          'main@':
-            templateUrl: '<%= asset_path "crowdmachine/index.html.erb" %>'
-            controller: 'CrowdmachineController'
-        resolve:
-            translations: [ 'Translations', (Translations) ->
-              Translations.query(['app.public.crowdmachine']).$promise
-            ]
-      .state 'app.public.crowdmachine_show',
-        url: '/crowdmachine/:id'
-        views:
-          'main@':
-            templateUrl: '<%= asset_path "crowdmachine/show.html.erb" %>'
-            controller: 'ShowCrowdmachineController'
-        resolve:
-            translations: [ 'Translations', (Translations) ->
-              Translations.query(['app.public.crowdmachine']).$promise
-            ]
-
-=======
       # global custom pages
       .state 'app.public.pages',
         url: '/pages/:name'
@@ -694,7 +666,6 @@ angular.module('application.router', ['ui.router'])
           translations: [ 'Translations', (Translations) ->
             Translations.query(['app.public.pages']).$promise
           ]
->>>>>>> 205d7295763eae6d0b6472b078abe92430c20078
 
       # --- namespace /admin/... ---
       # calendar

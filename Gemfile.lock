@@ -139,6 +139,9 @@ GEM
     crass (1.0.2)
     daemons (1.2.4)
     database_cleaner (1.4.1)
+    debase (0.2.2)
+      debase-ruby_core_source (>= 0.10.2)
+    debase-ruby_core_source (0.10.3)
     debug_inspector (0.0.3)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -371,6 +374,8 @@ GEM
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
     rolify (4.0.0)
+    ruby-debug-ide (0.6.1)
+      rake (>= 0.8.1)
     ruby-progressbar (1.7.5)
     ruby-rc4 (0.1.5)
     rubyzip (1.2.1)
@@ -518,6 +523,7 @@ DEPENDENCIES
   compass-rails (= 2.0.4)
   coveralls
   database_cleaner
+  debase
   devise
   devise-async
   elasticsearch-model
@@ -558,6 +564,7 @@ DEPENDENCIES
   recurrence
   responders (~> 2.0)
   rolify
+  ruby-debug-ide
   rvm-capistrano
   sass-rails (= 5.0.1)
   sdoc (~> 0.4.0)
@@ -578,4 +585,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.16.1
+   1.16.3
