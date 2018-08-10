@@ -1,0 +1,25 @@
+<section class="row no-gutter">
+  <div class="wrapper-lg">
+    <div ng-repeat="i in [] | range:22" class="crowdmachine-repeat col-xs-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card crowdmachine-card">
+        <div class="img-crowdmachine">
+          <img src="data:image/jpeg;base64,{{ data[i].image }}" alt="base64 {{ data[i].title }}" class="img-responsive img-crowdmachine-src">
+          <div class="overlay">
+            <div class="overlay-layer"></div>
+            <div class="btn-overlay">
+              <a href="#" class="btn btn-primary btn-crowdmachine">
+                <i class="fa fa-info-circle"></i> Plus d'info
+              </a>
+              <a href="mailto:info@fablab-chaux-de-fonds.ch?subject=[Crowdmachine] - {{ data[i].title }}" class="btn btn-primary btn-crowdmachine">
+                <i class="fa fa-envelope"></i> Contribuer
+              </a>
+            </div>
+          </div>
+        </div>
+          <div class="card-body">
+          <p class="text-center">{{ data[i].title }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

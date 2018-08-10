@@ -36,6 +36,7 @@ fr:
         projects_gallery: "Galerie de projets"
         subscriptions: "Abonnements"
         public_calendar: "Calendrier"
+        public_crowdmachine: "Crowdmachine"
 
         # menu de gauche (partie admin)
         trainings_monitoring: "Suivi formations"
@@ -277,6 +278,15 @@ fr:
           machines: "Machines"
           spaces: "Espaces"
           events: "Évènements"
+
+      crowdmachine:
+        # crowdmachine publique
+        crowdmachine:
+          crowdmachine: "Crowdmachine"
+          info: "Plus d'info"
+          contribute: "Contribuer"
+          description: "Description"
+          specification: "Spécification"
 
       spaces_list:
         # liste des espaces

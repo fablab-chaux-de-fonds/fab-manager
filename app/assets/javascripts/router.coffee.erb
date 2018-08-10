@@ -1,5 +1,5 @@
 angular.module('application.router', ['ui.router'])
-  .run ['$rootScope', '$state', '$stateParams', ($rootScope, $state,   $stateParams) ->
+  .run ['$rootScope', '$state', '$stateParams', ($rootScope, $state, $stateParams) ->
     $rootScope.$state = $state
     $rootScope.$stateParams = $stateParams
   ]
@@ -257,7 +257,7 @@ angular.module('application.router', ['ui.router'])
             controller: 'ProjectsController'
         resolve:
           themesPromise: ['Theme', (Theme)->
-             Theme.query().$promise
+            Theme.query().$promise
           ]
           componentsPromise: ['Component', (Component)->
             Component.query().$promise
@@ -305,7 +305,7 @@ angular.module('application.router', ['ui.router'])
             Project.get(id: $stateParams.id).$promise
           ]
           allowedExtensions: ['Project', (Project)->
-              Project.allowedExtensions().$promise
+            Project.allowedExtensions().$promise
           ]
           translations: [ 'Translations', (Translations) ->
             Translations.query(['app.logged.projects_edit', 'app.shared.project']).$promise
@@ -531,7 +531,7 @@ angular.module('application.router', ['ui.router'])
             Availability.trainings({trainingId: $stateParams.id}).$promise
           ]
           trainingPromise: ['Training', '$stateParams', (Training, $stateParams)->
-              Training.get({id: $stateParams.id}).$promise unless $stateParams.id == 'all'
+            Training.get({id: $stateParams.id}).$promise unless $stateParams.id == 'all'
           ]
           settingsPromise: ['Setting', (Setting)->
             Setting.query(names: "['booking_window_start',
