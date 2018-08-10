@@ -20,12 +20,14 @@ Application.Controllers.controller "PagesController", ['$scope', '$interpolate',
           $http.get(pagePromise.page_data_context.attachment.url)
             .success(
               (response) ->
-                data_context = response
+                ##data_context = response
+                Object.assign($scope, response)
                 return
             )
             .then(
               () ->
-                $scope.page.content = $interpolate(template)(data_context)
+                $scope.page.content = template
+                ##$interpolate(template)(data_context)
                 return
             )
           return
