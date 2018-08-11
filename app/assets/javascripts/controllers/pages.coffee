@@ -4,35 +4,21 @@ Application.Controllers.controller "PagesController", ['$scope', '$interpolate',
 
   $scope.page = pagePromise
 
-  template = undefined
-  data_context = undefined
-
-  if pagePromise.page_template != null && pagePromise.page_data_context != null
-    $http
-      .get(pagePromise.page_template.attachment.url)
+  ## Loading page template content
+  if pagePromise.page_template != null
+    $http.get(pagePromise.page_template.attachment.url)
       .success(
         (response) ->
-          template = response
-          return
-      )
-      .then(
-        () ->
-          $http.get(pagePromise.page_data_context.attachment.url)
-            .success(
-              (response) ->
-                ##data_context = response
-                Object.assign($scope, response)
-                return
-            )
-            .then(
-              () ->
-                $scope.page.content = template
-                ##$interpolate(template)(data_context)
-                return
-            )
+          $scope.page.content = response
           return
       )
 
-
-  return
+  ## Upgrade scope with page data context
+  if pagePromise.page_data_context != null
+    $http.get(pagePromise.page_data_context.attachment.url)
+      .success(
+        (response) ->
+          Object.assign($scope, response)
+          return
+      )
 ]
