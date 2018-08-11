@@ -1,23 +1,41 @@
 <section class="row no-gutter">
   <div class="wrapper-lg">
-    <div ng-repeat="i in [] | range:22" class="crowdmachine-repeat col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <div ng-repeat="i in data" class="crowdmachine-repeat col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <div class="card crowdmachine-card">
-        <div class="img-crowdmachine">
-          <img src="data:image/jpeg;base64,{{ data[i].image }}" alt="base64 {{ data[i].title }}" class="img-responsive img-crowdmachine-src">
+        <div class="img-crowdmachine" ng-hide="showDetails">
+          <img src="data:image/jpeg;base64,{{ i.image }}" alt="base64 {{ i.title }}" class="img-responsive img-crowdmachine-src" ng-hide="showDetails">
           <div class="overlay">
-            <div class="overlay-layer"></div>
+            <div class="overlay-layer" ng-hide="showDetails"></div>
             <div class="btn-overlay">
-              <a href="#" class="btn btn-primary btn-crowdmachine">
-                <i class="fa fa-info-circle"></i> Plus d'info
-              </a>
-              <a href="mailto:info@fablab-chaux-de-fonds.ch?subject=[Crowdmachine] - {{ data[i].title }}" class="btn btn-primary btn-crowdmachine">
+              <a href="mailto:info@fablab-chaux-de-fonds.ch?subject=[Crowdmachine] - {{ i.title }}" class="btn btn-primary btn-crowdmachine">
                 <i class="fa fa-envelope"></i> Contribuer
               </a>
+              <div class="btn btn-primary btn-crowdmachine" ng-click="showDetails = ! showDetails" ng-hide="showDetails">
+                <i class="fa fa-info-circle"></i> Plus d'info
+              </div>
             </div>
           </div>
         </div>
-          <div class="card-body">
-          <p class="text-center">{{ data[i].title }}</p>
+        <div class="card-body">
+          <p class="text-center" ng-hide="showDetails">{{ i.title }}</p>
+          <div ng-show="showDetails" class="crowdmachine-content">
+            <h1 class="text-center" ng-show="showDetails">{{ i.title }}</h1>
+            <hr/>
+            <h2>{{'crowdmachine.description' | translate}}</h2>
+            <p>{{i.description}}</p>
+            <h2>{{'crowdmachine.specification' | translate}}</h2>
+            <ul>
+              <li ng-repeat="spec in i.specification">{{spec}}</li>
+            </ul>
+            <div class="">
+              <a href="mailto:info@fablab-chaux-de-fonds.ch?subject=[Crowdmachine] - {{ i.title }}" class="btn btn-primary btn-crowdmachine" ng-show="showDetails">
+              <i class="fa fa-envelope"></i> Contribuer
+              </a>
+                <div class="btn btn-primary btn-crowdmachine" ng-click="showDetails = ! showDetails" ng-show="showDetails">
+                <i class="fa fa-undo"></i> Retour
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
