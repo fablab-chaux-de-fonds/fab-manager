@@ -1,5 +1,63 @@
 'use strict'
 
+class PageController
+  constructor: ($scope, $state) ->
+
+    ##
+    # For use with ngUpload (https://github.com/twilson63/ngUpload).
+    # Intended to be the callback when the upload is done: any raised error will be stacked in the
+    # $scope.alerts array. If everything goes fine, the user is redirected to the pages list.
+    # @param content {Object} JSON - The upload's result
+    ##
+    $scope.submited = (content) ->
+      if !content.id?
+        $scope.alerts = []
+        angular.forEach content, (v, k)->
+          angular.forEach v, (err)->
+            $scope.alerts.push
+              msg: k+': '+err
+              type: 'danger'
+      else
+        $state.go('app.admin.pages')
+
+    ##
+    # Changes the current user's view, redirecting him to the pages list
+    ##
+    $scope.cancel = ->
+      $state.go('app.admin.pages')
+
+    ##
+    # For use with 'ng-class', returns the CSS class name for the uploads previews.
+    # The preview may show a placeholder or the content of the file depending on the upload state.
+    # @param v {*} any attribute, will be tested for truthiness (see JS evaluation rules)
+    ##
+    $scope.fileinputClass = (v) ->
+      if v
+        'fileinput-exists'
+      else
+        'fileinput-new'
+
+    ##
+    # This will create a single new empty entry into the page translations list.
+    ##
+    $scope.addTranslation = ->
+      $scope.page.page_translation_attributes.push {}
+
+    ##
+    # This will remove the given file from the page attachements list. If the file was previously uploaded
+    # to the server, it will be marked for deletion on the server. Otherwise, it will be simply truncated from
+    # the attachements array.
+    # @param file {Object} the file to delete
+    ##
+    $scope.deleteTranslation = (file) ->
+      index = $scope.page.page_translation_attributes.indexOf(file)
+      if file.id?
+        file._destroy = true
+      else
+        $scope.page.page_translation_attributes.splice(index, 1)
+
+    return
+
 Application.Controllers.controller "PagesAdminController", ["$scope", "$state", "pagesPromise", ($scope, $state, pagesPromise) ->
   ### PUBLIC SCOPE ###
 
@@ -30,7 +88,7 @@ Application.Controllers.controller "EditPageAdminController", ["$scope", "$state
     if $scope.page.fa_icon != null
       $scope.page.icon = $scope.page.fa_icon.replace(/^(fa-)?([a-z-]+)$/g, '$2')
 
-  this
+  new PageController($scope, $state)
 ]
 
 Application.Controllers.controller "CreatePageAdminController", ["$scope", "$state", "CSRF", ($scope, $state, CSRF) ->
@@ -44,4 +102,10 @@ Application.Controllers.controller "CreatePageAdminController", ["$scope", "$sta
 
   ## API URL where the form will be posted
   $scope.actionUrl = '/api/pages/create'
+
+  ## default page parameters
+  $scope.page =
+    page_translation_attributes: []
+
+  new PageController($scope, $state)
 ]

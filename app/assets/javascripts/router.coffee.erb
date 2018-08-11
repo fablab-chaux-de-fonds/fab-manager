@@ -663,8 +663,8 @@ angular.module('application.router', ['ui.router'])
           pagePromise: ['Page', '$stateParams', (Page, $stateParams) ->
             Page.get({name: $stateParams.name}).$promise
           ]
-          translations: [ 'Translations', (Translations) ->
-            Translations.query(['app.public.pages']).$promise
+          translations: [ 'Translations', '$stateParams', (Translations, $stateParams) ->
+            Translations.query(['app.public.pages.' + $stateParams.name]).$promise
           ]
 
       # --- namespace /admin/... ---
@@ -1208,6 +1208,9 @@ angular.module('application.router', ['ui.router'])
           pagesPromise: ['Page', (Page) ->
             Page.query().$promise
           ]
+          translations: [ 'Translations', (Translations) ->
+            Translations.query(['app.admin.pages']).$promise
+          ]
 
       .state 'app.admin.pages_create',
         url: '/admin/pages/create'
@@ -1215,6 +1218,10 @@ angular.module('application.router', ['ui.router'])
           'main@':
             templateUrl: '<%= asset_path "admin/pages/create.html" %>'
             controller: 'CreatePageAdminController'
+        resolve:
+          translations: [ 'Translations', (Translations) ->
+            Translations.query(['app.admin.pages']).$promise
+          ]
 
       .state 'app.admin.pages_edit',
         url: '/admin/pages/:name/edit'
@@ -1225,6 +1232,9 @@ angular.module('application.router', ['ui.router'])
         resolve:
           pagePromise: ['Page', '$stateParams', (Page, $stateParams) ->
             Page.get({name:$stateParams.name}).$promise
+          ]
+          translations: [ 'Translations', (Translations) ->
+            Translations.query(['app.admin.pages']).$promise
           ]
 
       # OpenAPI Clients

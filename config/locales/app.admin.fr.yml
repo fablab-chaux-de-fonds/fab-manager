@@ -686,3 +686,16 @@ fr:
         space_edit:
           edit_the_space_NAME: "Modifier l'espace : {{NAME}}"  # angular interpolation
           validate_the_changes: "Valider les modifications"
+
+      pages:
+        create_a_custom_page: "Nouvelle page personnalisée"
+        page_form:
+          fa_icon: "Icone"
+          name: "Nom"
+          title: "Titre"
+          publish_page: "Visible"
+          sort_page: "Ordre"
+          page_template: "Modèle"
+          page_data_context: "Données"
+          translations_files: "Traductions"
+          add_translation: "Ajouter un fichier de traduction"
