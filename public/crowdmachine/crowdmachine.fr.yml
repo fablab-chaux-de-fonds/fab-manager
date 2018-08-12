@@ -1,0 +1,11 @@
+fr:
+  app:
+    public:
+      pages:
+        crowdmachine:
+          crowdmachine:  "Crowdmachine"
+          info:          "Plus d'info"
+          contribute:    "Contribuer"
+          description:   "Description"
+          specification: "Spécification"
+          back:          "Retour"

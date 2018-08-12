@@ -13,5 +13,5 @@ docker run --rm  \
 -v $FABMGRPATH/invoices:/usr/src/app/invoices \
 -v $FABMGRPATH/exports:/usr/src/app/exports \
 -v $FABMGRPATH/supervisor:/usr/src/app/supervisor \
-fablab-iciautour/fabmanager:2.6.4 \
+fablab-chaux-de-fonds/fabmanager:2.6.4 \
 bundle exec rake $1
