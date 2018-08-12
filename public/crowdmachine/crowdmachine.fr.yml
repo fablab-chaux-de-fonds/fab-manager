@@ -1,9 +1,10 @@
 fr:
   app:
     public:
+      common:
+        public_crowdmachine: "Soutiens"
       pages:
         crowdmachine:
-          public_crowdmachine: "Soutiens"
           title_crowdmachine: "Soutiens nous !"
           info:          "Plus d'info"
           contribute:    "Contribuer"
