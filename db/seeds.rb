@@ -446,3 +446,9 @@ unless StatisticIndex.find_by(es_type_key: 'space')
     {statistic_index_id: index.id, key: 'hour', label:I18n.t('statistics.hours_number'), graph: true, simple: false}
   ])
 end
+
+if Page.count == 0
+  tmpl = PageTemplate.create!(attachment: 'blabla.html', type:'text/html')
+  ctx = PageDataContext.create!(attachment: 'context.json', type:'application/json')
+  Page.create!(name:'def_page', title:'Default sample page', icon:'hand', published:true, sort:-1, version: 1, page_template:tmpl, page_data_context:ctx)
+end

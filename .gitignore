@@ -51,3 +51,6 @@
 /bin/*
 /config/nginx/*
 /config/env
+
+.sass-lint.yml
+.csscomb.json

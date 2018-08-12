@@ -1,5 +1,5 @@
 angular.module('application.router', ['ui.router'])
-  .run ['$rootScope', '$state', '$stateParams', ($rootScope, $state,   $stateParams) ->
+  .run ['$rootScope', '$state', '$stateParams', ($rootScope, $state, $stateParams) ->
     $rootScope.$state = $state
     $rootScope.$stateParams = $stateParams
   ]
@@ -20,8 +20,11 @@ angular.module('application.router', ['ui.router'])
             controller: 'MainNavController'
           'main': {}
         resolve:
+          pagePromise: ['Page', (Page) ->
+            Page.list().$promise
+          ]
           logoFile: ['CustomAsset', (CustomAsset) ->
-                 CustomAsset.get({name: 'logo-file'}).$promise
+             CustomAsset.get({name: 'logo-file'}).$promise
           ]
           logoBlackFile: ['CustomAsset', (CustomAsset) ->
             CustomAsset.get({name: 'logo-black-file'}).$promise
@@ -254,7 +257,7 @@ angular.module('application.router', ['ui.router'])
             controller: 'ProjectsController'
         resolve:
           themesPromise: ['Theme', (Theme)->
-             Theme.query().$promise
+            Theme.query().$promise
           ]
           componentsPromise: ['Component', (Component)->
             Component.query().$promise
@@ -302,7 +305,7 @@ angular.module('application.router', ['ui.router'])
             Project.get(id: $stateParams.id).$promise
           ]
           allowedExtensions: ['Project', (Project)->
-              Project.allowedExtensions().$promise
+            Project.allowedExtensions().$promise
           ]
           translations: [ 'Translations', (Translations) ->
             Translations.query(['app.logged.projects_edit', 'app.shared.project']).$promise
@@ -528,7 +531,7 @@ angular.module('application.router', ['ui.router'])
             Availability.trainings({trainingId: $stateParams.id}).$promise
           ]
           trainingPromise: ['Training', '$stateParams', (Training, $stateParams)->
-              Training.get({id: $stateParams.id}).$promise unless $stateParams.id == 'all'
+            Training.get({id: $stateParams.id}).$promise unless $stateParams.id == 'all'
           ]
           settingsPromise: ['Setting', (Setting)->
             Setting.query(names: "['booking_window_start',
@@ -647,6 +650,21 @@ angular.module('application.router', ['ui.router'])
           ]
           translations: [ 'Translations', (Translations) ->
             Translations.query(['app.public.calendar']).$promise
+          ]
+
+      # global custom pages
+      .state 'app.public.pages',
+        url: '/pages/:name'
+        views:
+          'main@':
+            templateUrl: '<%= asset_path "pages/generic.html" %>'
+            controller: 'PagesController'
+        resolve:
+          pagePromise: ['Page', '$stateParams', (Page, $stateParams) ->
+            Page.get({name: $stateParams.name}).$promise
+          ]
+          translations: [ 'Translations', '$stateParams', (Translations, $stateParams) ->
+            Translations.query(['app.public.pages.' + $stateParams.name]).$promise
           ]
 
       # --- namespace /admin/... ---
@@ -1177,6 +1195,46 @@ angular.module('application.router', ['ui.router'])
           ]
           translations: [ 'Translations', (Translations) ->
             Translations.query('app.admin.settings').$promise
+          ]
+
+      # -- Custom pages admin --
+      .state 'app.admin.pages',
+        url: '/admin/pages'
+        views:
+          'main@':
+            templateUrl: '<%= asset_path "admin/pages/index.html" %>'
+            controller: 'PagesAdminController'
+        resolve:
+          pagesPromise: ['Page', (Page) ->
+            Page.query().$promise
+          ]
+          translations: [ 'Translations', (Translations) ->
+            Translations.query(['app.admin.pages']).$promise
+          ]
+
+      .state 'app.admin.pages_create',
+        url: '/admin/pages/create'
+        views:
+          'main@':
+            templateUrl: '<%= asset_path "admin/pages/create.html" %>'
+            controller: 'CreatePageAdminController'
+        resolve:
+          translations: [ 'Translations', (Translations) ->
+            Translations.query(['app.admin.pages']).$promise
+          ]
+
+      .state 'app.admin.pages_edit',
+        url: '/admin/pages/:name/edit'
+        views:
+          'main@':
+            templateUrl: '<%= asset_path "admin/pages/edit.html" %>'
+            controller: 'EditPageAdminController'
+        resolve:
+          pagePromise: ['Page', '$stateParams', (Page, $stateParams) ->
+            Page.get({name:$stateParams.name}).$promise
+          ]
+          translations: [ 'Translations', (Translations) ->
+            Translations.query(['app.admin.pages']).$promise
           ]
 
       # OpenAPI Clients

@@ -36,6 +36,8 @@ fr:
         projects_gallery: "Galerie de projets"
         subscriptions: "Abonnements"
         public_calendar: "Calendrier"
+        public_press: "Presse"
+        public_support: "Soutiens"
 
         # menu de gauche (partie admin)
         trainings_monitoring: "Suivi formations"
@@ -278,6 +280,16 @@ fr:
           spaces: "Espaces"
           events: "Évènements"
 
+      support:
+        # support publique
+        support:
+          support: "Soutiens"
+
+      press:
+        # press publique
+        press:
+          press: "Presse"
+
       spaces_list:
         # liste des espaces
         spaces_list:
@@ -299,3 +311,6 @@ fr:
           characteristics: "Caractéristiques"
           files_to_download: "Fichiers à télécharger"
           projects_using_the_space: "Projets utilisant l'espace"
+
+      pages:
+        hello: 'world'

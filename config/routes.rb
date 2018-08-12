@@ -128,6 +128,11 @@ Rails.application.routes.draw do
     resources :price_categories
     resources :spaces
 
+    post 'pages/create' => 'pages', action: 'create'
+    patch 'pages/:name/update' => 'pages', action: 'update'
+    get 'pages/:name' => 'pages', action: 'show'
+    get 'pages' => 'pages', action: 'list'
+
     # i18n
     get 'translations/:locale/:state' => 'translations#show', :constraints => { :state => /[^\/]+/ } # allow dots in URL for 'state'
 

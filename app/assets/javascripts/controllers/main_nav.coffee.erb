@@ -3,7 +3,7 @@
 ##
 # Navigation controller. List the links availables in the left navigation pane and their icon.
 ##
-Application.Controllers.controller "MainNavController", ["$scope", "$location", "$cookies", ($scope, $location, $cookies) ->
+Application.Controllers.controller "MainNavController", ["$scope", "$location", "$cookies", 'pagePromise', ($scope, $location, $cookies, pagePromise) ->
 
   sortBy = (key, a, b, r) ->
       r = if r then 1 else -1
@@ -21,7 +21,6 @@ Application.Controllers.controller "MainNavController", ["$scope", "$location", 
       linkIcon: 'home'
       sort: 0
     }
-
     {
       state: 'app.public.machines_list'
       linkText: 'reserve_a_machine'
@@ -48,6 +47,18 @@ Application.Controllers.controller "MainNavController", ["$scope", "$location", 
       sort: 3
     }
     {
+      state: 'app.public.support'
+      linkText: 'public_support'
+      linkIcon: 'handshake'
+      sort: 4
+    }
+    {
+      state: 'app.public.press'
+      linkText: 'public_press'
+      linkIcon: 'newspaper'
+      sort: 5
+    }
+    {
       state: 'app.public.projects_list'
       linkText: 'projects_gallery'
       linkIcon: 'th'
@@ -71,6 +82,15 @@ Application.Controllers.controller "MainNavController", ["$scope", "$location", 
       linkIcon: 'rocket'
     })
 
+  $scope.navLinks.push({
+    state: 'app.public.pages'
+    params:
+      name: page.name
+    linkText: 'public_' + page.name
+    linkIcon: page.icon
+    disabled: !page.published
+    sort: page.sort
+  }) for page in pagePromise
 
   Fablab.adminNavLinks = Fablab.adminNavLinks || []
   adminNavLinks = [
@@ -123,6 +143,11 @@ Application.Controllers.controller "MainNavController", ["$scope", "$location", 
       state: 'app.admin.settings'
       linkText: 'customization'
       linkIcon: 'gear'
+    }
+    {
+      state: 'app.admin.pages'
+      linkText: 'admin_custom_pages'
+      linkIcon: 'paper-plane'
     }
     {
       state: 'app.admin.open_api_clients'
