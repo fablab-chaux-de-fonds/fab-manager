@@ -3,9 +3,11 @@ fr:
     public:
       pages:
         crowdmachine:
-          crowdmachine:  "Crowdmachine"
+          public_crowdmachine: "Soutiens"
+          title_crowdmachine: "Soutiens nous !"
           info:          "Plus d'info"
           contribute:    "Contribuer"
-          description:   "Description"
-          specification: "Spécification"
+          crowdmachine:
+            description:   "Description"
+            specification: "Spécification"
           back:          "Retour"
