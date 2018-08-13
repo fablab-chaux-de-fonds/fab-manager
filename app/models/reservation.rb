@@ -47,6 +47,13 @@ class Reservation < ActiveRecord::Base
       plan = nil
     end
 
+    # check that none of the reserved availabilities was locked
+    slots.each do |slot|
+      if slot.availability.lock
+        raise LockedError
+      end
+    end
+
 
     case reservable
 
@@ -206,6 +213,9 @@ class Reservation < ActiveRecord::Base
   end
 
   def save_with_payment(coupon_code = nil)
+    if save_with_local_payment(coupon_code)
+      return true
+    end
     begin
       clean_pending_strip_invoice_items
       build_invoice(user: user)
@@ -260,7 +270,7 @@ class Reservation < ActiveRecord::Base
           # this function only check reservation total is equal strip invoice total when
           # pay only reservation not reservation + subscription
           #if !is_equal_reservation_total_and_stp_invoice_total(stp_invoice, coupon_code)
-            #raise InvoiceTotalDiffrentError
+            #raise InvoiceTotalDifferentError
           #end
           stp_invoice.pay
           card.delete if card
@@ -349,45 +359,39 @@ class Reservation < ActiveRecord::Base
   end
 
   def save_with_local_payment(coupon_code = nil)
-    if user.invoicing_disabled?
-      if valid?
-
-        ### generate invoice only for calcul price, TODO refactor!!
-        build_invoice(user: user)
-        generate_invoice_items(true, coupon_code)
-        @wallet_amount_debit = get_wallet_amount_debit
-        self.invoice = nil
-        ###
-
-        save!
-        UsersCredits::Manager.new(reservation: self).update_credits
-        return true
-      end
-    else
+    if valid?
       build_invoice(user: user)
       generate_invoice_items(true, coupon_code)
+      @wallet_amount_debit = get_wallet_amount_debit
+    else
+      return false
     end
 
-    if valid?
-      if plan_id
-        self.subscription = Subscription.find_or_initialize_by(user_id: user.id)
-        self.subscription.attributes = {plan_id: plan_id, user_id: user.id, expired_at: nil}
-        if subscription.save_with_local_payment(false)
-          self.invoice.invoice_items.push InvoiceItem.new(amount: subscription.plan.amount, description: subscription.plan.name, subscription_id: subscription.id)
-          set_total_and_coupon(coupon_code)
-          save!
-        else
-          errors[:card] << subscription.errors[:card].join
-          return false
-        end
-      else
-        set_total_and_coupon(coupon_code)
-        save!
-      end
-
+    if user.invoicing_disabled?
+      self.invoice = nil
+      save!
       UsersCredits::Manager.new(reservation: self).update_credits
       return true
     end
+
+    if plan_id
+      self.subscription = Subscription.find_or_initialize_by(user_id: user.id)
+      self.subscription.attributes = {plan_id: plan_id, user_id: user.id, expired_at: nil}
+      if subscription.save_with_local_payment(false)
+        self.invoice.invoice_items.push InvoiceItem.new(amount: subscription.plan.amount, description: subscription.plan.name, subscription_id: subscription.id)
+        set_total_and_coupon(coupon_code)
+        save!
+      else
+        errors[:card] << subscription.errors[:card].join
+        return false
+      end
+    else
+      set_total_and_coupon(coupon_code)
+      save!
+    end
+
+    UsersCredits::Manager.new(reservation: self).update_credits
+    true
   end
 
   def total_booked_seats
@@ -466,9 +470,7 @@ class Reservation < ActiveRecord::Base
     if @coupon
       total = CouponService.new.apply(total, @coupon, user.id)
     end
-    wallet_amount = (user.wallet.amount * 100).to_i
-
-    wallet_amount >= total ? total : wallet_amount
+    total
   end
 
   def debit_user_wallet

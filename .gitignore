@@ -45,3 +45,12 @@
 
 # Plugins are versioned is their own repository
 /plugins/*
+
+/elasticsearch/*
+/redis/*
+/bin/*
+/config/nginx/*
+/config/env
+
+.sass-lint.yml
+.csscomb.json

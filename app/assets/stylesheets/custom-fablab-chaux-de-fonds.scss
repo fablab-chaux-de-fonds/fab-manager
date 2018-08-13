@@ -1,0 +1,651 @@
+@font-face {
+  font-family: 'Noe Display';
+  src: url(asset-path('fonts/Noe Display Black.otf'));
+}
+@font-face {
+  font-family: 'GT Pressura';
+  src: url(asset-path('fonts/GTPressura-Bold.otf'));
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: black;
+}
+
+h4 {
+  font-weight: 600;
+}
+
+p {
+  font-family: $font-family-sans-serif;
+  font-size: 1.6rem !important;
+  line-height: 15pt !important;
+}
+
+a {
+  color: $blue;
+
+  &:active,
+  &:hover {
+    color: $blue;
+  }
+}
+
+body {
+  font-family: $font-family-sans-serif;
+}
+
+dt {
+  color: $red;
+  font-family: $font-family-sans-serif;
+}
+
+dd {
+  color: $blue;
+}
+
+.footer > .btn {
+  background-color: $red;
+
+  &:hover {
+    color: white;
+    background-color: $blue;
+  }
+}
+
+td[id^='datepicker'] > .btn {
+  color: $blue;
+  border: None;
+  background-color: white;
+
+  &:active,
+  &:hover {
+    color: white;
+    background-color: $blue;
+  }
+}
+
+#loginModal p,
+.invoice-payment {
+  font-family: $font-family-sans-serif !important;
+}
+
+.btn {
+  color: white;
+  border-width: 2px;
+  border-style: solid;
+  border-color: $blue;
+  background-color: $blue;
+
+  > i {
+    &.pull-right {
+      border: None;
+    }
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: $red;
+    border-color: $red;
+  }
+}
+
+.btn-sm {
+  border: None;
+}
+// div[id^="s"][id$="0"]
+
+.btn-warning-full {
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.btn-valid {
+  color: $blue;
+  border: 3px solid $green-light !important;
+  background-color: $green-light !important;
+  font-weight: 600;
+
+  &:hover {
+    border: 3px solid $green !important;
+    background-color: $green !important;
+    font-weight: 600;
+  }
+}
+
+.btn-danger:hover {
+  background-color: #f2f2f2;
+}
+
+.text-green-light {
+  color: $green-light !important;
+}
+
+.bg-red {
+  color: white;
+  background-color: $red-light;
+}
+
+.picto-about {
+  height: 40px;
+}
+
+.about-link {
+  padding: 16.5px !important;
+}
+
+.widget {
+  h1,
+  h2,
+  h3 {
+    color: $blue;
+  }
+
+  a {
+    color: $gray-darker;
+  }
+
+  .fa {
+    color: $blue;
+  }
+}
+
+.article {
+  h4 {
+    color: $blue;
+  }
+}
+
+a.label:focus,
+a.label:hover {
+  color: $green-light;
+  background-color: $green !important;
+}
+
+.label {
+  color: $blue;
+}
+
+.pricing-panel {
+  .title {
+    color: $blue;
+
+    .content {
+      .wrap {
+        border: 3px solid;
+      }
+    }
+  }
+}
+
+.form-control {
+  color: $blue;
+  font-family: $font-family-sans-serif;
+
+  &:focus {
+    border-color: $blue;
+    box-shadow: 0 0 8px $blue;
+  }
+}
+
+/* SNU : BUTTONS ARE NOT READABLE ANYMORE
+.input-group-addon{
+  color: $blue;
+}
+*/
+
+.content {
+  .wrap {
+    border: 3px solid;
+  }
+}
+
+.about-fablab .about-title,
+.about-fablab .about-title p {
+  text-align: center;
+  letter-spacing: 1pt;
+  color: $blue;
+  font-family: $font-family-serif;
+  font-size: 25pt !important;
+  line-height: 30pt !important;
+}
+
+.about-fablab .about-picture {
+  height: auto;
+  padding: 30px 10px;
+}
+
+.about-fablab {
+  padding: 10px;
+  background-color: white;
+
+  h2 {
+    color: $blue;
+  }
+
+  p {
+    padding: 4px 0;
+    text-align: left;
+    color: $blue;
+    font-family: $font-family-sans-serif;
+  }
+
+  a {
+    color: $red;
+  }
+
+  .about-title-aside {
+    font-family: $font-family-sans-serif;
+  }
+
+  .about-content {
+    background-color: white;
+    color: $blue;
+  }
+
+  .about-conclusion {
+    p{
+      color: $red ;
+      text-align: center;
+    }
+  }
+
+}
+
+.header {
+  > .btn-toolbar {
+    margin-top: 14px;
+  }
+}
+
+.aside-md {
+  background-color: $red-light;
+}
+
+.modal-content {
+  color: $blue;
+}
+
+.modal-header {
+  background-color: $green-light;
+
+  .modal-logo {
+    position: static;
+    top: 0;
+    display: block;
+    max-height: 90px;
+    margin: 20px auto;
+  }
+
+  h1 {
+    color: $blue;
+  }
+}
+
+.notification-open {
+  a {
+    .fa {
+      color: $blue;
+    }
+  }
+}
+
+.about-logo {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.img-fg {
+  z-index: 1025;
+  margin: 25px;
+}
+
+.img-tl {
+  position: relative;
+  top: -64px;
+  left: 0;
+}
+
+.img-tr {
+  top: 0;
+  right: 0;
+}
+
+.img-bl {
+  position: relative;
+  left: 0;
+  height: 40px;
+  margin: 0 16px 0 0;
+}
+
+.img-br {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+.img-fl {
+  width: 48px;
+}
+
+.img-social {
+  margin: 0;
+}
+
+.img-perceuse {
+  width: 208px;
+  height: auto;
+  margin-left: 50px;
+}
+
+.img-txt {
+  height: 16px;
+}
+
+.img-crowdmachine {
+  position: relative;
+  max-width: 100%;
+  min-height: 270px;
+}
+
+.img-about {
+  background-color: $blue-light;
+}
+
+.btn-overlay {
+  display: none;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding: 10px;
+}
+
+.btn-crowdmachine{
+  width: 100%;
+  margin: 5px 0;
+}
+
+.img-crowdmachine-src {
+  filter: grayscale(100%);
+  max-height: 290px;
+  margin: auto;
+  vertical-align: middle;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  transition: .5s ease;
+
+  &.active,
+  &:focus,
+  &:hover {
+    background: rgba($red, .2);
+
+    & .btn-overlay {
+      display: block;
+    }
+  }
+
+}
+
+.overlay-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba($blue, .2);
+
+}
+
+.navbar-brand {
+  padding: 0;
+}
+
+.header {
+  &.navbar {
+    // position: relative;
+  }
+}
+
+.home {
+  z-index: 1025;
+  text-align: center;
+  color: $red;
+  font-size: 20pt;
+  line-height: 22pt;
+}
+
+.home-top {
+  position: relative;
+  top: -174px;
+  letter-spacing: 1pt;
+}
+
+.home-left {
+  width: 201px;
+  transform: rotate(-90deg);
+  letter-spacing: 1pt;
+}
+
+.home-right {
+  position: fixed;
+  right: -50px;
+  width: 238px;
+  transform: rotate(90deg);
+  letter-spacing: 1pt;
+}
+
+.home-center {
+  margin-top: 16px;
+}
+
+.home-title {
+  letter-spacing: 1pt;
+  font-family: $font-family-serif;
+  font-size: 48pt;
+  line-height: 40pt;
+}
+
+.home-content p {
+  font-family: $font-family-sans-serif;
+  line-height: 15pt;
+}
+
+.col-home,
+.container-home {
+  padding: 0;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 25px;
+}
+
+.about-contact {
+  position: relative;
+  top: -120px;
+}
+
+.about-link {
+  .label {
+    padding: 10px 10px 0;
+  }
+}
+
+.crowdmachine-repeat {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+// .crowdmachine-card {
+//   height: 100%;
+// }
+
+.support-title {
+  color: $blue;
+  text-align: center;
+  letter-spacing: 1pt;
+  font-family: $font-family-serif;
+  font-size: 32pt;
+  line-height: 40pt;
+}
+
+.support-card-title {
+  font-size: 16pt;
+  line-height: 16pt;
+}
+
+.img-support-logo {
+  padding: 10px 0;
+}
+
+// nav
+@media (max-width: 767px) {
+  .btn {
+    border: None;
+  }
+
+  .nav-off-screen {
+    + * {
+      background-color: $red-light;
+    }
+  }
+}
+
+#nav {
+  .nav {
+    background-color: $red-light;
+
+    > li {
+      > a {
+        color: $blue;
+
+        &.active,
+        &:focus,
+        &:hover {
+          color: $blue;
+          background-color: white;
+        }
+      }
+    }
+  }
+}
+
+.nav > li > a:focus {
+  background-color: $green-light;
+}
+
+.navbar-header > .btn {
+  color: $blue;
+  background-color: transparent;
+}
+
+.dropdown-menu > li > a {
+  color: $blue;
+}
+
+.img-mobile {
+  display: block;
+  margin: 50px;
+}
+
+// Responsive
+@media screen and (max-width: $screen-sm-min) {
+  .img-tl {
+    position: fixed;
+    top: 0;
+  }
+
+  .img-fg {
+    margin: 25px;
+  }
+
+  .footer {
+    padding: 25px;
+  }
+
+  .img-fl {
+    width: 32px;
+  }
+
+  .img-bl {
+    height: 32px;
+    margin: 0 16px 0 0;
+  }
+
+  .about-contact {
+    position: relative;
+    top: 0;
+  }
+
+  .about-logo {
+    top: 0;
+    padding: 30px 0;
+  }
+
+  .img-perceuse {
+    display: none;
+  }
+
+  .btn-overlay {
+    display: block;
+  }
+
+  .crowdmachine-card{
+    height: 100%;
+  }
+}
+// utilities
+
+.wrapper {
+  padding: 32px 15px;
+}
+
+.rounded {
+  background-color: $blue;
+}
+
+.crowdmachine-repeat {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.crowdmachine-card {
+  overflow-y: auto;
+}
+
+.crowdmachine-content {
+  background-color: $green-light;
+  padding: 10px;
+}
+
+::placeholder {
+  opacity: 1;
+  /* Firefox */
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $blue !important;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: $blue !important;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: $blue !important;
+}

@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227114634) do
+ActiveRecord::Schema.define(version: 20180803080035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "unaccent"
   enable_extension "pg_trgm"
+  enable_extension "unaccent"
 
   create_table "abuses", force: :cascade do |t|
     t.integer  "signaled_id"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20170227114634) do
     t.datetime "updated_at"
     t.integer  "nb_total_places"
     t.boolean  "destroying",      default: false
+    t.boolean  "lock",            default: false
   end
 
   create_table "availability_tags", force: :cascade do |t|
@@ -215,6 +216,7 @@ ActiveRecord::Schema.define(version: 20170227114634) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.boolean  "disabled"
   end
 
   add_index "groups", ["slug"], name: "index_groups_on_slug", unique: true, using: :btree
@@ -269,6 +271,7 @@ ActiveRecord::Schema.define(version: 20170227114634) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.boolean  "disabled"
   end
 
   add_index "machines", ["slug"], name: "index_machines_on_slug", unique: true, using: :btree
@@ -359,6 +362,19 @@ ActiveRecord::Schema.define(version: 20170227114634) do
 
   add_index "organizations", ["profile_id"], name: "index_organizations_on_profile_id", using: :btree
 
+  create_table "pages", force: :cascade do |t|
+    t.string   "name",       limit: 30
+    t.string   "title"
+    t.string   "icon",       limit: 30
+    t.integer  "version"
+    t.integer  "sort"
+    t.boolean  "published"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "pages", ["name"], name: "index_pages_on_name", unique: true, using: :btree
+
   create_table "plans", force: :cascade do |t|
     t.string   "name"
     t.integer  "amount"
@@ -375,6 +391,7 @@ ActiveRecord::Schema.define(version: 20170227114634) do
     t.integer  "ui_weight",          default: 0
     t.integer  "interval_count",     default: 1
     t.string   "slug"
+    t.boolean  "disabled"
   end
 
   add_index "plans", ["group_id"], name: "index_plans_on_group_id", using: :btree
@@ -567,6 +584,7 @@ ActiveRecord::Schema.define(version: 20170227114634) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.text     "characteristics"
+    t.boolean  "disabled"
   end
 
   create_table "spaces_availabilities", force: :cascade do |t|
@@ -700,6 +718,7 @@ ActiveRecord::Schema.define(version: 20170227114634) do
     t.string   "slug"
     t.text     "description"
     t.boolean  "public_page",     default: true
+    t.boolean  "disabled"
   end
 
   add_index "trainings", ["slug"], name: "index_trainings_on_slug", unique: true, using: :btree

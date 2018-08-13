@@ -8,6 +8,7 @@ pt:
 
           # dashboard sections
           dashboard: "Dashboard"
+          about: 'Sobre'
           my_profile: "Meu Perfil"
           my_settings: "Minhas Configurações"
           my_projects: "Meus Projetos"
@@ -97,6 +98,7 @@ pt:
           not_registered_to_the_fablab: "Ainda não registrado no Fablab?"
           create_an_account: "Criar conta"
           wrong_email_or_password: "E-mail ou senha incorretos."
+          caps_lock_is_on: "A tecla Caps Lock está ativada."
 
           # forgotten password modal
           your_email_address_is_unknown: "Seu e-mail não está cadastrado."
@@ -126,13 +128,14 @@ pt:
           # next events summary on the home page
           fablab_s_next_events: "Próximos eventos do FabLab"
           every_events: "Todos Eventos"
-          from_date_to_date: "De {{START}} até {{END}}"  # angular interpolation
-          on_the_date: "Em {{DATE}}"  # angular interpolation
+          from_date_to_date: "De {{START}} até {{END}}"   # angular interpolation
+          on_the_date: "Em {{DATE}}"                      # angular interpolation
           from_time_to_time: "Das {{START}} até {{END}}"  # angular interpolation
           free_entry: "Entrada franca"
           free_admission: "Admissão grátis"
           full_price: "Valor inteira"
           event_full: "Evento lotado"
+          still_available: "Locais disponíveis"
 
         projects_list:
           # projects gallery
@@ -174,9 +177,14 @@ pt:
 
         machines_list:
           # list of machines
-          the_fablab_s_machines: "Lista de máquinas no FabLab"
-          add_a_machine: "Adicionar uma máquina"
-          _or_the_: " ou o "
+          machines_list:
+            the_fablab_s_machines: "Lista de máquinas no FabLab"
+            add_a_machine: "Adicionar uma máquina"
+            book: "Reservar"
+            _or_the_: " ou o "
+            status_enabled: "Ativo" 
+            status_disabled: "Desabilitado" 
+            status_all: "Todos"
 
         machines_show:
           # details of a machine
@@ -227,6 +235,11 @@ pt:
           the_fablab_s_events: "Eventos do Fablab"
           all_categories: "Todas categorias"
           for_all: "Para todos"
+          sold_out: "Esgotado."
+          cancelled: "Cancelado"
+          free_admission: "Admissão grátis"
+          still_available: "lugares disponíveis"
+          free_entry: "Entrada franca"
 
         events_show:
           # details and booking of an event
@@ -239,6 +252,7 @@ pt:
           tickets_still_availables: "Tickets ainda disponíveis:"
           sold_out: "Esgotado."
           free_entry: "Entrada franca"
+          cancelled: "Cancelado"
           ticket: "{NUMBER, plural, one{ticket} other{tickets}}"  # messageFormat interpolation
           make_a_gift_of_this_reservation: "Doe esta reserva"
           you_can_find_your_reservation_s_details_on_your_: "Você pode encontrar detalhes da sua reserva em seu"
@@ -246,6 +260,10 @@ pt:
           book: "Reservar"
           change_the_reservation: "Alterar reserva"
           you_can_shift_this_reservation_on_the_following_slots: "Você pode alterar essa reserva nos campos a seguir:"
+          confirmation_required: "Confirmação obrigatória"
+          do_you_really_want_to_delete_this_event:  "Vocêrealmente deseja remover este evento?"
+          event_successfully_deleted: "Evento excluído com sucesso"
+          unable_to_delete_the_event_because_some_users_alredy_booked_it: "Não foi possível excluir este evento, já pode ter sido reservado por alguns usuários."
 
         calendar:
           # public calendar
@@ -260,8 +278,13 @@ pt:
 
         spaces_list:
           # list of spaces
-          the_spaces: "Os espaços"
-          add_a_space: "Adicionar espaço"
+          spaces_list:
+            the_spaces: "Os espaços"
+            add_a_space: "Adicionar espaço"
+            status_enabled: "Ativo"
+            status_disabled: "Desabilitado"
+            status_all: "Todos" 
+            book: "Reservar"
 
         space_show:
           # display the details of a space
@@ -269,8 +292,10 @@ pt:
             book_this_space: "Marcar este espaço"
             unauthorized_operation: "Operação não autorizada"
             confirmation_required: "Confirmação obrigatória"
-            do_you_really_want_to_delete_this_space: "Vocêrealmente deseja remover este espaço?"
+            do_you_really_want_to_delete_this_space: "Você realmente deseja remover este espaço?"
             the_space_cant_be_deleted_because_it_is_already_reserved_by_some_users: "Impossível remover este espaço, pois ele já foi reservado por alguns usuários."
             characteristics: "Características"
             files_to_download: "Arquivo para download"
             projects_using_the_space: "Projetos usando espaço"
+
+      pages:

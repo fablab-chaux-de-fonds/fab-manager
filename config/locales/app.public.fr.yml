@@ -8,6 +8,7 @@ fr:
 
         # sections du tableau de bord
         dashboard: "Tableau de bord"
+        about: "A propos"
         my_profile: "Mon profil"
         my_settings: "Mes paramètres"
         my_projects: "Mes projets"
@@ -35,6 +36,8 @@ fr:
         projects_gallery: "Galerie de projets"
         subscriptions: "Abonnements"
         public_calendar: "Calendrier"
+        public_press: "Presse"
+        public_support: "Soutiens"
 
         # menu de gauche (partie admin)
         trainings_monitoring: "Suivi formations"
@@ -97,6 +100,7 @@ fr:
         not_registered_to_the_fablab: "Vous n'êtes pas inscrit au FAB LAB ?"
         create_an_account: "Créer un compte"
         wrong_email_or_password: "Adresse courriel ou mot de passe incorrect."
+        caps_lock_is_on: "La touche de verrouillage des majuscules est activée."
 
         # mot de passe oublié
         your_email_address_is_unknown: "Votre adresse de courriel est inconnue."
@@ -126,13 +130,14 @@ fr:
         # résumé des prochains évènements sur la page d'acceuil
         fablab_s_next_events: "Les prochains évènements du Fab Lab"
         every_events: "Tous les évènements"
-        from_date_to_date: "Du {{START}} au {{END}}"  # angular interpolation
-        on_the_date: "Le {{DATE}}"  # angular interpolation
-        from_time_to_time: "De {{START}} à {{END}}"  # angular interpolation
-        free_entry: "Entrée libre"
+        from_date_to_date: "du {{START}} au {{END}}"  # angular interpolation
+        on_the_date: "le {{DATE}}"                    # angular interpolation
+        from_time_to_time: "de {{START}} à {{END}}"   # angular interpolation
+        free_entry: "Accès libre"
         free_admission: "Entrée gratuite"
-        full_price: "Plein tarif"
+        full_price: "Plein tarif : "
         event_full: "Événement complet"
+        still_available: "Place(s) disponible(s) :"
 
       projects_list:
         # galerie des projets
@@ -174,9 +179,14 @@ fr:
 
       machines_list:
         # liste des machines
-        the_fablab_s_machines: "Les machines du FabLab"
-        add_a_machine: "Ajouter une machine"
-        _or_the_: " ou la "
+        machines_list:
+          the_fablab_s_machines: "Les machines du FabLab"
+          add_a_machine: "Ajouter une machine"
+          book: "Réserver"
+          _or_the_: " ou la "
+          status_enabled: "Actives"
+          status_disabled: "Désactivées"
+          status_all: "Toutes"
 
       machines_show:
         # détail d'une machine
@@ -229,6 +239,11 @@ fr:
         the_fablab_s_events: "Les évènements du Fab Lab"
         all_categories: "Toutes les catégories"
         for_all: "Tout public"
+        sold_out: "Complet"
+        cancelled: "Annulé"
+        free_admission: "Gratuit"
+        still_available: "place(s) disponible(s)"
+        free_entry: "Accès libre"
 
       events_show:
         # détails d'un événement et réservation
@@ -239,8 +254,9 @@ fr:
         ending: "Fin :"
         opening_hours: "Horaires :"
         tickets_still_availables: "Places encore disponibles :"
-        sold_out: "Événement complet."
-        free_entry: "Entrée libre"
+        sold_out: "Événement complet"
+        free_entry: "Accès libre"
+        cancelled: "Annulé"
         ticket: "{NUMBER, plural, =0{place} one{place} other{places}}"  # messageFormat interpolation
         make_a_gift_of_this_reservation: "Offrir cette réservation"
         you_can_find_your_reservation_s_details_on_your_: "Vous pouvez retrouver le détail de votre réservation sur votre"
@@ -248,6 +264,10 @@ fr:
         book: "Réserver"
         change_the_reservation: "Modifier la réservation"
         you_can_shift_this_reservation_on_the_following_slots: "Vous pouvez déplacer cette réservation sur les créneaux suivants :"
+        confirmation_required: "Confirmation requise"
+        do_you_really_want_to_delete_this_event:  "Voulez-vous vraiment supprimer cet évènement ?"
+        event_successfully_deleted: "L'évènement a bien été supprimé."
+        unable_to_delete_the_event_because_some_users_alredy_booked_it: "Impossible de supprimer l'évènement, il est peut-être déjà réservé par certains utilisateurs."
 
       calendar:
         # calendrier publique
@@ -260,10 +280,25 @@ fr:
           spaces: "Espaces"
           events: "Évènements"
 
+      support:
+        # support publique
+        support:
+          support: "Soutiens"
+
+      press:
+        # press publique
+        press:
+          press: "Presse"
+
       spaces_list:
         # liste des espaces
-        the_spaces: "Les espaces"
-        add_a_space: "Ajouter un espace"
+        spaces_list:
+          the_spaces: "Les espaces"
+          add_a_space: "Ajouter un espace"
+          status_enabled: "Activés"
+          status_disabled: "Désactivés"
+          status_all: "Tous"
+          book: "Réserver"
 
       space_show:
         # affichage des détails d'un espace
@@ -276,3 +311,6 @@ fr:
           characteristics: "Caractéristiques"
           files_to_download: "Fichiers à télécharger"
           projects_using_the_space: "Projets utilisant l'espace"
+
+      pages:
+        hello: 'world'

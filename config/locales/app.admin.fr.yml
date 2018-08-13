@@ -46,8 +46,21 @@ fr:
           restrict_this_slot_with_labels_(optional): "Restreindre ce créneau avec des étiquettes (optionnel)"
           the_slot_START-END_has_been_successfully_deleted: "Le créneau {{START}} - {{END}} a bien été supprimé"  # angular interpolation
           unable_to_delete_the_slot_START-END_because_it_s_already_reserved_by_a_member: "Le créneau {{START}} - {{END}} n'a pu être supprimé car il est déjà réservé par un membre"  # angular interpolation
-          you_should_select_at_least_a_machine: "Vous devriez sélectionne au moins une machine pour ce créneau."
+          you_should_select_at_least_a_machine: "Vous devriez sélectionner au moins une machine pour ce créneau."
           export_is_running_you_ll_be_notified_when_its_ready: "L'export est en cours. Vous serez notifié lorsqu'il sera prêt."
+          actions: "Actions"
+          block_reservations: "Bloquer les réservations"
+          do_you_really_want_to_block_this_slot: "Êtes vous sur de vouloir bloquer les nouvelles réservations sur ce créneau ? Il deviendra alors invisible pour les utilisateurs."
+          locking_success: "Le créneau a bien été verrouillé, il n'apparaitra plus dans le calendrier utilisateur"
+          locking_failed: "Une erreur est survenue. Le verrouillage du créneau a échoué"
+          allow_reservations: "Autoriser les réservations"
+          do_you_really_want_to_allow_reservations: "Êtes vous sur de vouloir autoriser de nouveau la prise de réservations sur ce créneau ? Il deviendra alors visible pour les utilisateurs."
+          unlocking_success: "Le créneau a bien été déverrouillé, il apparaîtra de nouveau dans le calendrier utilisateur"
+          unlocking_failed: "Une erreur est survenue. Le déverrouillage du créneau a échoué"
+          reservations_locked: "Réservations bloquées"
+          unlockable_because_reservations: "Impossible de bloquer les réservations sur ce créneau car il existe des réservations non annulées sur celui-ci."
+          delete_slot: "Supprimer le créneau"
+          do_you_really_want_to_delete_this_slot: "Êtes vous sur de vouloir supprimer ce créneau ?"
 
       project_elements:
         # gestion des éléments constituant les projets
@@ -60,6 +73,9 @@ fr:
       trainings:
         # suivre et surveiller les formations
         training: "Formation"
+        add_a_new_training: "Ajouter une nouvelle formation"
+        associated_machines: "Machines associées"
+        number_of_tickets: "Nombre de places"
         year_NUMBER: "Année {{NUMBER}}"  # angular interpolation
         month_of_NAME: "Mois de {{NAME}}"  # angular interpolation
         NUMBER_reservation: "{NUMBER} {NUMBER, plural, =0{réservation} one{réservation} other{réservations}}"  # messageFormat interpolation
@@ -76,11 +92,16 @@ fr:
         training_successfully_deleted: "La formation a bien été supprimée."
         unable_to_delete_the_training_because_some_users_alredy_booked_it: "La formation ne peut pas être supprimée car elle a déjà été réservée par des utilisateurs."
         do_you_really_want_to_delete_this_training: "Êtes-vous sur de vouloir supprimer cette formation ?"
+        status_enabled: "Actifs"
+        status_disabled: "Désactivés"
+        status_all: "Tous"
 
       trainings_new:
         # créer une nouvelle formation
-        beware_when_creating_a_training_its_reservation_prices_are_initialized_to_zero: "Attention, lors de la création d'une formation, ses tarifs de réservation sont initialisés à zero."
-        dont_forget_to_change_them_before_creating_slots_for_this_training: "Pensez à les modifier avant de créer des créneaux pour cette formation."
+        trainings_new:
+          add_a_new_training: "Ajouter une nouvelle formation"
+          beware_when_creating_a_training_its_reservation_prices_are_initialized_to_zero: "Attention, lors de la création d'une formation, ses tarifs de réservation sont initialisés à zero."
+          dont_forget_to_change_them_before_creating_slots_for_this_training: "Pensez à les modifier avant de créer des créneaux pour cette formation."
 
       events:
         # gestion et suivi des évènements
@@ -90,8 +111,15 @@ fr:
         all_events: "Tous les évènements"
         passed_events: "Les évènements déjà passés"
         events_to_come: "Les évènements à venir"
-        from_DATE: "Du {{DATE}}"  # angular interpolation
-        from_TIME: "De {{TIME}}"  # angular interpolation
+        events_to_come_asc: "Les évènements à venir | ordre chronologique"
+        on_DATE: "le {{DATE}}"    # angular interpolation
+        from_DATE: "du {{DATE}}"  # angular interpolation
+        from_TIME: "de {{TIME}}"  # angular interpolation
+        booking: "Réservations"
+        sold_out: "Complet"
+        cancelled: "Annulé"
+        free_entry: "Entrée libre"
+        free_admission: "Entrée gratuite"
         view_reservations: "Consulter les réservations"
         categories: "Catégories"
         add_a_category: "Ajouter une catégorie"
@@ -183,6 +211,7 @@ fr:
           error_a_credit_linking_this_machine_with_that_subscription_already_exists: "Erreur : un crédit associant cette machine et cet abonnement existe déjà."
           changes_have_been_successfully_saved: "Les modifications ont bien été enregistrées."
           credit_was_successfully_saved: "Le crédit a bien été enregistré."
+          error_creating_credit: "Impossible de créer le credit, une erreur est survenue"
           do_you_really_want_to_delete_this_subscription_plan: "Êtes-vous sûr(e) de vouloir supprimer cette formule d'abonnement ?"
           subscription_plan_was_successfully_deleted: "La formule d'abonnement a bien été supprimée."
           unable_to_delete_the_specified_subscription_an_error_occurred: "Impossible de supprimer l'abonnement spécifié, une erreur s'est produite."
@@ -217,6 +246,9 @@ fr:
           add_a_space_credit: "Ajouter un crédit Espace"
           space: "Espace"
           error_a_credit_linking_this_space_with_that_subscription_already_exists: "Erreur : un crédit associant cet espace et cet abonnement existe déjà."
+          status_enabled: "Actifs"
+          status_disabled: "Désactivés"
+          status_all: "Tous"
 
       coupons_new:
         # ajouter un code promotionnel
@@ -380,14 +412,8 @@ fr:
         this_may_take_a_while_please_wait: "Attention : ceci peut prendre un certain temps, merci de patienter."
         administrator_successfully_deleted: "L'administrateur a bien été supprimé."
         unable_to_delete_the_administrator: "L'administrateur n'a pas pu être supprimé."
-        add_a_group: "Ajouter un groupe"
-        group_name: "Nom du groupe"
         changes_successfully_saved: "Les modifications ont bien été enregistrées."
         an_error_occurred_while_saving_changes: "Une erreur est survenue lors de l'enregistrement des modifications."
-        new_group_successfully_saved: "Le nouveau groupe a bien été enregistré."
-        an_error_occurred_when_saving_the_new_group: "Une erreur est survenue lors de l'enregistrement du nouveau groupe."
-        group_successfully_deleted: "Le groupe a bien été supprimé."
-        unable_to_delete_group_because_some_users_and_or_groups_are_still_linked_to_it: "Le groupe n'a pas pu être supprimé car des utilisateurs et/ou des abonnements sont toujours associés à ce dernier."
         add_a_tag: "Ajouter une étiquette"
         tag_name: "Nom de l'étiquette"
         new_tag_successfully_saved: "La nouvelle étiquette a bien été enregistrée."
@@ -407,6 +433,23 @@ fr:
         an_error_occurred_unable_to_delete_the_specified_provider: "Une erreur est survenue : impossible de supprimer le fournisseur spécifié."
         local_database: "Base de données locale"
         o_auth2: "OAuth 2.0"
+        group_form:
+          add_a_group: "Ajouter un groupe"
+          group_name: "Nom du groupe"
+          disable: "Désactiver"
+          enable: "Activer"
+          changes_successfully_saved: "Les modifications ont bien été enregistrées."
+          an_error_occurred_while_saving_changes: "Une erreur est survenue lors de l'enregistrement des modifications."
+          new_group_successfully_saved: "Le nouveau groupe a bien été enregistré."
+          an_error_occurred_when_saving_the_new_group: "Une erreur est survenue lors de l'enregistrement du nouveau groupe."
+          group_successfully_deleted: "Le groupe a bien été supprimé."
+          unable_to_delete_group_because_some_users_and_or_groups_are_still_linked_to_it: "Le groupe n'a pas pu être supprimé car des utilisateurs et/ou des abonnements sont toujours associés à ce dernier."
+          group_successfully_enabled_disabled: "Le groupe a bien été {STATUS, select, true{désactivé} other{activé}}."  # messageFormat interpolation
+          unable_to_enable_disable_group: "Impossible {STATUS, select, true{de désactiver} other{d'activer}} le groupe."  # messageFormat interpolation
+          unable_to_disable_group_with_users: "Impossible de désactiver le groupe car il contient encore {USERS} {USERS, plural, =0{personne} =1{utilisateur actif} other{utilisateurs actifs}}."  # messageFormat interpolation
+          status_enabled: "Activés"
+          status_disabled: "Désactivés"
+          status_all: "Tous"
 
       members_new:
         # ajouter un membre
@@ -568,12 +611,16 @@ fr:
           title_of_the_about_page: "Titre page A propos"
           shift_enter_to_force_carriage_return: "MAJ. + ENTRÉE pour forcer le retour à la ligne"
           input_the_main_content: "Saisir le contenu principal"
+          drag_and_drop_to_insert_images: "Faites un glisser-déposer pour insérer des images"
           input_the_fablab_contacts: "Saisir les Contacts du FabLab"
           reservations: "Réservations"
           reservations_parameters: "Paramètres des réservations"
           confine_the_booking_agenda: "Borner l'agenda de réservation"
           opening_time: "Heure d'ouverture"
           closing_time: "Heure de fermeture"
+          max_visibility: "Visibilité maximum (en mois)"
+          visibility_for_yearly_members: "Pour les abonnements en cours d'au moins 1 an"
+          visibility_for_other_members: "Pour tous les autres membres"
           ability_for_the_users_to_move_their_reservations: "Possibilité pour l'utilisateur de déplacer ses réservations"
           reservations_shifting: "Déplacement des réservations"
           prior_period_(hours): "Délai préalable (en heures)"
@@ -608,6 +655,8 @@ fr:
           reminder_enable: "l'activation du rappel de réservation"
           reminder_delay: "délai avant envoi de la notification de rappel"
           default_value_is_24_hours: "Si aucune valeur n'est renseignée : 24 heures."
+          visibility_yearly: "la visibilité maximum pour les abonnées annuels"
+          visibility_others: "la visibilité maximum pour les autres membres"
 
       open_api_clients:
         add_new_client: "Créer un compte client"
@@ -637,3 +686,16 @@ fr:
         space_edit:
           edit_the_space_NAME: "Modifier l'espace : {{NAME}}"  # angular interpolation
           validate_the_changes: "Valider les modifications"
+
+      pages:
+        create_a_custom_page: "Nouvelle page personnalisée"
+        page_form:
+          fa_icon: "Icone"
+          name: "Nom"
+          title: "Titre"
+          publish_page: "Visible"
+          sort_page: "Ordre"
+          page_template: "Modèle"
+          page_data_context: "Données"
+          translations_files: "Traductions"
+          add_translation: "Ajouter un fichier de traduction"

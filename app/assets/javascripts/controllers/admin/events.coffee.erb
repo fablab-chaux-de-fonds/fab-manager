@@ -171,7 +171,7 @@ Application.Controllers.controller "AdminEventsController", ["$scope", "$state",
   $scope.events = eventsPromise
 
   ## Current virtual page
-  $scope.page = 2
+  $scope.page = 1
 
   ## Temporary datastore for creating new elements
   $scope.inserted =
@@ -191,14 +191,18 @@ Application.Controllers.controller "AdminEventsController", ["$scope", "$state",
   ## List of price categories for the events
   $scope.priceCategories = priceCategoriesPromise
 
+  ## Default: we display all events (no restriction)
+  $scope.eventsScope =
+      selected: ''
+
   ##
   # Adds a bucket of events to the bottom of the page, grouped by month
   ##
   $scope.loadMoreEvents = ->
-    Event.query {page: $scope.page}, (data)->
+    $scope.page += 1
+    Event.query { page: $scope.page, scope: $scope.eventsScope.selected }, (data)->
       $scope.events = $scope.events.concat data
       paginationCheck(data, $scope.events)
-    $scope.page += 1
 
 
   ##
@@ -340,6 +344,17 @@ Application.Controllers.controller "AdminEventsController", ["$scope", "$state",
           growl.error _t('price_category_deletion_failed')
 
 
+  ##
+  # Triggered when the admin changes the events filter (all, passed, future).
+  # We request the first page of corresponding events to the API
+  ##
+  $scope.changeScope = ->
+    Event.query {page: 1, scope: $scope.eventsScope.selected}, (data)->
+      $scope.events = data
+      paginationCheck(data, $scope.events)
+    $scope.page = 1
+
+
 
   ### PRIVATE SCOPE ###
 
@@ -358,7 +373,10 @@ Application.Controllers.controller "AdminEventsController", ["$scope", "$state",
   ##
   paginationCheck = (lastEvents, events)->
     if lastEvents.length > 0
-      $scope.paginateActive = false if events.length >= lastEvents[0].nb_total_events
+      if events.length >= lastEvents[0].nb_total_events
+        $scope.paginateActive = false
+      else
+        $scope.paginateActive = true
     else
       $scope.paginateActive = false
 

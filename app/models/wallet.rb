@@ -7,7 +7,7 @@ class Wallet < ActiveRecord::Base
   validates :user, presence: true
 
   def credit(amount)
-    if amount.is_a?(Numeric) and amount >= 0
+    if amount.is_a?(Numeric) and amount >= ApplicationHelper::WALLET_MINIMAL_AMOUNT
       self.amount += amount
       return save
     end
@@ -15,7 +15,7 @@ class Wallet < ActiveRecord::Base
   end
 
   def debit(amount)
-    if amount.is_a?(Numeric) and amount >= 0
+    if amount.is_a?(Numeric) and amount >= ApplicationHelper::WALLET_MINIMAL_AMOUNT
       self.amount -= amount
       return save
     end

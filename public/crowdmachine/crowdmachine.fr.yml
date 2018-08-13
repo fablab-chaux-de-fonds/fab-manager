@@ -1,0 +1,14 @@
+fr:
+  app:
+    public:
+      common:
+        public_crowdmachine: "Soutiens"
+      pages:
+        crowdmachine:
+          title_crowdmachine: "Soutiens nous !"
+          info:          "Plus d'info"
+          contribute:    "Contribuer"
+          crowdmachine:
+            description:   "Description"
+            specification: "Spécification"
+          back:          "Retour"

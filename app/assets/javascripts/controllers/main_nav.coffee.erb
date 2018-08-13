@@ -3,7 +3,7 @@
 ##
 # Navigation controller. List the links availables in the left navigation pane and their icon.
 ##
-Application.Controllers.controller "MainNavController", ["$scope", "$location", "$cookies", ($scope, $location, $cookies) ->
+Application.Controllers.controller "MainNavController", ["$scope", "$location", "$cookies", 'pagePromise', ($scope, $location, $cookies, pagePromise) ->
 
   sortBy = (key, a, b, r) ->
       r = if r then 1 else -1
@@ -21,22 +21,24 @@ Application.Controllers.controller "MainNavController", ["$scope", "$location", 
       linkIcon: 'home'
       sort: 0
     }
-
     {
       state: 'app.public.machines_list'
       linkText: 'reserve_a_machine'
       linkIcon: 'cogs'
       sort: 2
+      disabled: true
     }
     {
       state: 'app.public.trainings_list'
       linkText: 'trainings_registrations'
       linkIcon: 'graduation-cap'
+      disabled: true
     }
     {
       state: 'app.public.events_list'
       linkText: 'events_registrations'
       linkIcon: 'tags'
+      disabled: true
     }
     {
       state: 'app.public.calendar'
@@ -48,6 +50,7 @@ Application.Controllers.controller "MainNavController", ["$scope", "$location", 
       state: 'app.public.projects_list'
       linkText: 'projects_gallery'
       linkIcon: 'th'
+      disabled: true
     }
   ]
 
@@ -57,6 +60,7 @@ Application.Controllers.controller "MainNavController", ["$scope", "$location", 
         linkText: 'subscriptions'
         linkIcon: 'credit-card'
         sort: 1
+        disabled: true
     })
 
   unless Fablab.withoutSpaces
@@ -66,6 +70,15 @@ Application.Controllers.controller "MainNavController", ["$scope", "$location", 
       linkIcon: 'rocket'
     })
 
+  $scope.navLinks.push({
+    state: 'app.public.pages'
+    params:
+      name: page.name
+    linkText: 'public_' + page.name
+    linkIcon: page.icon
+    disabled: !page.published
+    sort: page.sort
+  }) for page in pagePromise
 
   Fablab.adminNavLinks = Fablab.adminNavLinks || []
   adminNavLinks = [
@@ -118,6 +131,11 @@ Application.Controllers.controller "MainNavController", ["$scope", "$location", 
       state: 'app.admin.settings'
       linkText: 'customization'
       linkIcon: 'gear'
+    }
+    {
+      state: 'app.admin.pages'
+      linkText: 'admin_custom_pages'
+      linkIcon: 'paper-plane'
     }
     {
       state: 'app.admin.open_api_clients'

@@ -1,4 +1,4 @@
-FABMGRPATH=$(realpath ..)
+FABMGRPATH="$(realpath $(dirname $(readlink -f $0))/..)"
 docker run --restart unless-stopped  \
 -d --name fabmanager-dev \
 --link=fabmanager-postgres:postgres \
@@ -9,7 +9,7 @@ docker run --restart unless-stopped  \
 -e RACK_ENV=development \
 --env-file=$FABMGRPATH/config/env \
 -v $FABMGRPATH:/usr/src/app \
-fablab-iciautour/fabmanager:2.5.9
+fablab-chaux-de-fonds/fabmanager:2.6.4
 #-v $FABMGRPATH/plugins:/usr/src/app/plugins \
 #-v $FABMGRPATH/public/assets:/usr/src/app/public/assets \
 #-v $FABMGRPATH/public/uploads:/usr/src/app/public/uploads \

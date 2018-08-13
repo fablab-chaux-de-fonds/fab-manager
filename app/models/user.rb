@@ -74,6 +74,14 @@ class User < ActiveRecord::Base
   scope :without_subscription, -> { includes(:subscriptions).where(subscriptions: { user_id: nil }) }
   scope :with_subscription, -> { joins(:subscriptions) }
 
+  after_initialize :init
+
+  def init
+    if self.username == nil
+      self.username = self.email
+    end
+  end
+
   def to_builder
     Jbuilder.new do |json|
       json.id id

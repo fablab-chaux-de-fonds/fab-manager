@@ -1,5 +1,104 @@
 # Changelog Fab Manager
 
+## next release
+
+## v2.6.4 2018 March 15
+
+- Ability to share trainings on social medias
+- Fix a bug: a reminder notification were sent for canceled reservations
+- Fix a bug: sharing an event on facebook has HTML tags in the description
+- fix stripe api version, all fabmanagers has to use this version because codebase relies on it
+- updates omniauth to ~> 1.3.2 (security vulnerability)
+- updates rack-protection to 1.5.5 (security vulnerability) see [this link](https://github.com/sinatra/sinatra/issues/1408) and [this link](https://github.com/sinatra/rack-protection/pull/122)
+- updates twitter gem in order to get rid of security warning from gem "http"
+
+## v2.6.3 2018 January 2
+
+- Fix a bug: wrong docker-compose url in setup script (#98)
+- Typo correction in docker README (#97)
+
+## v2.6.2 2017 December 21
+
+- Support for internet explorer 11
+- Fix a bug: events order in public list
+- Fix a bug: unable to create a training credit
+- Corrected typos in documentation (#96)
+- Improved test suite coverage
+
+## v2.6.1 2017 December 14
+
+- Updated Portuguese translations (#91)
+- Added Spanish translations (#87)
+- Added Central Africa & Cameroon currency symbol (#90)
+- Fix nginx configuration to allow initial Let's Encrypt configuration (#92)
+- Events: open api and monitor improvement (#79)
+- Fix a bug: refund an invoice with a subscription and disabling it a the same time cause the resulting PDF to display the wrong dates
+- Fix a bug: unable to successfully run the test suite after wednesday
+- Fix a security issue: in development environments, web-console has a vulnerability as described in CVE-2015-3224
+- Fixed deploy instructions with docker-compose
+- Updated docker installation instructions
+
+## v2.6.0 2017 November 13
+
+- Additional button to delete a slot, allowing to delete slots masked by others
+- Removed cross hack in full-calendar
+- Confirmation before slot delete
+- Confirmation and error handling while deleting an event
+- Ability to disable groups, machines, plans, spaces and trainings
+- Improved responsiveness of machines and spaces lists
+- Allow setting of decimal prices
+- Fix a typo: error message while creating a machine slot
+- Fix a bug: events pagination is bogus in admin's monitoring when selecting non default filter
+- Fix a bug: social sharing failed for projects with an underscore in their name
+- Fix a bug: html tags of events description not stripped when sharing on social network
+- Fix a bug: event, space, training or machine main image on description page is deformed on small devices
+- Fix a bug: profile completion of non-SSO imported users trigger a fuzzy email
+- Fix a bug: creation of negative credits
+- Fix a bug: unable to display profiles of users whom any reservation is associated with a deleted object
+- Updated test data to allow passing test suite
+- Upgraded rails minor version
+- [TODO DEPLOY] `rake db:migrate`
+- [TODO DEPLOY] `bundle install`
+
+## v2.5.14 2017 September 12
+
+- Fix a bug: Error message in fix:recursive_events_over_DST failed and does not report events to check
+
+## v2.5.13 2017 September 11
+
+- Fix a bug: ActiveRecord::RecordNotFound when running rake task fix:recursive_events_over_DST with recursive events which the initial event was deleted 
+
+## v2.5.12 2017 September 11
+
+- Fix a bug: Long words overflow from homepage's events blocks
+- Fix a bug: ActiveRecord::RecordNotFound when running rake task fix:recursive_events_over_DST with non-recursive events 
+
+## v2.5.11 2017 September 7
+
+- Added tooltip concerning images insertion while configuring the about page
+- Ability for admins to configure the maximum visibility for availabilities reservation
+- Administrators isolation in a special group
+- In login modal, displays an alert if Caps lock key is pressed
+- Prevent creation of irregular yearly plans (eg. 12 months)
+- Ability to lock machine, space or training availability slots, to prevent new reservations on them
+- Fix a bug: admins cannot see all availabilities for spaces in reservation calendar when a user is selected
+- Fix a bug: missing translation after payment in english and portuguese
+- Fix a bug: invalid notification when sending monetary coupon to users
+- Fix a bug: unable to delete group "standard"
+- Fix a bug: recursive events crossing Daylight Saving Time period changes are shifted by 1 hour
+- Fix a bug: unable to see availabilities in the public calendar when browsing as a visitor (non-connected)
+- Updated puma for compatibility with openSSL > 1.0
+- Documented installation on ArchLinux
+- [TODO DEPLOY] `rake db:migrate`
+- [TODO DEPLOY] `rake db:seed` then `rake fablab:fix:migrate_admins_group`
+- [TODO DEPLOY] `rake fablab:fix:recursive_events_over_DST`
+
+## v2.5.10 2017 August 16
+
+- Updated axlsx gem for excel files generation, possible fix for #489
+- Fix a bug: on some linux hosts, a filename too long error is triggered when accessing the following API: trainings, groups, events, prices
+- update docker/README.md
+
 ## v2.5.9 2017 July 13
 
 - Fixed invalid syntax for configuration file application.yml.default

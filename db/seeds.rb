@@ -82,9 +82,13 @@ if Group.count == 0
   ])
 end
 
+unless Group.find_by(slug: 'admins')
+  Group.create! name: I18n.t('group.admins'), slug: 'admins'
+end
+
 # Create the default admin if none exists yet
 if Role.where(name: 'admin').joins(:users).count === 0
-    admin = User.new(username: 'admin', email: Rails.application.secrets.admin_email, password: Rails.application.secrets.admin_password, password_confirmation: Rails.application.secrets.admin_password, group_id: Group.first.id, profile_attributes: {first_name: 'admin', last_name: 'admin', gender: true, phone: '0123456789', birthday: Time.now})
+    admin = User.new(username: 'admin', email: ENV["ADMIN_EMAIL"], password: ENV["ADMIN_PASSWORD"], password_confirmation: Rails.application.secrets.admin_password, group_id: Group.find_by(slug: 'admins').id, profile_attributes: {first_name: 'admin', last_name: 'admin', gender: true, phone: '0123456789', birthday: Time.now})
     admin.add_role 'admin'
     admin.save!
 end
@@ -361,7 +365,7 @@ end
 
 unless Setting.find_by(name: 'fablab_name').try(:value)
   setting = Setting.find_or_initialize_by(name: 'fablab_name')
-  setting.value = 'Fab Lab de La Casemate'
+  setting.value = 'Fablab | La Chaux-de-Fonds'
   setting.save
 end
 
@@ -397,6 +401,18 @@ unless Setting.find_by(name: 'reminder_delay').try(:value)
   setting.save
 end
 
+unless Setting.find_by(name: 'visibility_yearly').try(:value)
+  setting = Setting.find_or_initialize_by(name: 'visibility_yearly')
+  setting.value = '3'
+  setting.save
+end
+
+unless Setting.find_by(name: 'visibility_others').try(:value)
+  setting = Setting.find_or_initialize_by(name: 'visibility_others')
+  setting.value = '1'
+  setting.save
+end
+
 if StatisticCustomAggregation.count == 0
   # available reservations hours for machines
   machine_hours = StatisticType.find_by(key: 'hour', statistic_index_id: 2)
@@ -429,4 +445,10 @@ unless StatisticIndex.find_by(es_type_key: 'space')
     {statistic_index_id: index.id, key: 'booking', label:I18n.t('statistics.bookings'), graph: true, simple: true},
     {statistic_index_id: index.id, key: 'hour', label:I18n.t('statistics.hours_number'), graph: true, simple: false}
   ])
+end
+
+if Page.count == 0
+  tmpl = PageTemplate.create!(attachment: 'blabla.html', type:'text/html')
+  ctx = PageDataContext.create!(attachment: 'context.json', type:'application/json')
+  Page.create!(name:'def_page', title:'Default sample page', icon:'hand', published:true, sort:-1, version: 1, page_template:tmpl, page_data_context:ctx)
 end

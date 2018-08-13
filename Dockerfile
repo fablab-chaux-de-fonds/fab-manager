@@ -11,6 +11,7 @@ RUN apt-get update && \
 
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
+RUN bundle config --delete frozen
 
 # Run Bundle in a cache efficient way
 WORKDIR /tmp

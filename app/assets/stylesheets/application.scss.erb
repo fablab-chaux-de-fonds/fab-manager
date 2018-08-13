@@ -14,6 +14,7 @@
  *= require summernote/dist/summernote
  *= require jquery-minicolors/jquery.minicolors.css
  *= require angular-aside/dist/css/angular-aside
+ *= require fontawesome-iconpicker/fontawesome-iconpicker.min
  */
 
 @import "app.functions";
@@ -21,6 +22,7 @@
 @import "bootstrap-sprockets";
 @import "compass";
 @import "bootstrap_and_overrides";
+@import "bootstrap_and_overrides-fablab-chaux-de-fonds.scss";
 
 @import "app.utilities";
 @import "app.colors";
@@ -35,6 +37,8 @@
 @import "modules/invoice";
 
 @import "app.responsive";
+
+@import "custom-fablab-chaux-de-fonds.scss";
 
 <% PluginRegistry.stylesheets.each do |stylesheet| %>
   <% basename = File.basename(stylesheet,'.scss') %>

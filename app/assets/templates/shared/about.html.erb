@@ -1,26 +1,73 @@
 <div class="about-fablab scrollable">
-  <div class="row padder">
-    <header class="about-picture">
-      <div class="col-sm-offset-2 col-md-offset-3 col-sm-10 col-md-8">
+  <div class="row about-title">
+    <div class="col-sm-4">
+    </div>
+      <div class="col-sm-4">
+        <header class="about-picture">
         <h1 class="about-title text-u-c" ng-bind-html="aboutTitle.value"></h1>
+      </header>
       </div>
-    </header>
+    <div class="col-sm-4">
+    </div>
   </div>
 
-  <div class="row padder">
-    <div class="col-sm-offset-1 col-md-offset-3 col-sm-7 col-md-5 col-lg-4 m-b-lg">
-      <span ng-bind-html="aboutBody.value"></span>
+  <div class="row padder about-content">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6">
+      <!-- <span ng-bind-html="aboutBody.value"></span>
       <p ng-show="cgu">
         <a href="{{cgu.custom_asset_file_attributes.attachment_url}}" target="_blank" translate>{{ 'read_the_fablab_policy' }}</a>
       </p>
       <p ng-show="cgv">
         <a href="{{cgv.custom_asset_file_attributes.attachment_url}}" target="_blank" translate>{{ 'read_the_fablab_s_general_terms_and_conditions' }}</a>
-      </p>
+      </p> -->
+
+      <h2>{{what_is_a_fablab.title}}</h2>
+      <div ng-repeat="i in what_is_a_fablab.content">
+        <p> {{ i }} </p>
+      </div>
+      <p>Pour plus d’informations, nous vous invitons à consulter <a href="http://www.fabfoundation.org/index.php/the-fab-charter/index.html">la charte des FabLabs</a></p>
+      <!-- <a href="{{ 'what_is_a_fablab.link_to' }}">  {{what_is_a_fablab.link_body}} </a> -->
+      <%= image_tag("about/what_is_a_fablab.svg", class: 'm-r-sm img-responsive img-about') %>
+
+      <h2>{{ fablab_chaux_de_fonds.title }}</h2>
+      <div ng-repeat="i in fablab_chaux_de_fonds.content">
+        <p> {{ i }} </p>
+      </div>
+      <%= image_tag("about/what_we_find_in_a_fablab.svg", class: 'm-r-sm img-responsive img-about') %>
+
+      <h2>{{ how_to.title }}</h2>
+      <div ng-repeat="i in how_to.content">
+        <p> {{ i }} </p>
+      </div>
+
+      <div ng-repeat="i in conclusion.content" class="about-conclusion">
+        <p> {{ i }} </p>
+      </div>
+
+
     </div>
 
-    <div class="col-sm-offset-0 col-md-offset-0 col-lg-offset-1 col-sm-4 col-md-4">
-      <h2 class="about-title-aside text-u-c" translate translate>{{ 'your_fablab_s_contacts' }}</h2>
-      <span ng-bind-html="aboutContacts.value"></span>
+    <div class="col-sm-3 about-contact">
+      <%= image_tag("fablab-logo-officiel.svg", class: 'm-r-sm about-logo') %>
+      <a href="https://goo.gl/maps/oisq2KdYu8s">
+        <%= image_tag("fablab-map.svg", class: 'm-r-sm about-logo') %>
+      </a>
+      <dl>
+        <dt>Association</dt>
+        <dd>
+          Fablab La Chaux-de-Fonds</br>
+          Rue de la Serre 68</br>
+          2300 La Chaux-de-Fonds</br>
+        </dd>
+        <dt>Contact</dt>
+        <dd>
+          <a href="mailto:info@fablab-chaux-de-fonds.ch">info@fablab-chaux-de-fonds.ch</a>
+        </dd>
+      </dl>
+      <!-- <h2 class="about-title-aside text-u-c" translate translate>{{ 'your_fablab_s_contacts' }}</h2>
+      <span ng-bind-html="aboutContacts.value"></span> -->
     </div>
   </div>
 </div>
