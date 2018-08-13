@@ -4,10 +4,13 @@
       <div class="card crowdmachine-card">
         <div class="img-crowdmachine" ng-hide="showDetails">
           <img src="data:image/jpeg;base64,{{ i.image }}" alt="base64 {{ i.title }}" class="img-responsive img-crowdmachine-src" ng-hide="showDetails">
+          <div class="btn btn-primary btn-crowdmachine btn-thanks" ng-show="i.get">
+             Merci <i class="fa fa-thumbs-up"></i>
+          </div>
           <div class="overlay">
             <div class="overlay-layer" ng-hide="showDetails"></div>
             <div class="btn-overlay">
-              <a href="mailto:info@fablab-chaux-de-fonds.ch?subject=[Crowdmachine] - {{ i.title }}" class="btn btn-primary btn-crowdmachine">
+              <a ng-hide="i.get" href="mailto:info@fablab-chaux-de-fonds.ch?subject=[Crowdmachine] - {{ i.title }}" class="btn btn-primary btn-crowdmachine">
                 <i class="fa fa-envelope"></i> Contribuer
               </a>
               <div class="btn btn-primary btn-crowdmachine" ng-click="showDetails = ! showDetails" ng-hide="showDetails">
@@ -28,7 +31,7 @@
               <li ng-repeat="spec in i.specification">{{spec}}</li>
             </ul>
             <div class="">
-              <a href="mailto:info@fablab-chaux-de-fonds.ch?subject=[Crowdmachine] - {{ i.title }}" class="btn btn-primary btn-crowdmachine" ng-show="showDetails">
+              <a href="mailto:info@fablab-chaux-de-fonds.ch?subject=[Crowdmachine] - {{ i.title }}" class="btn btn-primary btn-crowdmachine" ng-show="showDetails && !i.get">
               <i class="fa fa-envelope"></i> Contribuer
               </a>
                 <div class="btn btn-primary btn-crowdmachine" ng-click="showDetails = ! showDetails" ng-show="showDetails">
