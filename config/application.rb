@@ -12,6 +12,7 @@ require 'csv'
 require "rails/all"
 require 'elasticsearch/rails/instrumentation'
 require 'elasticsearch/persistence/model'
+require 'i18n/backend/active_record'
 
 
 # Require the gems listed in Gemfile, including any gems
@@ -63,6 +64,9 @@ module Fablab
       config.web_console.whitelisted_ips << '192.168.99.0/16' #docker
       config.web_console.whitelisted_ips << '10.0.2.2' #vagrant
     end
+
+    # Set up a chain of I18n backends where the database is queried first for a translation for the key (via a Translation ActiveRecord model), and then fall back to the defaults in the YAML files.
+    config.i18n.backend = I18n::Backend::Chain.new(I18n::Backend::ActiveRecord.new, I18n::Backend::Simple.new)
 
     # load locales for subdirectories
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**/*.yml').to_s]
