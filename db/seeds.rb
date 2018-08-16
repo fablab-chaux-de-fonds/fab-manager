@@ -452,3 +452,7 @@ if Page.count == 0
   ctx = PageDataContext.create!(attachment: 'context.json', type:'application/json')
   Page.create!(name:'def_page', title:'Default sample page', icon:'hand', published:true, sort:-1, version: 1, page_template:tmpl, page_data_context:ctx)
 end
+
+if Translation.count == 0
+  Translation.create!(locale:'fr', key:'app.public.common.public_crowdmachine', value:'Nous cherchons ...')
+end

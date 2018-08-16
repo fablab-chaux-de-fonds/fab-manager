@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180803080035) do
+ActiveRecord::Schema.define(version: 20180814181932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -751,6 +751,18 @@ ActiveRecord::Schema.define(version: 20180803080035) do
 
   add_index "trainings_pricings", ["group_id"], name: "index_trainings_pricings_on_group_id", using: :btree
   add_index "trainings_pricings", ["training_id"], name: "index_trainings_pricings_on_training_id", using: :btree
+
+  create_table "translations", force: :cascade do |t|
+    t.string   "locale",         default: "en",  null: false
+    t.string   "key",                            null: false
+    t.text     "value",                          null: false
+    t.text     "interpolations"
+    t.boolean  "is_proc",        default: false, null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  add_index "translations", ["key"], name: "index_translations_on_key", using: :btree
 
   create_table "user_tags", force: :cascade do |t|
     t.integer  "user_id"
