@@ -688,6 +688,13 @@ fr:
           validate_the_changes: "Valider les modifications"
 
       pages:
+        sort: "Ordre"
+        published: "Visible"
+        preview: "Prévisualiser"
+        remove: "Supprimer"
+        pages:
+          create: "Ajouter"
+          manage: "Gestion des pages personnalisées"
         create_a_custom_page: "Nouvelle page personnalisée"
         page_form:
           fa_icon: "Icone"
@@ -697,5 +704,4 @@ fr:
           sort_page: "Ordre"
           page_template: "Modèle"
           page_data_context: "Données"
-          translations_files: "Traductions"
           add_translation: "Ajouter un fichier de traduction"

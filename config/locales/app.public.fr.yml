@@ -36,8 +36,6 @@ fr:
         projects_gallery: "Galerie de projets"
         subscriptions: "Abonnements"
         public_calendar: "Calendrier"
-        public_press: "Presse"
-        public_support: "Soutiens"
 
         # menu de gauche (partie admin)
         trainings_monitoring: "Suivi formations"
@@ -50,6 +48,7 @@ fr:
         manage_the_machines: "Gérer les machines"
         manage_the_spaces: "Gérer les espaces"
         manage_the_projects_elements: "Gérer les éléments projets"
+        admin_custom_pages: "Gérer les pages"
         statistics: "Statistiques"
         customization: "Personnalisation"
         open_api_clients: "Clients OpenAPI"
