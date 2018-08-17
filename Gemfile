@@ -155,3 +155,6 @@ gem 'axlsx', git: 'https://github.com/randym/axlsx', branch: 'release-3.0.0'
 gem 'axlsx_rails'
 
 gem "rack-protection", "1.5.5"
+
+# Store custom I18n translations in the database.
+gem 'i18n-active_record', require: 'i18n/active_record'
