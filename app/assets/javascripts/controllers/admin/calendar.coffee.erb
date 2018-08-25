@@ -291,7 +291,6 @@ Application.Controllers.controller "AdminCalendarController", ["$scope", "$state
 ]
 
 
-
 ##
 # Controller used in the slot creation modal window
 ##
@@ -434,8 +433,8 @@ Application.Controllers.controller 'CreateEventModalController', ["$scope", "$ui
     $scope.$watch 'availability.available_type', (newValue, oldValue, scope) ->
       if newValue == 'machines' or newValue == 'space'
         $scope.endDateReadOnly = true
-        diff = moment($scope.end).diff($scope.start, 'hours') # the result is rounded down by moment.js
-        $scope.end = moment($scope.start).add(diff, 'hours').toDate()
+        diff = moment($scope.end).diff($scope.start, 'minutes') # the result is rounded down by moment.js
+        $scope.end = moment($scope.start).add(diff, 'minutes').toDate()
         $scope.availability.end_at = $scope.end
       else
         $scope.endDateReadOnly = false
@@ -450,7 +449,7 @@ Application.Controllers.controller 'CreateEventModalController', ["$scope", "$ui
         $scope.end = end.toDate()
       else # for training availabilities
         # prevent the admin from setting the begining after the and
-        if moment(newValue).add(1, 'hour').isAfter($scope.end)
+        if moment(newValue).add(Fablab.slot_duration, 'minute'  ).isAfter($scope.end)
           $scope.start = oldValue
       # update availability object
       $scope.availability.start_at = $scope.start
@@ -458,7 +457,7 @@ Application.Controllers.controller 'CreateEventModalController', ["$scope", "$ui
     ## Maintain consistency between the end time and the date object in the availability object
     $scope.$watch 'end', (newValue, oldValue, scope) ->
       ## we prevent the admin from setting the end of the availability before its begining
-      if moment($scope.start).add(1, 'hour').isAfter(newValue)
+      if moment($scope.start).add(Fablab.slot_duration, 'minute').isAfter(newValue)
         $scope.end = oldValue
       # update availability object
       $scope.availability.end_at = $scope.end
