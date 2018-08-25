@@ -7,7 +7,7 @@ module ApplicationHelper
 	WALLET_MINIMAL_AMOUNT = -(Rails.application.secrets.fablab_authorized_user_credit * 100)
 
 	## machine/spaces availabilities are divided in multiple slots of 60 minutes
-	SLOT_DURATION ||= 60
+	SLOT_DURATION = Rails.application.secrets.fablab_slot_duration
 
 	##
 	# Verify if the provided attribute is in the provided attributes array, whatever it exists or not

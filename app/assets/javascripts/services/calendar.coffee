@@ -2,8 +2,11 @@
 
 Application.Services.factory 'CalendarConfig', [->
   (options = {}) ->
+
+    slot = new Date(null)
+    slot.setMinutes(Fablab.slot_duration)
     # The calendar is divided in slots of 1 hour
-    BASE_SLOT = '01:00:00'
+    BASE_SLOT = slot.toISOString().substr(11, 8);
 
     # The calendar will be initialized positioned under 9:00 AM
     DEFAULT_CALENDAR_POSITION = '09:00:00'
