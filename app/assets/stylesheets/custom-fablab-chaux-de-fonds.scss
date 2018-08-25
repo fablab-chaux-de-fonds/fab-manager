@@ -32,6 +32,7 @@ a {
   &:active,
   &:hover {
     color: $blue;
+    background: transparent;
   }
 }
 
@@ -75,35 +76,120 @@ td[id^='datepicker'] > .btn {
 }
 
 .btn {
-  color: white;
-  border-width: 2px;
-  border-style: solid;
-  border-color: $blue;
-  background-color: $blue;
-
   > i {
     &.pull-right {
       border: None;
     }
   }
+}
+
+.btn-primary, .btn-default {
+  color: $green-light;
+  border-color: $blue;
+  background-color: $blue;
 
   &:active,
   &:focus,
   &:hover {
-    background-color: $red;
-    border-color: $red;
+    color: $blue;
+    border-color: $green-light;
+    background-color: $green-light;
+  }
+}
+
+.btn-secondary {
+  color: $blue;
+  border-color: $green-light;
+  background-color: $green-light;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $green-light;
+    border-color: $blue;
+    background-color: $blue;
+  }
+}
+
+.btn-success {
+  color: white;
+  border-color: $green;
+  background-color: $green;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: white;
+    background-color: darken($green, 5%);
+    border-color: darken($green, 5%);
+  }
+}
+
+.btn-danger {
+  color: white;
+  border-color: $red;
+  background-color: $red;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: white;
+    background-color: darken($red, 5%);
+    border-color: darken($red, 5%);
+  }
+}
+
+.btn-warning {
+  color: white;
+  border-color: $yellow;
+  background-color: $yellow;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: white;
+    background-color: darken($yellow, 10%);
+    border-color: darken($yellow, 10%);
+  }
+}
+
+.btn-dark {
+  color: $gray-lighter;
+  border-color: $gray-dark;
+  background-color: $gray-dark;
+  &:active,
+  &:focus,
+  &:hover {
+    color: $gray-lighter;
+    background-color: darken($gray-dark, 10%);
+    border-color: darken($gray-dark, 10%);
+  }
+}
+
+.btn-light {
+  color: $gray-darker;
+  border-color: $gray-lighter;
+  background-color: $gray-lighter;
+  &:active,
+  &:focus,
+  &:hover {
+    color: $gray-darker;
+    background-color: darken($gray-lighter, 10%);
+    border-color: darken($gray-lighter, 10%);
+  }
+}
+
+.btn-link{
+  color: $red;
+  &:active,
+  &:focus,
+  &:hover {
+    color: darken($red, 10%)
   }
 }
 
 .btn-sm {
   border: None;
-}
-// div[id^="s"][id$="0"]
-
-.btn-warning-full {
-  &:hover {
-    background-color: transparent;
-  }
 }
 
 .btn-valid {
@@ -119,12 +205,12 @@ td[id^='datepicker'] > .btn {
   }
 }
 
-.btn-danger:hover {
-  background-color: #f2f2f2;
-}
-
 .text-green-light {
   color: $green-light !important;
+}
+
+.text-bordeau {
+  color: $red;
 }
 
 .bg-red {
@@ -170,6 +256,7 @@ a.label:hover {
 
 .label {
   color: $blue;
+  border-radius: 0px;
 }
 
 .pricing-panel {
@@ -413,6 +500,10 @@ a.label:hover {
   padding: 0;
 }
 
+.navbar-nav > li > a {
+  line-height: 28px;
+}
+
 .header {
   &.navbar {
     // position: relative;
@@ -502,7 +593,6 @@ a.label:hover {
   background-color: white;
   border-color: $red;
   color: $red;
-
 }
 
 // .crowdmachine-card {
@@ -529,10 +619,6 @@ a.label:hover {
 
 // nav
 @media (max-width: 767px) {
-  .btn {
-    border: None;
-  }
-
   .nav-off-screen {
     + * {
       background-color: $red-light;
@@ -629,10 +715,6 @@ a.label:hover {
   padding: 32px 15px;
 }
 
-.rounded {
-  background-color: $blue;
-}
-
 .crowdmachine-repeat {
   display: inline-block;
   padding-right: 10px;
@@ -647,6 +729,14 @@ a.label:hover {
   padding: 10px;
 }
 
+.reservable-card .btn {
+  background-color: $green-light;
+  &.active,
+  &:focus,
+  &:hover {
+    background-color: darken($green-light, 5%)
+  }
+}
 ::placeholder {
   opacity: 1;
   /* Firefox */
