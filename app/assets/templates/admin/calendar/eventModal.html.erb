@@ -18,7 +18,7 @@
         <span translate>{{ 'admin_calendar.machine' }}</span>
       </label>
     </div>
-    <select ng-model="availability.availability_detail_id" class="form-control" name="availability_detail_id" ng-show="availability.available_type == 'machines'">
+    <select ng-model="availability.availability_detail_id" class="form-control" name="availability_detail_id" ng-show="availability.available_type == 'machines' && details.length > 0">
       <option ng-repeat="model in details" value="{{model.id}}" ng-selected="model.id == availability.availability_detail_id">{{model.title}}</option>
     </select>
     <div class="radio" ng-hide="fablabWithoutSpaces">
