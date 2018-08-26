@@ -1,0 +1,47 @@
+<section class="row no-gutter">
+  <div class="wrapper-lg">
+
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+
+    <button type="button" class="btn btn-link">Link</button>
+
+    <hr>
+
+    <div class="btn btn-default btn-block no-b padder-v red" ng-click="reserveMachine(machine, $event)" ng-hide="machine.disabled">
+      <i class="fa fa-bookmark m-r-xs"></i>
+      <span class="hidden-sm ng-scope ng-binding" translate="">Réserver</span>
+    </div>
+
+    <hr>
+
+    <a href="#!/about" class="about-link font-sbold text-sm ng-binding" ui-sref="app.public.about" ng-show="$state.current.name != 'app.public.about'">
+          <img class="m-r-sm picto-about" src="/assets/fablab-picto-about-9767de521444d9d2340db6e923e9893a.svg" alt="Fablab picto about">
+    </a>
+
+    <hr>
+
+    <button type="button" style="min-width:100%;" class="btn btn-default btn-sm" ng-class="{'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="::{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">15</span></button>
+
+    <hr>
+
+    <a href="#" class="font-sbold label text-md ng-binding" ng-click="signup($event)"><i class="fa fa-rocket"></i> S'inscrire</a>
+
+    <hr>
+
+    <button class="btn btn-default ng-binding" ui-sref="app.admin.pages_edit({name:p.name})" href="#!/admin/pages/button/edit">
+      <i class="fa fa-edit"></i> Éditer
+    </button>
+
+    <hr>
+
+    <a class="btn btn-lg btn-warning bg-white b-2x rounded m-t-xs ng-scope ng-binding" ui-sref="app.admin.machines_new" role="button" translate="" href="#!/machines/new">machines_list.add_a_machine</a>
+
+  </div>
+</section>
