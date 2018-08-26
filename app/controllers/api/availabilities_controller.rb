@@ -10,8 +10,9 @@ class API::AvailabilitiesController < API::ApiController
     authorize Availability
     start_date = ActiveSupport::TimeZone[params[:timezone]].parse(params[:start])
     end_date = ActiveSupport::TimeZone[params[:timezone]].parse(params[:end]).end_of_day
-    @availabilities = Availability.includes(:machines, :tags, :trainings, :spaces).where.not(available_type: 'event')
-                                  .where('start_at >= ? AND end_at <= ?', start_date, end_date)
+    @availabilities = Availability.includes(:machines, :tags, :trainings, :spaces, :availability_detail)
+                          .where.not(available_type: 'event')
+                          .where('start_at >= ? AND end_at <= ?', start_date, end_date)
 
     if fablab_spaces_deactivated?
       @availabilities = @availabilities.where.not(available_type: 'space')
@@ -27,11 +28,13 @@ class API::AvailabilitiesController < API::ApiController
     # request for 1 single day
     if in_same_day(start_date, end_date)
       # trainings, events
-      @training_and_event_availabilities = Availability.includes(:tags, :trainings, :event, :slots).where(available_type: %w(training event))
+      @training_and_event_availabilities = Availability.includes(:tags, :trainings, :event, :slots, :availability_detail)
+                                    .where(available_type: %w(training event))
                                     .where('start_at >= ? AND end_at <= ?', start_date, end_date)
                                     .where(lock: false)
       # machines
-      @machine_availabilities = Availability.includes(:tags, :machines).where(available_type: 'machines')
+      @machine_availabilities = Availability.includes(:tags, :machines, :availability_detail)
+                                    .where(available_type: 'machines')
                                     .where('start_at >= ? AND end_at <= ?', start_date, end_date)
                                     .where(lock: false)
       @machine_slots = []
@@ -293,13 +296,20 @@ class API::AvailabilitiesController < API::ApiController
     end
   end
 
+  def details
+    @details = AvailabilityDetail.all
+    render json: @details, status: :ok
+  end
+
   private
     def set_availability
-      @availability = Availability.find(params[:id])
+      @availability = Availability.includes(:availability_detail).find(params[:id])
     end
 
     def availability_params
-      params.require(:availability).permit(:start_at, :end_at, :available_type, :machine_ids, :training_ids, :nb_total_places, machine_ids: [], training_ids: [], space_ids: [], tag_ids: [],
+      params.require(:availability).permit(:start_at, :end_at, :available_type, :machine_ids, :training_ids,
+                                           :nb_total_places, :availability_detail_id, machine_ids: [],
+                                           training_ids: [], space_ids: [], tag_ids: [],
                                            :machines_attributes => [:id, :_destroy])
     end
 

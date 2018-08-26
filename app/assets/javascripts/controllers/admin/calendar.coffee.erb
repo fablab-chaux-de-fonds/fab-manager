@@ -4,7 +4,7 @@
 # Controller used in the calendar management page
 ##
 
-Application.Controllers.controller "AdminCalendarController", ["$scope", "$state", "$uibModal", "moment", "Availability", 'Slot', 'Setting', 'Export', 'growl', 'dialogs', 'bookingWindowStart', 'bookingWindowEnd', 'machinesPromise', '_t', 'uiCalendarConfig', 'CalendarConfig'
+Application.Controllers.controller "AdminCalendarController", ["$scope", "$state", "$uibModal", "moment", "Availability", 'Slot', 'Setting', 'Export', 'growl', 'dialogs', 'bookingWindowStart', 'bookingWindowEnd', 'machinesPromise', '_t', 'uiCalendarConfig', 'CalendarConfig',
 ($scope, $state, $uibModal, moment, Availability, Slot, Setting, Export, growl, dialogs, bookingWindowStart, bookingWindowEnd, machinesPromise, _t, uiCalendarConfig, CalendarConfig) ->
 
   ### PRIVATE STATIC CONSTANTS ###
@@ -222,6 +222,9 @@ Application.Controllers.controller "AdminCalendarController", ["$scope", "$state
             spacesPromise: ['Space', (Space)->
               Space.query().$promise
             ]
+            detailsPromise: ['Availability', (Availability) ->
+              Availability.details().$promise
+            ]
         # when the modal is closed, we send the slot to the server for saving
         modalInstance.result.then (availability) ->
           uiCalendarConfig.calendars.calendar.fullCalendar 'renderEvent',
@@ -294,14 +297,17 @@ Application.Controllers.controller "AdminCalendarController", ["$scope", "$state
 ##
 # Controller used in the slot creation modal window
 ##
-Application.Controllers.controller 'CreateEventModalController', ["$scope", "$uibModalInstance", "moment", "start", "end", "machinesPromise", "Availability", "trainingsPromise", "spacesPromise", 'Tag', 'growl', '_t'
-, ($scope, $uibModalInstance, moment, start, end, machinesPromise, Availability, trainingsPromise, spacesPromise, Tag, growl, _t) ->
+Application.Controllers.controller 'CreateEventModalController', ["$scope", "$uibModalInstance", "moment", "start", "end", "machinesPromise", "Availability", "trainingsPromise", "spacesPromise", 'Tag', 'growl', '_t', 'detailsPromise'
+, ($scope, $uibModalInstance, moment, start, end, machinesPromise, Availability, trainingsPromise, spacesPromise, Tag, growl, _t, detailsPromise) ->
 
   ## $uibModal parameter
   $scope.start = start
 
   ## $uibModal parameter
   $scope.end = end
+
+  # Special list for opening model mode
+  $scope.details = detailsPromise
 
   ## machines list
   $scope.machines = machinesPromise.filter (m) -> !m.disabled
@@ -427,6 +433,13 @@ Application.Controllers.controller 'CreateEventModalController', ["$scope", "$ui
     Tag.query().$promise.then (data) ->
       $scope.tags = data
 
+    ## Machine preselection when opening model selected
+    $scope.$watch 'availability.availability_detail_id', (newValue, oldValue, scope) ->
+      if scope.availability.available_type == 'machines' && newValue != undefined
+        scope.selectedMachines = scope.machines.slice(0)
+      else
+        scope.selectedMachines = []
+
     ## When we configure a machine availability, do not let the user change the end time, as the total
     ## time must be dividable by 60 minutes (base slot duration). For training availabilities, the user
     ## can configure any duration as it does not matters.
@@ -449,7 +462,7 @@ Application.Controllers.controller 'CreateEventModalController', ["$scope", "$ui
         $scope.end = end.toDate()
       else # for training availabilities
         # prevent the admin from setting the begining after the and
-        if moment(newValue).add(Fablab.slot_duration, 'minute'  ).isAfter($scope.end)
+        if moment(newValue).add(Fablab.slot_duration, 'minute').isAfter($scope.end)
           $scope.start = oldValue
       # update availability object
       $scope.availability.start_at = $scope.start

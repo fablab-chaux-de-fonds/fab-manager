@@ -18,6 +18,9 @@
         <span translate>{{ 'admin_calendar.machine' }}</span>
       </label>
     </div>
+    <select ng-model="availability.availability_detail_id" class="form-control" name="availability_detail_id" ng-show="availability.available_type == 'machines'">
+      <option ng-repeat="model in details" value="{{model.id}}" ng-selected="model.id == availability.availability_detail_id">{{model.title}}</option>
+    </select>
     <div class="radio" ng-hide="fablabWithoutSpaces">
       <label>
         <input type="radio" id="space" name="available_type" value="space" ng-model="availability.available_type" ng-disabled="spaces.length === 0">
@@ -33,7 +36,7 @@
 
     <div class="form-group m-l-xl">
       <label class="checkbox" ng-repeat="machine in machines">
-        <input type="checkbox" ng-click="toggleSelection(machine)"> {{machine.name}} <span class="text-xs">(id {{machine.id}})</span>
+        <input type="checkbox" ng-click="toggleSelection(machine)" ng-checked="selectedMachines.indexOf(machine) >= 0"> {{machine.name}} <span class="text-xs">(id {{machine.id}})</span>
       </label>
     </div>
   </div>
@@ -72,7 +75,7 @@
               <uib-timepicker ng-model="start" hour-step="timepickers.start.hstep" readonly-input="true" minute-step="timepickers.start.mstep" show-meridian="false"></uib-timepicker>
           </div>
           <span class="col-md-1 m-t-xl m-l" translate>{{ 'admin_calendar.to_time' }}</span>
-          <fieldset ng-disabled="endDateReadOnly" class="col-md-5">
+          <fieldset ng-disabled="endDateReadOnly && availability.availability_detail_id == null" class="col-md-5">
               <uib-timepicker ng-model="end" hour-step="timepickers.end.hstep" readonly-input="true" minute-step="timepickers.end.mstep" show-meridian="false"></uib-timepicker>
           </fieldset>
       </div>

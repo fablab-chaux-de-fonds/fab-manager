@@ -456,3 +456,10 @@ end
 if Translation.count == 0
   Translation.create!(locale:'fr', key:'app.public.common.public_crowdmachine', value:'Nous cherchons ...')
 end
+
+if AvailabilityDetail.count == 0
+  AvailabilityDetail.create!(textColor:0xFFFFF, backgroundColor:0x3d985b,title:'OpenLab')
+  AvailabilityDetail.create!(backgroundColor:0x7fc225,title:'DiscoveryLab')
+  AvailabilityDetail.create!(backgroundColor:0xe0c240,title:'ExpertLab')
+  AvailabilityDetail.create!(backgroundColor:0xCE5C00,title:'Maintenance')
+end

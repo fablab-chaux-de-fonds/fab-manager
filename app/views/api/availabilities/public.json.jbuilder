@@ -2,8 +2,8 @@ json.array!(@availabilities) do |availability|
   json.id availability.id
   json.start availability.start_at.iso8601
   json.end availability.end_at.iso8601
-  json.textColor 'black'
-  json.backgroundColor 'white'
+  json.textColor availability_text_color(availability)
+  json.backgroundColor availability_background_color(availability)
   # availability object
   if availability.instance_of? Availability
     json.title availability.title(@title_filter)

@@ -5,6 +5,9 @@ class Availability < ActiveRecord::Base
   index_name 'fablab'
   document_type 'availabilities'
 
+  ## DETAILS
+  belongs_to :availability_detail
+
   has_many :machines_availabilities, dependent: :destroy
   has_many :machines, through: :machines_availabilities
   accepts_nested_attributes_for :machines, allow_destroy: true
@@ -31,7 +34,7 @@ class Availability < ActiveRecord::Base
   attr_accessor :is_reserved, :slot_id, :can_modify
 
   validates :start_at, :end_at, presence: true
-  validate :length_must_be_1h_minimum, unless: proc { end_at.blank? or start_at.blank? }
+  validate :length_must_be_slot_period_minimum, unless: proc { end_at.blank? or start_at.blank? }
   validate :should_be_associated
 
   ## elastic callbacks
@@ -79,7 +82,9 @@ class Availability < ActiveRecord::Base
   def title(filter = {})
     case available_type
       when 'machines'
-        if filter[:machine_ids]
+        if availability_detail
+          return availability_detail.title
+        elsif filter[:machine_ids]
           return machines.to_ary.delete_if {|m| !filter[:machine_ids].include?(m.id)}.map(&:name).join(' - ')
         end
         return machines.map(&:name).join(' - ')
@@ -141,9 +146,9 @@ class Availability < ActiveRecord::Base
   end
 
   private
-  def length_must_be_1h_minimum
-    if end_at < (start_at + 1.hour)
-      errors.add(:end_at, I18n.t('availabilities.must_be_at_least_1_hour_after_the_start_date'))
+  def length_must_be_slot_period_minimum
+    if end_at < (start_at + ApplicationHelper::SLOT_DURATION.minutes)
+      errors.add(:end_at, I18n.t('availabilities.must_be_at_least_slot_duration_after_the_start_date', SLOT_DURATION:ApplicationHelper::SLOT_DURATION))
     end
   end
 
