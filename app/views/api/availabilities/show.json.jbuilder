@@ -3,7 +3,8 @@ json.start_at @availability.start_at.iso8601
 json.end_at @availability.end_at.iso8601
 json.available_type @availability.available_type
 json.machine_ids @availability.machine_ids
-json.backgroundColor 'white'
+json.textColor availability_text_color(@availability)
+json.backgroundColor availability_background_color(@availability)
 json.borderColor availability_border_color(@availability)
 json.title @availability.title
 json.tag_ids @availability.tag_ids

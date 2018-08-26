@@ -27,4 +27,8 @@ Application.Services.factory 'Availability', ["$resource", ($resource)->
     lock:
       method: 'PUT'
       url: '/api/availabilities/:id/lock'
+    details:
+      method: 'GET'
+      url: '/api/availabilities/details'
+      isArray: true
 ]

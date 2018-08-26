@@ -31,6 +31,7 @@
       Fablab.withoutPlans = ('<%= Rails.application.secrets.fablab_without_plans %>' == 'true');
       Fablab.withoutSpaces = ('<%= Rails.application.secrets.fablab_without_spaces %>' != 'false');
       Fablab.authorized_user_credit = <%= Rails.application.secrets.fablab_authorized_user_credit || 0 %>;
+      Fablab.slot_duration = <%= Rails.application.secrets.fablab_slot_duration || 60 %>;
       Fablab.disqusShortname = "<%= Rails.application.secrets.disqus_shortname %>";
       Fablab.defaultHost = "<%= Rails.application.secrets.default_host %>";
       Fablab.gaId = "<%= Rails.application.secrets.google_analytics_id %>";

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180814181932) do
+ActiveRecord::Schema.define(version: 20180825171202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,8 +78,21 @@ ActiveRecord::Schema.define(version: 20180814181932) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "nb_total_places"
-    t.boolean  "destroying",      default: false
-    t.boolean  "lock",            default: false
+    t.boolean  "destroying",             default: false
+    t.boolean  "lock",                   default: false
+    t.integer  "availability_detail_id"
+  end
+
+  add_index "availabilities", ["availability_detail_id"], name: "index_availabilities_on_availability_detail_id", using: :btree
+
+  create_table "availability_details", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "textColor"
+    t.integer  "backgroundColor"
+    t.integer  "lockedBackgroundColor"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "availability_tags", force: :cascade do |t|
@@ -871,6 +884,7 @@ ActiveRecord::Schema.define(version: 20180814181932) do
 
   add_index "wallets", ["user_id"], name: "index_wallets_on_user_id", using: :btree
 
+  add_foreign_key "availabilities", "availability_details"
   add_foreign_key "availability_tags", "availabilities"
   add_foreign_key "availability_tags", "tags"
   add_foreign_key "event_price_categories", "events"

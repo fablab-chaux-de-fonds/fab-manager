@@ -6,6 +6,26 @@ module AvailabilityHelper
   IS_RESERVED_BY_CURRENT_USER = '#b2e774'
   MACHINE_IS_RESERVED_BY_USER = '#1d98ec'
   IS_COMPLETED = '#eeeeee'
+  AVAILABILITY_TEXT_COLOR = '000000'
+  AVAILABILITY_BACKGROUND_COLOR = 'ffffff'
+  AVAILABILITY_LOCKED_BACKGROUND_COLOR = 'f5f5f5'
+
+  def availability_text_color(availability)
+    if availability.instance_of? Slot
+      return "##{AVAILABILITY_TEXT_COLOR}"
+    end
+    return "##{availability.availability_detail&.textColor&.to_s(16) || AVAILABILITY_TEXT_COLOR}"
+  end
+
+  def availability_background_color(availability, locked=false)
+    if availability.instance_of? Slot
+      return locked ? "##{AVAILABILITY_LOCKED_BACKGROUND_COLOR}" : "##{AVAILABILITY_BACKGROUND_COLOR}"
+    end
+    if locked
+      return "##{availability.availability_detail&.lockedBackgroundColor&.to_s(16) || AVAILABILITY_LOCKED_BACKGROUND_COLOR}"
+    end
+    return "##{availability.availability_detail&.backgroundColor&.to_s(16) || AVAILABILITY_BACKGROUND_COLOR}"
+  end
 
   def availability_border_color(availability)
     case availability.available_type

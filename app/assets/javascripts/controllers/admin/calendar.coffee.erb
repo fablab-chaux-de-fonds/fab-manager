@@ -4,10 +4,8 @@
 # Controller used in the calendar management page
 ##
 
-Application.Controllers.controller "AdminCalendarController", ["$scope", "$state", "$uibModal", "moment", "Availability", 'Slot', 'Setting', 'Export', 'growl', 'dialogs', 'bookingWindowStart', 'bookingWindowEnd', 'machinesPromise', '_t', 'uiCalendarConfig', 'CalendarConfig'
+Application.Controllers.controller "AdminCalendarController", ["$scope", "$state", "$uibModal", "moment", "Availability", 'Slot', 'Setting', 'Export', 'growl', 'dialogs', 'bookingWindowStart', 'bookingWindowEnd', 'machinesPromise', '_t', 'uiCalendarConfig', 'CalendarConfig',
 ($scope, $state, $uibModal, moment, Availability, Slot, Setting, Export, growl, dialogs, bookingWindowStart, bookingWindowEnd, machinesPromise, _t, uiCalendarConfig, CalendarConfig) ->
-
-
 
   ### PRIVATE STATIC CONSTANTS ###
 
@@ -18,9 +16,7 @@ Application.Controllers.controller "AdminCalendarController", ["$scope", "$state
   BOOKING_SNAP = '00:30:00'
 
   # We do not allow the creation of slots that are not a multiple of 60 minutes
-  SLOT_MULTIPLE = 60
-
-
+  SLOT_MULTIPLE = Fablab.slot_duration
 
   ### PUBLIC SCOPE ###
 
@@ -226,6 +222,9 @@ Application.Controllers.controller "AdminCalendarController", ["$scope", "$state
             spacesPromise: ['Space', (Space)->
               Space.query().$promise
             ]
+            detailsPromise: ['Availability', (Availability) ->
+              Availability.details().$promise
+            ]
         # when the modal is closed, we send the slot to the server for saving
         modalInstance.result.then (availability) ->
           uiCalendarConfig.calendars.calendar.fullCalendar 'renderEvent',
@@ -295,18 +294,20 @@ Application.Controllers.controller "AdminCalendarController", ["$scope", "$state
 ]
 
 
-
 ##
 # Controller used in the slot creation modal window
 ##
-Application.Controllers.controller 'CreateEventModalController', ["$scope", "$uibModalInstance", "moment", "start", "end", "machinesPromise", "Availability", "trainingsPromise", "spacesPromise", 'Tag', 'growl', '_t'
-, ($scope, $uibModalInstance, moment, start, end, machinesPromise, Availability, trainingsPromise, spacesPromise, Tag, growl, _t) ->
+Application.Controllers.controller 'CreateEventModalController', ["$scope", "$uibModalInstance", "moment", "start", "end", "machinesPromise", "Availability", "trainingsPromise", "spacesPromise", 'Tag', 'growl', '_t', 'detailsPromise'
+, ($scope, $uibModalInstance, moment, start, end, machinesPromise, Availability, trainingsPromise, spacesPromise, Tag, growl, _t, detailsPromise) ->
 
   ## $uibModal parameter
   $scope.start = start
 
   ## $uibModal parameter
   $scope.end = end
+
+  # Special list for opening model mode
+  $scope.details = detailsPromise
 
   ## machines list
   $scope.machines = machinesPromise.filter (m) -> !m.disabled
@@ -432,14 +433,21 @@ Application.Controllers.controller 'CreateEventModalController', ["$scope", "$ui
     Tag.query().$promise.then (data) ->
       $scope.tags = data
 
+    ## Machine preselection when opening model selected
+    $scope.$watch 'availability.availability_detail_id', (newValue, oldValue, scope) ->
+      if scope.availability.available_type == 'machines' && newValue != undefined
+        scope.selectedMachines = scope.machines.slice(0)
+      else
+        scope.selectedMachines = []
+
     ## When we configure a machine availability, do not let the user change the end time, as the total
     ## time must be dividable by 60 minutes (base slot duration). For training availabilities, the user
     ## can configure any duration as it does not matters.
     $scope.$watch 'availability.available_type', (newValue, oldValue, scope) ->
       if newValue == 'machines' or newValue == 'space'
         $scope.endDateReadOnly = true
-        diff = moment($scope.end).diff($scope.start, 'hours') # the result is rounded down by moment.js
-        $scope.end = moment($scope.start).add(diff, 'hours').toDate()
+        diff = moment($scope.end).diff($scope.start, 'minutes') # the result is rounded down by moment.js
+        $scope.end = moment($scope.start).add(diff, 'minutes').toDate()
         $scope.availability.end_at = $scope.end
       else
         $scope.endDateReadOnly = false
@@ -454,7 +462,7 @@ Application.Controllers.controller 'CreateEventModalController', ["$scope", "$ui
         $scope.end = end.toDate()
       else # for training availabilities
         # prevent the admin from setting the begining after the and
-        if moment(newValue).add(1, 'hour').isAfter($scope.end)
+        if moment(newValue).add(Fablab.slot_duration, 'minute').isAfter($scope.end)
           $scope.start = oldValue
       # update availability object
       $scope.availability.start_at = $scope.start
@@ -462,7 +470,7 @@ Application.Controllers.controller 'CreateEventModalController', ["$scope", "$ui
     ## Maintain consistency between the end time and the date object in the availability object
     $scope.$watch 'end', (newValue, oldValue, scope) ->
       ## we prevent the admin from setting the end of the availability before its begining
-      if moment($scope.start).add(1, 'hour').isAfter(newValue)
+      if moment($scope.start).add(Fablab.slot_duration, 'minute').isAfter(newValue)
         $scope.end = oldValue
       # update availability object
       $scope.availability.end_at = $scope.end

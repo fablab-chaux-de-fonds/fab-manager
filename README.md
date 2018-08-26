@@ -211,6 +211,10 @@ It is not recommended to disable plans if at least one subscription was took on 
     
 the amount authorized as credit to allow users without credit cards to pay on place.
 
+    FABLAB_SLOT_DURATION
+    
+the minimal amount of time reservable from calendar in minutes
+
     FABLAB_WITHOUT_SPACES
 
 If set to 'false', enable the spaces management and reservation in the application.
