@@ -45,13 +45,13 @@
         <div class="panel-footer no-padder">
 
           <div class="text-center clearfix">
-            <div class="col-sm-6 b-r no-padder">
+            <div class="col-sm-6 b-r no-padder" ng-if="machine.reservable">
                <div class="btn btn-default btn-block no-b padder-v red" ng-click="reserveMachine(machine, $event)" ng-hide="machine.disabled">
                  <i class="fa fa-bookmark m-r-xs"></i>
                  <span class="hidden-sm" translate>{{ 'machines_list.book' }}</span>
                </div>
             </div>
-            <div class="no-padder" ng-class="{'col-sm-6': !machine.disabled}">
+            <div class="no-padder" ng-class="{'col-sm-6': !machine.disabled && machine.reservable }">
                 <div class="btn btn-default btn-block padder-v no-b red" ng-click="showMachine(machine)">
                   <i class="fa fa-eye m-r-xs"></i>
                   <span class="hidden-sm" translate>{{ 'consult' }}</span>

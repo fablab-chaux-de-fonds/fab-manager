@@ -157,6 +157,7 @@ pt:
           attach_a_file: "Anexar arquivo"
           add_an_attachment: "Adicionar anexo"
           disable_machine: "Desativar máquina"
+          reservable_machine: "Reserva obrigatória"
           validate_your_machine: "Validar sua máquina"
 
       plan_subscribe:

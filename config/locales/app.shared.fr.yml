@@ -157,6 +157,7 @@ fr:
           attach_a_file: "Joindre un fichier"
           add_an_attachment: "Ajouter une pièce jointe"
           disable_machine: "Désactiver la machine"
+          reservable_machine: "Réservation nécessaire"
           validate_your_machine: "Valider votre machine"
 
       plan_subscribe:
