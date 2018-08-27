@@ -521,7 +521,7 @@ Application.Directives.directive 'cart', [ '$rootScope', '$uibModal', 'dialogs',
               $scope.numberFilter = $filter('number')
 
               # We are in credit mode, present pay online button
-              if ($scope.amount <= 0 and price.price > 0)
+              if ($scope.walletAmount < $scope.price && $scope.amount == 0 && $scope.price > 0)
                 $scope.hideValidButton = true
               else
                 $scope.hideValidButton = false
@@ -529,7 +529,7 @@ Application.Directives.directive 'cart', [ '$rootScope', '$uibModal', 'dialogs',
               # Button label
               if $scope.amount > 0
                 $scope.validButtonName = _t('cart.confirm_payment_of_html', {ROLE:$rootScope.currentUser.role, AMOUNT:$filter('currency')($scope.amount)}, "messageformat")
-              else if $scope.walletAmount > price.price
+              else if $scope.walletAmount >= price.price
                 $scope.validButtonName = _t('cart.confirm_payment_of_html', {ROLE:$rootScope.currentUser.role, AMOUNT:$filter('currency')(price.price)}, "messageformat")
               else
                 $scope.validButtonName = _t('confirm')

@@ -1,23 +1,25 @@
 <div ng-if="currentUser.role != 'admin'">
   <h3 class="m-t-xs" ng-if="walletAmount > 0 && price > 0" ng-bind-html="'you_have_amount_in_wallet' | translate:{ amount: numberFilter(walletAmount, 2), currency: currencySymbol }"></h3>
-  <p ng-if="walletAmount > 0 && price > 0 && amount === 0" class="text-italic">{{'wallet_pay_reservation' | translate}}</p>
-  <p ng-if="walletAmount < price && amount === 0">
+  <div ng-if="walletAmount >= price || amount == 0 | price <= 0">
+    <p class="text-italic">{{'wallet_pay_reservation' | translate}}</p>
+  </div>
+  <div ng-if="walletAmount < price && amount === 0 && price > 0">
     <p ng-bind-html="'not_enough_money' | translate"></p>
-    <p>
-      <h6 ng-bind-html="'not_enough_money_pay_method_title' | translate: { amount: numberFilter(price, 2), currency: currencySymbol }"></h6>
-      <div class="btn-group d-flex" role="group" aria-label="Payment method">
-        <button type="button" class="btn btn-dark btn-icon flex-1" ng-click="ok()" >
-          <span class="fa fa-usd" aria-hidden="true"></span> {{'not_enough_money_cash_method' | translate}}
-        </button>
-        <button type="button" class="btn btn-light btn-icon flex-1" ng-click="pay()">
-          <span class="fa fa-credit-card" aria-hidden="true"></span> {{'not_enough_money_card_method' | translate}}
-        </button>
-      </div>
-      <br>
-      <div class="alert alert-info" role="alert" ng-bind-html="'not_enough_money_cash_note' | translate"></div>
-    </p>
-  </p>
-  <p ng-if="walletAmount > 0 && amount !== 0" class="text-italic" ng-bind-html="'credit_amount_for_pay_reservation' | translate:{ amount: numberFilter(amount, 2), currency: currencySymbol }"></p>
+    <h6 ng-bind-html="'not_enough_money_pay_method_title' | translate: { amount: numberFilter(price, 2), currency: currencySymbol }"></h6>
+    <div class="btn-group d-flex" role="group" aria-label="Payment method">
+      <button type="button" class="btn btn-dark btn-icon flex-1" ng-click="ok()" >
+        <span class="fa fa-usd" aria-hidden="true"></span> {{'not_enough_money_cash_method' | translate}}
+      </button>
+      <button type="button" class="btn btn-light btn-icon flex-1" ng-click="pay()">
+        <span class="fa fa-credit-card" aria-hidden="true"></span> {{'not_enough_money_card_method' | translate}}
+      </button>
+    </div>
+    <br>
+    <div class="alert alert-info" role="alert" ng-bind-html="'not_enough_money_cash_note' | translate"></div>
+  </div>
+  <div ng-if="walletAmount > 0 && amount !== 0">
+    <p class="text-italic" ng-bind-html="'credit_amount_for_pay_reservation' | translate:{ amount: numberFilter(amount, 2), currency: currencySymbol }"></p>
+  </div>
 </div>
 <div ng-if="currentUser.role == 'admin'">
   <h3 class="m-t-xs" ng-if="walletAmount > 0 && price > 0" ng-bind-html="'client_have_amount_in_wallet' | translate:{ amount: numberFilter(walletAmount, 2), currency: currencySymbol }"></h3>
