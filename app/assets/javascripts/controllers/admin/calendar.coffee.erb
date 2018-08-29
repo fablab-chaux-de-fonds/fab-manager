@@ -21,7 +21,7 @@ Application.Controllers.controller "AdminCalendarController", ["$scope", "$state
   ### PUBLIC SCOPE ###
 
   ## list of the FabLab machines
-  $scope.machines = machinesPromise
+  $scope.machines = machinesPromise.filter (m) -> !m.disabled && m.reservable
 
   ## currently selected availability
   $scope.availability = null
@@ -310,7 +310,7 @@ Application.Controllers.controller 'CreateEventModalController', ["$scope", "$ui
   $scope.details = detailsPromise
 
   ## machines list
-  $scope.machines = machinesPromise.filter (m) -> !m.disabled
+  $scope.machines = machinesPromise.filter (m) -> !m.disabled && m.reservable
 
   ## trainings list
   $scope.trainings = trainingsPromise.filter (t) -> !t.disabled
