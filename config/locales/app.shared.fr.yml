@@ -23,7 +23,7 @@ fr:
       elements:
         # traductions variées utilisées à plusieurs reprises dans l'application
         group: "Groupe"
-        subscription: "Abonnement"
+        subscription: "Inscription"
         trainings: "Formations"
         no_trainings: "Aucune formation"
         confirmation_required: "Confirmation requise"
@@ -48,8 +48,8 @@ fr:
         machines_and_materials: "Machines et matériaux"
         collaborators: "Les collaborateurs"
         summary: "Résumé"
-        you_ve_just_selected_a_: "Vous venez de sélectionner un"  # you_ve_just_selected_a_ + _subscription
-        _subscription: "abonnement"
+        you_ve_just_selected_a_: "Vous venez de sélectionner une"  # you_ve_just_selected_a_ + _subscription
+        _subscription: "cotisation"
         confirm_and_pay: "Valider et payer"
         your_invoice_will_be_available_soon_from_your_: "Votre facture sera bientôt disponible depuis votre"
         add_an_event: "Ajouter un évènement"
@@ -73,7 +73,7 @@ fr:
         standard: "Standard"
         year: "Année"
         month: "Mois"
-        subscription_price: "Coût de l'abonnement"
+        subscription_price: "Coût de la cotisation"
         model: "Modèle"
         from_date: "Du" # context: date. eg: "from 01/01 to 01/05"
         from_time: "De" # context: time. eg. "from 18:00 to 21:00"
@@ -167,9 +167,9 @@ fr:
 
       member_select:
         # admin : choisir un membre avec lequel interagir
-        select_a_member: "Sélectionnez un membre"
+        select_a_member: "Sélectionnez un utilisateur"
         start_typing: "Commencez à taper ..."
-        please_select_a_member_first: "Veuillez tout d'abord sélectionner un membre"
+        please_select_a_member_first: "Veuillez tout d'abord sélectionner un utilisateur"
 
       stripe:
         # fenêtre de paiement stripe
@@ -230,23 +230,23 @@ fr:
           month: "Mois"
           week: "Semaine"
           period_is_required: "La période est requise."
-          subscription_price: "Coût de l'abonnement"
+          subscription_price: "Coût de la cotisation"
           price_is_required: "Le prix est requis."
-          visual_prominence_of_the_subscription: "Importance visuelle de l'abonnement"
-          on_the_subscriptions_page_the_most_prominent_subscriptions_will_be_placed_at_the_top_of_the_list: "Sur la page des abonnements, les abonnements les plus importants seront placés en haut de la liste."
+          visual_prominence_of_the_subscription: "Importance visuelle de la cotisation"
+          on_the_subscriptions_page_the_most_prominent_subscriptions_will_be_placed_at_the_top_of_the_list: "Sur la page des cotisations, les cotisations les plus importants seront placés en haut de la liste."
           an_evelated_number_means_a_higher_prominence: "Un nombre plus élevé traduit une importance plus élevée."
-          rolling_subscription: "Abonnement glissant ?"
-          a_rolling_subscription_will_begin_the_day_of_the_first_training: "Un abonnement glissant prendra effet seulement le jour de la première formation."
+          rolling_subscription: "Cotisation glissante ?"
+          a_rolling_subscription_will_begin_the_day_of_the_first_training: "Une cotisation glissante prendra effet seulement le jour de la première formation."
           otherwise_it_will_begin_as_soon_as_it_is_bought: "Dans le cas contraire, il prendra effet dès sa date d'achat."
           information_sheet: "Fiche descriptive"
           attach_an_information_sheet: "Joindre une fiche descriptive"
           notified_partner: "Partenaire notifié"
           new_user: "Nouvel utilisateur ..."
-          as_part_of_a_partner_subscription_some_notifications_may_be_sent_to_this_user: "Dans le cadre d'un abonnement partenaire, certaines notifications pourront être adressées à cet utilisateur."
+          as_part_of_a_partner_subscription_some_notifications_may_be_sent_to_this_user: "Dans le cadre d'une cotisation partenaire, certaines notifications pourront être adressées à cet utilisateur."
           new_partner: "Nouveau partenaire"
           email_address_is_required: "L'adresse e-mail est requise."
-          disabled: "Désactiver l'abonnement"
-          disable_plan_will_not_unsubscribe_users: "Attention : désactiver l'abonnement ne désabonnera pas les utilisateurs ayant actuellement cet abonnement actif."
+          disabled: "Désactiver la formule"
+          disable_plan_will_not_unsubscribe_users: "Attention : désactiver la formule ne désabonnera pas les utilisateurs ayant actuellement cet contisation active."
 
       trainings:
         # formulaire d'édition d'une formation
@@ -372,7 +372,7 @@ fr:
         client_have_amount_in_wallet: "Le client a {{amount}} {{currency}} sur son porte-monnaie"
         wallet_pay_reservation: "Vous pouvez effectuer directement votre paiement de réservation"
         client_wallet_pay_reservation: "Le client pouvez effectuer directement son paiement de réservation"
-        debit_subscription: "Payer un abonnement"
+        debit_subscription: "Payer une cotisation"
         debit_reservation_training: "Payer un reservation de formation"
         debit_reservation_machine: "Payer un reservation de machine"
         debit_reservation_event: "Payer un reservation d'évenement"
@@ -444,11 +444,11 @@ fr:
           confirm_this_slot: "Valider ce créneau"
           remove_this_slot: "Supprimer ce créneau"
           to_benefit_from_attractive_prices: "Pour bénéficier de prix avantageux"
-          view_our_subscriptions: "Consultez nos abonnements"
+          view_our_subscriptions: "Consultez notre liste des cotisations"
           or: "ou"
           you_ve_just_selected_a_: "Vous venez de sélectionner un"
-          _subscription: "abonnement"
-          cost_of_the_subscription: "Coût de l'abonnement"
+          _subscription: "cotisation"
+          cost_of_the_subscription: "Coût de la cotisation"
           confirm_and_pay: "Valider et payer"
           you_have_settled_the_following_TYPE: "Vous avez réglé {TYPE, select, Machine{les heures machines suivantes} Training{la formation suivante} other{les éléments suivants}} :"  # messageFormat interpolation
           you_have_settled_a_: "Vous avez réglé un"
@@ -465,7 +465,7 @@ fr:
           confirm_my_modification: "Valider ma modification"
           your_booking_slot_was_successfully_moved_from_: "Votre créneau de réservation a bien été déplacé du"
           to_date: "au" # context: date. eg: "from 01/01 to 01/05"
-          please_select_a_member_first: "Veuillez tout d'abord sélectionner un membre"
+          please_select_a_member_first: "Veuillez tout d'abord sélectionner un utilisateur"
           unable_to_change_the_reservation: "Impossible de modifier la réservation"
           confirmation_required: "Confirmation requise"
           do_you_really_want_to_cancel_this_reservation: "Êtes-vous sur de vouloir annuler cette réservation ?"

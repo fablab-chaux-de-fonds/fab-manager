@@ -60,7 +60,7 @@ fr:
 
   members:
     # gestion des membres
-    unable_to_change_the_group_while_a_subscription_is_running: "Impossible de changer le groupe tant qu'un abonnement est en cours"
+    unable_to_change_the_group_while_a_subscription_is_running: "Impossible de changer le groupe tant qu'une cotisation est en cours"
     please_input_the_authentication_code_sent_to_the_address: "Merci d'enter le code d'authentification qui a été envoyé à l'adresse de courriel %{EMAIL}"
     your_authentication_code_is_not_valid: "Votre code d'authentification n'est pas valide."
     current_authentication_method_no_code: "La méthode d'authentification actuelle ne requiert pas de code de migration"
@@ -82,8 +82,8 @@ fr:
     order_summary: "Récapitulatif de la commande :"
     details: "Détails"
     amount: "Montant"
-    subscription_extended_for_free_from_START_to_END: "Abonnement prolongé gratuitement - Du %{START} au %{END}"
-    subscription_NAME_from_START_to_END: "Abonnement %{NAME} - Du %{START} au %{END}"
+    subscription_extended_for_free_from_START_to_END: "Cotisation prolongée gratuitement - Du %{START} au %{END}"
+    subscription_NAME_from_START_to_END: "Cotisation %{NAME} - Du %{START} au %{END}"
     machine_reservation_DESCRIPTION: "Réservation Machine - %{DESCRIPTION}"
     space_reservation_DESCRIPTION: "Réservation Espace - %{DESCRIPTION}"
     training_reservation_DESCRIPTION: "Réservation Formation - %{DESCRIPTION}"
@@ -115,8 +115,8 @@ fr:
     for_an_amount_of_AMOUNT: "pour un montant de %{AMOUNT}"
     on_DATE_from_START_to_END: "Le %{DATE} de %{START} à %{END}" # eg: on feb. 7 from 7AM to 9AM
     from_STARTDATE_to_ENDDATE_from_STARTTIME_to_ENDTIME: "Du %{STARTDATE} au %{ENDDATE}, de %{STARTTIME} à %{ENDTIME}" # eg: from feb. 7 to feb. 10, from 6PM to 10PM
-    subscription_of_NAME_for_DURATION_starting_from_DATE: "Abonnement de %{NAME} pour %{DURATION} à compter du %{DATE}"
-    subscription_of_NAME_extended_starting_from_STARTDATE_until_ENDDATE: "Prolongement Abonnement (Jours gratuits) de %{NAME} à compter du %{STARTDATE} jusqu'au %{ENDDATE}"
+    subscription_of_NAME_for_DURATION_starting_from_DATE: "Cotisation de %{NAME} pour %{DURATION} à compter du %{DATE}"
+    subscription_of_NAME_extended_starting_from_STARTDATE_until_ENDDATE: "Prolongement cotisation (Jours gratuits) de %{NAME} à compter du %{STARTDATE} jusqu'au %{ENDDATE}"
     and: 'et'
 
   trainings:
@@ -131,7 +131,7 @@ fr:
 
   export_members:
     # export de la liste des members au format EXCEL
-    members: "Membres"
+    members: "Utilisateurs"
     id: "ID"
     surname: "Nom"
     first_name: "Prénom"
@@ -146,8 +146,8 @@ fr:
     interests: "Centres d'intérêts"
     cad_software_mastered: "Logiciels de conception maîtrisés"
     group: "Groupe"
-    subscription: "Abonnement"
-    subscription_end_date: "Date de fin de l'abonnement"
+    subscription: "Cotisation"
+    subscription_end_date: "Date de fin de la cotisation"
     validated_trainings: "Formations validées"
     tags: "Étiquettes"
     number_of_invoices: "Nombre de factures"
@@ -160,7 +160,7 @@ fr:
     organization_address: "Adresse de la structure"
     man: "Homme"
     woman: "Femme"
-    without_subscriptions: "Sans Abonnement"
+    without_subscriptions: "Non membre"
 
   export_reservations:
     # export de la liste des réservations machines/formations/évènements au format EXCEL
@@ -178,11 +178,11 @@ fr:
 
   export_subscriptions:
     # export de la liste des abonnements au format EXCEL
-    subscriptions: "Abonnements"
+    subscriptions: "Cotisations"
     id: "ID"
     customer: "Client"
     email: "Courriel"
-    subscription: "Abonnement"
+    subscription: "Cotisation"
     period: "Période"
     start_date: "Date de début"
     expiration_date: "Date d'expiration"
@@ -224,15 +224,15 @@ fr:
       notify_admin_slot_is_modified:
         a_booking_slot_was_modified: "Un créneau de réservation a été modifié."
       notify_admin_subscribed_plan:
-        subscription_PLAN_has_been_subscribed_by_USER_html: "L'abonnement <strong><em>%{PLAN}</em></strong> a été souscrit par <strong><em>%{USER}</strong></em>."
+        subscription_PLAN_has_been_subscribed_by_USER_html: "La cotisation <strong><em>%{PLAN}</em></strong> a été souscrit par <strong><em>%{USER}</strong></em>."
       notify_admin_subscription_canceled:
-        USER_s_subscription_has_been_cancelled: "L'abonnement de %{USER} a été annulé."
+        USER_s_subscription_has_been_cancelled: "La cotisation de %{USER} a été annulé."
       notify_admin_subscription_extended:
-        subscription_PLAN_of_the_member_USER_has_been_extended_FREE_until_DATE_html: "L'abonnement <strong><em>{PLAN}</em></strong> du membre <strong><em>{USER}</strong></em> a été prolongé {FREE, select, true{gratuitement} other{}} jusqu'au {DATE}."  # messageFormat interpolation
+        subscription_PLAN_of_the_member_USER_has_been_extended_FREE_until_DATE_html: "La cotisation <strong><em>{PLAN}</em></strong> du membre <strong><em>{USER}</strong></em> a été prolongé {FREE, select, true{gratuitement} other{}} jusqu'au {DATE}."  # messageFormat interpolation
       notify_admin_subscription_is_expired:
-        USER_s_subscription_has_expired: "L'abonnement de %{USER} est arrivé à expiration."
+        USER_s_subscription_has_expired: "La cotisation de %{USER} est arrivé à expiration."
       notify_admin_subscription_will_expire_in_7_days:
-        USER_s_subscription_will_expire_in_7_days: "L'abonnement de %{USER} expire dans 7 jours."
+        USER_s_subscription_will_expire_in_7_days: "La cotisation de %{USER} expire dans 7 jours."
       notify_admin_user_group_changed:
         user_NAME_changed_his_group_html: "L'utilisateur <strong><em>{NAME}</strong></em> a changé de groupe."  # messageFormat interpolation
       notify_admin_user_merged:
@@ -252,21 +252,21 @@ fr:
       notify_member_slot_is_modified:
         your_reservation_slot_was_successfully_changed: "Votre créneau de réservation a bien été modifié."
       notify_member_subscribed_plan:
-        you_have_subscribed_to_PLAN_html: "Vous avez souscrit à l'abonnement <strong><em>%{PLAN}</em></strong>."
+        you_have_subscribed_to_PLAN_html: "Vous avez souscrit à la cotisation <strong><em>%{PLAN}</em></strong>."
       notify_member_subscribed_plan_is_changed:
-        you_have_changed_your_subscription_to_PLAN_html: "Vous avez changé votre abonnement à <strong><em>%{PLAN}</em></strong>."
+        you_have_changed_your_subscription_to_PLAN_html: "Vous avez changé votre cotisation à <strong><em>%{PLAN}</em></strong>."
       notify_member_subscription_canceled:
-        your_subscription_PLAN_was_successfully_cancelled_html: "Votre abonnement <strong><em>%{PLAN}</em></strong> est bien annulé."
+        your_subscription_PLAN_was_successfully_cancelled_html: "Votre cotisation <strong><em>%{PLAN}</em></strong> est bien annulé."
       notify_member_subscription_extended:
-        your_subscription_PLAN_has_been_extended_FREE_until_DATE_html: "Votre abonnement <strong><em>{PLAN}</em></strong> a été prolongé {FREE, select, true{gratuitement} other{}} jusqu'au {DATE}."  # messageFormat interpolation
+        your_subscription_PLAN_has_been_extended_FREE_until_DATE_html: "Votre cotisation <strong><em>{PLAN}</em></strong> a été prolongé {FREE, select, true{gratuitement} other{}} jusqu'au {DATE}."  # messageFormat interpolation
       notify_member_subscription_is_expired:
-        your_subscription_has_expired: "Votre abonnement est arrivé à expiration."
+        your_subscription_has_expired: "Votre cotisation est arrivé à expiration."
       notify_member_subscription_will_expire_in_7_days:
-        your_subscription_will_expire_in_7_days: "Votre abonnement arrive à échéance dans 7 jours."
+        your_subscription_will_expire_in_7_days: "Votre cotisation arrive à échéance dans 7 jours."
       notify_partner_subscribed_plan:
-        subscription_partner_PLAN_has_been_subscribed_by_USER_html: "L'abonnement partenaire <strong><em>%{PLAN}</em></strong> a été souscrit par <strong><em>%{USER}</strong></em>."
+        subscription_partner_PLAN_has_been_subscribed_by_USER_html: "La cotisation partenaire <strong><em>%{PLAN}</em></strong> a été souscrit par <strong><em>%{USER}</strong></em>."
       notify_project_author_when_collaborator_valid:
-        USER_became_collaborator_of_your_project: "Le membre %{USER} est devenu un collaborateur de votre projet :"
+        USER_became_collaborator_of_your_project: "L'utilisateur %{USER} est devenu un collaborateur de votre projet :"
       notify_project_collaborator_to_valid:
         you_are_invited_to_collaborate_on_the_project: "Vous êtes invité à collaborer sur le projet suivant :"
       notify_user_auth_migration:
@@ -287,7 +287,7 @@ fr:
       notify_user_wallet_is_credited:
         your_wallet_is_credited: "Votre porte-monnaie a bien été crédité de %{AMOUNT} par l'administrateur"
       notify_admin_user_wallet_is_credited:
-        wallet_is_credited: "Le porte-monnaie du membre %{USER} a bien été crédité de %{AMOUNT}"
+        wallet_is_credited: "Le porte-monnaie de l'utilisateur %{USER} a bien été crédité de %{AMOUNT}"
       notify_admin_export_complete:
         export: "L'export"
         statistics_global: "de toutes les statistiques"
@@ -295,11 +295,11 @@ fr:
         statistics_event: "des statistiques sur les évènements"
         statistics_machine: "des statistiques d'heures machines"
         statistics_project: "des statistiques sur les projets"
-        statistics_subscription: "des statistiques d'abonnements"
+        statistics_subscription: "des statistiques des cotisation"
         statistics_training: "des statistiques sur les formations"
         statistics_space: "des statistiques sur les espaces"
-        users_members: "de la liste des membres"
-        users_subscriptions: "de la liste des abonnements"
+        users_members: "de la liste des utilisateurs"
+        users_subscriptions: "de la liste des cotisation"
         users_reservations: "de la liste des réservations"
         availabilities_index: "des disponibilités de réservations"
         is_over: "est terminé."
@@ -310,7 +310,7 @@ fr:
 
   statistics:
     # outil de statistiques pour les administrateurs
-    subscriptions: "Abonnements"
+    subscriptions: "Cotisations"
     machines_hours: "Heures machines"
     spaces: "Espaces"
     trainings: "Formations"

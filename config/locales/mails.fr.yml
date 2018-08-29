@@ -16,7 +16,7 @@ fr:
         account_name: "Nom de compte :"
         password: "Mot de passe :"
         temporary_password: "Ce mot de passe est temporaire, vous pourrez le modifier en accédant à l’espace « Mon compte »."
-        keep_advantages: "Avec ce compte, vous conservez bien entendu tous les avantages liés à votre profil utilisateur Fab Lab (abonnement, formations)."
+        keep_advantages: "Avec ce compte, vous conservez bien entendu tous les avantages liés à votre profil utilisateur Fab Lab."
         thanks_to_: "Pour pouvoir utiliser la plateforme, merci de vous"
         logon_or_login: "créer un compte sur %{PROVIDER} ou utiliser un compte pré-existant en cliquant ici"
         token_if_link_problem: "En cas de problème avec le lien, vous pourrez saisir manuellement le code suivant lors de votre première connexion :"
@@ -28,30 +28,30 @@ fr:
         warning: "Vous venez de changer de groupe utilisateurs. Des contrôles pourront être opérés au Fab Lab afin de vérifier que ce changement est justifié."
 
     notify_admin_user_group_changed:
-      subject: "Un membre a changé de groupe"
+      subject: "Un inscrit a changé de groupe"
       body:
         user_changed_group_html: "L'utilisateur <em><strong>%{NAME}</strong></em> a changé de groupe."
         previous_group: "Ancien groupe :"
         new_group: "Nouveau groupe :"
 
     notify_admin_subscription_extended:
-      subject: "Un abonnement a été prolongé"
+      subject: "Une cotisation a été prolongée"
       body:
-        subscription_extended_html: "L'abonnement <strong><em>{PLAN}</em></strong> du membre <strong><em>{NAME}</strong></em> a été prolongé {FREE, select, true{gratuitment} other{}} jusqu'au {DATE}."   # messageFormat interpolation
+        subscription_extended_html: "La cotisation <strong><em>{PLAN}</em></strong> du membre <strong><em>{NAME}</strong></em> a été prolongé {FREE, select, true{gratuitment} other{}} jusqu'au {DATE}."   # messageFormat interpolation
 
     notify_member_subscription_extended:
-      subject: "Votre abonnement a été prolongé"
+      subject: "Votre cotisation a été prolongé"
       body:
-        your_plan: "Votre abonnement"
+        your_plan: "Votre cotisation"
         has_been_extended: "a été prolongé"
         free: "gratuitement"
         until: "jusqu'au"
 
     notify_partner_subscribed_plan:
-      subject: "Un abonnement a été souscrit"
+      subject: "Un membre à été inscrit"
       body:
-        a_plan: "Un abonnement"
-        was_purchased_by_member: "vient d'être souscrit par le membre"
+        a_plan: "Une cotisation"
+        was_purchased_by_member: "vient d'être souscrite par le membre"
 
     notify_admin_when_project_published:
       subject: "Un projet a été publié."
@@ -77,10 +77,10 @@ fr:
         has_been_validated: "a bien été validée"
 
     notify_member_subscribed_plan:
-      subject: "Votre abonnement a bien été souscrit"
+      subject: "Votre cotisation a bien été inscrite"
       body:
-        plan_subscribed_html: "Vous avez souscrit à l'abonnement : <strong><em>%{PLAN}</em></strong>."
-        subscription_stops_on: "Votre abonnement s'arrêtera automatiquement le %{DATE}"
+        plan_subscribed_html: "Vous avez souscrit à la cotisation : <strong><em>%{PLAN}</em></strong>."
+        subscription_stops_on: "Votre cotisation s'arrêtera automatiquement le %{DATE}"
 
     notify_member_create_reservation:
       subject: "Votre réservation a bien été enregistrée"
@@ -89,9 +89,9 @@ fr:
         your_reserved_slots: "Les créneaux que vous avez réservés sont :"
 
     notify_member_subscribed_plan_is_changed:
-      subject: "Votre abonnement a été mis à jour"
+      subject: "Votre cotisation a été mis à jour"
       body:
-        new_plan_html: "Vous avez changé votre abonnement à <strong><em>%{PLAN}</em></strong>."
+        new_plan_html: "Vous avez changé votre type de cotisation à <strong><em>%{PLAN}</em></strong>."
 
     notify_admin_member_create_reservation:
       subject: "Nouvelle réservation"
@@ -120,14 +120,14 @@ fr:
         invoicing_disabled_html: "La génération de factures est <strong>désactivée</strong> pour cet utilisateur."
 
     notify_admin_subscribed_plan:
-      subject: "Un abonnement a été souscrit"
+      subject: "Une cotisation a été inscrite"
       body:
-        plan_subscribed_html: "Un abonnement <strong><em>%{PLAN}</em></strong> vient d'être souscrit par le membre <strong><em>%{NAME}</strong></em>."
+        plan_subscribed_html: "Une cotisation <strong><em>%{PLAN}</em></strong> vient d'être souscrite par le membre <strong><em>%{NAME}</strong></em>."
 
     notify_member_invoice_ready:
       subject: "Votre facture du FabLab"
       body:
-        please_find_attached_html: "Vous trouverez en pièce jointe votre facture du {DATE}, d'un montant de {AMOUNT} concernant votre {TYPE, select, Reservation{réservation} other{abonnement}}."  # messageFormat interpolation
+        please_find_attached_html: "Vous trouverez en pièce jointe votre facture du {DATE}, d'un montant de {AMOUNT} concernant votre {TYPE, select, Reservation{réservation} other{cotisation}}."  # messageFormat interpolation
         invoice_in_your_dashboard_html: "Vous pouvez à tout moment retrouver votre facture dans %{DASHBOARD} sur le site du Fab Lab."
         your_dashboard: "votre tableau de bord"
 
@@ -140,45 +140,45 @@ fr:
     notify_member_avoir_ready:
       subject: "Votre facture d'avoir du FabLab"
       body:
-        please_find_attached_html: "Vous trouverez en pièce jointe votre facture d'avoir du {DATE}, d'un montant de {AMOUNT} concernant votre {TYPE, select, Reservation{réservation} WalletTransaction{crédit du porte-monnaie} other{abonnement}}."  # messageFormat interpolation
+        please_find_attached_html: "Vous trouverez en pièce jointe votre facture d'avoir du {DATE}, d'un montant de {AMOUNT} concernant votre {TYPE, select, Reservation{réservation} WalletTransaction{crédit du porte-monnaie} other{cotisation}}."  # messageFormat interpolation
         invoice_in_your_dashboard_html: "Vous pouvez à tout moment retrouver votre facture d'avoir dans %{DASHBOARD} sur le site du Fab Lab."
         your_dashboard: "votre tableau de bord"
 
     notify_member_subscription_will_expire_in_7_days:
-      subject: "Votre abonnement expire dans 7 jours"
+      subject: "Votre inscription expire dans 7 jours"
       body:
-        your_plan: "Votre abonnement"
+        your_plan: "Votre cotisation"
         expires_in_7_days: "expire dans 7 jours"
-        to_renew_your_plan_follow_the_link: "Si vous souhaitez renouveler votre abonnement, vous pouvez vous rendre sur"
+        to_renew_your_plan_follow_the_link: "Si vous souhaitez renouveler votre cotisation, vous pouvez vous rendre sur"
 
     notify_member_subscription_is_expired:
-      subject: "Votre abonnement est arrivé à expiration"
+      subject: "Votre cotisation est arrivé à expiration"
       body:
-        your_plan: "Votre abonnement"
+        your_plan: "Votre cotisation"
         has_expired: "est arrivé à expiration"
         you_can_go_to: "Vous pouvez vous rendre sur notre page"
-        to_renew_your_plan: "afin de renouveler votre abonnement"
+        to_renew_your_plan: "afin de renouveler votre cotisation"
 
     notify_admin_subscription_will_expire_in_7_days:
-      subject: "L'abonnement d'un membre expire dans 7 jours"
+      subject: "L'inscription d'un membre expire dans 7 jours"
       body:
-        subscription_will_expire_html: "L'abonnement du membre %{NAME} <strong><em>%{PLAN}</em></strong> expire dans 7 jours."
+        subscription_will_expire_html: "L'inscription du membre %{NAME} <strong><em>%{PLAN}</em></strong> expire dans 7 jours."
 
     notify_admin_subscription_is_expired:
-      subject: "L'abonnement d'un membre est arrivé à expiration"
+      subject: "L'inscription d'un membre est arrivé à expiration"
       body:
-        subscription_expired_html: "L'abonnement du membre %{NAME} <strong><em>%{PLAN}</em></strong> est arrivé à expiration."
+        subscription_expired_html: "L'inscription du membre %{NAME} <strong><em>%{PLAN}</em></strong> est arrivé à expiration."
 
     notify_admin_subscription_canceled:
-      subject: "L'abonnement d'un membre a été annulé"
+      subject: "L'inscription d'un membre a été annulé"
       body:
-        subscription_canceled_html: "L'abonnement <strong><em>%{PLAN}</em></strong> du membre %{NAME} vient d'être annulé."
+        subscription_canceled_html: "L'inscription <strong><em>%{PLAN}</em></strong> du membre %{NAME} vient d'être annulé."
 
     notify_member_subscription_canceled:
-      subject: "Votre abonnement a été annulé"
+      subject: "Votre inscription a été annulé"
       body:
-        your_plan_was_canceled: "Votre abonnement a bien été annulé"
-        your_plan: "votre abonnement"
+        your_plan_was_canceled: "Votre inscription a bien été annulé"
+        your_plan: "votre cotisation"
         end_at: "fin au"
 
     notify_member_slot_is_canceled:
@@ -256,7 +256,7 @@ fr:
     notify_admin_user_wallet_is_credited:
       subject: "Le porte-monnaie d'un utilisateur a bien été crédité"
       body:
-        wallet_credit_html: "Le porte-monnaie du membre %{USER} a bien été crédité de %{AMOUNT} par l'administrateur %{ADMIN}."
+        wallet_credit_html: "Le porte-monnaie de l'utilisateur %{USER} a bien été crédité de %{AMOUNT} par l'administrateur %{ADMIN}."
 
     notify_admin_export_complete:
       subject: "Export terminé"
@@ -267,11 +267,11 @@ fr:
         statistics_event: "des statistiques sur les évènements"
         statistics_machine: "des statistiques d'heures machines"
         statistics_project: "des statistiques sur les projets"
-        statistics_subscription: "des statistiques d'abonnements"
+        statistics_subscription: "des statistiques de cotisation"
         statistics_training: "des statistiques sur les formations"
         statistics_space: "des statistiques sur les espaces"
-        users_members: "de la liste des membres"
-        users_subscriptions: "de la liste des abonnements"
+        users_members: "de la liste des utilisateurs"
+        users_subscriptions: "de la liste des cotisations"
         users_reservations: "de la liste des réservations"
         availabilities_index: "des disponibilités de réservations"
         click_to_download: "La génération est terminée. Pour télécharger le fichier Excel, cliquez"

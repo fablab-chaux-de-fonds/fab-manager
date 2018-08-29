@@ -64,12 +64,12 @@ setting_6:
 setting_7:
   id: 7
   name: subscription_explications_alert
-  value: '<p><b>Règle sur la date de début des abonnements</b><br></p><ul><li> <span
+  value: '<p><b>Règle sur la date de début des Cotisations</b><br></p><ul><li> <span
     style="font-size: 1.6rem; line-height: 2.4rem;">Si vous êtes un nouvel utilisateur
-    - i.e aucune  formation d''enregistrée sur le site - votre abonnement débutera
+    - i.e aucune  formation d''enregistrée sur le site - votre période de cotisation débutera
     à la date de réservation de votre première  formation.</span><br></li><li><span
     style="font-size: 1.6rem; line-height: 2.4rem;">Si vous avez déjà une  formation
-    ou plus de validée, votre abonnement débutera à la date de votre achat d''abonnement.</span></li>
+    ou plus de validée, votre période de cotisation débutera à la date de votre paiement.</span></li>
     </ul><p>Merci de bien prendre ses informations en compte, et merci de votre compréhension.
     L''équipe du Fab Lab.<br> </p><p></p>'
   created_at: 2016-04-04 14:11:34.588478000 Z
@@ -199,9 +199,8 @@ setting_25:
 setting_26:
   id: 26
   name: training_information_message
-  value: Avant de réserver une formation, nous vous conseillons de consulter nos offres
-    d'abonnement qui proposent des conditions avantageuses sur le prix des formations
-    et les heures machines.
+  value: Avant de réserver une formation, nous vous conseillons de considérer les réductions réservées aux membres
+  proposant des conditions avantageuses sur le prix des formations et les heures machines.
   created_at: 2016-04-04 14:11:34.717053000 Z
   updated_at: 2016-04-04 14:11:34.717053000 Z
 
