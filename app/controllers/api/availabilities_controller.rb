@@ -308,7 +308,7 @@ class API::AvailabilitiesController < API::ApiController
 
     def availability_params
       params.require(:availability).permit(:start_at, :end_at, :available_type, :machine_ids, :training_ids,
-                                           :nb_total_places, :availability_detail_id, machine_ids: [],
+                                           :nb_total_places, :availability_detail_id, :lock, machine_ids: [],
                                            training_ids: [], space_ids: [], tag_ids: [],
                                            :machines_attributes => [:id, :_destroy])
     end

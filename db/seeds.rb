@@ -458,8 +458,8 @@ if Translation.count == 0
 end
 
 if AvailabilityDetail.count == 0
-  AvailabilityDetail.create!(textColor:0xFFFFF, backgroundColor:0x3d985b,title:'OpenLab')
-  AvailabilityDetail.create!(backgroundColor:0x7fc225,title:'DiscoveryLab')
-  AvailabilityDetail.create!(backgroundColor:0xe0c240,title:'ExpertLab')
-  AvailabilityDetail.create!(backgroundColor:0xCE5C00,title:'Maintenance')
+  AvailabilityDetail.create!(textColor:0xFFFFF, backgroundColor:0x3d985b,title:'OpenLab',locked:false)
+  AvailabilityDetail.create!(backgroundColor:0x7fc225,title:'DiscoveryLab',locked:true)
+  AvailabilityDetail.create!(backgroundColor:0xe0c240,title:'ExpertLab',locked:false)
+  AvailabilityDetail.create!(backgroundColor:0xCE5C00,title:'Maintenance',locked:true)
 end

@@ -370,6 +370,9 @@ Application.Controllers.controller 'CreateEventModalController', ["$scope", "$ui
     if $scope.availability.available_type == 'machines'
       if $scope.selectedMachines.length > 0
         $scope.availability.machine_ids = $scope.selectedMachines.map (m) -> m.id
+        detail = $scope.details.find((m) -> m.id == parseInt($scope.availability.availability_detail_id))
+        if detail != undefined
+          $scope.availability.lock = detail.locked
       else
         growl.error(_t('admin_calendar.you_should_select_at_least_a_machine'))
         return
@@ -437,8 +440,10 @@ Application.Controllers.controller 'CreateEventModalController', ["$scope", "$ui
     $scope.$watch 'availability.availability_detail_id', (newValue, oldValue, scope) ->
       if scope.availability.available_type == 'machines' && newValue != undefined
         scope.selectedMachines = scope.machines.slice(0)
+        return
       else
         scope.selectedMachines = []
+        return
 
     ## When we configure a machine availability, do not let the user change the end time, as the total
     ## time must be dividable by 60 minutes (base slot duration). For training availabilities, the user
