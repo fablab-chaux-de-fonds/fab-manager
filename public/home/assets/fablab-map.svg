@@ -19,10 +19,13 @@
    sodipodi:docname="fablab-map.svg"
    width="448"
    height="298.39999"
-   inkscape:version="0.92.2 2405546, 2018-03-11"><metadata
+   inkscape:version="0.92.2 2405546, 2018-03-11"
+   inkscape:export-filename="/home/raphael/Documents/FabLab/website/fab-manager/public/home/assets/fablab-map.svg.png"
+   inkscape:export-xdpi="171.42999"
+   inkscape:export-ydpi="171.42999"><metadata
    id="metadata671"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
    id="defs669" /><sodipodi:namedview
    pagecolor="#ffffff"
    bordercolor="#666666"
@@ -40,9 +43,9 @@
    fit-margin-left="0"
    fit-margin-right="0"
    fit-margin-bottom="0"
-   inkscape:zoom="0.30729167"
-   inkscape:cx="190.5"
-   inkscape:cy="121.5"
+   inkscape:zoom="0.86915209"
+   inkscape:cx="40.911596"
+   inkscape:cy="67.803813"
    inkscape:window-x="0"
    inkscape:window-y="27"
    inkscape:window-maximized="1"
@@ -194,6 +197,7 @@
      id="tspan34"
      style="font-size:7px;font-family:'.SFNSText'">$</tspan></text>
 
+
 				</g>
 				<g
    class="st3"
@@ -222,6 +226,7 @@
      class="st4 st5"
      id="tspan46"
      style="font-size:7px;font-family:'.SFNSText'">3</tspan></text>
+
 
 				</g>
 			</g>
@@ -286,6 +291,7 @@
      class="st4 st5"
      id="tspan70"
      style="font-size:7px;font-family:'.SFNSText'">%</tspan></text>
+
 
 				</g>
 				<g
@@ -651,6 +657,7 @@
      id="tspan216"
      style="font-size:7px;font-family:'.SFNSText'">!</tspan></text>
 
+
 				</g>
 			</g>
 			<g
@@ -767,6 +774,7 @@
      id="tspan254"
      style="font-size:8.00109959px;font-family:Roboto-Regular">#789:;%&amp;'()*+,'-..$/%</tspan></text>
 
+
 				</g>
 			</g>
 			<g
@@ -803,6 +811,7 @@
    id="text268"
    style="font-size:8.00109959px;font-family:Roboto-Regular">&lt;*'&quot;</text>
 
+
 				</g>
 				<g
    class="st12"
@@ -813,6 +822,7 @@
    class="st10 st11"
    id="text272"
    style="font-size:8.00109959px;font-family:Roboto-Regular">'</text>
+
 
 				</g>
 				<rect
@@ -938,13 +948,13 @@
    id="g310">
 						
 							<image
-   sodipodi:absref="/home/raphael/Documents/FabLab/website/fab-manager/app/assets/images/92C899E303B4BD27.png"
+   sodipodi:absref="/home/raphael/Documents/FabLab/website/fab-manager/public/home/assets/92C899E303B4BD27.png"
    xlink:href="92C899E303B4BD27.png"
-   id="image308"
-   transform="matrix(0.2524,0,0,0.2522,260,167)"
-   height="1678"
+   style="overflow:visible"
    width="2216"
-   style="overflow:visible">
+   height="1678"
+   transform="matrix(0.2524,0,0,0.2522,260,167)"
+   id="image308">
 						</image>
 					</g>
 				</g>
@@ -1002,13 +1012,13 @@
    id="g330">
 						
 							<image
-   sodipodi:absref="/home/raphael/Documents/FabLab/website/fab-manager/app/assets/images/92C899E303B4BD25.png"
+   sodipodi:absref="/home/raphael/Documents/FabLab/website/fab-manager/public/home/assets/92C899E303B4BD25.png"
    xlink:href="92C899E303B4BD25.png"
-   id="image328"
-   transform="matrix(0.4001,0,0,0.4001,513,555)"
-   height="52"
+   style="overflow:visible"
    width="132"
-   style="overflow:visible">
+   height="52"
+   transform="matrix(0.4001,0,0,0.4001,513,555)"
+   id="image328">
 						</image>
 					</g>
 				</g>
@@ -1066,13 +1076,13 @@
    id="g350">
 						
 							<image
-   sodipodi:absref="/home/raphael/Documents/FabLab/website/fab-manager/app/assets/images/92C899E303B4BD2B.png"
+   sodipodi:absref="/home/raphael/Documents/FabLab/website/fab-manager/public/home/assets/92C899E303B4BD2B.png"
    xlink:href="92C899E303B4BD2B.png"
-   id="image348"
-   transform="matrix(0.4001,0,0,0.4001,276,132)"
-   height="48"
+   style="overflow:visible"
    width="262"
-   style="overflow:visible">
+   height="48"
+   transform="matrix(0.4001,0,0,0.4001,276,132)"
+   id="image348">
 						</image>
 					</g>
 				</g>
