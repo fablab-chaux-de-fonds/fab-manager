@@ -77,7 +77,7 @@
 
           <!-- Admin entries -->
           <div class="line-s bg-red-dark dk " ng-if="isAuthorized('admin')"></div>
-          <div class="text-xs font-bold text-bordeau hidden-nav-xs padder m-t-lg m-b-sm" ng-if="isAuthorized('admin')" translate>{{ 'admin' }}</div>
+          <div class="text-xs font-bold hidden-nav-xs padder m-t-lg m-b-sm" ng-if="isAuthorized('admin')" translate>{{ 'admin' }}</div>
           <ul class="nav" ng-if="isAuthorized('admin')">
             <li class="" ng-repeat="navLink in adminNavLinks">
               <a ng-click="toggleNavSize($event)" ui-sref="{{navLink.state}}({{navLink.params}})" ui-sref-active="active" class="auto" data-toggle="class:nav-off-screen" data-target="#nav">
