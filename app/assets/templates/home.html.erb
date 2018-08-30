@@ -2,7 +2,11 @@
 	<span ng-bind-html="homeBlogpost"></span>
 </div>
 
-<div class="row wrapper" ng-if="false">
+<section class="m-lg">
+  <div bind-html-compile="page.content"></div>
+</section>
+
+<div class="row wrapper" ng-if="page.id == undefined">
 	<div class="col-lg-8">
 		<h4 class="text-sm m-t-sm" translate>{{ 'latest_documented_projects' }}</h4>
 

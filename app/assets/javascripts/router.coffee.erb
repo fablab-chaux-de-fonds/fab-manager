@@ -82,6 +82,9 @@ angular.module('application.router', ['ui.router'])
             templateUrl: '<%= asset_path "home.html" %>'
             controller: 'HomeController'
         resolve:
+          pagePromise: ['Page', (Page) ->
+            Page.get({name: 'home', blank: true}).$promise
+          ]
           lastMembersPromise: ['Member', (Member)->
             Member.lastSubscribed(limit: 4).$promise
           ]
@@ -663,8 +666,8 @@ angular.module('application.router', ['ui.router'])
           pagePromise: ['Page', '$stateParams', (Page, $stateParams) ->
             Page.get({name: $stateParams.name}).$promise
           ]
-          translations: [ 'Translations', '$stateParams', (Translations, $stateParams) ->
-            Translations.query(['app.public.pages.' + $stateParams.name]).$promise
+          translations: [ 'Translations', (Translations, $stateParams) ->
+            Translations.query(['app.public.pages']).$promise
           ]
 
       # --- namespace /admin/... ---

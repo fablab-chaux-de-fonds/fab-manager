@@ -49,7 +49,12 @@ class API::PagesController < API::ApiController
 
   private
   def set_page
-    @page = Page.friendly.includes(:page_template, :page_data_context).find_by!(name:params[:name])
+    data = Page.friendly.includes(:page_template, :page_data_context)
+    if params.has_key? :blank
+      @page = data.find_by(name:params[:name]) || Page.new(name:params[:name])
+    else
+      @page = data.find_by!(name:params[:name])
+    end
   end
 
   def page_params

@@ -1,6 +1,6 @@
 'use strict'
 
-Application.Controllers.controller "HomeController", ['$scope', '$stateParams', 'Twitter', 'lastMembersPromise', 'lastProjectsPromise', 'upcomingEventsPromise', 'homeBlogpostPromise', 'twitterNamePromise', ($scope, $stateParams, Twitter, lastMembersPromise, lastProjectsPromise, upcomingEventsPromise, homeBlogpostPromise, twitterNamePromise)->
+Application.Controllers.controller "HomeController", ['$scope', '$http', '$stateParams', 'Twitter', 'lastMembersPromise', 'lastProjectsPromise', 'upcomingEventsPromise', 'homeBlogpostPromise', 'twitterNamePromise', 'pagePromise', ($scope, $http, $stateParams, Twitter, lastMembersPromise, lastProjectsPromise, upcomingEventsPromise, homeBlogpostPromise, twitterNamePromise, pagePromise)->
 
   ### PUBLIC SCOPE ###
 
@@ -30,7 +30,25 @@ Application.Controllers.controller "HomeController", ['$scope', '$stateParams', 
   $scope.isOneDayEvent = (event) ->
     moment(event.start_date).isSame(event.end_date, 'day')
 
+  $scope.page = pagePromise
 
+  ## Loading page template content
+  if pagePromise.page_template != null
+    $http.get(pagePromise.page_template.attachment.url)
+      .success(
+        (response) ->
+          $scope.page.content = response
+          return
+    )
+
+  ## Upgrade scope with page data context
+  if pagePromise.page_data_context != null
+    $http.get(pagePromise.page_data_context.attachment.url)
+      .success(
+        (response) ->
+          Object.assign($scope, response)
+          return
+    )
 
   ### PRIVATE SCOPE ###
 
