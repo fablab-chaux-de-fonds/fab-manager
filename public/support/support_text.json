@@ -1,0 +1,58 @@
+{
+  "title": "Soutenez votre FabLab",
+  "lead": "Par votre soutien, vous constribuez à assurer la pérennité du lieu, à professionnaliser nos services et améliorer la qualité des équipements.",
+  "cards": [{
+      "id": "1",
+      "title": "Faites un don",
+      "desc_head": "possibilités",
+      "desc": [
+        ["Par virement bancaire"],
+        [
+          "Associaition",
+          "FabLab | La Chaux-de-Fonds",
+          "Rue de la Serre 68",
+          "2300 La Chaux-de-Fonds"
+        ],
+        [
+          "IBAN:",
+          "CH 69 8023 7000 0140 4769 5"
+        ],
+        [
+          "Mention:",
+          "Don"
+        ]
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Devenez membre",
+      "desc_head": "avantages",
+      "desc": [
+        ["En versant une cotisation minimum de 90.- par an, vous devenez membre de l’association et profitez de nombreux avantages et rabais."],
+        ["De plus, vous participez activement au développement du lieu en bénéficiant d’une voix lors de l’Assemblée générale (sans obligation)."]
+      ],
+      "button": {
+        "text": "CONSULTER",
+        "link": "/#!/plans"
+      }
+    },
+    {
+      "id": "3",
+      "title": "Devenez sponsor",
+      "desc_head": "opportunités",
+      "desc": [
+        ["Investissez vous dans cette grande aventure à nos côtés et soyez présent là où se dessinent les opportunités à venir."]
+      ],
+      "sponsoring": {
+        "download_text": "Télécharger le dossier de sponsoring",
+        "download_link": "/#!/public/support/assets/fablab-chaux-de-fonds-sponsoring.pdf",
+        "contact": "Contactez nous pour de plus amples informations:",
+        "mail": "info@fablab-chaux-de-fonds.ch"
+      }
+    }
+  ],
+  "thanks": {
+    "title": "Remerciements",
+    "lead": "Un grand merci à toutes celles et ceux qui ont rendu possible l’ouverture de ce lieu grâce leurs soutiens. Merci à nos nombreux sponsors et partenaires avec qui nous avons la chance d’entretenir des liens privilégiés."
+  }
+}

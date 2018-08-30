@@ -27,11 +27,11 @@ p {
 }
 
 a {
-  color: $blue;
+  color: $red;
 
   &:active,
   &:hover {
-    color: $blue;
+    color: darken($red, 5%);
     background: transparent;
   }
 }
@@ -441,6 +441,19 @@ a.label:hover {
   min-height: 270px;
 }
 
+.img-centered{
+  margin: 0 auto;
+}
+
+.col-align {
+  float: none;
+  display: inline-block;
+
+  &--center {
+    vertical-align: middle;
+  }
+}
+
 .img-about {
   background-color: $blue-light;
 }
@@ -599,22 +612,35 @@ a.label:hover {
 //   height: 100%;
 // }
 
+.support {
+  color: $blue !important;
+  text-align: center !important;
+  line-height: 1.2;
+}
+
 .support-title {
-  color: $blue;
-  text-align: center;
+  margin: 24px 0;
   letter-spacing: 1pt;
-  font-family: $font-family-serif;
   font-size: 32pt;
   line-height: 40pt;
 }
 
+.support-card {
+  padding: 30px 5%;
+}
+
 .support-card-title {
+  padding: 15px 0;
   font-size: 16pt;
   line-height: 16pt;
 }
 
+.support-btn {
+  min-width: 50%;
+}
+
 .img-support-logo {
-  padding: 10px 0;
+  padding: 40px 0;
 }
 
 // nav
