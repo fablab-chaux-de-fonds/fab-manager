@@ -1,0 +1,41 @@
+{
+  "address":
+    {
+      "address": "Rue de la Serre 68 | 2300 La Chaux-de-Fonds",
+      "link": "https://goo.gl/maps/oisq2KdYu8s"
+    },
+  "calendar":
+  {
+    "text": "Horaires d'ouvertures et évenements",
+    "link": "/#!/calendar"
+  },
+  "open_lab":
+  {
+    "title": "OpenLab",
+    "desc": "L’OpenLab est l’ouverture classique du FabLab.",
+    "training":{
+      "desc": "Pour avoir accès à certaines machines, il faut d'abord suivre une formation",
+      "btn": {
+        "text": "S'inscrire à une formation",
+        "link": "/#!/trainings"
+      }
+    },
+    "machine": {
+      "desc":"ou réservez directement une machine",
+      "btn": {
+        "text": "Réserver une machine",
+        "link": "/#!/machines"
+      }
+    }
+  },
+  "discovery_lab":
+  {
+    "title": "DiscoveryLab",
+    "desc": "Organisée tous les premiers mercredis du mois (en principe), cette journée est principalement dédiée aux personnes n’ayant jamais utilisé le FabLab. Pour elles, la première utilisation est gratuite! Il n’est pas possible d’effectuer de réservation de machines ce jour-là. Si les machines sont libres, les personnes habituées peuvent tout de même les utiliser aux tarifs habituels."
+  },
+  "expert_lab":
+  {
+    "title": "ExpertLab",
+    "desc": "Les heures d’ouvertures ExpertLab sont réservées aux personnes totalement autonomes sur les machines."
+  }
+}

@@ -520,11 +520,13 @@ a.label:hover {
 }
 
 .home {
-  z-index: 1025;
+  color: $blue;
   text-align: center;
-  color: $red;
-  font-size: 20pt;
-  line-height: 22pt;
+  line-height: 1.2;
+}
+
+.col-centered {
+  text-align: center;
 }
 
 .home-top {
@@ -561,6 +563,15 @@ a.label:hover {
 .home-content p {
   font-family: $font-family-sans-serif;
   line-height: 15pt;
+}
+
+.home-card {
+  height: 100%;
+  max-width: 400px;
+}
+
+.card-body {
+  padding: 10px;
 }
 
 .col-home,
@@ -609,8 +620,8 @@ a.label:hover {
 // }
 
 .support {
-  color: $blue !important;
-  text-align: center !important;
+  color: $blue;
+  text-align: center;
   line-height: 1.2;
 }
 
