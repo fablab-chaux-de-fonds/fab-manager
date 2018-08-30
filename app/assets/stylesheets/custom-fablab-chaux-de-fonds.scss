@@ -27,11 +27,11 @@ p {
 }
 
 a {
-  color: $blue;
+  color: $red;
 
   &:active,
   &:hover {
-    color: $blue;
+    color: darken($red, 5%);
     background: transparent;
   }
 }
@@ -209,13 +209,9 @@ td[id^='datepicker'] > .btn {
   color: $green-light !important;
 }
 
-.text-bordeau {
-  color: $red;
-}
-
 .bg-red {
   color: white;
-  background-color: $red-light;
+  background-color: $red;
 }
 
 .picto-about {
@@ -441,6 +437,19 @@ a.label:hover {
   min-height: 270px;
 }
 
+.img-centered{
+  margin: 0 auto;
+}
+
+.col-align {
+  float: none;
+  display: inline-block;
+
+  &--center {
+    vertical-align: middle;
+  }
+}
+
 .img-about {
   background-color: $blue-light;
 }
@@ -511,11 +520,13 @@ a.label:hover {
 }
 
 .home {
-  z-index: 1025;
+  color: $blue;
   text-align: center;
-  color: $red;
-  font-size: 20pt;
-  line-height: 22pt;
+  line-height: 1.2;
+}
+
+.col-centered {
+  text-align: center;
 }
 
 .home-top {
@@ -552,6 +563,15 @@ a.label:hover {
 .home-content p {
   font-family: $font-family-sans-serif;
   line-height: 15pt;
+}
+
+.home-card {
+  height: 100%;
+  max-width: 400px;
+}
+
+.card-body {
+  padding: 10px;
 }
 
 .col-home,
@@ -599,22 +619,35 @@ a.label:hover {
 //   height: 100%;
 // }
 
-.support-title {
+.support {
   color: $blue;
   text-align: center;
+  line-height: 1.2;
+}
+
+.support-title {
+  margin: 24px 0;
   letter-spacing: 1pt;
-  font-family: $font-family-serif;
   font-size: 32pt;
   line-height: 40pt;
 }
 
+.support-card {
+  padding: 30px 5%;
+}
+
 .support-card-title {
+  padding: 15px 0;
   font-size: 16pt;
   line-height: 16pt;
 }
 
+.support-btn {
+  min-width: 50%;
+}
+
 .img-support-logo {
-  padding: 10px 0;
+  padding: 40px 0;
 }
 
 // nav
