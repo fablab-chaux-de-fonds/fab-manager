@@ -51,9 +51,9 @@ dd {
 
 .footer > .btn {
   background-color: $red;
+  color: white
 
   &:hover {
-    color: white;
     background-color: $blue;
   }
 }
