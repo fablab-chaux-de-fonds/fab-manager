@@ -68,11 +68,20 @@
 
   <section class="row wrapper-lg">
     <div class="col-md-8 col-xs-12 col-centered">
-      <a href="{{ calendar.link }}" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding">{{ calendar.text }}</a>
+      <a href="{{ calendar.link }}" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding"><i class="{{ calendar.logo }}"></i> {{ calendar.text }}</a>
     </div>
   </section>
 
   <section class="row wrapper-lg">
+    <div class="col-md-4 col-xs-12">
+      <div class="card home-card">
+        <img class="card-img-top img-responsive" src="data:image/png;base64,{{discovery_lab.logo}}" alt="{{discovery_lab.title}}">
+        <div class="card-body">
+          <p class="card-text">{{discovery_lab.desc}}</p>
+        </div>
+      </div>
+    </div>
+
     <div class="col-md-4 col-xs-12">
       <div class="card home-card">
         <img class="card-img-top img-responsive" src="data:image/png;base64,{{open_lab.logo}}" alt="{{open_lab.title}}">
@@ -92,15 +101,6 @@
 
     <div class="col-md-4 col-xs-12">
       <div class="card home-card">
-        <img class="card-img-top img-responsive" src="data:image/png;base64,{{discovery_lab.logo}}" alt="{{discovery_lab.title}}">
-        <div class="card-body">
-          <p class="card-text">{{discovery_lab.desc}}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 col-xs-12">
-      <div class="card home-card">
         <img class="card-img-top img-responsive" src="data:image/png;base64,{{expert_lab.logo}}" alt="{{expert_lab.title}}">
         <div class="card-body">
           <p class="card-text">{{expert_lab.desc}}</p>
@@ -114,7 +114,9 @@
       <a href="{{address.link}}">
         <img src="data:image/png;base64,{{address.map}}" class="img-responsive img-centered">
       </a>
-      <p>{{address.address}}</p>
+      <div ng-repeat="i in address.address">
+        {{ i }}</br>
+      </div>
     </div>
   </section>
 </div>
