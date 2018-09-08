@@ -81,6 +81,11 @@ td[id^='datepicker'] > .btn {
       border: None;
     }
   }
+  .widget {
+    .fa {
+      color: white;
+    }
+  }
 }
 
 .pricing-panel .cta-button .btn, {
@@ -89,7 +94,9 @@ td[id^='datepicker'] > .btn {
   background-color: $blue;
 }
 
-.btn-primary, .btn-default, {
+.btn-primary,
+.btn-default,
+.reservable-card .btn, {
   color: $green-light;
   border-color: $blue;
   background-color: $blue;
@@ -238,11 +245,8 @@ td[id^='datepicker'] > .btn {
   a {
     color: $gray-darker;
   }
-
-  .fa {
-    color: $blue;
-  }
 }
+
 
 .article {
   h4 {
@@ -275,7 +279,7 @@ a.label:hover {
 
 .form-control {
   color: $blue;
-  background-color: $green-light;
+  background-color: white;
   font-family: $font-family-sans-serif;
 
   &:focus,
@@ -756,14 +760,6 @@ a.label:hover {
   padding: 10px;
 }
 
-.reservable-card .btn {
-  background-color: $green-light;
-  &.active,
-  &:focus,
-  &:hover {
-    background-color: darken($green-light, 5%)
-  }
-}
 ::placeholder {
   opacity: 1;
   /* Firefox */
