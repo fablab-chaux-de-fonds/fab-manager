@@ -1,4 +1,20 @@
 {
+  "contact": {
+    "link": "mailto:info@fablab-chaux-de-fonds.ch",
+    "text": "info@fablab-chaux-de-fonds.ch"
+  },
+  "social": {
+    "facebook":{
+      "link": "https://www.facebook.com/FabLabChauxDeFonds"
+    },
+    "instagram": {
+      "link": "https://www.instagram.com/fablab_chaux_de_fonds"
+    },
+    "mail": {
+      "link": "mailto:info@fablab-chaux-de-fonds.ch"
+    }
+  }
+  ,
   "address":
     {
       "address": [

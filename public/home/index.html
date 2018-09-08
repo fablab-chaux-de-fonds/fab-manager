@@ -115,8 +115,21 @@
         <img src="data:image/png;base64,{{address.map}}" class="img-responsive img-centered">
       </a>
       <div ng-repeat="i in address.address">
-        {{ i }}</br>
+        {{ i }}<br>
       </div>
+      <a href="{{ contact.link }}">{{ contact.text }}</a>
     </div>
   </section>
+</div>
+
+<div class="img-social">
+  <div class="">
+    <a href="{{ social.mail.link }}"><img src="data:image/png;base64,{{ social.mail.logo }}" alt="" class="m-r-sm img-bl"></a>
+  </div>
+  <div class="">
+    <a href="{{ social.facebook.link }}"><img src="data:image/png;base64,{{ social.facebook.logo }}" alt="" class="m-r-sm img-bl"></a>
+  </div>
+  <div class="">
+    <a href="{{ social.instagram.link }}"><img src="data:image/png;base64,{{ social.instagram.logo }}" alt="" class="m-r-sm img-bl"></a>
+  </div>
 </div>

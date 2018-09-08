@@ -51,7 +51,7 @@ dd {
 
 .footer > .btn {
   background-color: $red;
-  color: white
+  color: white;
 
   &:hover {
     background-color: $blue;
@@ -402,9 +402,10 @@ a.label:hover {
 
 .img-bl {
   position: relative;
-  left: 0;
+  bottom: 0;
+  left: -5px;
   height: 40px;
-  margin: 0 16px 0 0;
+  margin: 16px 0 0;
 }
 
 .img-br {
@@ -418,7 +419,8 @@ a.label:hover {
 }
 
 .img-social {
-  margin: 0;
+  position: fixed;
+  bottom: 30px;
 }
 
 .img-perceuse {
@@ -579,13 +581,6 @@ a.label:hover {
   padding: 0;
 }
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 25px;
-}
-
 .about-contact {
   position: relative;
   top: -120px;
@@ -703,21 +698,12 @@ a.label:hover {
     top: 0;
   }
 
-  .img-fg {
-    margin: 25px;
-  }
-
-  .footer {
-    padding: 25px;
-  }
-
   .img-fl {
     width: 32px;
   }
 
   .img-bl {
     height: 32px;
-    margin: 0 16px 0 0;
   }
 
   .about-contact {
