@@ -83,7 +83,13 @@ td[id^='datepicker'] > .btn {
   }
 }
 
-.btn-primary, .btn-default {
+.pricing-panel .cta-button .btn, {
+  color: $green-light;
+  border-color: $blue;
+  background-color: $blue;
+}
+
+.btn-primary, .btn-default, {
   color: $green-light;
   border-color: $blue;
   background-color: $blue;
@@ -269,12 +275,11 @@ a.label:hover {
 
 .form-control {
   color: $blue;
-  background-color: $blue-light;
+  background-color: $green-light;
   font-family: $font-family-sans-serif;
 
   &:focus,
   &:hover {
-    background-color: $blue-light;
     border-color: $blue;
     box-shadow: 0 0 8px $blue;
   }
