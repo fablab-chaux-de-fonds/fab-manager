@@ -43,5 +43,23 @@
 
     <a class="btn btn-lg btn-warning bg-white b-2x rounded m-t-xs ng-scope ng-binding" ui-sref="app.admin.machines_new" role="button" translate="" href="#!/machines/new">machines_list.add_a_machine</a>
 
+
+  <div class="ui-select-container ui-select-bootstrap dropdown ng-pristine ng-untouched ng-valid ng-scope" ng-class="{open: $select.open}" ng-model="ctrl.member" on-select="updateMember()" style="background: white;">
+    <div class="ui-select-match" ng-hide="$select.open" ng-disabled="$select.disabled" ng-class="{'btn-default-focus':$select.focus}" placeholder="Commencez à taper ..."><span tabindex="-1" class="btn btn-default form-control ui-select-toggle" aria-label="Select box activate" ng-disabled="$select.disabled" ng-click="$select.activate()" style="outline: 0;"><span ng-show="$select.isEmpty()" class="ui-select-placeholder text-muted ng-binding">Commencez à taper ...</span>    <span ng-hide="$select.isEmpty()" class="ui-select-match-text pull-left ng-hide" ng-class="{'ui-select-allow-clear': $select.allowClear &amp;&amp; !$select.isEmpty()}" ng-transclude="">
+              <span ng-bind="$select.selected.name" class="ng-binding ng-scope"></span>
+      </span> <i class="caret pull-right" ng-click="$select.toggle($event)"></i> <a ng-show="$select.allowClear &amp;&amp; !$select.isEmpty()" aria-label="Select box clear" style="margin-right: 10px" ng-click="$select.clear($event)" class="btn btn-xs btn-link pull-right ng-hide"><i class="glyphicon glyphicon-remove" aria-hidden="true"></i></a></span>
+    </div><input autocomplete="false" tabindex="-1" aria-expanded="true" aria-label="Select box" aria-owns="ui-select-choices-0" aria-activedescendant="ui-select-choices-row-0-0" class="form-control ui-select-search ng-pristine ng-untouched ng-valid ng-hide"
+      placeholder="Commencez à taper ..." ng-model="$select.search" ng-show="$select.searchEnabled &amp;&amp; $select.open" type="text">
+    <ul class="ui-select-choices ui-select-choices-content ui-select-dropdown dropdown-menu ng-scope ng-hide" role="listbox"
+      ng-show="$select.items.length > 0" repeat="m in matchingMembers" refresh="autoCompleteName($select.search)" refresh-delay="300">
+      <li class="ui-select-choices-group" id="ui-select-choices-0">
+        <div class="divider ng-hide" ng-show="$select.isGrouped &amp;&amp; $index > 0"></div>
+        <div ng-show="$select.isGrouped" class="ui-select-choices-group-label dropdown-header ng-binding ng-hide" ng-bind="$group.name"></div>
+        <!-- ngRepeat: m in $select.items -->
+      </li>
+    </ul>
+    <ui-select-single></ui-select-single><input ng-disabled="$select.disabled" class="ui-select-focusser ui-select-offscreen ng-scope" id="focusser-0" aria-label="Select box focus" aria-haspopup="true" role="button" type="text">
+  </div>
+
   </div>
 </section>
