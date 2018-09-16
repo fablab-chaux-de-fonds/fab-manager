@@ -368,6 +368,8 @@ Application.Controllers.controller 'CreateEventModalController', ["$scope", "$ui
   ##
   $scope.ok = ->
     if $scope.availability.available_type == 'machines'
+      if $scope.ctrl.member
+        $scope.availability.user_id = $scope.ctrl.member.id
       if $scope.selectedMachines.length > 0
         $scope.availability.machine_ids = $scope.selectedMachines.map (m) -> m.id
         detail = $scope.details.find((m) -> m.id == parseInt($scope.availability.availability_detail_id))

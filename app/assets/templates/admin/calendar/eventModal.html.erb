@@ -18,15 +18,27 @@
         <span translate>{{ 'admin_calendar.machine' }}</span>
       </label>
     </div>
-    <select ng-model="availability.availability_detail_id" class="form-control" name="availability_detail_id" ng-show="availability.available_type == 'machines' && details.length > 0">
-      <option ng-repeat="model in details" value="{{model.id}}" ng-selected="model.id == availability.availability_detail_id">{{model.title}}</option>
-    </select>
     <div class="radio" ng-hide="fablabWithoutSpaces">
       <label>
         <input type="radio" id="space" name="available_type" value="space" ng-model="availability.available_type" ng-disabled="spaces.length === 0">
         <span translate>{{ 'admin_calendar.space' }}</span>
       </label>
     </div>
+  </div>
+  <div class="form-group" ng-show="availability.available_type == 'machines' && details.length > 0">
+    <select ng-model="availability.availability_detail_id" class="form-control" name="availability_detail_id" placeholder="blabla">
+      <option ng-value="null">{{ 'admin_calendar.availability_detail' | translate }}</option>
+      <option ng-repeat="model in details" value="{{model.id}}" ng-selected="model.id == availability.availability_detail_id">{{model.title}}</option>
+    </select>
+    <label></label>
+    <select-member light-template="true" current-user="true"></select-member>
+    <label></label>
+    <input type="text"
+           name="availability[description]"
+           ng-model="availability.description"
+           class="form-control"
+           id="availability_description"
+           placeholder="{{ 'admin_calendar.description' | translate }}"/>
   </div>
 </div>
 <div class="modal-body" ng-show="step === 2">
