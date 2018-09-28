@@ -4,6 +4,8 @@ json.array!(@availabilities) do |availability|
   json.end availability.end_at.iso8601
   json.textColor availability_text_color(availability)
   json.backgroundColor availability_background_color(availability)
+  json.description = availability.description
+  json.user_id = availability.user_id
   # availability object
   if availability.instance_of? Availability
     json.title availability.title(@title_filter)
