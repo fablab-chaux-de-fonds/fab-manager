@@ -41,7 +41,7 @@ class Reservation < ActiveRecord::Base
       plan = user.subscribed_plan
       new_plan_being_bought = false
     elsif plan_id
-      plan = Plan.find(plan_id)
+      plan = Plan.friendly.find(plan_id)
       new_plan_being_bought = true
     else
       plan = nil
@@ -459,7 +459,7 @@ class Reservation < ActiveRecord::Base
   def get_cart_total
     total = (self.invoice.invoice_items.map(&:amount).map(&:to_i).reduce(:+) or 0)
     if plan_id.present?
-      plan = Plan.find(plan_id)
+      plan = Plan.friendly.find(plan_id)
       total += plan.amount
     end
     total
