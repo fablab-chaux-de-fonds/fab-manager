@@ -1,0 +1,47 @@
+'use strict'
+
+##
+# Calculator controller provide price calculation for FDM 3d printers
+##
+Application.Controllers.controller "CalculatorController", ["$scope", ($scope) ->
+
+  firstHourPrice = 10
+  hourFactor = 0.7
+  maxDivider = 30
+  matterFactor = 0.1
+  supportMatterFactor = 0.2
+
+  priceFormat = (price) ->
+    Math.ceil(price).toFixed(2)
+
+  ##
+  # FDM calculator price, copyright to G. Bussy of FablabNeuch
+  # http://fablab-neuch.ch/calculator/js/custom.js
+  ##
+  updatePrice = ($scope) ->
+    value = firstHourPrice
+    if $scope.nbrHours > 1
+      for i in [2..$scope.nbrHours]
+        a = i * hourFactor
+        if a > maxDivider
+          a = maxDivider
+        value += firstHourPrice / a
+
+    $scope.priceMatter = $scope.weight * matterFactor + $scope.weightSupport * supportMatterFactor
+    $scope.price = priceFormat(value + $scope.priceMatter)
+    $scope.priceHalf = priceFormat(value / 2.0 + $scope.priceMatter)
+    $scope.priceQuarter = priceFormat(value / 4.0 + $scope.priceMatter)
+
+  $scope.nbrHours = 1
+  $scope.weight = 0
+  $scope.weightSupport = 0
+
+  updatePrice($scope)
+
+  $scope.$watch 'nbrHours', (newValue, oldValue, scope) ->
+    updatePrice($scope)
+  $scope.$watch 'weight', (newValue, oldValue, scope) ->
+    updatePrice($scope)
+  $scope.$watch 'weightSupport', (newValue, oldValue, scope) ->
+    updatePrice($scope)
+]

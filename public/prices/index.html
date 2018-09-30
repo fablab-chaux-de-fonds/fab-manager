@@ -1,0 +1,74 @@
+<section class="row col-lg-10">
+  <div class="panel-body" ng-controller="CalculatorController">
+    <div class="row">
+      <div class="col-sm-8">
+        <h1>Liste des prix</h1>
+        <img src="data:image/svg+xml;base64,{{images.prices}}" class="img-responsive img-centered">
+      </div>
+      <div class="col-sm-4">
+        <h1>Calculateur FDM <small>Imprimantes Ultimaker, Prusa et Leapfrog</small></h1>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label for="price_fdm_nbr_hours">Heures :</label>
+            <div class="input-group">
+              <input ng-model="nbrHours"
+                     type="number"
+                     min="1"
+                     max="168"
+                     class="form-control"
+                     id="price_fdm_nbr_hours">
+              <span class="input-group-addon">h</span>
+            </div>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="price_fdm_weight">Poids :</label>
+            <div class="input-group">
+              <input ng-model="weight"
+                     type="number"
+                     step="50"
+                     min="0"
+                     max="10000"
+                     class="form-control"
+                     id="price_fdm_weight">
+              <span class="input-group-addon">g</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-6 col-lg-offset-6">
+            <label for="price_fdm_weight">Poids support (PVA) :</label>
+            <div class="input-group">
+              <input ng-model="weightSupport"
+                     type="number"
+                     step="50"
+                     min="0"
+                     max="10000"
+                     class="form-control"
+                     id="price_fdm_weight_support">
+              <span class="input-group-addon">g</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row col-sm-12">
+          <i class="text text-info text-left"><span class="glyphicon glyphicon-education"></span> Si vous publiez la documentation de votre projet nous vous remboursons <u>{{ currencySymbol }} {{ priceHalf - priceQuarter }}</u> sur le porte monnaie virtuel du site.</i>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label for="price_fdm_full">Non membre</label>
+            <div class="input-group">
+              <span class="input-group-addon">{{ currencySymbol }}</span>
+              <input type="text" class="form-control input-disabled" value="{{ price }}" id="price_fdm_full" disabled>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="price_fdm_member">Membre</label>
+            <div class="input-group col-sm-6">
+              <span class="input-group-addon">{{ currencySymbol }}</span>
+              <input type="text" class="form-control input-disabled" value="{{ priceHalf }}" id="price_fdm_member" disabled>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
