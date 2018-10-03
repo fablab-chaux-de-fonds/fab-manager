@@ -68,6 +68,27 @@
             </div>
           </div>
         </div>
+        <h2>Détail par heure</h2>
+        <div class="row">
+          <div class="col-sm-offset-1 col-sm-10">
+            <table class="table">
+              <thead>
+              <tr>
+                <th class="col">Heure</th>
+                <th class="col">Membre</th>
+                <th class="col">Non membre</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="value in priceDetails">
+                <td>N° {{ value.id }}</td>
+                <td>{{ currencySymbol }} {{ value.price }}</td>
+                <td>{{ currencySymbol }} {{ value.priceHalf }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>

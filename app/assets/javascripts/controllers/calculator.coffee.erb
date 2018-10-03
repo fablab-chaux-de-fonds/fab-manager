@@ -14,17 +14,47 @@ Application.Controllers.controller "CalculatorController", ["$scope", ($scope) -
   priceFormat = (price) ->
     Math.ceil(price).toFixed(2)
 
+  $scope.priceDetails = []
+  index = 2
+  divider = 1
+  price = firstHourPrice
+  priceHalf = price / 2
+  total = price
+  totalHalf = priceHalf
+  $scope.priceDetails.push({ id:1, price: priceFormat(price), priceHalf: priceFormat(priceHalf)})
+  while divider < maxDivider and price > 1
+    divider = index * hourFactor
+    if divider > maxDivider
+      divider = maxDivider
+    lastTotal = total
+    currentPrice = firstHourPrice / divider
+    total += currentPrice
+    price = Math.ceil(total - Math.ceil(lastTotal))
+    if price < 1
+      price = 1
+    lastTotal = totalHalf
+    totalHalf += currentPrice / 2
+    priceHalf = Math.ceil(totalHalf - Math.ceil(lastTotal))
+    if priceHalf < 1
+      priceHalf = 1
+    id = index.toFixed(0)
+    $scope.priceDetails.push({ id:index.toFixed(0), price: priceFormat(price), priceHalf: priceFormat(priceHalf)})
+    index++
+  $scope.priceDetails[$scope.priceDetails.length - 1].id += '+'
+
   ##
   # FDM calculator price, copyright to G. Bussy of FablabNeuch
   # http://fablab-neuch.ch/calculator/js/custom.js
   ##
   updatePrice = ($scope) ->
     value = firstHourPrice
+
     if $scope.nbrHours > 1
       for i in [2..$scope.nbrHours]
         a = i * hourFactor
         if a > maxDivider
           a = maxDivider
+        currentPrice =
         value += firstHourPrice / a
 
     $scope.priceMatter = $scope.weight * matterFactor + $scope.weightSupport * supportMatterFactor
