@@ -14,6 +14,9 @@ Application.Controllers.controller "CalculatorController", ["$scope", ($scope) -
   priceFormat = (price) ->
     Math.ceil(price).toFixed(2)
 
+  $scope.matterPrice = matterFactor.toFixed(2)
+  $scope.supportMatterPrice = supportMatterFactor.toFixed(2)
+
   $scope.priceDetails = []
   index = 2
   divider = 1

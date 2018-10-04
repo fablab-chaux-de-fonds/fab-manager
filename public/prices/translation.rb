@@ -1,0 +1,18 @@
+#encoding: utf-8
+
+Translation.create(locale:'fr', key:'app.public.pages.support', value:'Nous cherchons ...')
+Translation.create(locale:'fr', key:'app.public.common.public_prices', value:'Tarifs')
+Translation.create(locale:'fr', key:'app.public.common.price_title', value:'Liste des prix')
+Translation.create(locale:'fr', key:'app.public.pages.prices.calculator_title', value:'Calculateur FDM')
+Translation.create(locale:'fr', key:'app.public.pages.prices.calculator_subtitle', value:'Imprimantes Ultimaker, Prusa et Leapfrog')
+Translation.create(locale:'fr', key:'app.public.pages.prices.price_fdm_nbr_hours', value:'Heures :')
+Translation.create(locale:'fr', key:'app.public.pages.prices.price_fdm_weight', value:'Poids :')
+Translation.create(locale:'fr', key:'app.public.pages.prices.price_fdm_weight_support', value:'Poids support (PVA) :')
+Translation.create(locale:'fr', key:'app.public.pages.prices.info_html', value:'Si vous publiez la documentation de votre projet nous vous remboursons <u>{{ SYMBOL }} {{ PRICE }}</u> sur le porte monnaie virtuel du site.')
+Translation.create(locale:'fr', key:'app.public.pages.prices.price_fdm_full', value:'Non membre')
+Translation.create(locale:'fr', key:'app.public.pages.prices.price_fdm_member', value:'Membre')
+Translation.create(locale:'fr', key:'app.public.pages.prices.price_details_title', value:'Détail des prix')
+Translation.create(locale:'fr', key:'app.public.pages.prices.price_matter_title', value:'Au poids')
+Translation.create(locale:'fr', key:'app.public.pages.prices.price_fdm_mat1', value:'Matière de l\'objet (PLA, ABS, ...)')
+Translation.create(locale:'fr', key:'app.public.pages.prices.price_fdm_mat2', value:'Matière de support (PVA seulement pour ultimaker)')
+Translation.create(locale:'fr', key:'app.public.pages.prices.price_hours_title', value:'A l\'heure')

@@ -6,10 +6,10 @@
         <img src="data:image/svg+xml;base64,{{images.prices}}" class="img-responsive img-centered">
       </div>
       <div class="col-sm-4">
-        <h1>Calculateur FDM <small>Imprimantes Ultimaker, Prusa et Leapfrog</small></h1>
+        <h1>{{ 'calculator_title' | translate }} <small>{{ 'calculator_subtitle' | translate }}</small></h1>
         <div class="row">
           <div class="form-group col-sm-6">
-            <label for="price_fdm_nbr_hours">Heures :</label>
+            <label for="price_fdm_nbr_hours">{{ 'price_fdm_nbr_hours' | translate }}</label>
             <div class="input-group">
               <input ng-model="nbrHours"
                      type="number"
@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="form-group col-sm-6">
-            <label for="price_fdm_weight">Poids :</label>
+            <label for="price_fdm_weight">{{ 'price_fdm_weight' | translate }}</label>
             <div class="input-group">
               <input ng-model="weight"
                      type="number"
@@ -36,7 +36,7 @@
         </div>
         <div class="row">
           <div class="form-group col-sm-6 col-lg-offset-6">
-            <label for="price_fdm_weight">Poids support (PVA) :</label>
+            <label for="price_fdm_weight_support">{{ 'price_fdm_weight_support' | translate }}</label>
             <div class="input-group">
               <input ng-model="weightSupport"
                      type="number"
@@ -49,34 +49,55 @@
             </div>
           </div>
         </div>
-        <div class="form-group row col-sm-12">
-          <i class="text text-info text-left"><span class="glyphicon glyphicon-education"></span> Si vous publiez la documentation de votre projet nous vous remboursons <u>{{ currencySymbol }} {{ priceHalf - priceQuarter }}</u> sur le porte monnaie virtuel du site.</i>
+        <div class="form-group row text text-info col-sm-12">
+          <span class="glyphicon glyphicon-education col-sm-1"></span>
+          <i class="text-left col-sm-11">
+            <p ng-bind-html="'info_html' | translate:{SYMBOL:currencySymbol,PRICE:priceHalf-priceQuarter}"></p>
+          </i>
         </div>
         <div class="row">
           <div class="form-group col-sm-6">
-            <label for="price_fdm_full">Non membre</label>
+            <label for="price_fdm_full">{{ 'price_fdm_full' | translate }}</label>
             <div class="input-group">
               <span class="input-group-addon">{{ currencySymbol }}</span>
               <input type="text" class="form-control input-disabled" value="{{ price }}" id="price_fdm_full" disabled>
             </div>
           </div>
           <div class="form-group">
-            <label for="price_fdm_member">Membre</label>
+            <label for="price_fdm_member">{{ 'price_fdm_member' | translate }}</label>
             <div class="input-group col-sm-6">
               <span class="input-group-addon">{{ currencySymbol }}</span>
               <input type="text" class="form-control input-disabled" value="{{ priceHalf }}" id="price_fdm_member" disabled>
             </div>
           </div>
         </div>
-        <h2>Détail par heure</h2>
+        <h2>{{ 'price_details_title' | translate }}</h2>
+        <h3><small>{{ 'price_matter_title' | translate }}</small></h3>
         <div class="row">
-          <div class="col-sm-offset-1 col-sm-10">
+          <div class="form-group col-sm-6">
+            <label for="price_fdm_mat1">{{ 'price_fdm_mat1' | translate }}</label>
+            <div class="input-group">
+              <input type="text" class="form-control input-disabled" value="{{ matterPrice }}" id="price_fdm_mat1" disabled>
+              <span class="input-group-addon">{{ currencySymbol }} / g</span>
+            </div>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="price_fdm_mat2">{{ 'price_fdm_mat2' | translate }}</label>
+            <div class="input-group">
+              <input type="text" class="form-control input-disabled" value="{{ supportMatterPrice }}" id="price_fdm_mat2" disabled>
+              <span class="input-group-addon">{{ currencySymbol }} / g</span>
+            </div>
+          </div>
+        </div>
+        <h3><small>{{ 'price_hours_title' | translate }}</small></h3>
+        <div class="row">
+          <div class="col-sm-12">
             <table class="table">
               <thead>
               <tr>
-                <th class="col">Heure</th>
-                <th class="col">Membre</th>
-                <th class="col">Non membre</th>
+                <th class="col">#</th>
+                <th class="col">{{ 'price_fdm_full' | translate }}</th>
+                <th class="col">{{ 'price_fdm_member' | translate }}</th>
               </tr>
               </thead>
               <tbody>
