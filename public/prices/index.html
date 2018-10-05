@@ -8,6 +8,9 @@
       <div class="col-sm-4">
         <h1>{{ 'calculator_title' | translate }} <small>{{ 'calculator_subtitle' | translate }}</small></h1>
         <div class="row">
+          <div class="text text-center form-group">{{ 'calculator_info' | translate }}</div>
+        </div>
+        <div class="row">
           <div class="form-group col-sm-6">
             <label for="price_fdm_nbr_hours">{{ 'price_fdm_nbr_hours' | translate }}</label>
             <div class="input-group">
@@ -95,7 +98,8 @@
             <table class="table">
               <thead>
               <tr>
-                <th class="col">#</th>
+              <tr>
+                <th class="col">{{ 'price_hours_tab_header' | translate }}</th>
                 <th class="col">{{ 'price_fdm_full' | translate }}</th>
                 <th class="col">{{ 'price_fdm_member' | translate }}</th>
               </tr>

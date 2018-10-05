@@ -16,3 +16,5 @@ Translation.create(locale:'fr', key:'app.public.pages.prices.price_matter_title'
 Translation.create(locale:'fr', key:'app.public.pages.prices.price_fdm_mat1', value:'Matière de l\'objet (PLA, ABS, ...)')
 Translation.create(locale:'fr', key:'app.public.pages.prices.price_fdm_mat2', value:'Matière de support (PVA seulement pour ultimaker)')
 Translation.create(locale:'fr', key:'app.public.pages.prices.price_hours_title', value:'A l\'heure')
+Translation.create(locale:'fr', key:'app.public.pages.prices.price_hours_tab_header', value:'# d\'heure')
+Translation.create(locale:'fr', key:'app.public.pages.prices.calculator_info', value:'le coût des imprimante 3D se calcule en fonction du temps d\'utilisation et de la matière première')
