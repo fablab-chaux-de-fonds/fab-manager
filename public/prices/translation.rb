@@ -2,7 +2,7 @@
 
 Translation.create(locale:'fr', key:'app.public.pages.support', value:'Nous cherchons ...')
 Translation.create(locale:'fr', key:'app.public.common.public_prices', value:'Tarifs')
-Translation.create(locale:'fr', key:'app.public.common.price_title', value:'Liste des prix')
+Translation.create(locale:'fr', key:'app.public.common.prices_title', value:'Liste des prix')
 Translation.create(locale:'fr', key:'app.public.pages.prices.calculator_title', value:'Calculateur FDM')
 Translation.create(locale:'fr', key:'app.public.pages.prices.calculator_subtitle', value:'Imprimantes Ultimaker, Prusa et Leapfrog')
 Translation.create(locale:'fr', key:'app.public.pages.prices.price_fdm_nbr_hours', value:'Heures :')
