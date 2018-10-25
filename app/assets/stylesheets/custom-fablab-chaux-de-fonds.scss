@@ -537,6 +537,7 @@ a.label:hover {
   color: $blue;
   text-align: center;
   line-height: 1.2;
+  padding: 0px 40px;
 }
 
 .col-centered {
@@ -582,6 +583,12 @@ a.label:hover {
 .home-card {
   height: 100%;
   max-width: 400px;
+}
+
+.home-banne-btn-desktop {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }
 
 .card-body-home {
@@ -739,6 +746,19 @@ a.label:hover {
   .crowdmachine-card{
     height: 100%;
   }
+
+  .home {
+    padding: 0px;
+  }
+
+  .home-banner {
+    padding-bottom: 25px;
+  }
+
+  .home-banner-img{
+    display: none;
+  }
+
 }
 // utilities
 
