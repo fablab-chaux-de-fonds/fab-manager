@@ -86,7 +86,7 @@ fr:
         i_authorize_Fablab_users_registered_on_the_site_to_contact_me: "J'autorise les utilisateurs du Fab Lab inscrits sur le site à me contacter"
         i_accept_to_receive_information_from_the_fablab: "J'accepte de recevoir des informations du Fab Lab"
         i_ve_read_and_i_accept_: "J'ai lu et j'accepte"
-        _the_fablab_policy: "la charte d'utilisation du Fab Lab"
+        _the_fablab_policy: "le réglement d’utilisation, la charte des FabLabs, et les status de l'Association FabLab La Chaux-de-Fonds"
 
         # fenêtre de changement de mot de passe
         change_your_password: "Modifier votre mot de passe"
