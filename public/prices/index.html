@@ -1,6 +1,22 @@
 <section class="row col-lg-10">
   <div class="panel-body" ng-controller="CalculatorController">
     <div class="row">
+      <blockquote>
+        <div class="row">
+          <span class="glyphicon glyphicon-education col-sm-1"></span>
+          <i class="text-left col-sm-11">
+            <p ng-bind-html="'info_html' | translate:{SYMBOL:currencySymbol,PRICE:priceHalf-priceQuarter}"></p>
+          </i>
+        </div>
+      </blockquote>
+      <!--<div class="bg-primary">
+        <span class="glyphicon glyphicon-education col-sm-1"></span>
+        <i class="text-left col-sm-11">
+          <p ng-bind-html="'info_html' | translate:{SYMBOL:currencySymbol,PRICE:priceHalf-priceQuarter}"></p>
+        </i>
+      </div>-->
+    </div>
+    <div class="row">
       <div class="col-sm-8">
         <img src="data:image/svg+xml;base64,{{images.prices}}" class="img-responsive img-centered">
       </div>
@@ -50,12 +66,6 @@
               <span class="input-group-addon">g</span>
             </div>
           </div>
-        </div>
-        <div class="form-group row text text-info col-sm-12">
-          <span class="glyphicon glyphicon-education col-sm-1"></span>
-          <i class="text-left col-sm-11">
-            <p ng-bind-html="'info_html' | translate:{SYMBOL:currencySymbol,PRICE:priceHalf-priceQuarter}"></p>
-          </i>
         </div>
         <div class="row">
           <div class="form-group col-sm-6">
