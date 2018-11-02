@@ -17,6 +17,11 @@ module AvailabilityHelper
     return "##{availability.availability_detail&.textColor&.to_s(16) || AVAILABILITY_TEXT_COLOR}"
   end
 
+
+  def availability_username(availability)
+    return "#{availability.user.profile.first_name} #{availability.user.profile.last_name}"
+  end
+
   def availability_background_color(availability, locked=false)
     if availability.instance_of? Slot
       return locked ? "##{AVAILABILITY_LOCKED_BACKGROUND_COLOR}" : "##{AVAILABILITY_BACKGROUND_COLOR}"

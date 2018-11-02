@@ -271,7 +271,16 @@ Application.Controllers.controller "AdminCalendarController", ["$scope", "$state
   # @see http://fullcalendar.io/docs/event_rendering/eventRender/
   ##
   eventRenderCb = (event, element) ->
-    element.find('.fc-content').prepend('<span class="remove-event">x&nbsp;</span>')
+    content = element.find('.fc-content')
+    if event.username
+      content.prepend("<a class='info-event hidden-xs' uib-popover='#{event.username}' popover-trigger='mouseenter' popover-placement='bottom'>?&nbsp;</a>")
+    content.prepend('<span class="remove-event hidden-xs">x&nbsp;</span>')
+    title = element.find('.fc-title')
+    if event.description
+      if (event.end - event.start) / 60000 <= Fablab.slot_duration
+        title.append(' / ' + event.description)
+      else
+        title.append('<br />'+event.description)
     if event.tags.length > 0
       html = ''
       for tag in event.tags

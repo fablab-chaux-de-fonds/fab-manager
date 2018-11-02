@@ -23,6 +23,8 @@ class Availability < ActiveRecord::Base
 
   has_one :event
 
+  belongs_to :user
+
   has_many :availability_tags, dependent: :destroy
   has_many :tags, through: :availability_tags
   accepts_nested_attributes_for :tags, allow_destroy: true

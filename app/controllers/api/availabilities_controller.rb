@@ -88,7 +88,7 @@ class API::AvailabilitiesController < API::ApiController
 
     # request for many days (week or month)
     else
-      @availabilities = Availability.includes(:tags, :machines, :trainings, :spaces, :event, :slots)
+        @availabilities = Availability.includes(:tags, :machines, :trainings, :spaces, :event, :slots, user: [:profile])
                                     .where('start_at >= ? AND end_at <= ?', start_date, end_date)
                                     .where(lock: false)
       @availabilities.each do |a|
