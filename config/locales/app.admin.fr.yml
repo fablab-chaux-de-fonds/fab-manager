@@ -313,7 +313,7 @@ fr:
         including_VAT: "Dont TVA"
         including_total_excluding_taxes: "Dont total HT"
         including_amount_payed_on_ordering: "Dont montant payé à la commande"
-        settlement_by_debit_card_on_DATE_at_TIME_for_an_amount_of_AMOUNT: "Règlement effectué par carte bancaire le {{DATE}} à {{TIME}}, pour un montant de {{AMOUNT}}"
+        settlement_by_debit_card_on_DATE_at_TIME_for_an_amount_of_AMOUNT: "Règlement effectué par carte de crédit (Stripe) le {{DATE}} à {{TIME}}, pour un montant de {{AMOUNT}}"
         important_notes: "Informations importantes"
         address_and_legal_information: "Adresse et informations légales"
         invoice_reference: "Référence facture"
