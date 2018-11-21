@@ -18,3 +18,6 @@ Translation.create(locale:'fr', key:'app.public.pages.prices.price_fdm_mat2', va
 Translation.create(locale:'fr', key:'app.public.pages.prices.price_hours_title', value:'A l\'heure')
 Translation.create(locale:'fr', key:'app.public.pages.prices.price_hours_tab_header', value:'# d\'heure')
 Translation.create(locale:'fr', key:'app.public.pages.prices.calculator_info', value:'le coût des imprimante 3D se calcule en fonction du temps d\'utilisation et de la matière première')
+Translation.create(locale:'fr', key:'app.public.pages.prices.prices_currency', value:'Les prix s\'entendent en francs suisses (CHF), toutes taxes comprises.')
+Translation.create(locale:'fr', key:'app.public.pages.prices.prices_edit', value:'Les prix sont indiqués sous réserve de modification.')
+Translation.create(locale:'fr', key:'app.public.pages.prices.prices_material', value:'Les prix excluent la matière première. (sauf pour les imprimantes 3D)')
