@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <%= image_tag("fablab - FL.svg", class: 'modal-logo') %>
+    <h1 translate>{{ 'cgu_modified' }}</h1>
+</div>
+<div>
+    <div class="well m-b-n">
+        <form role="form" name="acceptCguForm" class="form-horizontal" novalidate autocomplete="off" ng-keydown="acceptCguForm.$valid && $event.which == 13 && ok()">
+            <div class="form-group" ng-class="{'has-error': signupForm.cgu.$dirty && signupForm.cgu.$invalid}" ng-show="cgu">
+                <div class="col-sm-12 checkbox-group">
+                    <input type="checkbox"
+                            name="cgu"
+                            id="cgu"
+                            ng-model="user.cgu"
+                            value="true"
+                            ng-required="cgu != null"/>
+                    <label for="cgu"><span translate>{{ 'i_ve_read_and_i_accept_' }}</span> <a href="{{cgu.custom_asset_file_attributes.attachment_url}}" target="_blank" translate>{{ '_the_fablab_policy' }}</a></label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal-footer no-padder">
+    <button class="btn btn-valid btn-warning btn-block p-l btn-lg text-u-c r-b" ng-click="ok()" ng-disabled="acceptCguForm.$invalid" translate>{{ 'confirm' }}</button>
+</div>
+    

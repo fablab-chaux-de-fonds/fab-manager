@@ -104,6 +104,7 @@ class User < ActiveRecord::Base
         json.software_mastered profile.software_mastered
         json.address profile.address.address if profile.address
         json.phone profile.phone
+        json.updated_at profile.updated_at
       end
       json.subscribed_plan do
         json.id subscribed_plan.id

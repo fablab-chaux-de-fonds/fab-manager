@@ -46,6 +46,7 @@ Rails.application.routes.draw do
       get '/export_reservations', action: 'export_reservations', on: :collection
       get '/export_members', action: 'export_members', on: :collection
       put ':id/merge', action: 'merge', on: :collection
+      put ':id/touch', action: 'touch', on: :collection
       post 'list', action: 'list', on: :collection
       get 'search/:query', action: 'search', on: :collection
       get 'mapping', action: 'mapping', on: :collection

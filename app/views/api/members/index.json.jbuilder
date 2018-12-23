@@ -18,6 +18,7 @@ json.array!(@members) do |member|
     json.first_name member.profile.first_name
     json.last_name member.profile.last_name
     json.gender member.profile.gender.to_s
+    json.updated_at member.profile.updated_at
     if user_is_admin
       json.phone member.profile.phone
       json.birthday member.profile.birthday.iso8601 if member.profile.birthday
