@@ -1,6 +1,6 @@
 json.custom_asset do
   if @custom_asset
-    json.extract! @custom_asset, :id, :name
+    json.extract! @custom_asset, :id, :name, :updated_at
     json.custom_asset_file_attributes do
       json.id @custom_asset.custom_asset_file.id
       json.attachment @custom_asset.custom_asset_file.attachment_identifier

@@ -51,9 +51,9 @@ dd {
 
 .footer > .btn {
   background-color: $red;
+  color: white;
 
   &:hover {
-    color: white;
     background-color: $blue;
   }
 }
@@ -81,9 +81,22 @@ td[id^='datepicker'] > .btn {
       border: None;
     }
   }
+  .widget {
+    .fa {
+      color: white;
+    }
+  }
 }
 
-.btn-primary, .btn-default {
+.pricing-panel .cta-button .btn, {
+  color: $green-light;
+  border-color: $blue;
+  background-color: $blue;
+}
+
+.btn-primary,
+.btn-default,
+.reservable-card .btn, {
   color: $green-light;
   border-color: $blue;
   background-color: $blue;
@@ -232,11 +245,8 @@ td[id^='datepicker'] > .btn {
   a {
     color: $gray-darker;
   }
-
-  .fa {
-    color: $blue;
-  }
 }
+
 
 .article {
   h4 {
@@ -269,9 +279,11 @@ a.label:hover {
 
 .form-control {
   color: $blue;
+  background-color: white;
   font-family: $font-family-sans-serif;
 
-  &:focus {
+  &:focus,
+  &:hover {
     border-color: $blue;
     box-shadow: 0 0 8px $blue;
   }
@@ -402,9 +414,10 @@ a.label:hover {
 
 .img-bl {
   position: relative;
-  left: 0;
+  bottom: 0;
+  left: -5px;
   height: 40px;
-  margin: 0 16px 0 0;
+  margin: 16px 0 0;
 }
 
 .img-br {
@@ -418,7 +431,8 @@ a.label:hover {
 }
 
 .img-social {
-  margin: 0;
+  position: fixed;
+  bottom: 30px;
 }
 
 .img-perceuse {
@@ -523,6 +537,7 @@ a.label:hover {
   color: $blue;
   text-align: center;
   line-height: 1.2;
+  padding: 0px 40px;
 }
 
 .col-centered {
@@ -570,20 +585,19 @@ a.label:hover {
   max-width: 400px;
 }
 
-.card-body {
+.home-banne-btn-desktop {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.card-body-home {
   padding: 10px;
 }
 
 .col-home,
 .container-home {
   padding: 0;
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 25px;
 }
 
 .about-contact {
@@ -703,21 +717,12 @@ a.label:hover {
     top: 0;
   }
 
-  .img-fg {
-    margin: 25px;
-  }
-
-  .footer {
-    padding: 25px;
-  }
-
   .img-fl {
     width: 32px;
   }
 
   .img-bl {
     height: 32px;
-    margin: 0 16px 0 0;
   }
 
   .about-contact {
@@ -741,6 +746,19 @@ a.label:hover {
   .crowdmachine-card{
     height: 100%;
   }
+
+  .home {
+    padding: 0px;
+  }
+
+  .home-banner {
+    padding-bottom: 25px;
+  }
+
+  .home-banner-img{
+    display: none;
+  }
+
 }
 // utilities
 
@@ -762,14 +780,6 @@ a.label:hover {
   padding: 10px;
 }
 
-.reservable-card .btn {
-  background-color: $green-light;
-  &.active,
-  &:focus,
-  &:hover {
-    background-color: darken($green-light, 5%)
-  }
-}
 ::placeholder {
   opacity: 1;
   /* Firefox */

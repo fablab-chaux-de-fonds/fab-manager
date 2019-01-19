@@ -1,6 +1,6 @@
 class API::MembersController < API::ApiController
   before_action :authenticate_user!, except: [:last_subscribed]
-  before_action :set_member, only: [:update, :destroy, :merge]
+  before_action :set_member, only: [:update, :destroy, :merge, :touch]
   respond_to :json
 
   def index
@@ -238,6 +238,14 @@ class API::MembersController < API::ApiController
     authorize User
 
     @members = User.includes(:profile)
+  end
+
+  def touch
+    @member = User.includes(:profile).find(params[:id])
+    authorize @member
+    @member.profile.updated_at = Time.now.utc
+    @member.profile.save!
+    render :ok, json: nil
   end
 
   private

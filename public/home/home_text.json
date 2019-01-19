@@ -1,12 +1,32 @@
 {
+  "contact": {
+    "link": "mailto:info@fablab-chaux-de-fonds.ch",
+    "text": "info@fablab-chaux-de-fonds.ch"
+  },
+  "social": {
+    "facebook":{
+      "link": "https://www.facebook.com/FabLabChauxDeFonds"
+    },
+    "instagram": {
+      "link": "https://www.instagram.com/fablab_chaux_de_fonds"
+    },
+    "mail": {
+      "link": "mailto:info@fablab-chaux-de-fonds.ch"
+    }
+  }
+  ,
   "address":
     {
-      "address": "Rue de la Serre 68 | 2300 La Chaux-de-Fonds",
+      "address": [
+          "Rue de la Serre 68",
+          "2300 La Chaux-de-Fonds"
+        ],
       "link": "https://goo.gl/maps/oisq2KdYu8s"
     },
   "calendar":
   {
-    "text": "Horaires d'ouvertures et évenements",
+    "logo": "fa fa-calendar",
+    "text": "Horaires d'ouvertures",
     "link": "/#!/calendar"
   },
   "open_lab":

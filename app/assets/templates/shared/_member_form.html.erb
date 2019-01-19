@@ -314,6 +314,22 @@
         <input type="hidden" name="user[is_allow_contact]" value="{{user.is_allow_contact}}"/>
       </div>
 
+      <!-- Visible as user must validate CGU -->
+      <div class="form-group" ng-show="cgu">
+        <label for="cgu">
+          <span translate>i_ve_read_and_i_accept_</span> <a href="{{cgu.custom_asset_file_attributes.attachment_url}}" target="_blank" translate>_the_fablab_policy</a>
+        </label>
+        <input bs-switch
+               ng-model="user.cgu"
+               id="cgu"
+               type="checkbox"
+               class="form-control"
+               switch-on-text="{{ 'yes' | translate }}"
+               switch-off-text="{{ 'no' | translate }}"
+               switch-animate="true"
+               ng-required="cgu != null"/>
+      </div>
+
       <!-- allow receive newsletter -->
       <div class="form-group">
         <label for="allowNewsletter" translate>{{ 'i_accept_to_receive_information_from_the_fablab' }}</label>

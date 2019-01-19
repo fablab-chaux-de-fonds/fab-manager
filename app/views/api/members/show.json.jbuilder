@@ -23,6 +23,7 @@ json.profile do
   json.phone @member.profile.phone
   json.website @member.profile.website
   json.job @member.profile.job
+  json.updated_at @member.profile.updated_at
   json.extract! @member.profile, :facebook, :twitter, :google_plus, :viadeo, :linkedin, :instagram, :youtube, :vimeo, :dailymotion, :github, :echosciences, :pinterest, :lastfm, :flickr
   json.organization do
     json.id @member.profile.organization.id

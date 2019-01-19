@@ -3,12 +3,12 @@
 
   def index
     @plans = Plan.includes(:plan_file)
-    @plans = @plans.where(group_id: params[:group_id]) if params[:group_id]
+    @plans = @plans.where(group_id: params[:group_id]).where(disabled: nil) if params[:group_id]
     render :index
   end
 
   def show
-    @plan = Plan.find(params[:id])
+    @plan = Plan.friendly.find(params[:id])
   end
 
   def create
@@ -59,7 +59,7 @@
   end
 
   def update
-    @plan = Plan.find(params[:id])
+    @plan = Plan.friendly.find(params[:id])
     authorize @plan
     if @plan.update(plan_params)
       render :show, status: :ok
@@ -69,7 +69,7 @@
   end
 
   def destroy
-    @plan = Plan.find(params[:id])
+    @plan = Plan.friendly.find(params[:id])
     authorize @plan
     @plan.destroy
     head :no_content

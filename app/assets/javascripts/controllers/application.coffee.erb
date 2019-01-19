@@ -1,7 +1,7 @@
 'use strict'
 
-Application.Controllers.controller 'ApplicationController', ["$rootScope", "$scope", "$window", '$locale', "Session", "AuthService", "Auth", "$uibModal", "$state", 'growl', 'Notification', '$interval', "Setting", '_t', 'Version'
-, ($rootScope, $scope, $window, $locale, Session, AuthService, Auth, $uibModal, $state, growl, Notification, $interval, Setting, _t, Version) ->
+Application.Controllers.controller 'ApplicationController', ["$rootScope", "$scope", "$window", '$locale', "Session", "AuthService", "Auth", "$uibModal", "$state", 'growl', 'Notification', '$interval', "Setting", '_t', 'Version', 'CustomAsset'
+, ($rootScope, $scope, $window, $locale, Session, AuthService, Auth, $uibModal, $state, growl, Notification, $interval, Setting, _t, Version, CustomAsset) ->
 
 
 
@@ -36,6 +36,7 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
         $scope.version = Version.get()
       else
         $scope.version = {version: ''}
+      $scope.cguConfirmation()
 
 
   ##
@@ -47,15 +48,7 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
     e.preventDefault() if e
     openLoginModal null, null, callback
 
-
-
-  ##
-  # Logout callback
-  # @param e {Object} see https://docs.angularjs.org/guide/expression#-event-
-  ##
-  $scope.logout = (e) ->
-    e.preventDefault()
-    Auth.logout().then (oldUser) ->
+  cleanupSession = (target) ->
       # console.log(oldUser.name + " you're signed out now.");
       Session.destroy()
       $rootScope.currentUser = null
@@ -63,9 +56,19 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
       $scope.notifications =
         total: 0
         unread: 0
-      $state.go('app.public.home')
-    , (error) ->
-      # An error occurred logging out.
+      $state.go(target) if target
+
+
+  ##
+  # Logout callback
+  # @param e {Object} see https://docs.angularjs.org/guide/expression#-event-
+  ##
+  $scope.logout = (e, target='app.public.home') ->
+    e.preventDefault() if e
+    Auth.logout().then (oldUser) ->
+      cleanupSession()
+    , (error) -> 
+      cleanupSession()
 
   encodeBase64 = (obj) ->
 
@@ -89,6 +92,31 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
       arr[i] = str.charCodeAt(i)
 
     msgpack.decode(arr)
+  
+  $scope.cguConfirmation = () ->
+    # CGU validation check when user is older than last version of CGU
+    CustomAsset.get {name: 'cgu-file'}, (cgu) ->
+      $scope.cgu = cgu.custom_asset
+      if $scope.cgu and $rootScope.currentUser.profile.updated_at < $scope.cgu.updated_at
+        $uibModal.open
+          templateUrl: '<%= asset_path "shared/confirm_cgu_modal.html" %>'
+          size: 'md'
+          backdrop: 'static'
+          controller: ['$scope', '$uibModalInstance', '$http', 'CustomAsset', ($scope, $uibModalInstance, $http, CustomAsset) ->
+            CustomAsset.get {name: 'cgu-file'}, (cgu) ->
+              $scope.cgu = cgu.custom_asset
+            $scope.ok = (e) ->
+              e.preventDefault() if e
+              $http({ 
+                url: '/api/members/' + $rootScope.currentUser.id + '/touch'
+                method: 'PUT'
+              }).then(
+                (result) -> 
+                  $uibModalInstance.close()
+              )
+
+          ]
+
 
   ##
   # Open the modal window allowing the user to create an account.
@@ -213,7 +241,7 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
       Auth.login().then (user) ->
         $scope.setCurrentUser(user)
       , (error) ->
-        # Authentication failed...
+        cleanupSession()
 
 
   ##
@@ -271,6 +299,7 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
     , (error) ->
       # Authentication failed...
       $rootScope.toCheckNotifications = false
+      cleanupSession()
 
     # bind to the $stateChangeStart event (AngularJS/UI-Router)
     $rootScope.$on '$stateChangeStart', (event, toState, toParams, fromState, fromParams) ->
@@ -301,7 +330,6 @@ Application.Controllers.controller 'ApplicationController', ["$rootScope", "$sco
     $scope.isAuthenticated = Auth.isAuthenticated
     $scope.isAuthorized = AuthService.isAuthorized
     $rootScope.login = $scope.login
-
 
 
   ##
