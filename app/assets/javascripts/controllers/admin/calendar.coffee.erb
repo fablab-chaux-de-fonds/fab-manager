@@ -227,18 +227,10 @@ Application.Controllers.controller "AdminCalendarController", ["$scope", "$state
             ]
         # when the modal is closed, we send the slot to the server for saving
         modalInstance.result.then (availability) ->
-          uiCalendarConfig.calendars.calendar.fullCalendar 'renderEvent',
-            id: availability.id
-            title: availability.title,
-            start: availability.start_at
-            end: availability.end_at
-            textColor: 'black'
-            backgroundColor: availability.backgroundColor
-            borderColor: availability.borderColor
-            tag_ids: availability.tag_ids
-            tags: availability.tags
-            machine_ids: availability.machine_ids
-          , true
+          copy = Object.assign {}, availability
+          copy.start = availability.start_at
+          copy.end = availability.end
+          uiCalendarConfig.calendars.calendar.fullCalendar 'renderEvent', copy, true
         , ->
           uiCalendarConfig.calendars.calendar.fullCalendar('unselect')
 
