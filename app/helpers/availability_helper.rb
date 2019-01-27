@@ -19,7 +19,10 @@ module AvailabilityHelper
 
 
   def availability_username(availability)
-    return "#{availability.user.profile.first_name} #{availability.user.profile.last_name}"
+    if availability.user == nil
+      return nil
+    end
+    return "#{availability.user.first_name} #{availability.user.last_name}"
   end
 
   def availability_background_color(availability, locked=false)
