@@ -54,3 +54,7 @@
 
 .sass-lint.yml
 .csscomb.json
+
+bin/*
+postgres/*
+
