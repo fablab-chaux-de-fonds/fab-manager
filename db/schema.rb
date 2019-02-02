@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180829192923) do
+ActiveRecord::Schema.define(version: 20180916094103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,9 +81,12 @@ ActiveRecord::Schema.define(version: 20180829192923) do
     t.boolean  "destroying",             default: false
     t.boolean  "lock",                   default: false
     t.integer  "availability_detail_id"
+    t.string   "description"
+    t.integer  "user_id"
   end
 
   add_index "availabilities", ["availability_detail_id"], name: "index_availabilities_on_availability_detail_id", using: :btree
+  add_index "availabilities", ["user_id"], name: "index_availabilities_on_user_id", using: :btree
 
   create_table "availability_details", force: :cascade do |t|
     t.string   "title"
@@ -887,6 +890,7 @@ ActiveRecord::Schema.define(version: 20180829192923) do
   add_index "wallets", ["user_id"], name: "index_wallets_on_user_id", using: :btree
 
   add_foreign_key "availabilities", "availability_details"
+  add_foreign_key "availabilities", "users"
   add_foreign_key "availability_tags", "availabilities"
   add_foreign_key "availability_tags", "tags"
   add_foreign_key "event_price_categories", "events"
