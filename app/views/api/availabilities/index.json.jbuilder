@@ -4,6 +4,10 @@ json.array!(@availabilities) do |availability|
   json.start availability.start_at.iso8601
   json.end availability.end_at.iso8601
   json.available_type availability.available_type
+  if availability.instance_of? Availability
+    json.description availability.description
+    json.username availability_username(availability)
+  end
   json.machine_ids availability.machine_ids
   json.training_ids availability.training_ids
   json.textColor availability_text_color(availability)

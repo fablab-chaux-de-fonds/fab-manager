@@ -20,8 +20,13 @@ class API::AvailabilitiesController < API::ApiController
   end
 
   def public
-    start_date = ActiveSupport::TimeZone[params[:timezone]].parse(params[:start])
-    end_date = ActiveSupport::TimeZone[params[:timezone]].parse(params[:end]).end_of_day
+    if params[:next]
+      start_date = Time.now.utc
+      end_date = start_date + params[:next].to_i
+    else
+      start_date = ActiveSupport::TimeZone[params[:timezone]].parse(params[:start])
+      end_date = ActiveSupport::TimeZone[params[:timezone]].parse(params[:end]).end_of_day
+    end
     @reservations = Reservation.includes(:slots, user: [:profile]).references(:slots, :user)
                         .where('slots.start_at >= ? AND slots.end_at <= ?', start_date, end_date)
 
@@ -88,7 +93,7 @@ class API::AvailabilitiesController < API::ApiController
 
     # request for many days (week or month)
     else
-      @availabilities = Availability.includes(:tags, :machines, :trainings, :spaces, :event, :slots)
+        @availabilities = Availability.includes(:tags, :machines, :trainings, :spaces, :event, :slots, user: [:profile])
                                     .where('start_at >= ? AND end_at <= ?', start_date, end_date)
                                     .where(lock: false)
       @availabilities.each do |a|
@@ -101,7 +106,9 @@ class API::AvailabilitiesController < API::ApiController
     end
     machine_ids = params[:m] || []
     @title_filter = {machine_ids: machine_ids.map(&:to_i)}
-    @availabilities = filter_availabilites(@availabilities)
+    unless params[:next]
+      @availabilities = filter_availabilites(@availabilities)
+    end
   end
 
   def show
@@ -308,8 +315,8 @@ class API::AvailabilitiesController < API::ApiController
 
     def availability_params
       params.require(:availability).permit(:start_at, :end_at, :available_type, :machine_ids, :training_ids,
-                                           :nb_total_places, :availability_detail_id, :lock, machine_ids: [],
-                                           training_ids: [], space_ids: [], tag_ids: [],
+                                           :nb_total_places, :availability_detail_id, :lock, :description, :user_id,
+                                           machine_ids: [], training_ids: [], space_ids: [], tag_ids: [],
                                            :machines_attributes => [:id, :_destroy])
     end
 

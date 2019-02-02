@@ -6,6 +6,8 @@ json.array!(@availabilities) do |availability|
   json.backgroundColor availability_background_color(availability)
   # availability object
   if availability.instance_of? Availability
+    json.description availability.description
+    json.username availability_username(availability)
     json.title availability.title(@title_filter)
     if availability.available_type == 'event'
       json.event_id availability.event.id

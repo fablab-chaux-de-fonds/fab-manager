@@ -11,8 +11,15 @@
 Application.Directives.directive 'selectMember', [ 'Diacritics', 'Member', (Diacritics, Member) ->
   {
     restrict: 'E'
-    templateUrl: '<%= asset_path "shared/_member_select.html" %>'
+    templateUrl: (scope, attributes) ->
+      if attributes.lightTemplate
+        '<%= asset_path "shared/_member_select_light.html" %>'
+      else
+        '<%= asset_path "shared/_member_select.html" %>'
     link: (scope, element, attributes) ->
+      if attributes.currentUser
+        scope.ctrl = {}
+        scope.ctrl.member = scope.currentUser
       scope.autoCompleteName = (nameLookup) ->
         unless nameLookup
           return

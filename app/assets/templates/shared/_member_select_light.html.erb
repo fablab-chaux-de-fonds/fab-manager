@@ -1,0 +1,8 @@
+<ui-select ng-model="ctrl.member" on-select="updateMember()">
+  <ui-select-match placeholder="{{ 'start_typing' | translate }}">
+    <span ng-bind="$select.selected.name"></span>
+  </ui-select-match>
+  <ui-select-choices repeat="m in matchingMembers" refresh="autoCompleteName($select.search)" refresh-delay="300">
+    <span ng-bind-html="m.name | highlight: $select.search"></span>
+  </ui-select-choices>
+</ui-select>

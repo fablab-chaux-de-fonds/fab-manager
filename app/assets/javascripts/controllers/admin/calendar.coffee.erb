@@ -227,18 +227,10 @@ Application.Controllers.controller "AdminCalendarController", ["$scope", "$state
             ]
         # when the modal is closed, we send the slot to the server for saving
         modalInstance.result.then (availability) ->
-          uiCalendarConfig.calendars.calendar.fullCalendar 'renderEvent',
-            id: availability.id
-            title: availability.title,
-            start: availability.start_at
-            end: availability.end_at
-            textColor: 'black'
-            backgroundColor: availability.backgroundColor
-            borderColor: availability.borderColor
-            tag_ids: availability.tag_ids
-            tags: availability.tags
-            machine_ids: availability.machine_ids
-          , true
+          copy = Object.assign {}, availability
+          copy.start = availability.start_at
+          copy.end = availability.end
+          uiCalendarConfig.calendars.calendar.fullCalendar 'renderEvent', copy, true
         , ->
           uiCalendarConfig.calendars.calendar.fullCalendar('unselect')
 
@@ -271,7 +263,16 @@ Application.Controllers.controller "AdminCalendarController", ["$scope", "$state
   # @see http://fullcalendar.io/docs/event_rendering/eventRender/
   ##
   eventRenderCb = (event, element) ->
-    element.find('.fc-content').prepend('<span class="remove-event">x&nbsp;</span>')
+    content = element.find('.fc-content')
+    if event.username
+      content.prepend("<a class='info-event hidden-xs' uib-popover='#{event.username}' popover-trigger='mouseenter' popover-placement='bottom'>?&nbsp;</a>")
+    content.prepend('<span class="remove-event hidden-xs">x&nbsp;</span>')
+    title = element.find('.fc-title')
+    if event.description
+      if (event.end - event.start) / 60000 <= Fablab.slot_duration
+        title.append(' / ' + event.description)
+      else
+        title.append('<br />'+event.description)
     if event.tags.length > 0
       html = ''
       for tag in event.tags
@@ -368,6 +369,8 @@ Application.Controllers.controller 'CreateEventModalController', ["$scope", "$ui
   ##
   $scope.ok = ->
     if $scope.availability.available_type == 'machines'
+      if $scope.ctrl.member
+        $scope.availability.user_id = $scope.ctrl.member.id
       if $scope.selectedMachines.length > 0
         $scope.availability.machine_ids = $scope.selectedMachines.map (m) -> m.id
         detail = $scope.details.find((m) -> m.id == parseInt($scope.availability.availability_detail_id))

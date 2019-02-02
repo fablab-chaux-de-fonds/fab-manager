@@ -93,11 +93,8 @@
   margin-left: 0.7em;
 }
 
-// croix de suppression pour un créneau de disponibilité
-.remove-event {
-  position: absolute;
+.info-event, .remove-event {
   float: right;
-  right: 0;
   top: 0;
   padding: 0;
   font-size: 11px;
@@ -105,6 +102,10 @@
   cursor: pointer;
   z-index: 9999;
   text-align: right;
+}
+
+// croix de suppression pour un créneau de disponibilité
+.remove-event {
   .training-reserve &, .machine-reserve &, .public-calendar & { display: none; }
 }
 
