@@ -94,9 +94,9 @@ ActiveRecord::Schema.define(version: 20180916094103) do
     t.integer  "textColor"
     t.integer  "backgroundColor"
     t.integer  "lockedBackgroundColor"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.boolean  "locked"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.boolean  "locked",                default: false, null: false
   end
 
   create_table "availability_tags", force: :cascade do |t|
