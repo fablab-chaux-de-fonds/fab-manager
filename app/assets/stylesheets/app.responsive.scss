@@ -31,9 +31,48 @@
     .heading-title {
       h1 {
         font-size: rem-calc(16);
-        padding: 26px 15px;
+        margin: 0;
+        padding: calc((50px - 1.6em) / 2);
       }
+
+      .heading-actions {
+        float: right;
+      }
+
+      display: flex;
+      flex-flow: row;
+      align-items: baseline;
+      justify-content: space-between;
+      height: 50px; 
     }
+
+    .heading-btn {
+      a {
+        font-size: rem-calc(16);
+        margin-left: 50%;
+        padding: calc((50px - 1.6em) / 2);
+      }
+
+      height: 50px;
+    }
+  }
+  
+  .calendar-container {
+    position: absolute; 
+    top: 100px; 
+    left: 0; 
+    overflow: scroll;
+    width: 100vw; 
+    height: calc(100vh - 100px); 
+    border: 5px solid green;
+  }
+
+  .calendar-wrapper {
+    height: 100%;
+  }
+
+  .public-calendar {
+    width: 600px;
   }
 
   .m-t-xxl-on-md {

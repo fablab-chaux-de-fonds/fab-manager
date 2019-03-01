@@ -141,11 +141,34 @@ Application.Controllers.controller "CalendarController", ["$scope", "$state", "$
       uiCalendarConfig.calendars.calendar.fullCalendar('refetchEvents')
 
   eventRenderCb = (event, element) ->
+    # if event.tags.length > 0
+    #   html = ''
+    #   for tag in event.tags
+    #     html += "<span class='label label-success text-white'>#{tag.name}</span> "
+    #   element.find('.fc-title').append("<br/>"+html)
+    # return
+    content = element.find('.fc-content')
+    if event.username
+      content.prepend("<a class='info-event hidden-xs' uib-popover='bla bla bla' popover-trigger='mouseenter' popover-placement='bottom'>?&nbsp;</a>")
+    title = element.find('.fc-title')
+    if event.description or event.username
+      if (event.end - event.start) / 60000 <= Fablab.slot_duration
+        title.append(' /')
+        if event.description
+          title.append(' ' + event.description)
+        if event.username
+          title.append(' ' + '<i>' + event.username + '</i>')
+      else
+        if event.description
+          title.append('<br>' + event.description)
+        if event.username
+          title.append('<br>' + '<i>' + event.username + '</i>')
     if event.tags.length > 0
       html = ''
       for tag in event.tags
         html += "<span class='label label-success text-white'>#{tag.name}</span> "
       element.find('.fc-title').append("<br/>"+html)
+    # force return to prevent coffee-script auto-return to return random value (possiblity falsy)
     return
 
   getFilter = ->

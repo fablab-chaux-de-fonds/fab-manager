@@ -1,26 +1,36 @@
 <section class="heading b-b">
-  <div class="row no-gutter">
-    <div class="col-xs-2 col-sm-2 col-md-1">
-      <section class="heading-btn">
-        <a href="#" ng-click="backPrevLocation($event)"><i class="fa fa-long-arrow-left "></i></a>
-      </section>
-    </div>
-    <div class="col-xs-10 col-sm-10 col-md-8 b-l b-r-md hide-b-r-lg">
-      <section class="heading-title">
-        <h1 translate>{{ 'calendar.calendar' }}</h1>
-      </section>
-    </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-3 b-t hide-b-md hidden-lg">
-      <div class="heading-actions wrapper">
-        <button type="button" class="btn btn-default m-t m-b" ng-click="openFilterAside()">
-          <span class="fa fa-filter"></span> {{ 'calendar.filter_calendar' | translate }}
-        </button>
+    <div class="row no-gutter">
+      <div class="col-xs-4 col-sm-2 col-md-1">
+        <section class="heading-btn">
+          <a href="#" ng-click="backPrevLocation($event)"><i class="fa fa-long-arrow-left "></i></a>
+        </section>
+      </div>
+      <div class="col-xs-8 col-sm-10 col-md-8 b-l b-r-md hide-b-r-lg">
+        <section class="heading-title">
+          <h1 class="m-l-xs" translate>{{ 'calendar.calendar' }}</h1>
+          <div class="heading-actions hidden-md hidden-lg m-r">
+            <button type="button" class="btn btn-default" ng-click="openFilterAside()">
+              <span class="fa fa-filter"></span>
+            </button>
+          </div>
+        </section>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 b-t hide-b-md hidden-lg hidden-xs">
+        <div class="heading-actions wrapper">
+          <button type="button" class="btn btn-default m-t m-b" ng-click="openFilterAside()">
+            <span class="fa fa-filter"></span> {{ 'calendar.filter_calendar' | translate }}
+          </button>
+        </div>
       </div>
     </div>
-
+  </section>
+<div class="calendar-container">
+  <div class="calendar-expander">
+      <div ui-calendar="calendarConfig" ng-model="eventSources" calendar="calendar" class="public-calendar"></div>  
   </div>
-</section>
+</div>
+
+<!-- 
 
 
 <section class="row no-gutter">
@@ -32,7 +42,30 @@
   </div>
 
   <div class="col-sm-12 col-md-12 col-lg-9">
-    <div ui-calendar="calendarConfig" ng-model="eventSources" calendar="calendar" class="wrapper-lg public-calendar"></div>
+    <div class="container">
+      <div class="row" style="overflow: visible;">
+        <div ui-calendar="calendarConfig" ng-model="eventSources" calendar="calendar" class="public-calendar scrollable" style="width: 600px;"></div>  
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-sm-12 col-md-12 col-lg-9">
+    <div class="container">
+      <div class="row no-float" style="overflow: auto; display: block; width: fit-content; max-width: 100%;">
+        <div ui-calendar="calendarConfig" ng-model="eventSources" calendar="calendar" class="public-calendar" style="width: 600px;"></div>  
+      </div>
+    </div>
+  </div>
+    style="overflow-x: auto; white-space: nowrap;display: inline-block; float: none; flex-wrap: nowrap; min-width: 600px"
+.testimonial-group > .row {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.testimonial-group > .row > .col-xs-4 {
+  display: inline-block;
+  float: none;
+}
   </div>
 
   <div class="col-lg-3 hidden-md hidden-sm hidden-xs">
@@ -59,4 +92,4 @@
       <ng-include src="'<%= asset_path 'calendar/filter.html' %>'"></ng-include>
     </div>
   </div>
-</script>
+</script> -->
