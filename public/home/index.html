@@ -3,12 +3,21 @@
   <section class="row wrapper-lg">
     <div class="col-lg-12 home-banner">
       <img class="home-banner-img img-responsive" style="border-radius: 0.25rem;" src="data:image/png;base64,{{banner}}">
-      <a href="{{ calendar.link }}" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding home-banne-btn-desktop"><i class="{{ calendar.logo }}"></i> {{ calendar.text }}</a>
+      <div class="col-lg-6" style="min-height:60px;">
+        <a href="{{ about.link }}" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding home-banne-btn-desktop" >{{ about.text }}</a>
+      </div>
+      <div class="col-lg-6">
+        <a href="{{ calendar.link }}" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding home-banne-btn-desktop"><i class="{{ calendar.logo }}"></i> {{ calendar.text }}</a>
+      </div>
     </div>
   </section>
 
   <section class="home-events col-lg-12 wrapper" ng-if="upcomingEvents.length > 0">
-    <h4 class="text-sm m-t-sm">{{ 'fablab_s_next_events' | translate }} <a ui-sref="app.public.events_list" class="pull-right"><i class="fa fa-tags"></i> {{ 'every_events' | translate }}</a></h4>
+      <h1>{{ 'fablab_s_next_events' | translate }} </h1>
+      <hr>
+      <p><a ui-sref="app.public.events_list" class="pull-right" style="margin: 10px 0;"><i class="fa fa-tags"> </i> {{ 'every_events' | translate }}</a></p>
+
+
 
     <div class="row" ng-repeat="event in (upcomingEvents.length/3 | array)">
 
@@ -74,41 +83,38 @@
   </section>
 
   <section class="row wrapper-lg">
-    <div class="col-md-4 col-xs-12">
-      <div class="card home-card">
-        <img class="card-img-top img-responsive" src="data:image/png;base64,{{discovery_lab.logo}}" alt="{{discovery_lab.title}}">
-        <div class="card-body card-body-home">
-          <p class="card-text">{{discovery_lab.desc}}</p>
-        </div>
-      </div>
-    </div>
+    <h1>{{open_mode.title}}</h1>
+    <hr>
 
-    <div class="col-md-4 col-xs-12">
-      <div class="card home-card">
+    <div class="col-md-6 col-xs-12">
+      <div class="card home-card" style="display: inline-block;">
         <img class="card-img-top img-responsive" src="data:image/png;base64,{{open_lab.logo}}" alt="{{open_lab.title}}">
-        <div class="card-body">
+        <div class="card-body" style="padding:10px;">
           <p class="card-text">{{open_lab.desc}}</p>
-          <p class="card-text">{{open_lab.training.desc}}</p>
-          <p>
-            <a href="{{ open_lab.training.btn.link }}" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding">{{ open_lab.training.btn.text }}</a>
-          </p>
           <p class="card-text">{{open_lab.machine.desc}}</p>
           <p>
             <a href="{{ open_lab.machine.btn.link }}" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding">{{ open_lab.machine.btn.text }}</a>
           </p>
+          <p class="card-text">{{open_lab.training.desc}}</p>
+          <p>
+            <a href="{{ open_lab.training.btn.link }}" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding">{{ open_lab.training.btn.text }}</a>
+          </p>
         </div>
       </div>
     </div>
 
-    <div class="col-md-4 col-xs-12">
-      <div class="card home-card">
+    <div class="col-md-6 col-xs-12">
+      <div class="card home-card" style="display: inline-block;">
         <img class="card-img-top img-responsive" src="data:image/png;base64,{{expert_lab.logo}}" alt="{{expert_lab.title}}">
-        <div class="card-body">
+        <div class="card-body" style="padding:10px;">
           <p class="card-text">{{expert_lab.desc}}</p>
         </div>
       </div>
     </div>
   </section>
+
+  <h1>{{ contact.title }}</h1>
+  <hr>
 
   <section class="row wrapper-lg">
     <div class="col-md-8 col-xs-12 col-centered">
@@ -122,6 +128,14 @@
     </div>
   </section>
 
+<section>
+  <div class="">
+    <h1>Instagram</h1>
+    <hr>
+    <div id="pixlee_container"></div><script type="text/javascript">window.PixleeAsyncInit = function() {Pixlee.init({apiKey:'zc5QELVm-aZDVqr02zJK'});Pixlee.addSimpleWidget({widgetId:'15192'});};</script><script src="//instafeed.assets.pixlee.com/assets/pixlee_widget_1_0_0.js"></script>
+  </div>
+</section>
+
 </div>
 
 <div class="img-social">
@@ -133,5 +147,8 @@
   </div>
   <div class="">
     <a href="{{ social.instagram.link }}"><img src="data:image/png;base64,{{ social.instagram.logo }}" alt="" class="m-r-sm img-bl"></a>
+  </div>
+  <div class="">
+    <a href="{{ social.github.link }}"><img src="data:image/png;base64,{{ social.github.logo }}" alt="" class="m-r-sm img-bl"></a>
   </div>
 </div>

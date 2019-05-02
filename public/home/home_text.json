@@ -1,7 +1,8 @@
 {
   "contact": {
     "link": "mailto:info@fablab-chaux-de-fonds.ch",
-    "text": "info@fablab-chaux-de-fonds.ch"
+    "text": "info@fablab-chaux-de-fonds.ch",
+    "title": "Où nous trouver?"
   },
   "social": {
     "facebook":{
@@ -9,6 +10,9 @@
     },
     "instagram": {
       "link": "https://www.instagram.com/fablab_chaux_de_fonds"
+    },
+    "github": {
+      "link": "https://github.com/fablab-chaux-de-fonds"
     },
     "mail": {
       "link": "mailto:info@fablab-chaux-de-fonds.ch"
@@ -29,33 +33,42 @@
     "text": "Horaires d'ouvertures",
     "link": "/#!/calendar"
   },
+  "about":
+  {
+    "logo": "fas fa-question-circle",
+    "text": "C'est quoi, un FabLab ?",
+    "link": "/#!/about"
+  },
   "open_lab":
   {
-    "title": "OpenLab",
-    "desc": "L’OpenLab est l’ouverture classique du FabLab.",
-    "training":{
-      "desc": "Pour avoir accès à certaines machines, il faut d'abord suivre une formation",
+    "title": "Ouvert",
+    "desc": "Ouvert à toutes et à tous, ce mode d’ouverture rassemble les curieux, les débutants mais aussi les habitués du lieu.",
+    "machine": {
+      "desc":"De nombreuses machines sont à votre disposition et peuvent être réservées en ligne.",
       "btn": {
-        "text": "S'inscrire à une formation",
-        "link": "/#!/trainings"
+        "text": "Consulter",
+        "link": "/#!/machines"
       }
     },
-    "machine": {
-      "desc":"ou réservez directement une machine",
+    "training":{
+      "desc": "L’utilisation de certaines machines nécessite une formation.",
       "btn": {
-        "text": "Réserver une machine",
-        "link": "/#!/machines"
+        "text": "S'inscrire",
+        "link": "/#!/trainings"
       }
     }
   },
-  "discovery_lab":
-  {
-    "title": "DiscoveryLab",
-    "desc": "Ce mode d'ouverture est principalement dédiée aux personnes n’ayant jamais utilisé le FabLab. Pour elles, la première utilisation est gratuite! Il n’est pas possible d’effectuer de réservation de machines ce jour-là. Si les machines sont libres, les personnes habituées peuvent tout de même les utiliser aux tarifs habituels."
-  },
   "expert_lab":
   {
-    "title": "ExpertLab",
-    "desc": "Les heures d’ouvertures ExpertLab sont réservées aux personnes totalement autonomes sur les machines."
+    "title": "Expert",
+    "desc": "Réservé aux utilisateurs chevronnés, ce mode d’ouverture est dédié aux personnes autonomes sur les machines qu’elles utilisent."
+  },
+  "open_mode":
+  {
+    "title": "Modes d'ouverture"
+  },
+  "instagram":
+  {
+    "title": "Instagram"
   }
 }
