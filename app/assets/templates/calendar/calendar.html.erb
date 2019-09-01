@@ -2,12 +2,14 @@
   <div class="row no-gutter">
     <div class="col-xs-4 col-sm-2 col-md-1">
       <section class="heading-btn">
-        <a href="#" ng-click="backPrevLocation($event)"><i class="fa fa-long-arrow-left "></i></a>
+        <a href="#" ng-click="backPrevLocation($event)">
+          <i class="fa fa-long-arrow-left "></i>
+        </a>
       </section>
     </div>
     <div class="col-xs-8 col-sm-10 col-md-8 b-l b-r-md hide-b-r-lg">
       <section class="heading-title">
-        <h1 class="m-l-xs" translate>{{ 'calendar.calendar' }}</h1>
+        <h1 class="m-l-xs" translate="translate">{{ 'calendar.calendar' }}</h1>
         <div class="heading-actions visible-xs m-r">
           <button type="button" class="btn btn-default" ng-click="openFilterAside()">
             <span class="fa fa-filter"></span>
@@ -18,7 +20,8 @@
     <div class="col-xs-12 col-sm-12 col-md-3 b-t hide-b-md hidden-lg hidden-xs">
       <div class="heading-actions wrapper">
         <button type="button" class="btn btn-default m-t m-b" ng-click="openFilterAside()">
-          <span class="fa fa-filter"></span> {{ 'calendar.filter_calendar' | translate }}
+          <span class="fa fa-filter"></span>
+          {{ 'calendar.filter_calendar' | translate }}
         </button>
       </div>
     </div>
@@ -27,50 +30,25 @@
 
 <section class="row m-lg">
   <div class="col-lg-12">
-    <p><span class="text-green-light">■■ </span><span class="text-red">OpenLab : </span>ouvert à tous, demande de renseignements possible</p>
-    <p><span class="text-red-light">■■ </span><span class="text-red">ExpertLab : </span>ouvert aux personnes autonomes sur les machines</p>
+    <p>
+      <span class="text-green-light">■■
+      </span><span class="text-red">OpenLab :
+      </span>ouvert à tous, demande de renseignements possible</p>
+    <p>
+      <span class="text-red-light">■■
+      </span><span class="text-red">ExpertLab :
+      </span>ouvert aux personnes autonomes sur les machines</p>
   </div>
 </section>
 
 <div class="row no-gutter calendar-container">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 calendar-expander">
-      <div ui-calendar="calendarConfig" ng-model="eventSources" calendar="calendar" class="public-calendar m"></div>
+    <div ui-calendar="calendarConfig" ng-model="eventSources" calendar="calendar" class="public-calendar m"></div>
   </div>
   <div class="col-lg-3 hidden-md hidden-sm hidden-xs">
-    <!-- <section class="row wrapper-lg">
-      <div class="col text-center">
-      <h1>Modes d'ouverture</h1>
-      <hr>
-        <div class="card home-card" style="display: inline-block;">
-          <%= image_tag("open_lab.svg", class: 'card-img-top img-responsive') %>
-          <div class="card-body">
-            <p class="card-text">Ouvert à toutes et à tous, ce mode d’ouverture rassemble les curieux, les débutants mais aussi les habitués du lieu.</p>
-            <p class="card-text">De nombreuses machines sont à votre disposition et peuvent être réservées en ligne.</p>
-            <p>
-              <a href="/#!/machines" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding">Consulter</a>
-            </p>
-            <p class="card-text">L’utilisation de certaines machines nécessite une formation.</p>
-            <p>
-              <a href="/#!/trainings" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding">S'inscrire</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      </section>
-      <section class="row wrapper-lg">
-      <div class="col text-center">
-        <div class="card home-card" style="display: inline-block;">
-          <%= image_tag("expert_lab.svg", class: 'card-img-top img-responsive') %>
-          <div class="card-body">
-            <p class="card-text">Réservé aux utilisateurs chevronnés, ce mode d’ouverture est dédié aux personnes autonomes sur les machines qu’elles utilisent.</p>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
     <div class="widget panel b-a m m-t-lg">
       <div class="panel-heading b-b small">
-        <h3 translate>{{ 'calendar.filter_calendar' }}</h3>
+        <h3 translate="translate">{{ 'calendar.filter_calendar' }}</h3>
       </div>
       <div class="widget-content no-bg auto wrapper calendar-filter">
         <ng-include src="'<%= asset_path 'calendar/filter.html' %>'"></ng-include>
@@ -81,8 +59,9 @@
 <script type="text/ng-template" id="filterAside.html">
   <div class="widget">
     <div class="modal-header">
-      <button type="button" class="close" ng-click="close($event)"><span>&times;</span></button>
-      <h1 class="modal-title" translate>{{ 'calendar.filter_calendar' }}</h1>
+      <button type="button" class="close" ng-click="close($event)">
+        <span>&times;</span></button>
+      <h1 class="modal-title" translate="translate">{{ 'calendar.filter_calendar' }}</h1>
     </div>
     <div class="modal-body widget-content calendar-filter calendar-filter-aside">
       <ng-include src="'<%= asset_path 'calendar/filter.html' %>'"></ng-include>
