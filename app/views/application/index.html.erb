@@ -26,9 +26,9 @@
       try {
         Stripe.setPublishableKey('<%= Rails.application.secrets.stripe_publishable_key %>');
       } catch (error) {
-        
+
       }
-      
+
       var Fablab = Fablab || {};
 
       Fablab.useSimpleSignupForm = ('<%= Rails.application.secrets.fablab_simple_signup_form %>' == 'true');
@@ -103,8 +103,10 @@
 
       <section id="content">
         <section class="vbox">
-          <%= image_tag("fablab - F.svg", class: 'm-r-sm img-fg img-tl img-fl') %>
-          <%= image_tag("fablab - L.svg", class: 'm-r-sm img-fg img-br img-fl') %>
+          <%= link_to '#!/' do %>
+            <%= image_tag("fablab - F.svg", class: 'm-r-sm img-fg img-tl img-fl') %>
+            <%= image_tag("fablab - L.svg", class: 'm-r-sm img-fg img-br img-fl') %>
+          <% end %>
           <section id="content-main" class="scrollable" ui-view="main"></section>
         </section>
       </section>

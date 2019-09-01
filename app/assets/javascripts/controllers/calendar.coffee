@@ -199,7 +199,7 @@ Application.Controllers.controller "CalendarController", ["$scope", "$state", "$
       eventRender: (event, element, view) ->
         eventRenderCb(event, element)
 
-
+    $scope.test='hello'
 
 
   ## !!! MUST BE CALLED AT THE END of the controller

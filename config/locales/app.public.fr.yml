@@ -4,7 +4,7 @@ fr:
       common:
         # en-tête et page "à propos"
         about_the_fablab: ""  # messageFormat interpolation
-        return: "Retour"
+        return: "Aller sur le site"
 
         # sections du tableau de bord
         dashboard: "Tableau de bord"
@@ -201,6 +201,7 @@ fr:
       trainings_list:
         # liste des formations
         the_trainings: "Les formations"
+        trainings_head: "Les formations sont accessible à tout un chacun, pas besoin d’être membre de l'association (il est seulement requis de se créer un compte en ligne)"
 
       training_show:
         # détails d'une formation

@@ -1,21 +1,98 @@
 <div class="home">
 
   <section class="row wrapper-lg">
+
     <div class="col-lg-12 home-banner">
-      <img class="home-banner-img img-responsive" style="border-radius: 0.25rem;" src="data:image/png;base64,{{banner}}">
-      <div class="col-lg-6" style="min-height:60px;">
-        <a href="{{ about.link }}" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding home-banne-btn-desktop" >{{ about.text }}</a>
+      <div class="">
+        <img align="right" class="home-banner-img img-responsive" src="data:image/jpg;base64,{{banner}}">
+        <!-- <div class="col-lg-6" style="min-height:60px;">
+          <a href="{{ about.link }}" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding home-banne-btn-desktop" >{{ about.text }}</a>
+        </div>
+        <div class="col-lg-6">
+          <a href="{{ calendar.link }}" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding home-banne-btn-desktop"><i class="{{ calendar.logo }}"></i> {{ calendar.text }}</a>
+        </div> -->
       </div>
-      <div class="col-lg-6">
-        <a href="{{ calendar.link }}" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding home-banne-btn-desktop"><i class="{{ calendar.logo }}"></i> {{ calendar.text }}</a>
+      <div class="slogan">
+        <h1 class="slogan-text" ng-repeat="i in slogan">
+          <div class="slogan-background">
+            {{ i }}
+          </div>
+        </h1>
       </div>
     </div>
   </section>
 
+  <section class="row">
+    <div class="col-lg-8 col-xs-12 col-lg-offset-2">
+      <h1 class="home-title"> {{value.title}} </h1>
+      <h2> {{value.lead}} </h2>
+      <div class="col-lg-4 col-sm-12">
+        <img class="img-responsive img-value" src="data:image/png;base64,{{make}}">
+        <p class="home-caption-text">
+          <span ng-repeat="i in value.caption.make" ng-class="{'text-red': $index == 1}">{{i}}</span>
+        </p>
+      </div>
+      <div class="col-lg-4 col-sm-12">
+        <img class="img-responsive img-value" src="data:image/png;base64,{{learn}}">
+        <p class="home-caption-text">
+          <span ng-repeat="i in value.caption.learn" ng-class="{'text-red': $index == 1}">{{i}}</span>
+        </p>
+      </div>
+      <div class="col-lg-4 col-sm-12">
+        <img class="img-responsive img-value" src="data:image/png;base64,{{community}}">
+        <p class="home-caption-text">
+          <span ng-repeat="i in value.caption.community" ng-class="{'text-red': $index == 1}">{{i}}</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr style="margin: 50px 0">
+
+  <section class="row">
+    <div class="col-lg-8 col-xs-12 col-lg-offset-2">
+      <h1 class="home-title"> {{local.title}} </h1>
+      <h2> {{local.lead}} </h2>
+    </div>
+  </section>
+  <div class="row">
+    <div class="col-lg-2" ng-repeat="card in local.cards">
+      <img class="img-responsive img-value" src="data:image/png;base64,{{card.img}}">
+      <p class="home-caption-text"> {{card.caption}}</p>
+    </div>
+  </div>
+
+  <hr style="margin: 50px 0">
+
+  <section class="row">
+    <div class="col-lg-8 col-xs-12 col-lg-offset-2">
+      <h1 class="home-title"> {{network.title}} </h1>
+      <h2> {{network.lead}} </h2>
+      <div class="col-lg-4 col-xs-12"" ng-repeat="card in network.cards">
+        <img class="img-responsive img-value" src="data:image/png;base64,{{card.img}}">
+        <p class="home-caption-text"> {{card.caption}}</p>
+        <div class="netword-num">
+            <h1 class="home-title"> {{ card.num }} </h1>
+        </div>
+        <p>{{ card.desc }}</p>
+        <p ng-if="card.link">
+          <a href="{{card.link.href}}">{{card.link.text}}</a>
+        </p>
+      </div>
+    </div>
+    <div class="col-lg-8 col-lg-offset-2 col-xs-12">
+        <div ng-repeat="i in network.tail" style="display: inline">
+          <span ng-show="!i.link"> {{i.text}} </span>
+          <span ng-show="!!i.link"><a href="{{i.link}}">{{i.text}}</a></span>
+        </div>
+    </div>
+
+  </section>
+
   <section class="home-events col-lg-12 wrapper" ng-if="upcomingEvents.length > 0">
-      <h1>{{ 'fablab_s_next_events' | translate }} </h1>
-      <hr>
-      <p><a ui-sref="app.public.events_list" class="pull-right" style="margin: 10px 0;"><i class="fa fa-tags"> </i> {{ 'every_events' | translate }}</a></p>
+    <h1>{{ 'fablab_s_next_events' | translate }} </h1>
+    <hr>
+    <p><a ui-sref="app.public.events_list" class="pull-right" style="margin: 10px 0;"><i class="fa fa-tags"> </i> {{ 'every_events' | translate }}</a></p>
 
 
 
@@ -25,7 +102,7 @@
 
 
         <div class="widget panel panel-default" ui-sref="app.public.events_show({id: event.id})">
-          <div class="panel-heading picture" style="background-image: url({{event.event_image_medium}});" >
+          <div class="panel-heading picture" style="background-image: url({{event.event_image_medium}});">
             <img src="data:image/png;base64," data-src="holder.js/100%x100%/text:&#xf03e;/font:FontAwesome/icon" bs-holder ng-if="!event.event_image" class="img-responsive">
           </div>
           <div class="panel-body" style="heigth:170px;">
@@ -39,7 +116,7 @@
             </div>
             <p class="event-description" ng-bind-html="event.description | simpleText | humanize : 500 | breakFilter"></p>
 
-            <hr/>
+            <hr />
             <div class="row">
               <div class="col-sm-6 row m-b-sm">
                 <i class="fa fa-calendar red col-xs-3 padder-icon"></i>
@@ -74,7 +151,7 @@
             </div>
 
             <div class="text-center clearfix ">
-              <div class="btn btn-lg btn-warning bg-white b-2x rounded m-t-sm m-b-sm upper text-sm width-70" ui-sref="app.public.events_show({id: event.id})" ><span translate>{{ 'consult' }}</span></div>
+              <div class="btn btn-lg btn-warning bg-white b-2x rounded m-t-sm m-b-sm upper text-sm width-70" ui-sref="app.public.events_show({id: event.id})"><span translate>{{ 'consult' }}</span></div>
             </div>
           </div>
         </div>
@@ -82,59 +159,25 @@
     </div>
   </section>
 
-  <section class="row wrapper-lg">
-    <h1>{{open_mode.title}}</h1>
-    <hr>
+  <hr style="margin: 50px 0">
 
-    <div class="col-md-6 col-xs-12">
-      <div class="card home-card" style="display: inline-block;">
-        <img class="card-img-top img-responsive" src="data:image/png;base64,{{open_lab.logo}}" alt="{{open_lab.title}}">
-        <div class="card-body" style="padding:10px;">
-          <p class="card-text">{{open_lab.desc}}</p>
-          <p class="card-text">{{open_lab.machine.desc}}</p>
-          <p>
-            <a href="{{ open_lab.machine.btn.link }}" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding">{{ open_lab.machine.btn.text }}</a>
-          </p>
-          <p class="card-text">{{open_lab.training.desc}}</p>
-          <p>
-            <a href="{{ open_lab.training.btn.link }}" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding">{{ open_lab.training.btn.text }}</a>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-6 col-xs-12">
-      <div class="card home-card" style="display: inline-block;">
-        <img class="card-img-top img-responsive" src="data:image/png;base64,{{expert_lab.logo}}" alt="{{expert_lab.title}}">
-        <div class="card-body" style="padding:10px;">
-          <p class="card-text">{{expert_lab.desc}}</p>
-        </div>
-      </div>
+  <section>
+    <div class="">
+      <h1 class="home-title">Instagram</h1>
+      <div id="pixlee_container"></div>
+      <script type="text/javascript">
+        window.PixleeAsyncInit = function() {
+          Pixlee.init({
+            apiKey: 'zc5QELVm-aZDVqr02zJK'
+          });
+          Pixlee.addSimpleWidget({
+            widgetId: '15192'
+          });
+        };
+      </script>
+      <script src="//instafeed.assets.pixlee.com/assets/pixlee_widget_1_0_0.js"></script>
     </div>
   </section>
-
-  <h1>{{ contact.title }}</h1>
-  <hr>
-
-  <section class="row wrapper-lg">
-    <div class="col-md-8 col-xs-12 col-centered">
-      <a href="{{address.link}}">
-        <img src="data:image/png;base64,{{address.map}}" class="img-responsive img-centered">
-      </a>
-      <div ng-repeat="i in address.address">
-        {{ i }}<br>
-      </div>
-      <a href="{{ contact.link }}">{{ contact.text }}</a>
-    </div>
-  </section>
-
-<section>
-  <div class="">
-    <h1>Instagram</h1>
-    <hr>
-    <div id="pixlee_container"></div><script type="text/javascript">window.PixleeAsyncInit = function() {Pixlee.init({apiKey:'zc5QELVm-aZDVqr02zJK'});Pixlee.addSimpleWidget({widgetId:'15192'});};</script><script src="//instafeed.assets.pixlee.com/assets/pixlee_widget_1_0_0.js"></script>
-  </div>
-</section>
 
 </div>
 

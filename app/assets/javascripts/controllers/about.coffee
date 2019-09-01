@@ -49,12 +49,6 @@ Application.Controllers.controller "AboutController", ['$scope', 'Setting', 'Cus
       ],
     }
 
-    $scope.conclusion = {
-      content : [
-        'On se réjouit de vous rencontrer dès le 1er septembre dans nos locaux à la Chaux-de-Fonds ! Dès cette date, un calendrier avec des horaires d’ouverture sera en ligne.',
-      ],
-    }
-
   ## !!! MUST BE CALLED AT THE END of the controller
   initialize()
 

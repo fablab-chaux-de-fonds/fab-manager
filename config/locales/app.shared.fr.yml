@@ -4,7 +4,7 @@ fr:
       buttons:
         # traductions de boutons communs
         confirm_changes: "Valider les modifications"
-        consult: "Consulter"
+        consult: "Plus d'info"
         edit: "Éditer"
         change: "Modifier"
         delete: "Supprimer"
