@@ -17,16 +17,25 @@
 
 <section class="m-lg">
 
+  <div class="row">
+    <div class="col-12 text-center">
+      <p translate>{{ 'trainings_head' }}</p>
+    </div>
+
+  </div>
   <div class="row" ng-repeat="training in (trainings.length/3 | array)">
 
     <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="training in trainings.slice(3*$index, 3*$index + 3)">
 
 
       <div class="widget panel panel-default">
-        <div class="panel-heading picture" ng-if="!training.training_image" ng-click="showTraining(training)">
+        <div class="panel-heading picture panel-heading-picture" ng-if="!training.training_image" ng-click="showTraining(training)">
           <img src="data:image/png;base64," data-src="holder.js/100%x100%/text:&#xf03e;/font:FontAwesome/icon" bs-holder class="img-responsive">
         </div>
-        <div class="panel-heading picture" style="background-image:url({{training.training_image}})" ng-if="training.training_image" ng-click="showTraining(training)">
+        <div class="panel-heading picture panel-heading-picture" style="background-image:url({{training.training_image}})" ng-if="training.training_image" ng-click="showTraining(training)">
+          <div class="overlay overlay-relative">
+            <div class="overlay-layer"></div>
+          </div>
         </div>
         <div class="panel-body">
           <h1 class="m-b text-center">{{training.name}}</h1>
@@ -34,12 +43,12 @@
         <div class="panel-footer no-padder">
 
           <div class="text-center clearfix">
-            <div class="col-sm-6 b-r no-padder">
+            <div class="col-sm-6">
               <div class="btn btn-default btn-block no-b padder-v" ng-click="reserveTraining(training, $event)">
                 <i class="fa fa-bookmark"></i> {{ 'book' | translate }}
               </div>
             </div>
-            <div class="col-sm-6 no-padder">
+            <div class="col-sm-6">
               <div class="btn btn-default btn-block padder-v no-b" ng-click="showTraining(training)">
                 <i class="fa fa-eye"></i> {{ 'consult' | translate }}
               </div>

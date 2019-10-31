@@ -38,9 +38,9 @@
 
 @import "app.responsive";
 
-@import "custom-fablab-chaux-de-fonds.scss";
-
 <% PluginRegistry.stylesheets.each do |stylesheet| %>
   <% basename = File.basename(stylesheet,'.scss') %>
   <%= "@import '#{basename}';" %>
 <% end %>
+
+@import "custom-fablab-chaux-de-fonds.scss";

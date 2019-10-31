@@ -1,0 +1,13 @@
+<div class="text-center">
+  <section class="row wrapper-lg">
+    <div class="col-md-8 col-xs-12 col-centered">
+      <a href="{{address.link}}">
+        <img src="data:image/png;base64,{{address.map}}" class="img-responsive img-centered">
+      </a>
+      <div ng-repeat="i in address.address">
+        {{ i }}<br>
+      </div>
+      <a href="{{ contact.link }}">{{ contact.text }}</a>
+    </div>
+  </section>
+</div>

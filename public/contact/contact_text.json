@@ -1,0 +1,14 @@
+{
+  "contact": {
+    "link": "mailto:info@fablab-chaux-de-fonds.ch",
+    "text": "info@fablab-chaux-de-fonds.ch",
+  },
+  "address":
+    {
+      "address": [
+          "Rue de la Serre 68",
+          "2300 La Chaux-de-Fonds"
+        ],
+      "link": "https://goo.gl/maps/oisq2KdYu8s"
+    }
+}

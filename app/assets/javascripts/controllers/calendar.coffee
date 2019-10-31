@@ -200,8 +200,6 @@ Application.Controllers.controller "CalendarController", ["$scope", "$state", "$
         eventRenderCb(event, element)
 
 
-
-
   ## !!! MUST BE CALLED AT THE END of the controller
   initialize()
 ]
