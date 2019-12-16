@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title><%= Setting.find_by(name: 'fablab_name').value %></title>
+  <title ng-bind="(title | translate) + ' - <%= Setting.find_by(name: 'fablab_name').value %>'"><%= Setting.find_by(name: 'fablab_name').value %></title>
 
   <% if ENV['DEFAULT_HOST'] == 'fablab.lacasemate.fr' %>
     <script type="text/javascript" src="//use.typekit.net/rih5zfr.js"></script>
