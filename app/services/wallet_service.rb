@@ -13,9 +13,11 @@ class WalletService
           NotificationCenter.call type: 'notify_user_wallet_is_credited',
                                   receiver: @wallet.user,
                                   attached_object: transaction
-          NotificationCenter.call type: 'notify_admin_user_wallet_is_credited',
-                                  receiver: User.admins,
-                                  attached_object: transaction
+          if !Rails.application.secrets.fablab_disable_admin_notifications
+            NotificationCenter.call type: 'notify_admin_user_wallet_is_credited',
+                                    receiver: User.admins,
+                                    attached_object: transaction
+          end
           return transaction
         end
       end

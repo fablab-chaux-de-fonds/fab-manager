@@ -435,9 +435,11 @@ class Reservation < ActiveRecord::Base
   end
 
   def notify_admin_member_create_reservation
-    NotificationCenter.call type: 'notify_admin_member_create_reservation',
-                            receiver: User.admins,
-                            attached_object: self
+    if !Rails.application.secrets.fablab_disable_admin_notifications
+      NotificationCenter.call type: 'notify_admin_member_create_reservation',
+                              receiver: User.admins,
+                              attached_object: self
+    end
   end
 
   def update_event_nb_free_places

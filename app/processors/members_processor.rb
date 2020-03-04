@@ -30,16 +30,21 @@ class MembersProcessor
       NotificationCenter.call type: :notify_user_profile_complete,
                               receiver: self.member,
                               attached_object: self.member
-      NotificationCenter.call type: :notify_admin_profile_complete,
-                              receiver: User.admins,
-                              attached_object: self.member
+
+      if !Rails.application.secrets.fablab_disable_admin_notifications
+        NotificationCenter.call type: :notify_admin_profile_complete,
+                                receiver: User.admins,
+                                attached_object: self.member
+      end
     end
   end
 
   def notify_admin_user_merged
-    NotificationCenter.call type: :notify_admin_user_merged,
-                            receiver: User.admins,
-                            attached_object: self.member
+    if !Rails.application.secrets.fablab_disable_admin_notifications
+      NotificationCenter.call type: :notify_admin_user_merged,
+                              receiver: User.admins,
+                              attached_object: self.member
+    end
   end
 
 end
