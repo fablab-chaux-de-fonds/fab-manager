@@ -171,7 +171,7 @@ fr:
     reservation_date: "Date de réservation"
     reservation_type: "Type de réservation"
     reservation_object: "Objet de la réservation"
-    slots_number_hours_tickets: "Nombre de créneaux (heures/places)"
+    slots_number_hours_tickets: "Nombre de créneaux (réservations/places)"
     payment_method: "Méthode de paiement"
     local_payment: "Paiement à l'accueil"
     online_payment: "Paiement en ligne"
@@ -311,7 +311,7 @@ fr:
   statistics:
     # outil de statistiques pour les administrateurs
     subscriptions: "Cotisations"
-    machines_hours: "Heures machines"
+    machines_hours: "Réservations machines"
     spaces: "Espaces"
     trainings: "Formations"
     events: "Évènements"
