@@ -179,10 +179,10 @@ fr:
         credit_amount_for_pay_reservation: "Il vous reste {{amount}} {{currency}} à payer pour valider votre réservation"
         client_credit_amount_for_pay_reservation: "Il reste {{amount}} {{currency}} à payer pour valider la réservation"
         not_enough_money: "Le solde de votre porte-monnaie ne permet pas de règler la totalité du montant."
-        not_enough_money_pay_method_title: "Payer {{ amount }} {{ currency }} par :"
-        not_enough_money_cash_method: "Argent liquide"
-        not_enough_money_card_method: "Carte de crédit"
-        not_enough_money_cash_note: "Sur place, seul l'argent liquide est accepté !"
+        not_enough_money_pay_method_title: "Payer {{ amount }} {{ currency }} :"
+        not_enough_money_cash_method: "Sur place"
+        not_enough_money_card_method: "En ligne"
+        not_enough_money_cash_note: "Le cash et les cartes sont acceptés, sauf postfinance."
 
       valid_reservation_modal:
         # fenêtre de paiement sur place d'une réservation
