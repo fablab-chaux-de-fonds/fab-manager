@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
 
   validate :cgu_must_accept, if: :new_record?
 
-  validates :username, presence: true, uniqueness: true, length: { maximum: 30 }
+  validates :username, presence: true, uniqueness: true, length: { maximum: 200 }
 
   scope :active, -> { where(is_active: true) }
   scope :without_subscription, -> { includes(:subscriptions).where(subscriptions: { user_id: nil }) }
