@@ -35,7 +35,7 @@ fr:
         reserve_a_space: "Réserver un espace"
         projects_gallery: "Galerie de projets"
         subscriptions: "Devenir membre"
-        public_calendar: "Calendrier"
+        public_calendar: "Horaires d'ouverture"
 
         # menu de gauche (partie admin)
         trainings_monitoring: "Suivi formations"
