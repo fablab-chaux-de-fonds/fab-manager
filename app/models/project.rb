@@ -149,9 +149,11 @@ class Project < ActiveRecord::Base
 
   private
   def notify_admin_when_project_published
-    NotificationCenter.call type: 'notify_admin_when_project_published',
-                            receiver: User.admins,
-                            attached_object: self
+    if !Rails.application.secrets.fablab_disable_admin_notifications
+      NotificationCenter.call type: 'notify_admin_when_project_published',
+                              receiver: User.admins,
+                              attached_object: self
+    end
   end
 
   def after_save_and_publish

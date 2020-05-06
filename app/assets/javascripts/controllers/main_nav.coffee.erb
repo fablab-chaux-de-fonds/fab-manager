@@ -3,7 +3,14 @@
 ##
 # Navigation controller. List the links availables in the left navigation pane and their icon.
 ##
-Application.Controllers.controller "MainNavController", ["$scope", "$location", "$cookies", 'pagePromise', ($scope, $location, $cookies, pagePromise) ->
+Application.Controllers.controller "MainNavController", ["$rootScope", "$scope", "$location", "$cookies", 'pagePromise', ($rootScope, $scope, $location, $cookies, pagePromise) ->
+
+  $scope.$on('$stateChangeSuccess', (event, toState, toParams, fromState, fromParams) ->
+    arr = event.currentScope.navLinks.filter (v) -> v.state == toState.name
+    if arr.length == 1
+      $rootScope.title = arr[0].linkText
+    return
+  )
 
   sortBy = (key, a, b, r) ->
       r = if r then 1 else -1

@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
 
   validate :cgu_must_accept, if: :new_record?
 
-  validates :username, presence: true, uniqueness: true, length: { maximum: 30 }
+  validates :username, presence: true, uniqueness: true, length: { maximum: 200 }
 
   scope :active, -> { where(is_active: true) }
   scope :without_subscription, -> { includes(:subscriptions).where(subscriptions: { user_id: nil }) }
@@ -386,14 +386,16 @@ class User < ActiveRecord::Base
   end
 
   def notify_admin_when_user_is_created
-    if need_completion? and not provider.nil?
-      NotificationCenter.call type: 'notify_admin_when_user_is_imported',
-                              receiver: User.admins,
-                              attached_object: self
-    else
-      NotificationCenter.call type: 'notify_admin_when_user_is_created',
-                              receiver: User.admins,
-                              attached_object: self
+    if !Rails.application.secrets.fablab_disable_admin_notifications
+      if need_completion? and not provider.nil?
+        NotificationCenter.call type: 'notify_admin_when_user_is_imported',
+                                receiver: User.admins,
+                                attached_object: self
+      else
+        NotificationCenter.call type: 'notify_admin_when_user_is_created',
+                                receiver: User.admins,
+                                attached_object: self
+      end
     end
   end
 
@@ -414,9 +416,11 @@ class User < ActiveRecord::Base
   end
 
   def notify_admin_invoicing_changed
-    NotificationCenter.call type: 'notify_admin_invoicing_changed',
-                            receiver: User.admins,
-                            attached_object: self
+    if !Rails.application.secrets.fablab_disable_admin_notifications
+      NotificationCenter.call type: 'notify_admin_invoicing_changed',
+                              receiver: User.admins,
+                              attached_object: self
+    end
   end
 
 

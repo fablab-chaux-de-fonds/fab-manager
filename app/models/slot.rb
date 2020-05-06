@@ -31,18 +31,24 @@ class Slot < ActiveRecord::Base
     NotificationCenter.call type: 'notify_member_slot_is_modified',
                             receiver: reservation.user,
                             attached_object: self
-    NotificationCenter.call type: 'notify_admin_slot_is_modified',
-                            receiver: User.admins,
-                            attached_object: self
+
+    if !Rails.application.secrets.fablab_disable_admin_notifications
+      NotificationCenter.call type: 'notify_admin_slot_is_modified',
+                              receiver: User.admins,
+                              attached_object: self
+    end
   end
 
   def notify_member_and_admin_slot_is_canceled
     NotificationCenter.call type: 'notify_member_slot_is_canceled',
                             receiver: reservation.user,
                             attached_object: self
-    NotificationCenter.call type: 'notify_admin_slot_is_canceled',
-                            receiver: User.admins,
-                            attached_object: self
+
+    if !Rails.application.secrets.fablab_disable_admin_notifications
+      NotificationCenter.call type: 'notify_admin_slot_is_canceled',
+                              receiver: User.admins,
+                              attached_object: self
+    end
   end
 
   def can_be_modified?

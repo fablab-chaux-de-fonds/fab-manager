@@ -8,16 +8,20 @@ class SubscriptionExpireWorker
           NotificationCenter.call type: 'notify_member_subscription_will_expire_in_7_days',
                                   receiver: s.user,
                                   attached_object: s
-          NotificationCenter.call type: 'notify_admin_subscription_will_expire_in_7_days',
-                                  receiver: User.admins,
-                                  attached_object: s
+          if !Rails.application.secrets.fablab_disable_admin_notifications
+            NotificationCenter.call type: 'notify_admin_subscription_will_expire_in_7_days',
+                                    receiver: User.admins,
+                                    attached_object: s
+          end
         else
           NotificationCenter.call type: 'notify_member_subscription_is_expired',
                                   receiver: s.user,
                                   attached_object: s
-          NotificationCenter.call type: 'notify_admin_subscription_is_expired',
-                                  receiver: User.admins,
-                                  attached_object: s
+          if !Rails.application.secrets.fablab_disable_admin_notifications
+            NotificationCenter.call type: 'notify_admin_subscription_is_expired',
+                                    receiver: User.admins,
+                                    attached_object: s
+          end
         end
       end
     end

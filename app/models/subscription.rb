@@ -246,15 +246,19 @@ class Subscription < ActiveRecord::Base
   end
 
   def notify_admin_subscribed_plan
-    NotificationCenter.call type: 'notify_admin_subscribed_plan',
-                            receiver: User.admins,
-                            attached_object: self
+    if !Rails.application.secrets.fablab_disable_admin_notifications
+      NotificationCenter.call type: 'notify_admin_subscribed_plan',
+                              receiver: User.admins,
+                              attached_object: self
+    end
   end
 
   def notify_admin_subscription_canceled
-    NotificationCenter.call type: 'notify_admin_subscription_canceled',
-                            receiver: User.admins,
-                            attached_object: self
+    if !Rails.application.secrets.fablab_disable_admin_notifications
+      NotificationCenter.call type: 'notify_admin_subscription_canceled',
+                              receiver: User.admins,
+                              attached_object: self
+    end
   end
 
   def notify_member_subscription_canceled
