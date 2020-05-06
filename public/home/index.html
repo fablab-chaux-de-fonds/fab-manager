@@ -1,16 +1,25 @@
 <div class="home">
 
+  <div class="row wrapper-lg">
+    <div class="col-lg-12" style="background-color: #ffe8e0; background-clip: content-box;">
+      <div class="col-lg-6 col-lg-offset-3">
+        <h1 class="home-title">Visière covid-19</h1>
+        <p style="color: #e3005c;margin-bottom: 0px;padding-bottom: 12px;">Depuis quelques temps, nous réalisons au FabLab des visières Covid-19 qui permettent de protéger des projections de salive et empêchent le réflexe de porter ses mains au visage.</p>
+      </div>
+      <div class="col-lg-3 col-lg-offset-3" style="min-height:70px;">
+        <a href="https://covid19.fablab-chaux-de-fonds.ch/" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding" > Plus d'info </a>
+      </div>
+      <div class="col-lg-3" style="min-height:70px;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNwSC2hls5gUB8Gu4G4UzNFjrXsxATmAhIQAxqGfKK5sHhbA/viewform" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding">Commander une visère</a>
+      </div>
+    </div>
+  </div>
+  
   <section class="row wrapper-lg">
 
     <div class="col-lg-12 home-banner">
       <div class="">
         <img align="right" class="home-banner-img img-responsive" src="data:image/jpg;base64,{{banner}}">
-        <!-- <div class="col-lg-6" style="min-height:60px;">
-          <a href="{{ about.link }}" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding home-banne-btn-desktop" >{{ about.text }}</a>
-        </div>
-        <div class="col-lg-6">
-          <a href="{{ calendar.link }}" class="btn btn-lg btn-danger b-2x rounded m-t-xs ng-scope ng-binding home-banne-btn-desktop"><i class="{{ calendar.logo }}"></i> {{ calendar.text }}</a>
-        </div> -->
       </div>
       <div class="slogan">
         <h1 class="slogan-text" ng-repeat="i in slogan">
