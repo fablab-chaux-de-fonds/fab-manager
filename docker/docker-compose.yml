@@ -1,7 +1,18 @@
-version: '2'
+version: '3'
+
 services:
   fabmanager:
-    image: sleede/fab-manager
+    restart: always
+    image: flcdf/fabmanager:2.4.6
+    build:
+      dockerfile: './Dockerfile'
+      context: '..'
+    depends_on:
+      - postgres
+      - redis
+      - elasticsearch
+    ports:
+      - 3000
     environment:
       RAILS_ENV: production
       RACK_ENV: production
@@ -14,41 +25,41 @@ services:
       - ${PWD}/exports:/usr/src/app/exports
       - ${PWD}/log:/var/log/supervisor
       - ${PWD}/plugins:/usr/src/app/plugins
-    depends_on:
-      - postgres
-      - redis
-      - elasticsearch
-    restart: always
-
-  postgres:
-    image: postgres:9.4
-    volumes:
-      - ${PWD}/postgresql:/var/lib/postgresql/data
-    restart: always
-
-  elasticsearch:
-    image: elasticsearch:1.7
-    volumes:
-      - ${PWD}/elasticsearch:/usr/share/elasticsearch/data
-    restart: always
-
+    networks:
+      - fabmanager-prod
+  
   redis:
-    image: redis:3.0
+    restart: always
+    image: redis:6-alpine
     volumes:
       - ${PWD}/redis:/data
-    restart: always
+    networks:         
+      - fabmanager-prod
 
-  nginx:
-    image: nginx:1.9
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ${PWD}/config/nginx:/etc/nginx/conf.d
-      - ${PWD}/letsencrypt/etc:/etc/letsencrypt
-      - ${PWD}/log:/var/log/nginx
-    volumes_from:
-      - fabmanager:ro
-    links:
-      - fabmanager:fabmanager
+  elasticsearch:
     restart: always
+    image: elasticsearch:5.6
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ${PWD}/elasticsearch/config:/usr/share/elasticsearch/config
+      - ${PWD}/elasticsearch:/usr/share/elasticsearch/data
+      - ${PWD}/elasticsearch/plugins:/usr/share/elasticsearch/plugins
+      - ${PWD}/elasticsearch/backups:/usr/share/elasticsearch/backups
+    networks:         
+      - fabmanager-prod
+
+  postgres:
+    image: postgres:9.6
+    volumes:
+     - ${PWD}/postgresql:/var/lib/postgresql/data
+    restart: always  
+    networks:         
+      - fabmanager-prod
+
+networks:
+  fabmanager-prod:
