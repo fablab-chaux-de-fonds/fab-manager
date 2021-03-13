@@ -2,7 +2,7 @@ import json
 import os
 import base64
 
-with open('./contact_text.json') as f:
+with open('./contact_text.json', encoding="utf-8") as f:
     data = json.load(f)
 
 with open('./assets/fablab-map.svg.png',"rb") as image_file:
