@@ -2,7 +2,7 @@ import json
 import os
 import base64
 
-with open('support_text.json') as f:
+with open('support_text.json', encoding='utf-8') as f:
     data = json.load(f)
 
 root = r'assets/logo-sponsoring/png'
