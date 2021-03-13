@@ -272,7 +272,7 @@ fr:
       calendar:
         # calendrier publique
         calendar:
-          calendar: "Calendrier"
+          calendar: "Horaires & Réservations"
           show_unavailables: "Afficher les créneaux non disponibles"
           filter_calendar: "Filtrer le calendrier"
           trainings: "Formations"
