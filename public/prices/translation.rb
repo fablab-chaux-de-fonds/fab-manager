@@ -8,7 +8,7 @@ Translation.create(locale:'fr', key:'app.public.pages.prices.calculator_subtitle
 Translation.create(locale:'fr', key:'app.public.pages.prices.price_fdm_nbr_hours', value:'Heures :')
 Translation.create(locale:'fr', key:'app.public.pages.prices.price_fdm_weight', value:'Poids :')
 Translation.create(locale:'fr', key:'app.public.pages.prices.price_fdm_weight_support', value:'Poids support (PVA) :')
-Translation.create(locale:'fr', key:'app.public.pages.prices.info_html', value:'Si vous publiez la documentation de votre projet nous vous en remboursons la moitié sur le porte monnaie virtuel du site (non échangeable en argent réel).')
+Translation.create(locale:'fr', key:'app.public.pages.prices.info_html', value:'Si vous publiez la documentation de votre projet nous vous remboursons la moitié des heures utilisées en bon (non échangeable en argent réel).')
 Translation.create(locale:'fr', key:'app.public.pages.prices.price_fdm_full', value:'Non membre')
 Translation.create(locale:'fr', key:'app.public.pages.prices.price_fdm_member', value:'Membre')
 Translation.create(locale:'fr', key:'app.public.pages.prices.price_details_title', value:'Détail des prix')
@@ -21,4 +21,3 @@ Translation.create(locale:'fr', key:'app.public.pages.prices.calculator_info', v
 Translation.create(locale:'fr', key:'app.public.pages.prices.prices_currency', value:'Les prix s\'entendent en francs suisses (CHF), toutes taxes comprises.')
 Translation.create(locale:'fr', key:'app.public.pages.prices.prices_edit', value:'Les prix sont indiqués sous réserve de modification.')
 Translation.create(locale:'fr', key:'app.public.pages.prices.prices_material', value:'Les prix excluent la matière première. (sauf pour les imprimantes 3D)')
-Translation.create(locale:'fr', key:'app.public.pages.prices.prices_doc', value:'Si vous publiez la documentation de votre projet nous vous remboursons la moitié des heures utilisées sur le porte monnaie virtuel du site (non échangeable en argent réel).')
