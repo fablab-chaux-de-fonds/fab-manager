@@ -34,7 +34,7 @@ fr:
         events_registrations: "Inscriptions aux évènements"
         reserve_a_space: "Réserver un espace"
         projects_gallery: "Galerie de projets"
-        subscriptions: "Devenir membre"
+        subscriptions: "Abonnement"
         public_calendar: "Horaires d'ouverture"
 
         # menu de gauche (partie admin)
@@ -213,7 +213,7 @@ fr:
 
       plans:
         # page récapitulative des abonnements
-        subcriptions: "Devenir membre"
+        subcriptions: "Abonnement"
         i_choose_that_plan: "Je choisis cette formule"
         i_subscribe_online: "Je m'abonne en ligne"
         i_already_subscribed: "Je suis déjà abonné"
