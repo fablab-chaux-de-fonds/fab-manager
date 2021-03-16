@@ -7,127 +7,126 @@
       </p>
     </blockquote>
   </div>
-</div>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="data:image/svg+xml;base64,{{images.prices}}" class="img-responsive img-centered">
+        </div>
+        <div class="col-md-6">
+          <img src="data:image/svg+xml;base64,{{images.trainings}}" class="img-responsive img-centered">
+          <p>
+            <ul>
+              <li>{{ 'prices_currency' | translate }}</li>
+              <li>{{ 'prices_edit' | translate }}</li>
+              <li>{{ 'prices_material' | translate }}</li>
+            </ul>
+          </p>
+        </div>
+      </div>
 
-<div class="row">
-  <div class="col-lg-8">
-    <div class="row">
-      <div class="col-md-6">
-        <img src="data:image/svg+xml;base64,{{images.prices}}" class="img-responsive img-centered">
-      </div>
-      <div class="col-md-6">
-        <img src="data:image/svg+xml;base64,{{images.trainings}}" class="img-responsive img-centered">
-        <p>
-          <ul>
-            <li>{{ 'prices_currency' | translate }}</li>
-            <li>{{ 'prices_edit' | translate }}</li>
-            <li>{{ 'prices_material' | translate }}</li>
-          </ul>
-        </p>
-      </div>
     </div>
-
-  </div>
-  <div class="col-lg-4">
-    <h1>{{ 'calculator_title' | translate }}</h1>
-    <h1><small>{{ 'calculator_subtitle' | translate }}</small></h1>
-    <p>{{ 'calculator_info' | translate }}</p>
-    <div class="row">
-      <div class="form-group col-lg-6">
-        <label for="price_fdm_weight">{{ 'price_fdm_weight' | translate }}</label>
-        <div class="input-group">
-          <input ng-model="weight"
-          type="number"
-          step="50"
-          min="0"
-          max="10000"
-          class="form-control"
-          id="price_fdm_weight">
-          <span class="input-group-addon">g</span>
+    <div class="col-lg-4">
+      <h1>{{ 'calculator_title' | translate }}</h1>
+      <h1><small>{{ 'calculator_subtitle' | translate }}</small></h1>
+      <p>{{ 'calculator_info' | translate }}</p>
+      <div class="row">
+        <div class="form-group col-lg-6">
+          <label for="price_fdm_weight">{{ 'price_fdm_weight' | translate }}</label>
+          <div class="input-group">
+            <input ng-model="weight"
+            type="number"
+            step="50"
+            min="0"
+            max="10000"
+            class="form-control"
+            id="price_fdm_weight">
+            <span class="input-group-addon">g</span>
+          </div>
+        </div>
+        <div class="form-group col-lg-6">
+          <label for="price_fdm_nbr_hours">{{ 'price_fdm_nbr_hours' | translate }}</label>
+          <div class="input-group">
+            <input ng-model="nbrHours"
+                  type="number"
+                  min="1"
+                  max="168"
+                  class="form-control"
+                  id="price_fdm_nbr_hours"
+                  ng-pattern="/^[0-9]{1,3}$/">
+            <span class="input-group-addon">h</span>
+          </div>
         </div>
       </div>
-      <div class="form-group col-lg-6">
-        <label for="price_fdm_nbr_hours">{{ 'price_fdm_nbr_hours' | translate }}</label>
-        <div class="input-group">
-          <input ng-model="nbrHours"
-                 type="number"
-                 min="1"
-                 max="168"
-                 class="form-control"
-                 id="price_fdm_nbr_hours"
-                 ng-pattern="/^[0-9]{1,3}$/">
-          <span class="input-group-addon">h</span>
+      <div class="row">
+        <div class="form-group col-lg-6">
+          <label for="price_fdm_weight_support">{{ 'price_fdm_weight_support' | translate }}</label>
+          <div class="input-group">
+            <input ng-model="weightSupport"
+                  type="number"
+                  step="50"
+                  min="0"
+                  max="10000"
+                  class="form-control"
+                  id="price_fdm_weight_support">
+            <span class="input-group-addon">g</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="form-group col-lg-6">
-        <label for="price_fdm_weight_support">{{ 'price_fdm_weight_support' | translate }}</label>
-        <div class="input-group">
-          <input ng-model="weightSupport"
-                 type="number"
-                 step="50"
-                 min="0"
-                 max="10000"
-                 class="form-control"
-                 id="price_fdm_weight_support">
-          <span class="input-group-addon">g</span>
+      <div class="row">
+        <div class="form-group col-lg-6">
+          <label for="price_fdm_full">{{ 'price_fdm_full' | translate }}</label>
+          <div class="input-group">
+            <span class="input-group-addon">{{ currencySymbol }}</span>
+            <input type="text" class="form-control input-disabled" value="{{ price }}" id="price_fdm_full" disabled>
+          </div>
+        </div>
+        <div class="form-group col-lg-6">
+          <label for="price_fdm_member">{{ 'price_fdm_member' | translate }}</label>
+          <div class="input-group">
+            <span class="input-group-addon">{{ currencySymbol }}</span>
+            <input type="text" class="form-control input-disabled" value="{{ priceHalf }}" id="price_fdm_member" disabled>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="form-group col-lg-6">
-        <label for="price_fdm_full">{{ 'price_fdm_full' | translate }}</label>
-        <div class="input-group">
-          <span class="input-group-addon">{{ currencySymbol }}</span>
-          <input type="text" class="form-control input-disabled" value="{{ price }}" id="price_fdm_full" disabled>
+      <h2>{{ 'price_details_title' | translate }}</h2>
+      <h3><small>{{ 'price_matter_title' | translate }}</small></h3>
+      <div class="row">
+        <div class="form-group col-lg-6">
+          <label for="price_fdm_mat1">{{ 'price_fdm_mat1' | translate }}</label>
+          <div class="input-group">
+            <input type="text" class="form-control input-disabled" value="{{ matterPrice }}" id="price_fdm_mat1" disabled>
+            <span class="input-group-addon">{{ currencySymbol }} / g</span>
+          </div>
+        </div>
+        <div class="form-group col-lg-6">
+          <label for="price_fdm_mat2">{{ 'price_fdm_mat2' | translate }}</label>
+          <div class="input-group">
+            <input type="text" class="form-control input-disabled" value="{{ supportMatterPrice }}" id="price_fdm_mat2" disabled>
+            <span class="input-group-addon">{{ currencySymbol }} / g</span>
+          </div>
         </div>
       </div>
-      <div class="form-group col-lg-6">
-        <label for="price_fdm_member">{{ 'price_fdm_member' | translate }}</label>
-        <div class="input-group">
-          <span class="input-group-addon">{{ currencySymbol }}</span>
-          <input type="text" class="form-control input-disabled" value="{{ priceHalf }}" id="price_fdm_member" disabled>
+      <h3><small>{{ 'price_hours_title' | translate }}</small></h3>
+      <div class="row">
+        <div class="col-lg-12">
+          <table class="table">
+            <thead>
+            <tr>
+              <th class="col">{{ 'price_hours_tab_header' | translate }}</th>
+              <th class="col">{{ 'price_fdm_full' | translate }}</th>
+              <th class="col">{{ 'price_fdm_member' | translate }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="value in priceDetails">
+              <td>N° {{ value.id }}</td>
+              <td>{{ currencySymbol }} {{ value.price }}</td>
+              <td>{{ currencySymbol }} {{ value.priceHalf }}</td>
+            </tr>
+            </tbody>
+          </table>
         </div>
-      </div>
-    </div>
-    <h2>{{ 'price_details_title' | translate }}</h2>
-    <h3><small>{{ 'price_matter_title' | translate }}</small></h3>
-    <div class="row">
-      <div class="form-group col-lg-6">
-        <label for="price_fdm_mat1">{{ 'price_fdm_mat1' | translate }}</label>
-        <div class="input-group">
-          <input type="text" class="form-control input-disabled" value="{{ matterPrice }}" id="price_fdm_mat1" disabled>
-          <span class="input-group-addon">{{ currencySymbol }} / g</span>
-        </div>
-      </div>
-      <div class="form-group col-lg-6">
-        <label for="price_fdm_mat2">{{ 'price_fdm_mat2' | translate }}</label>
-        <div class="input-group">
-          <input type="text" class="form-control input-disabled" value="{{ supportMatterPrice }}" id="price_fdm_mat2" disabled>
-          <span class="input-group-addon">{{ currencySymbol }} / g</span>
-        </div>
-      </div>
-    </div>
-    <h3><small>{{ 'price_hours_title' | translate }}</small></h3>
-    <div class="row">
-      <div class="col-lg-12">
-        <table class="table">
-          <thead>
-          <tr>
-            <th class="col">{{ 'price_hours_tab_header' | translate }}</th>
-            <th class="col">{{ 'price_fdm_full' | translate }}</th>
-            <th class="col">{{ 'price_fdm_member' | translate }}</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr ng-repeat="value in priceDetails">
-            <td>N° {{ value.id }}</td>
-            <td>{{ currencySymbol }} {{ value.price }}</td>
-            <td>{{ currencySymbol }} {{ value.priceHalf }}</td>
-          </tr>
-          </tbody>
-        </table>
       </div>
     </div>
   </div>
