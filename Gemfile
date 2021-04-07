@@ -151,7 +151,8 @@ gem 'has_secure_token'
 gem 'apipie-rails'
 
 # XLS files generation
-gem 'axlsx', git: 'https://github.com/randym/axlsx', branch: 'release-3.0.0'
+gem 'mimemagic', "> 0.3.2"
+gem 'axlsx'
 gem 'axlsx_rails'
 
 gem "rack-protection", "1.5.5"
